@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LibraryManagement.Models;
+using Newtonsoft.Json;
 using Playnite.SDK;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace LibraryManagement
         private readonly LibraryManagement plugin;
 
         public bool EnableCheckVersion { get; set; } = true;
+        public bool MenuInExtensions { get; set; } = true;
+
+        public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
+        public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
 
 
         // Playnite serializes settings object to a JSON object and saves it as text file.
@@ -37,7 +42,10 @@ namespace LibraryManagement
             if (savedSettings != null)
             {
                 EnableCheckVersion = savedSettings.EnableCheckVersion;
-                EnableCheckVersion = savedSettings.EnableCheckVersion;
+                MenuInExtensions = savedSettings.MenuInExtensions;
+
+                ListGenreEquivalences = savedSettings.ListGenreEquivalences;
+                ListFeatureEquivalences = savedSettings.ListFeatureEquivalences;
             }
         }
 

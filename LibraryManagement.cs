@@ -1,4 +1,6 @@
-﻿using LibraryManagement.Views;
+﻿using CommonPluginsShared;
+using LibraryManagement.Services;
+using LibraryManagement.Views;
 using Playnite.SDK;
 using Playnite.SDK.Events;
 using Playnite.SDK.Models;
@@ -17,10 +19,12 @@ namespace LibraryManagement
     public class LibraryManagement : Plugin
     {
         private static readonly ILogger logger = LogManager.GetLogger();
+        private static IResourceProvider resources = new ResourceProvider();
 
         private LibraryManagementSettings settings { get; set; }
 
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
+
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
@@ -40,9 +44,9 @@ namespace LibraryManagement
             {
                 CheckVersion cv = new CheckVersion();
 
-                if (cv.Check("GameActivity", pluginFolder))
+                if (cv.Check("LibraryManagement", pluginFolder))
                 {
-                    cv.ShowNotification(api, "GameActivity - " + resources.GetString("LOCUpdaterWindowTitle"));
+                    cv.ShowNotification(api, "LibraryManagement - " + resources.GetString("LOCUpdaterWindowTitle"));
                 }
             }
         }
@@ -58,7 +62,29 @@ namespace LibraryManagement
         // To add new main menu items override GetMainMenuItems
         public override List<MainMenuItem> GetMainMenuItems(GetMainMenuItemsArgs args)
         {
+            string MenuInExtensions = string.Empty;
+            if (settings.MenuInExtensions)
+            {
+                MenuInExtensions = "@";
+            }
+
             List<MainMenuItem> mainMenuItems = new List<MainMenuItem>();
+
+#if DEBUG
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = "Test",
+                Action = (mainMenuItem) =>
+                {
+
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+                    //libraryManagementTools.SetGenres();
+                    libraryManagementTools.SetFeatures();
+                }
+            });
+#endif
+
             return mainMenuItems;
         }
 
@@ -126,7 +152,7 @@ namespace LibraryManagement
 
         public override UserControl GetSettingsView(bool firstRunSettings)
         {
-            return new LibraryManagementSettingsView();
+            return new LibraryManagementSettingsView(PlayniteApi);
         }
     }
 }

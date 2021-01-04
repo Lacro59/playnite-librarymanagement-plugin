@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainView -->
+
+    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
+
+    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
+
+    <!-- LibraryManagementSettingsView -->
+    
+    <sys:String x:Key="LOCLmGenreAdd">Add new genre equivalence</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Edit genre equivalence</sys:String>
+
+    <sys:String x:Key="LOCLmFeatureAdd">Add new feature equivalence</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Edit feature equivalence</sys:String>
+    
+    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+
+</ResourceDictionary>
