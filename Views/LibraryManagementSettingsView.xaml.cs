@@ -89,6 +89,7 @@ namespace LibraryManagement.Views
 
             var ViewExtension = new LibraryManagementItemEditor(
                 genres, true, 
+                ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].Id,
                 ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].Name,
                 ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].IconUnicode, 
                 ListAlreadyAdded
@@ -150,6 +151,7 @@ namespace LibraryManagement.Views
 
             var ViewExtension = new LibraryManagementItemEditor(
                 features, false,
+                ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].Id,
                 ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].Name,
                 ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].IconUnicode,
                 ListAlreadyAdded

@@ -26,11 +26,13 @@ namespace LibraryManagement.Views
     {
         public object NewItem;
 
+        public Guid? _Id;
         public bool _IsGenre;
 
 
-        public LibraryManagementItemEditor(object data, bool IsGenre, string NewName = "", string IconUnicode = "", List<string> ListAlreadyAdded = null)
+        public LibraryManagementItemEditor(object data, bool IsGenre, Guid? Id = null, string NewName = "", string IconUnicode = "", List<string> ListAlreadyAdded = null)
         {
+            _Id = Id;
             _IsGenre = IsGenre;
 
             InitializeComponent();
@@ -95,6 +97,7 @@ namespace LibraryManagement.Views
             {
                 NewItem = new LmGenreEquivalences
                 {
+                    Id = _Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames
@@ -104,6 +107,7 @@ namespace LibraryManagement.Views
             {
                 NewItem = new LmFeatureEquivalences
                 {
+                    Id = _Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames

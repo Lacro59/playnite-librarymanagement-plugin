@@ -1,6 +1,8 @@
 ﻿using LibraryManagement.Models;
+using LibraryManagement.Services;
 using Newtonsoft.Json;
 using Playnite.SDK;
+using Playnite.SDK.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace LibraryManagement
     public class LibraryManagementSettings : ISettings
     {
         private readonly LibraryManagement plugin;
+        private LibraryManagementSettings editingClone;
 
         public bool EnableCheckVersion { get; set; } = true;
         public bool MenuInExtensions { get; set; } = true;
@@ -49,29 +52,52 @@ namespace LibraryManagement
             }
         }
 
+        // Code executed when settings view is opened and user starts editing values.
         public void BeginEdit()
         {
-            // Code executed when settings view is opened and user starts editing values.
+            editingClone = this.GetClone();
         }
 
+        // Code executed when user decides to cancel any changes made since BeginEdit was called.
+        // This method should revert any changes made to Option1 and Option2.
         public void CancelEdit()
         {
-            // Code executed when user decides to cancel any changes made since BeginEdit was called.
-            // This method should revert any changes made to Option1 and Option2.
+            LoadValues(editingClone);
         }
 
+        private void LoadValues(LibraryManagementSettings source)
+        {
+            source.CopyProperties(this, false, null, true);
+        }
+
+        // Code executed when user decides to confirm changes made since BeginEdit was called.
+        // This method should save settings made to Option1 and Option2.
         public void EndEdit()
         {
-            // Code executed when user decides to confirm changes made since BeginEdit was called.
-            // This method should save settings made to Option1 and Option2.
             plugin.SavePluginSettings(this);
+
+            // Rename
+            foreach (LmGenreEquivalences lmGenreEquivalences in ListGenreEquivalences)
+            {
+                if (lmGenreEquivalences.Id != null)
+                {
+                    LibraryManagementTools.RenameGenre(plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
+                }
+            }
+            foreach (LmFeatureEquivalences lmFeatureEquivalences in ListFeatureEquivalences)
+            {
+                if (lmFeatureEquivalences.Id != null)
+                {
+                    LibraryManagementTools.RenameGenre(plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
+                }
+            }
         }
 
+        // Code execute when user decides to confirm changes made since BeginEdit was called.
+        // Executed before EndEdit is called and EndEdit is not called if false is returned.
+        // List of errors is presented to user if verification fails.
         public bool VerifySettings(out List<string> errors)
         {
-            // Code execute when user decides to confirm changes made since BeginEdit was called.
-            // Executed before EndEdit is called and EndEdit is not called if false is returned.
-            // List of errors is presented to user if verification fails.
             errors = new List<string>();
             return true;
         }

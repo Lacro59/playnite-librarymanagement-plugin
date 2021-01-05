@@ -119,6 +119,20 @@ namespace LibraryManagement.Services
             }, globalProgressOptions);
         }
 
+        public static void RenameGenre(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        {
+            Genre genre = PlayniteApi.Database.Genres.Get(Id);
+            if (genre != null)
+            {
+                genre.Name = NewName;
+                PlayniteApi.Database.Genres.Update(genre);
+            }
+            else
+            {
+                logger.Warn($"LibrayManagement - Genre doesn't exist - {Id}");
+            }
+        }
+
 
         public void SetFeatures()
         {
@@ -207,6 +221,20 @@ namespace LibraryManagement.Services
                     Common.LogError(ex, "LibraryManagement");
                 }
             }, globalProgressOptions);
+        }
+
+        public static void RenameFeature(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        {
+            GameFeature gameFeature = PlayniteApi.Database.Features.Get(Id);
+            if (gameFeature != null)
+            {
+                gameFeature.Name = NewName;
+                PlayniteApi.Database.Features.Update(gameFeature);
+            }
+            else
+            {
+                logger.Warn($"LibrayManagement - Feature doesn't exist - {Id}");
+            }
         }
     }
 }
