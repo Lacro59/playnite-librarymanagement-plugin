@@ -67,8 +67,29 @@ namespace LibraryManagement
             {
                 MenuInExtensions = "@";
             }
-
+           
             List<MainMenuItem> mainMenuItems = new List<MainMenuItem>();
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetFeatures"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+                    libraryManagementTools.SetFeatures();
+                }
+            });
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetGenres"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+                    libraryManagementTools.SetGenres();
+                }
+            });
+
 
 #if DEBUG
             mainMenuItems.Add(new MainMenuItem
@@ -78,9 +99,6 @@ namespace LibraryManagement
                 Action = (mainMenuItem) =>
                 {
 
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
-                    //libraryManagementTools.SetGenres();
-                    libraryManagementTools.SetFeatures();
                 }
             });
 #endif
@@ -152,7 +170,7 @@ namespace LibraryManagement
 
         public override UserControl GetSettingsView(bool firstRunSettings)
         {
-            return new LibraryManagementSettingsView(PlayniteApi);
+            return new LibraryManagementSettingsView(this, PlayniteApi, settings);
         }
     }
 }

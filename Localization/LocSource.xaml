@@ -6,6 +6,8 @@
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
 
     <!-- LibraryManagementSettingsView -->
     

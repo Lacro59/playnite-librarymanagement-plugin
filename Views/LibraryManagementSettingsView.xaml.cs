@@ -1,5 +1,6 @@
 ﻿using CommonPluginsShared;
 using LibraryManagement.Models;
+using LibraryManagement.Services;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using System;
@@ -24,11 +25,15 @@ namespace LibraryManagement.Views
         private static readonly ILogger logger = LogManager.GetLogger();
         private static IResourceProvider resources = new ResourceProvider();
 
+        private LibraryManagement _plugin;
         private IPlayniteAPI _PlayniteApi;
+        private LibraryManagementSettings _settings;
 
-        public LibraryManagementSettingsView(IPlayniteAPI PlayniteApi)
+        public LibraryManagementSettingsView(LibraryManagement plugin, IPlayniteAPI PlayniteApi, LibraryManagementSettings settings)
         {
+            _plugin = plugin;
             _PlayniteApi = PlayniteApi;
+            _settings = settings;
 
             InitializeComponent();
         }
@@ -111,6 +116,12 @@ namespace LibraryManagement.Views
             PART_ListGenreEquivalences.ItemsSource = null;
             PART_ListGenreEquivalences.ItemsSource = temp;
         }
+
+        private void PART_SetGenres_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetGenres();
+        }
         #endregion
 
 
@@ -165,6 +176,12 @@ namespace LibraryManagement.Views
 
             PART_ListFeatureEquivalences.ItemsSource = null;
             PART_ListFeatureEquivalences.ItemsSource = temp;
+        }
+
+        private void PART_SetFeatures_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetFeatures();
         }
         #endregion
     }

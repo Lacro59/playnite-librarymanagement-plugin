@@ -30,7 +30,6 @@ namespace LibraryManagement.Services
         }
 
 
-
         public void SetGenres()
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
@@ -121,8 +120,6 @@ namespace LibraryManagement.Services
         }
 
 
-
-
         public void SetFeatures()
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
@@ -211,12 +208,5 @@ namespace LibraryManagement.Services
                 }
             }, globalProgressOptions);
         }
-
-
-
-
-
-
-
     }
 }
