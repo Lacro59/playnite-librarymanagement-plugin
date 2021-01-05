@@ -159,7 +159,17 @@ namespace LibraryManagement
         // Add code to be executed when library is updated.
         public override void OnLibraryUpdated()
         {
-            
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+
+            if (settings.AutoUpdateGenres)
+            {
+                libraryManagementTools.SetGenres(true);
+            }
+
+            if (settings.AutoUpdateGenres)
+            {
+                libraryManagementTools.SetFeatures(true);
+            }
         }
 
 

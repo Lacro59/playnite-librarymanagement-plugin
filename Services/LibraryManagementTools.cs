@@ -30,7 +30,7 @@ namespace LibraryManagement.Services
         }
 
 
-        public void SetGenres()
+        public void SetGenres(bool OnlyToDay = false)
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
                 $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
@@ -62,7 +62,14 @@ namespace LibraryManagement.Services
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games;
+                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = _PlayniteApi.Database.Games
+                            .Where(x => x.Added != null)
+                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                    }
+
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
@@ -134,7 +141,7 @@ namespace LibraryManagement.Services
         }
 
 
-        public void SetFeatures()
+        public void SetFeatures(bool OnlyToDay = false)
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
                 $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
@@ -166,7 +173,14 @@ namespace LibraryManagement.Services
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games;
+                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = (IItemCollection<Game>)_PlayniteApi.Database.Games
+                            .Where(x => x.Added != null)
+                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                    }
+
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;

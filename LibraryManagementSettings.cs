@@ -19,6 +19,9 @@ namespace LibraryManagement
         public bool EnableCheckVersion { get; set; } = true;
         public bool MenuInExtensions { get; set; } = true;
 
+        public bool AutoUpdateGenres { get; set; } = false;
+        public bool AutoUpdateFeatures { get; set; } = false;
+
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
         public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
 
@@ -46,6 +49,9 @@ namespace LibraryManagement
             {
                 EnableCheckVersion = savedSettings.EnableCheckVersion;
                 MenuInExtensions = savedSettings.MenuInExtensions;
+
+                AutoUpdateGenres = savedSettings.AutoUpdateGenres;
+                AutoUpdateFeatures = savedSettings.AutoUpdateFeatures;
 
                 ListGenreEquivalences = savedSettings.ListGenreEquivalences;
                 ListFeatureEquivalences = savedSettings.ListFeatureEquivalences;
