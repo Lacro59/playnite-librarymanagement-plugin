@@ -94,6 +94,7 @@
     <None Include="LICENSE" />
     <None Include="packages.config" />
     <None Include="README.md" />
+    <Resource Include="Resources\freepik.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">

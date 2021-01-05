@@ -5,3 +5,10 @@ Version: 1.0
 Module: LibraryManagement.dll
 Type: GenericPlugin
 Icon: icon.png
+Links:
+  - Name: Plugin forum
+    Url: https://playnite.link/forum/thread-.html
+  - Name: Plugin Github
+    Url: https://github.com/Lacro59/playnite-librarymanagement-plugin
+  - Name: Plugin translations
+    Url: https://crowdin.com/project/playnite-extensions

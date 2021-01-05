@@ -62,7 +62,7 @@ namespace LibraryManagement.Services
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == false);
+                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = _PlayniteApi.Database.Games
@@ -173,7 +173,7 @@ namespace LibraryManagement.Services
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == false);
+                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = (IItemCollection<Game>)_PlayniteApi.Database.Games
