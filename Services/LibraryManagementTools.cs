@@ -100,7 +100,7 @@ namespace LibraryManagement.Services
                                 }  
 
                                 // Set all
-                                foreach(LmGenreEquivalences item in _settings.ListGenreEquivalences.FindAll(x => x.OldNames.Any(y => y.ToLower() == x.Name.ToLower())))
+                                foreach(LmGenreEquivalences item in _settings.ListGenreEquivalences.FindAll(x => x.OldNames.Any(y => AllGenresOld.Any(z => z.Name.ToLower() == y.ToLower()))))
                                 {
                                     if (item.Id != null)
                                     {
@@ -211,7 +211,7 @@ namespace LibraryManagement.Services
                                 }
 
                                 // Set all
-                                foreach (LmFeatureEquivalences item in _settings.ListFeatureEquivalences.FindAll(x => x.OldNames.Any(y => y.ToLower() == x.Name.ToLower())))
+                                foreach (LmFeatureEquivalences item in _settings.ListFeatureEquivalences.FindAll(x => x.OldNames.Any(y => AllFeaturesOld.Any(z => z.Name.ToLower() == y.ToLower()))))
                                 {
                                     if (item.Id != null)
                                     {
