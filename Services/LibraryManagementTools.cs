@@ -30,6 +30,7 @@ namespace LibraryManagement.Services
         }
 
 
+        #region Genres
         public void SetGenres(bool OnlyToDay = false)
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
@@ -139,8 +140,10 @@ namespace LibraryManagement.Services
                 logger.Warn($"LibrayManagement - Genre doesn't exist - {Id}");
             }
         }
+        #endregion
 
 
+        #region Features
         public void SetFeatures(bool OnlyToDay = false)
         {
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
@@ -250,5 +253,6 @@ namespace LibraryManagement.Services
                 logger.Warn($"LibrayManagement - Feature doesn't exist - {Id}");
             }
         }
+        #endregion
     }
 }

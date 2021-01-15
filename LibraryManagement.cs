@@ -12,7 +12,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace LibraryManagement
 {
@@ -24,6 +27,9 @@ namespace LibraryManagement
         private LibraryManagementSettings settings { get; set; }
 
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
+
+        private Game GameSelected;
+        private LmImageEditor ViewExtension;
 
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
@@ -55,7 +61,22 @@ namespace LibraryManagement
         // To add new game menu items override GetGameMenuItems
         public override List<GameMenuItem> GetGameMenuItems(GetGameMenuItemsArgs args)
         {
+            var GameMenu = args.Games.First();
+
             List<GameMenuItem> gameMenuItems = new List<GameMenuItem>();
+
+            gameMenuItems.Add(new GameMenuItem
+            {
+                MenuSection = resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmMediaEditor"),
+                Action = (gameMenuItem) =>
+                {
+                    ViewExtension = new LmImageEditor(PlayniteApi, GameMenu);
+                    Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, "ImageEditor", ViewExtension);
+                    windowExtension.ShowDialog();
+                }
+            });
+
             return gameMenuItems;
         }
 
@@ -109,7 +130,17 @@ namespace LibraryManagement
 
         public override void OnGameSelected(GameSelectionEventArgs args)
         {
-
+            try
+            {
+                if (args.NewValue != null && args.NewValue.Count == 1)
+                {
+                    GameSelected = args.NewValue[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                Common.LogError(ex, "LibraryManagement");
+            }
         }
 
         // Add code to be executed when game is finished installing.

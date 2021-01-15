@@ -19,7 +19,22 @@
 
     <sys:String x:Key="LOCLmFeatureAdd">Add new feature equivalence</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature equivalence</sys:String>
-    
+
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    
+    <!-- LmImageEditor -->
+
+    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+
+    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
+    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
+    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
+    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
 
 </ResourceDictionary>
