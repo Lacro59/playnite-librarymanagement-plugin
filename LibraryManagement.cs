@@ -49,11 +49,7 @@ namespace LibraryManagement
             if (settings.EnableCheckVersion)
             {
                 CheckVersion cv = new CheckVersion();
-
-                if (cv.Check("LibraryManagement", pluginFolder))
-                {
-                    cv.ShowNotification(api, "LibraryManagement - " + resources.GetString("LOCUpdaterWindowTitle"));
-                }
+                cv.Check("LibraryManagement", pluginFolder, api);
             }
         }
 
