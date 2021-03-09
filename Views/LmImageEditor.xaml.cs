@@ -227,16 +227,7 @@ namespace LibraryManagement.Views
                 PART_CropWishedWidth.Text = ((FileSize)PART_ComboBoxCropSize.SelectedItem).Width.ToString();
                 PART_CropWishedHeight.Text = ((FileSize)PART_ComboBoxCropSize.SelectedItem).Height.ToString();
 
-                int.TryParse(PART_CropWishedWidth.Text, out int rWidth);
-                int.TryParse(PART_CropWishedHeight.Text, out int rHeight);
-
-                if (rWidth != 0 && rHeight != 0 && LmImageToolsSelected != null)
-                {
-                    if (cropToolControl != null)
-                    {
-                        cropToolControl.SetCropAreaRatio(rWidth, rHeight);
-                    }
-                }
+                SetCrop();
             }
             else
             {
@@ -305,6 +296,32 @@ namespace LibraryManagement.Views
             if (cropToolControl != null)
             {
                 cropToolControl.SetKeepRatio((bool)PART_CheckBoxKeppRatio.IsChecked);
+            }
+        }
+
+
+        private void PART_CropWishedWidth_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetCrop();
+        }
+
+        private void PART_CropWishedHeight_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetCrop();
+        }
+
+
+        private void SetCrop()
+        {
+            int.TryParse(PART_CropWishedWidth.Text, out int rWidth);
+            int.TryParse(PART_CropWishedHeight.Text, out int rHeight);
+
+            if (rWidth != 0 && rHeight != 0 && LmImageToolsSelected != null)
+            {
+                if (cropToolControl != null)
+                {
+                    cropToolControl.SetCropAreaRatio(rWidth, rHeight);
+                }
             }
         }
     }

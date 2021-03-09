@@ -78,9 +78,11 @@
                                 <ColumnDefinition Width="30" />
                             </Grid.ColumnDefinitions>
 
-                            <playnitecontrols:NullableIntBox x:Name="PART_CropWishedWidth" Grid.Column="0" TextAlignment="Center" />
+                            <playnitecontrols:NullableIntBox x:Name="PART_CropWishedWidth" Grid.Column="0" TextAlignment="Center"
+                                                             KeyUp="PART_CropWishedWidth_KeyUp"/>
                             <Label Content=":" Grid.Column="1" Margin="10,0,10,0" />
-                            <playnitecontrols:NullableIntBox x:Name="PART_CropWishedHeight" Grid.Column="2" TextAlignment="Center" />
+                            <playnitecontrols:NullableIntBox x:Name="PART_CropWishedHeight" Grid.Column="2" TextAlignment="Center"
+                                                             KeyUp="PART_CropWishedHeight_KeyUp"/>
                         </Grid>
 
                         <Label Content="{DynamicResource LOCLmPresets}" Grid.Column="2" VerticalAlignment="Center" />
