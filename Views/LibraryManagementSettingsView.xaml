@@ -49,9 +49,9 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalenceFeature" Click="PART_AddEquivalenceFeature_Click"
-                            Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                            Content="{DynamicResource LOCAddNewItem}" HorizontalAlignment="Left" />
                     <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_ExclusionFeature" IsChecked="False"
-                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
+                                  Content="{DynamicResource LOCLmExclusionList}" HorizontalAlignment="Right" />
 
                     <ListView Grid.Row="2" Name="PART_ListFeatureEquivalences" 
                               Visibility="{Binding ElementName=PART_ExclusionFeature, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
@@ -148,9 +148,9 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalence" Click="PART_AddEquivalence_Click"
-                            Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                            Content="{DynamicResource LOCAddNewItem}" HorizontalAlignment="Left" />
                     <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_Exclusion" IsChecked="False"                                  
-                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
+                                  Content="{DynamicResource LOCLmExclusionList}" HorizontalAlignment="Right" />
 
                     <ListView Grid.Row="2" Name="PART_ListGenreEquivalences" 
                               Visibility="{Binding ElementName=PART_Exclusion, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
@@ -247,9 +247,9 @@
                     </Grid.RowDefinitions>
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalenceTag" Click="PART_AddEquivalenceTag_Click"
-                            Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                            Content="{DynamicResource LOCAddNewItem}" HorizontalAlignment="Left" />
                     <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_ExclusionTag" IsChecked="False"
-                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
+                                  Content="{DynamicResource LOCLmExclusionList}" HorizontalAlignment="Right" />
 
                     <ListView Grid.Row="2" Name="PART_ListTagEquivalences" 
                               Visibility="{Binding ElementName=PART_ExclusionTag, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
