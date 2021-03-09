@@ -1,4 +1,5 @@
 ﻿using CommonPluginsShared;
+using CommonPluginsShared.PlayniteExtended;
 using LibraryManagement.Services;
 using LibraryManagement.Views;
 using Playnite.SDK;
@@ -19,41 +20,18 @@ using System.Windows.Media;
 
 namespace LibraryManagement
 {
-    public class LibraryManagement : Plugin
+    public class LibraryManagement : PluginExtended<LibraryManagementSettingsViewModel>
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
-
-        private LibraryManagementSettings settings { get; set; }
-
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
-
-        private Game GameSelected;
-        private LmImageEditor ViewExtension;
 
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
-            settings = new LibraryManagementSettings(this);
 
-            // Get plugin's location 
-            string pluginFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            // Add plugin localization in application ressource.
-            PluginLocalization.SetPluginLanguage(pluginFolder, api.ApplicationSettings.Language);
-            // Add common in application ressource.
-            Common.Load(pluginFolder);
-            Common.SetEvent(PlayniteApi);
-
-            // Check version
-            if (settings.EnableCheckVersion)
-            {
-                CheckVersion cv = new CheckVersion();
-                cv.Check("LibraryManagement", pluginFolder, api);
-            }
         }
 
 
+        #region Menus
         // To add new game menu items override GetGameMenuItems
         public override List<GameMenuItem> GetGameMenuItems(GetGameMenuItemsArgs args)
         {
@@ -67,9 +45,12 @@ namespace LibraryManagement
                 Description = resources.GetString("LOCLmMediaEditor"),
                 Action = (gameMenuItem) =>
                 {
-                    ViewExtension = new LmImageEditor(PlayniteApi, GameMenu);
+                    LmImageEditor ViewExtension = new LmImageEditor(PlayniteApi, GameMenu);
                     Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, "ImageEditor", ViewExtension);
                     windowExtension.ShowDialog();
+
+                    //PlayniteApi.MainView.SelectGame(GameMenu.Id);
+                    //GameMenu.OnPropertyChanged();
                 }
             });
 
@@ -80,7 +61,7 @@ namespace LibraryManagement
         public override List<MainMenuItem> GetMainMenuItems(GetMainMenuItemsArgs args)
         {
             string MenuInExtensions = string.Empty;
-            if (settings.MenuInExtensions)
+            if (PluginSettings.Settings.MenuInExtensions)
             {
                 MenuInExtensions = "@";
             }
@@ -92,7 +73,7 @@ namespace LibraryManagement
                 Description = resources.GetString("LOCLmSetFeatures"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
                     libraryManagementTools.SetFeatures();
                 }
             });
@@ -102,7 +83,7 @@ namespace LibraryManagement
                 Description = resources.GetString("LOCLmSetGenres"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
                     libraryManagementTools.SetGenres();
                 }
             });
@@ -122,20 +103,22 @@ namespace LibraryManagement
 
             return mainMenuItems;
         }
+        #endregion
 
 
+        #region Game event
         public override void OnGameSelected(GameSelectionEventArgs args)
         {
             try
             {
                 if (args.NewValue != null && args.NewValue.Count == 1)
                 {
-                    GameSelected = args.NewValue[0];
+                    Game GameSelected = args.NewValue[0];
                 }
             }
             catch (Exception ex)
             {
-                Common.LogError(ex, "LibraryManagement");
+                Common.LogError(ex, false);
             }
         }
 
@@ -168,8 +151,10 @@ namespace LibraryManagement
         {
 
         }
+        #endregion
 
 
+        #region Application event
         // Add code to be executed when Playnite is initialized.
         public override void OnApplicationStarted()
         {
@@ -181,33 +166,36 @@ namespace LibraryManagement
         {
             
         }
+        #endregion
 
 
         // Add code to be executed when library is updated.
         public override void OnLibraryUpdated()
         {
-            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, settings);
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
 
-            if (settings.AutoUpdateGenres)
+            if (PluginSettings.Settings.AutoUpdateGenres)
             {
                 libraryManagementTools.SetGenres(true);
             }
 
-            if (settings.AutoUpdateGenres)
+            if (PluginSettings.Settings.AutoUpdateGenres)
             {
                 libraryManagementTools.SetFeatures(true);
             }
         }
 
 
+        #region Settings
         public override ISettings GetSettings(bool firstRunSettings)
         {
-            return settings;
+            return PluginSettings;
         }
 
         public override UserControl GetSettingsView(bool firstRunSettings)
         {
-            return new LibraryManagementSettingsView(this, PlayniteApi, settings);
+            return new LibraryManagementSettingsView(this, PlayniteApi, PluginSettings.Settings);
         }
+        #endregion
     }
 }

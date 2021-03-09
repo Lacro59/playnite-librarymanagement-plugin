@@ -1,6 +1,5 @@
 ﻿using LibraryManagement.Models;
 using LibraryManagement.Services;
-using Newtonsoft.Json;
 using Playnite.SDK;
 using Playnite.SDK.Data;
 using System;
@@ -11,11 +10,9 @@ using System.Threading.Tasks;
 
 namespace LibraryManagement
 {
-    public class LibraryManagementSettings : ISettings
+    public class LibraryManagementSettings : ObservableObject
     {
-        private readonly LibraryManagement plugin;
-        private LibraryManagementSettings editingClone;
-
+        #region Settings variables
         public bool EnableCheckVersion { get; set; } = true;
         public bool MenuInExtensions { get; set; } = true;
 
@@ -24,22 +21,37 @@ namespace LibraryManagement
 
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
         public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
-
+        #endregion
 
         // Playnite serializes settings object to a JSON object and saves it as text file.
-        // If you want to exclude some property from being saved then use `JsonIgnore` ignore attribute.
-        [JsonIgnore]
-        public bool OptionThatWontBeSaved { get; set; } = false;
+        // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
+        #region Variables exposed
 
-        // Parameterless constructor must exist if you want to use LoadPluginSettings method.
-        public LibraryManagementSettings()
+        #endregion  
+    }
+
+
+    public class LibraryManagementSettingsViewModel : ObservableObject, ISettings
+    {
+        private readonly LibraryManagement Plugin;
+        private LibraryManagementSettings EditingClone { get; set; }
+
+        private LibraryManagementSettings _Settings;
+        public LibraryManagementSettings Settings
         {
+            get => _Settings;
+            set
+            {
+                _Settings = value;
+                OnPropertyChanged();
+            }
         }
 
-        public LibraryManagementSettings(LibraryManagement plugin)
+
+        public LibraryManagementSettingsViewModel(LibraryManagement plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
-            this.plugin = plugin;
+            Plugin = plugin;
 
             // Load saved settings.
             var savedSettings = plugin.LoadPluginSettings<LibraryManagementSettings>();
@@ -47,54 +59,47 @@ namespace LibraryManagement
             // LoadPluginSettings returns null if not saved data is available.
             if (savedSettings != null)
             {
-                EnableCheckVersion = savedSettings.EnableCheckVersion;
-                MenuInExtensions = savedSettings.MenuInExtensions;
-
-                AutoUpdateGenres = savedSettings.AutoUpdateGenres;
-                AutoUpdateFeatures = savedSettings.AutoUpdateFeatures;
-
-                ListGenreEquivalences = savedSettings.ListGenreEquivalences;
-                ListFeatureEquivalences = savedSettings.ListFeatureEquivalences;
+                Settings = savedSettings;
+            }
+            else
+            {
+                Settings = new LibraryManagementSettings();
             }
         }
 
         // Code executed when settings view is opened and user starts editing values.
         public void BeginEdit()
         {
-            editingClone = this.GetClone();
+            EditingClone = Serialization.GetClone(Settings);
         }
 
         // Code executed when user decides to cancel any changes made since BeginEdit was called.
         // This method should revert any changes made to Option1 and Option2.
         public void CancelEdit()
         {
-            LoadValues(editingClone);
-        }
-
-        private void LoadValues(LibraryManagementSettings source)
-        {
-            source.CopyProperties(this, false, null, true);
+            Settings = EditingClone;
         }
 
         // Code executed when user decides to confirm changes made since BeginEdit was called.
         // This method should save settings made to Option1 and Option2.
         public void EndEdit()
         {
-            plugin.SavePluginSettings(this);
+            Plugin.SavePluginSettings(Settings);
+
 
             // Rename
-            foreach (LmGenreEquivalences lmGenreEquivalences in ListGenreEquivalences)
+            foreach (LmGenreEquivalences lmGenreEquivalences in Settings.ListGenreEquivalences)
             {
                 if (lmGenreEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameGenre(plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
+                    LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
                 }
             }
-            foreach (LmFeatureEquivalences lmFeatureEquivalences in ListFeatureEquivalences)
+            foreach (LmFeatureEquivalences lmFeatureEquivalences in Settings.ListFeatureEquivalences)
             {
                 if (lmFeatureEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameGenre(plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
+                    LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
                 }
             }
         }

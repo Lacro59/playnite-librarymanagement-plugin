@@ -118,11 +118,11 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    logger.Info($"LibraryManagement - Task SetGenres(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    logger.Info($"Task SetGenres(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, "LibraryManagement");
+                    Common.LogError(ex, false);
                 }
             }, globalProgressOptions);
         }
@@ -137,7 +137,7 @@ namespace LibraryManagement.Services
             }
             else
             {
-                logger.Warn($"LibrayManagement - Genre doesn't exist - {Id}");
+                logger.Warn($"Genre doesn't exist - {Id}");
             }
         }
         #endregion
@@ -198,7 +198,6 @@ namespace LibraryManagement.Services
 
                         Thread.Sleep(10);
 
-
                         List<GameFeature> gameFeatures = game.Features;
 
                         if (gameFeatures != null && gameFeatures.Count > 0)
@@ -231,11 +230,11 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    logger.Info($"LibraryManagement - Task SetFeatures(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    logger.Info($"Task SetFeatures(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, "LibraryManagement");
+                    Common.LogError(ex, false);
                 }
             }, globalProgressOptions);
         }
@@ -250,7 +249,7 @@ namespace LibraryManagement.Services
             }
             else
             {
-                logger.Warn($"LibrayManagement - Feature doesn't exist - {Id}");
+                logger.Warn($"Feature doesn't exist - {Id}");
             }
         }
         #endregion

@@ -63,6 +63,8 @@ namespace LibraryManagement.Views
         {
             new FileSize { Name = resources.GetString("LOCGameIconTitle"), Width = 1, Height = 1 },
 
+            new FileSize { Name = "Heroes - Steam", Width = 96, Height = 31 },
+
             new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectDVD"), Width = 27, Height = 38 },
             new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectEpicGamesStore"), Width = 3, Height = 4 },
             new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectGogGalaxy2"), Width = 22, Height = 31 },
@@ -118,11 +120,14 @@ namespace LibraryManagement.Views
                 BitmapImage bitmapImage = null;
 
                 // Crop
+                if (!Directory.Exists(PlaynitePaths.ImagesCachePath)) 
+                {
+                    Directory.CreateDirectory(PlaynitePaths.ImagesCachePath);
+                }
+
                 string FileTempPath = System.IO.Path.Combine(PlaynitePaths.ImagesCachePath, "lm_temp.png");
                 if (cropToolControl != null)
                 {
-                    //bitmapImage = ImageTools.ConvertBitmapToBitmapImage();
-
                     var temp = cropToolControl.GetBitmapCrop();                  
                     temp.Save(FileTempPath);
                 }

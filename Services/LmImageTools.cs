@@ -38,7 +38,7 @@ namespace LibraryManagement.Services
             }
             catch (Exception ex)
             {
-                Common.LogError(ex, "LibraryMnagement");
+                Common.LogError(ex, false);
             }
         }
         
@@ -125,7 +125,7 @@ namespace LibraryManagement.Services
             }
             catch (Exception ex)
             {
-                Common.LogError(ex, "LibraryMnagement");
+                Common.LogError(ex, false);
                 return null;
             }
 
