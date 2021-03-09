@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LibraryManagement.Views"
              xmlns:commonpluginsshared="clr-namespace:CommonPluginsShared"
+             xmlns:converters="clr-namespace:CommonPluginsPlaynite.Converters"
              mc:Ignorable="d" Width="400" Height="420">
 
     <UserControl.Resources>
         <commonpluginsshared:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+        <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </UserControl.Resources>
-    
+
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120" />
@@ -33,8 +36,8 @@
         <TextBox Name="PART_NewName" Grid.Column="1" Grid.Row="0" />
 
         <TextBlock Style="{DynamicResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="2" Text="{DynamicResource LOCGameIconTitle}"
-                   VerticalAlignment="Center" />
-        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
+                   VerticalAlignment="Center" Name="PART_IconLabel" />
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Name="PART_IconContener" >
             <TextBox Name="PART_IconUnicode" Width="30" TextAlignment="Center" VerticalAlignment="Center" />
             <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" >
                 <Hyperlink Tag="https://emojipedia.org/" Click="Hyperlink_Click">emojipedia.org</Hyperlink>
@@ -46,19 +49,24 @@
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <CheckBox Margin="0,5" IsChecked="{Binding IsChecked}" VerticalAlignment="Center">
-                        <Grid Width="320">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="0" Name="PART_ItemName" Content="{Binding Name}" VerticalAlignment="Center" />
-                            <Button Grid.Column="1" VerticalAlignment="Center"
-                                    HorizontalAlignment="Right" Click="Button_Click" Tag="{Binding Name}"
-                                    Content="" FontFamily="{DynamicResource CommonFont}" />
-                        </Grid>
-                    </CheckBox>
+                        <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center" 
+                                  Grid.Column="0" Width="320"
+                                  Visibility="{Binding OnlyAdd, Converter={StaticResource InvertedBooleanToVisibilityConverter }}">
+                            <Label Content="{Binding Name}" VerticalAlignment="Center" />
+                        </CheckBox>
+                        <Label Content="{Binding Name}" VerticalAlignment="Center" Width="320"
+                               Visibility="{Binding OnlyAdd, Converter={StaticResource BooleanToVisibilityConverter }}" />
+
+                        <Button Grid.Column="1" VerticalAlignment="Center"
+                                HorizontalAlignment="Right" Click="Button_Click" Tag="{Binding Name}"
+                                Content="" FontFamily="{DynamicResource CommonFont}" />
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

@@ -90,6 +90,7 @@ namespace LibraryManagement.Services
 
                         if (GameGenres != null && GameGenres.Count > 0)
                         {
+                            // Rename
                             List<Genre> AllGenresOld = GameGenres.FindAll(x => _settings.ListGenreEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllGenresOld.Count > 0)
@@ -110,6 +111,21 @@ namespace LibraryManagement.Services
                                 }
                                 
                                 _PlayniteApi.Database.Games.Update(game);                   
+                            }
+
+                            // Exclusion
+                            if (_settings.ListGenreExclusion.Count > 0)
+                            {
+                                foreach (string GenreName in _settings.ListGenreExclusion)
+                                {
+                                    Genre genreDelete = game.Genres.Find(x => x.Name.ToLower() == GenreName.ToLower());
+                                    if (genreDelete != null)
+                                    {
+                                        game.GenreIds.Remove(genreDelete.Id);
+                                    }
+                                }
+
+                                _PlayniteApi.Database.Games.Update(game);
                             }
                         }
 
@@ -202,6 +218,7 @@ namespace LibraryManagement.Services
 
                         if (gameFeatures != null && gameFeatures.Count > 0)
                         {
+                            // Rename
                             List<GameFeature> AllFeaturesOld = gameFeatures.FindAll(x => _settings.ListFeatureEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllFeaturesOld.Count > 0)
@@ -218,6 +235,21 @@ namespace LibraryManagement.Services
                                     if (item.Id != null)
                                     {
                                         game.FeatureIds.Add((Guid)item.Id);
+                                    }
+                                }
+
+                                _PlayniteApi.Database.Games.Update(game);
+                            }
+
+                            // Exclusion
+                            if (_settings.ListFeatureExclusion.Count > 0)
+                            {
+                                foreach (string FeatureName in _settings.ListFeatureExclusion)
+                                {
+                                    GameFeature featureDelete = game.Features.Find(x => x.Name.ToLower() == FeatureName.ToLower());
+                                    if (featureDelete != null)
+                                    {
+                                        game.FeatureIds.Remove(featureDelete.Id);
                                     }
                                 }
 
@@ -314,6 +346,7 @@ namespace LibraryManagement.Services
 
                         if (Tags != null && Tags.Count > 0)
                         {
+                            // Rename
                             List<Tag> AllTagsOld = Tags.FindAll(x => _settings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllTagsOld.Count > 0)
@@ -330,6 +363,21 @@ namespace LibraryManagement.Services
                                     if (item.Id != null)
                                     {
                                         game.TagIds.Add((Guid)item.Id);
+                                    }
+                                }
+
+                                _PlayniteApi.Database.Games.Update(game);
+                            }
+
+                            // Exclusion
+                            if (_settings.ListTagsExclusion.Count > 0)
+                            {
+                                foreach (string TagName in _settings.ListTagsExclusion)
+                                {
+                                    Tag TagDelete = game.Tags.Find(x => x.Name.ToLower() == TagName.ToLower());
+                                    if (TagDelete != null)
+                                    {
+                                        game.TagIds.Remove(TagDelete.Id);
                                     }
                                 }
 

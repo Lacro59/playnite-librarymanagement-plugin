@@ -4,10 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:commonpluginsshared="clr-namespace:CommonPluginsShared"
+             xmlns:converters="clr-namespace:CommonPluginsPlaynite.Converters"
              mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="600">
 
     <UserControl.Resources>
         <commonpluginsshared:IndexConverter x:Key="IndexConverter"/>
+        <converters:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </UserControl.Resources>
 
     <Grid Margin="20">
@@ -47,8 +50,12 @@
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalenceFeature" Click="PART_AddEquivalenceFeature_Click"
                             Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                    <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_ExclusionFeature" IsChecked="False"
+                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
 
-                    <ListView Grid.Row="2" Name="PART_ListFeatureEquivalences" ItemsSource="{Binding Settings.ListFeatureEquivalences}">
+                    <ListView Grid.Row="2" Name="PART_ListFeatureEquivalences" 
+                              Visibility="{Binding ElementName=PART_ExclusionFeature, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListFeatureEquivalences}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn x:Name="LvHeaderNameFeature" Header="{DynamicResource LOCNameLabel}" Width="auto">
@@ -91,6 +98,37 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <ListView Grid.Row="2" Name="PART_ListFeatureExclusion" 
+                              Visibility="{Binding ElementName=PART_ExclusionFeature, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListFeatureExclusion}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" MinWidth="200" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="100">
+                                    <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                <Button Name="PART_ManageExclusionFeature" Click="PART_ManageEquivalenceFeature_Click"
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                <Button Name="PART_RemoveExclusionFeature" Click="PART_RemoveEquivalenceFeature_Click" 
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Margin="10,0,0,0"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
 
                     <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="{StaticResource NormalBorderBrush}"
                             Grid.Row="3" Margin="0,10,0,0" Padding="0,5,0,0">
@@ -111,8 +149,12 @@
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalence" Click="PART_AddEquivalence_Click"
                             Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                    <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_Exclusion" IsChecked="False"                                  
+                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
 
-                    <ListView Grid.Row="2" Name="PART_ListGenreEquivalences" ItemsSource="{Binding Settings.ListGenreEquivalences}">
+                    <ListView Grid.Row="2" Name="PART_ListGenreEquivalences" 
+                              Visibility="{Binding ElementName=PART_Exclusion, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListGenreEquivalences}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn x:Name="LvHeaderName" Header="{DynamicResource LOCNameLabel}" Width="auto">
@@ -155,6 +197,37 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <ListView Grid.Row="2" Name="PART_ListGenreExclusion" 
+                              Visibility="{Binding ElementName=PART_Exclusion, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListGenreExclusion}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" MinWidth="200" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="100">
+                                    <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                <Button Name="PART_ManageExclusionFeature" Click="PART_ManageEquivalence_Click"
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                <Button Name="PART_RemoveExclusionFeature" Click="PART_RemoveEquivalence_Click" 
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Margin="10,0,0,0"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
 
                     <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="{StaticResource NormalBorderBrush}"
                             Grid.Row="3" Margin="0,10,0,0" Padding="0,5,0,0">
@@ -175,8 +248,12 @@
 
                     <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalenceTag" Click="PART_AddEquivalenceTag_Click"
                             Content="{DynamicResource LOCAddNewItem}" Width="150" HorizontalAlignment="Left" />
+                    <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_ExclusionTag" IsChecked="False"
+                                  Content="{DynamicResource LOCLmExclusionList}" Width="150" HorizontalAlignment="Right" />
 
-                    <ListView Grid.Row="2" Name="PART_ListTagEquivalences" ItemsSource="{Binding Settings.ListTagsEquivalences}">
+                    <ListView Grid.Row="2" Name="PART_ListTagEquivalences" 
+                              Visibility="{Binding ElementName=PART_ExclusionTag, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListTagsEquivalences}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="auto">
@@ -209,6 +286,37 @@
                                                         Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveEquivalenceTag" Click="PART_RemoveEquivalenceTag_Click" 
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Margin="10,0,0,0"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView Grid.Row="2" Name="PART_ListTagExclusion" 
+                              Visibility="{Binding ElementName=PART_ExclusionTag, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListTagsExclusion}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" MinWidth="200" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="100">
+                                    <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                <Button Name="PART_ManageExclusionTag" Click="PART_ManageEquivalenceTag_Click"
+                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                <Button Name="PART_RemoveExclusionTag" Click="PART_RemoveEquivalenceTag_Click" 
                                                         Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
                                                         Margin="10,0,0,0"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />

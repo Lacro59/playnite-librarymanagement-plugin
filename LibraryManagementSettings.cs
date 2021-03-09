@@ -23,6 +23,10 @@ namespace LibraryManagement
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
         public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
         public List<LmTagsEquivalences> ListTagsEquivalences { get; set; } = new List<LmTagsEquivalences>();
+
+        public List<string> ListGenreExclusion { get; set; } = new List<string>();
+        public List<string> ListFeatureExclusion { get; set; } = new List<string>();
+        public List<string> ListTagsExclusion { get; set; } = new List<string>();
         #endregion
 
         // Playnite serializes settings object to a JSON object and saves it as text file.

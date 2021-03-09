@@ -95,6 +95,19 @@ namespace LibraryManagement.Views
         }
 
 
+        public void OnlyAdd()
+        {
+            PART_IconLabel.Visibility = Visibility.Collapsed;
+            PART_IconContener.Visibility = Visibility.Collapsed;
+
+            List<ListItem> listItems = (List<ListItem>)PART_OldNames.ItemsSource;
+            foreach (var item in listItems)
+            {
+                item.OnlyAdd = true;
+            }
+        }
+
+
         private void PART_Save_Click(object sender, RoutedEventArgs e)
         {
             List<string> OldNames = new List<string>();
@@ -167,5 +180,6 @@ namespace LibraryManagement.Views
     {
         public string Name { get; set; }
         public bool IsChecked { get; set; }
+        public bool OnlyAdd { get; set; }
     }
 }

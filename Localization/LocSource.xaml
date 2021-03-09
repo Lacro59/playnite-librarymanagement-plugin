@@ -26,6 +26,8 @@
     <sys:String x:Key="LOCLmTagEdit">Edit tag equivalence</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+
+    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
     
     <!-- LmImageEditor -->
 
