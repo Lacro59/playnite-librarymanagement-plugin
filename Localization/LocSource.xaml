@@ -8,17 +8,22 @@
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Add new genre equivalence</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Edit genre equivalence</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Add new feature equivalence</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature equivalence</sys:String>
+    
+    <sys:String x:Key="LOCLmTagAdd">Add new tag equivalence</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Edit tag equivalence</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
     

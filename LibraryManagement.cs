@@ -48,11 +48,20 @@ namespace LibraryManagement
                     LmImageEditor ViewExtension = new LmImageEditor(PlayniteApi, GameMenu);
                     Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, "ImageEditor", ViewExtension);
                     windowExtension.ShowDialog();
-
-                    //PlayniteApi.MainView.SelectGame(GameMenu.Id);
-                    //GameMenu.OnPropertyChanged();
                 }
             });
+
+#if DEBUG
+            gameMenuItems.Add(new GameMenuItem
+            {
+                MenuSection = resources.GetString("LOCLm"),
+                Description = "Test",
+                Action = (gameMenuItem) =>
+                {
+
+                }
+            });
+#endif
 
             return gameMenuItems;
         }
@@ -87,7 +96,16 @@ namespace LibraryManagement
                     libraryManagementTools.SetGenres();
                 }
             });
-
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetTags"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    libraryManagementTools.SetTags();
+                }
+            });
 
 #if DEBUG
             mainMenuItems.Add(new MainMenuItem

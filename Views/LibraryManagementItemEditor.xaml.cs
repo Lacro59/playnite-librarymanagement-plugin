@@ -19,6 +19,11 @@ using System.Windows.Shapes;
 
 namespace LibraryManagement.Views
 {
+    public enum ItemType
+    {
+        Genre, Tag, Feature
+    }
+
     /// <summary>
     /// Logique d'interaction pour LibraryManagementItemEditor.xaml
     /// </summary>
@@ -27,13 +32,13 @@ namespace LibraryManagement.Views
         public object NewItem;
 
         public Guid? _Id;
-        public bool _IsGenre;
+        public ItemType _itemType;
 
 
-        public LibraryManagementItemEditor(object data, bool IsGenre, Guid? Id = null, string NewName = "", string IconUnicode = "", List<string> ListAlreadyAdded = null)
+        public LibraryManagementItemEditor(object data, ItemType itemType, Guid? Id = null, string NewName = "", string IconUnicode = "", List<string> ListAlreadyAdded = null)
         {
             _Id = Id;
-            _IsGenre = IsGenre;
+            _itemType = itemType;
 
             InitializeComponent();
 
@@ -52,6 +57,17 @@ namespace LibraryManagement.Views
             if (data is List<GameFeature>)
             {
                 foreach (var item in (List<GameFeature>)data)
+                {
+                    listItems.Add(new ListItem
+                    {
+                        Name = item.Name,
+                        IsChecked = false
+                    });
+                }
+            }
+            if (data is List<Tag>)
+            {
+                foreach (var item in (List<Tag>)data)
                 {
                     listItems.Add(new ListItem
                     {
@@ -93,7 +109,7 @@ namespace LibraryManagement.Views
 
             string IconUnicode = PART_IconUnicode.Text;
 
-            if (_IsGenre)
+            if (_itemType == ItemType.Genre)
             {
                 NewItem = new LmGenreEquivalences
                 {
@@ -103,9 +119,21 @@ namespace LibraryManagement.Views
                     OldNames = OldNames
                 };
             }
-            else
+
+            if (_itemType == ItemType.Feature)
             {
                 NewItem = new LmFeatureEquivalences
+                {
+                    Id = _Id,
+                    Name = PART_NewName.Text,
+                    IconUnicode = IconUnicode,
+                    OldNames = OldNames
+                };
+            }
+
+            if (_itemType == ItemType.Tag)
+            {
+                NewItem = new LmTagsEquivalences
                 {
                     Id = _Id,
                     Name = PART_NewName.Text,

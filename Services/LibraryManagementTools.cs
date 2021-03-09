@@ -253,5 +253,117 @@ namespace LibraryManagement.Services
             }
         }
         #endregion
+
+
+        #region Tags
+        public void SetTags(bool OnlyToDay = false)
+        {
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
+                $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
+                true
+            );
+            globalProgressOptions.IsIndeterminate = false;
+
+            _PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            {
+                try
+                {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
+
+
+                    // Add new tags that not exist
+                    List<Tag> PlayniteTags = _PlayniteApi.Database.Tags.ToList();
+                    foreach (LmTagsEquivalences lmTagsEquivalences in _settings.ListTagsEquivalences)
+                    {
+                        if (lmTagsEquivalences.Id == null)
+                        {
+                            Tag tag = new Tag(lmTagsEquivalences.NewName);
+                            lmTagsEquivalences.Id = tag.Id;
+
+                            _PlayniteApi.Database.Tags.Add(tag);
+                            _plugin.SavePluginSettings(_settings);
+                        }
+                    }
+
+
+                    // Remplace tags
+                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = (IItemCollection<Game>)_PlayniteApi.Database.Games
+                            .Where(x => x.Added != null)
+                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                    }
+
+                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+
+                    string CancelText = string.Empty;
+
+                    foreach (Game game in PlayniteDb)
+                    {
+                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        {
+                            CancelText = " canceled";
+                            break;
+                        }
+
+                        Thread.Sleep(10);
+
+                        List<Tag> Tags = game.Tags;
+
+                        if (Tags != null && Tags.Count > 0)
+                        {
+                            List<Tag> AllTagsOld = Tags.FindAll(x => _settings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+
+                            if (AllTagsOld.Count > 0)
+                            {
+                                // Remove all
+                                foreach (Tag tag in AllTagsOld)
+                                {
+                                    game.TagIds.Remove(tag.Id);
+                                }
+
+                                // Set all
+                                foreach (LmTagsEquivalences item in _settings.ListTagsEquivalences.FindAll(x => x.OldNames.Any(y => AllTagsOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                                {
+                                    if (item.Id != null)
+                                    {
+                                        game.TagIds.Add((Guid)item.Id);
+                                    }
+                                }
+
+                                _PlayniteApi.Database.Games.Update(game);
+                            }
+                        }
+
+                        activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                }
+            }, globalProgressOptions);
+        }
+
+        public static void RenameTags(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        {
+            Tag tag = PlayniteApi.Database.Tags.Get(Id);
+            if (tag != null)
+            {
+                tag.Name = NewName;
+                PlayniteApi.Database.Tags.Update(tag);
+            }
+            else
+            {
+                logger.Warn($"Tag doesn't exist - {Id}");
+            }
+        }
+        #endregion
     }
 }

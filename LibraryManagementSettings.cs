@@ -18,9 +18,11 @@ namespace LibraryManagement
 
         public bool AutoUpdateGenres { get; set; } = false;
         public bool AutoUpdateFeatures { get; set; } = false;
+        public bool AutoUpdateTags { get; set; } = false;
 
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
         public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
+        public List<LmTagsEquivalences> ListTagsEquivalences { get; set; } = new List<LmTagsEquivalences>();
         #endregion
 
         // Playnite serializes settings object to a JSON object and saves it as text file.

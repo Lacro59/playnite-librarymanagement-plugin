@@ -82,6 +82,7 @@
     <Compile Include="LibraryManagement.cs" />
     <Compile Include="LibraryManagementSettings.cs" />
     <Compile Include="Models\LmEquivalences.cs" />
+    <Compile Include="Models\LmTagsEquivalences.cs" />
     <Compile Include="Models\LmFeatureEquivalences.cs" />
     <Compile Include="Models\LmGenreEquivalences.cs" />
     <Compile Include="playnite-plugincommon\CommonPluginsControls\Controls\ComboBoxRemovable.xaml.cs">
