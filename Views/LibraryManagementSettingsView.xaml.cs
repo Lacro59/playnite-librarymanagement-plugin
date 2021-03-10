@@ -42,36 +42,13 @@ namespace LibraryManagement.Views
         #region Genres equivalences
         private void PART_AddEquivalence_Click(object sender, RoutedEventArgs e)
         {
-            var ViewExtension = new LibraryManagementItemEditor(_PlayniteApi.Database.Genres.ToList(), ItemType.Genre);
-
             if (!(bool)PART_Exclusion.IsChecked)
             {
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmGenreAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmGenreEquivalences)
-                {
-                    List<LmGenreEquivalences> temp = (List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource;
-                    temp.Add((LmGenreEquivalences)ViewExtension.NewItem);
-
-                    PART_ListGenreEquivalences.ItemsSource = null;
-                    PART_ListGenreEquivalences.ItemsSource = temp;
-                }
+                AddElement<LmGenreEquivalences>(PART_ListGenreEquivalences, ItemType.Genre, _PlayniteApi.Database.Genres.ToList(), false);
             }
             else
             {
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmGenreAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmGenreEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListGenreExclusion.ItemsSource;
-                    temp.Add(((LmGenreEquivalences)ViewExtension.NewItem).Name);
-
-                    PART_ListGenreExclusion.ItemsSource = null;
-                    PART_ListGenreExclusion.ItemsSource = temp;
-                }
+                AddElement<string>(PART_ListGenreExclusion, ItemType.Genre, _PlayniteApi.Database.Genres.ToList(), true);
             }
         }
 
@@ -84,48 +61,16 @@ namespace LibraryManagement.Views
                 List<string> ListAlreadyAdded = ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].OldNames;
                 List<Genre> genres = _PlayniteApi.Database.Genres.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    genres, ItemType.Genre,
-                    ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].Id,
-                    ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].Name,
-                    ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].IconUnicode,
-                    ListAlreadyAdded
-                );
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmGenreEdit"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmGenreEquivalences)
-                {
-                    List<LmGenreEquivalences> temp = (List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource;
-                    temp[index] = (LmGenreEquivalences)ViewExtension.NewItem;
-
-                    PART_ListGenreEquivalences.ItemsSource = null;
-                    PART_ListGenreEquivalences.ItemsSource = temp;
-                }
+                ManageElement<LmGenreEquivalences>(PART_ListGenreEquivalences, index, ListAlreadyAdded,
+                    ItemType.Genre, genres, ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index], false);
             }
             else
             {
                 List<Genre> genres = _PlayniteApi.Database.Genres.ToList();
+                LmFeatureEquivalences lmEquivalences = new LmFeatureEquivalences { Name = ((List<string>)PART_ListGenreExclusion.ItemsSource)[index] };
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    genres, ItemType.Feature,
-                    null,
-                    ((List<string>)PART_ListGenreExclusion.ItemsSource)[index],
-                    string.Empty,
-                    null
-                );
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmGenreEdit"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmGenreEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListGenreExclusion.ItemsSource;
-                    temp[index] = ((LmGenreEquivalences)ViewExtension.NewItem).Name;
-
-                    PART_ListGenreExclusion.ItemsSource = null;
-                    PART_ListGenreExclusion.ItemsSource = temp;
-                }
+                ManageElement<string>(PART_ListGenreExclusion, index, null,
+                    ItemType.Genre, genres, lmEquivalences, true);
             }
         }
 
@@ -135,20 +80,11 @@ namespace LibraryManagement.Views
 
             if (!(bool)PART_Exclusion.IsChecked)
             {
-                List<LmGenreEquivalences> temp = (List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListGenreEquivalences.ItemsSource = null;
-                PART_ListGenreEquivalences.ItemsSource = temp;
+                RemoveElement<LmGenreEquivalences>(PART_ListGenreEquivalences, index);
             }
             else
             {
-                List<string> temp = new List<string>();
-                temp = (List<string>)PART_ListGenreEquivalences.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListGenreEquivalences.ItemsSource = null;
-                PART_ListGenreEquivalences.ItemsSource = temp;
+                RemoveElement<string>(PART_ListGenreExclusion, index);
             }
         }
 
@@ -163,36 +99,13 @@ namespace LibraryManagement.Views
         #region Features equivalences
         private void PART_AddEquivalenceFeature_Click(object sender, RoutedEventArgs e)
         {
-            var ViewExtension = new LibraryManagementItemEditor(_PlayniteApi.Database.Features.ToList(), ItemType.Feature);
-
             if (!(bool)PART_ExclusionFeature.IsChecked)
-            {                
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmFeatureAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmFeatureEquivalences)
-                {
-                    List<LmFeatureEquivalences> temp = (List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource;
-                    temp.Add((LmFeatureEquivalences)ViewExtension.NewItem);
-
-                    PART_ListFeatureEquivalences.ItemsSource = null;
-                    PART_ListFeatureEquivalences.ItemsSource = temp;
-                }
+            {
+                AddElement<LmFeatureEquivalences>(PART_ListFeatureEquivalences, ItemType.Feature, _PlayniteApi.Database.Features.ToList(), false);
             }
             else
             {
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmFeatureAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmFeatureEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListFeatureExclusion.ItemsSource;
-                    temp.Add(((LmFeatureEquivalences)ViewExtension.NewItem).Name);
-
-                    PART_ListFeatureExclusion.ItemsSource = null;
-                    PART_ListFeatureExclusion.ItemsSource = temp;
-                }
+                AddElement<string>(PART_ListFeatureExclusion, ItemType.Feature, _PlayniteApi.Database.Features.ToList(), true);
             }
         }
 
@@ -205,48 +118,16 @@ namespace LibraryManagement.Views
                 List<string> ListAlreadyAdded = ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].OldNames;
                 List<GameFeature> features = _PlayniteApi.Database.Features.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    features, ItemType.Feature,
-                    ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].Id,
-                    ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].Name,
-                    ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].IconUnicode,
-                    ListAlreadyAdded
-                );
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmFeatureEdit"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmFeatureEquivalences)
-                {
-                    List<LmFeatureEquivalences> temp = (List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource;
-                    temp[index] = (LmFeatureEquivalences)ViewExtension.NewItem;
-
-                    PART_ListFeatureEquivalences.ItemsSource = null;
-                    PART_ListFeatureEquivalences.ItemsSource = temp;
-                }
+                ManageElement<LmFeatureEquivalences>(PART_ListFeatureEquivalences, index, ListAlreadyAdded,
+                    ItemType.Feature, features, ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index], false);
             }
             else
             {
                 List<GameFeature> features = _PlayniteApi.Database.Features.ToList();
+                LmFeatureEquivalences lmEquivalences = new LmFeatureEquivalences { Name = ((List<string>)PART_ListFeatureExclusion.ItemsSource)[index] };
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    features, ItemType.Feature,
-                    null,
-                    ((List<string>)PART_ListFeatureExclusion.ItemsSource)[index],
-                    string.Empty,
-                    null
-                );
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagEdit"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmFeatureEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListFeatureExclusion.ItemsSource;
-                    temp[index] = ((LmFeatureEquivalences)ViewExtension.NewItem).Name;
-
-                    PART_ListFeatureExclusion.ItemsSource = null;
-                    PART_ListFeatureExclusion.ItemsSource = temp;
-                }
+                ManageElement<string>(PART_ListFeatureExclusion, index, null,
+                    ItemType.Feature, features, lmEquivalences, true);
             }
         }
 
@@ -256,20 +137,11 @@ namespace LibraryManagement.Views
 
             if (!(bool)PART_ExclusionFeature.IsChecked)
             {
-                List<LmFeatureEquivalences> temp = (List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListFeatureEquivalences.ItemsSource = null;
-                PART_ListFeatureEquivalences.ItemsSource = temp;
+                RemoveElement<LmFeatureEquivalences>(PART_ListFeatureEquivalences, index);
             }
             else
             {
-                List<string> temp = new List<string>();
-                temp = (List<string>)PART_ListFeatureExclusion.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListFeatureExclusion.ItemsSource = null;
-                PART_ListFeatureExclusion.ItemsSource = temp;
+                RemoveElement<string>(PART_ListFeatureExclusion, index);
             }
         }
 
@@ -284,36 +156,13 @@ namespace LibraryManagement.Views
         #region Tags
         private void PART_AddEquivalenceTag_Click(object sender, RoutedEventArgs e)
         {
-            var ViewExtension = new LibraryManagementItemEditor(_PlayniteApi.Database.Tags.ToList(), ItemType.Tag);
-
             if (!(bool)PART_ExclusionTag.IsChecked)
             {
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmTagsEquivalences)
-                {
-                    List<LmTagsEquivalences> temp = (List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource;
-                    temp.Add((LmTagsEquivalences)ViewExtension.NewItem);
-
-                    PART_ListTagEquivalences.ItemsSource = null;
-                    PART_ListTagEquivalences.ItemsSource = temp;
-                }
+                AddElement<LmTagsEquivalences>(PART_ListTagEquivalences, ItemType.Tag, _PlayniteApi.Database.Tags.ToList(), false);
             }
             else
             {
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAdd"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmTagsEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListTagExclusion.ItemsSource;
-                    temp.Add(((LmTagsEquivalences)ViewExtension.NewItem).Name);
-
-                    PART_ListTagExclusion.ItemsSource = null;
-                    PART_ListTagExclusion.ItemsSource = temp;
-                }
+                AddElement<string>(PART_ListTagExclusion, ItemType.Tag, _PlayniteApi.Database.Tags.ToList(), true);
             }
         }
 
@@ -326,72 +175,31 @@ namespace LibraryManagement.Views
                 List<string> ListAlreadyAdded = ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index].OldNames;
                 List<Tag> tags = _PlayniteApi.Database.Tags.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    tags, ItemType.Tag,
-                    ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index].Id,
-                    ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index].Name,
-                    ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index].IconUnicode,
-                    ListAlreadyAdded
-                );
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagEdit"), ViewExtension);
-                windowExtension.ShowDialog();
+                ManageElement<LmTagsEquivalences>(PART_ListTagEquivalences, index, ListAlreadyAdded,
+                    ItemType.Tag, tags, ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index], false);
 
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmTagsEquivalences)
-                {
-                    List<LmTagsEquivalences> temp = (List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource;
-                    temp[index] = (LmTagsEquivalences)ViewExtension.NewItem;
-
-                    PART_ListTagEquivalences.ItemsSource = null;
-                    PART_ListTagEquivalences.ItemsSource = temp;
-                }
             }
             else
             {
                 List<Tag> tags = _PlayniteApi.Database.Tags.ToList();
+                LmTagsEquivalences lmEquivalences = new LmTagsEquivalences { Name = ((List<string>)PART_ListTagExclusion.ItemsSource)[index] };
 
-                var ViewExtension = new LibraryManagementItemEditor(
-                    tags, ItemType.Tag,
-                    null,
-                    ((List<string>)PART_ListTagExclusion.ItemsSource)[index],
-                    string.Empty,
-                    null
-                );
-                ViewExtension.OnlyAdd();
-                Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagEdit"), ViewExtension);
-                windowExtension.ShowDialog();
-
-                if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmTagsEquivalences)
-                {
-                    List<string> temp = (List<string>)PART_ListTagExclusion.ItemsSource;
-                    temp[index] = ((LmTagsEquivalences)ViewExtension.NewItem).Name;
-
-                    PART_ListTagExclusion.ItemsSource = null;
-                    PART_ListTagExclusion.ItemsSource = temp;
-                }
+                ManageElement<string>(PART_ListTagExclusion, index, null,
+                    ItemType.Tag, tags, lmEquivalences, true);
             }
         }
 
         private void PART_RemoveEquivalenceTag_Click(object sender, RoutedEventArgs e)
         {
             int index = int.Parse(((Button)sender).Tag.ToString());
-
+            
             if (!(bool)PART_ExclusionTag.IsChecked)
             {
-                List<LmTagsEquivalences> temp = new List<LmTagsEquivalences>();
-                temp = (List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListTagEquivalences.ItemsSource = null;
-                PART_ListTagEquivalences.ItemsSource = temp;
+                RemoveElement<LmTagsEquivalences>(PART_ListTagEquivalences, index);
             }
             else
             {
-                List<string> temp = new List<string>();
-                temp = (List<string>)PART_ListTagExclusion.ItemsSource;
-                temp.RemoveAt(index);
-
-                PART_ListTagExclusion.ItemsSource = null;
-                PART_ListTagExclusion.ItemsSource = temp;
+                RemoveElement<string>(PART_ListTagExclusion, index);
             }
         }
 
@@ -401,5 +209,117 @@ namespace LibraryManagement.Views
             libraryManagementTools.SetTags();
         }
         #endregion
+
+
+
+        private void AddElement<TItemList>(ListView CtrlListView, ItemType itemType, object ListData, bool IsExclusion)
+        {
+            LibraryManagementItemEditor ViewExtension = new LibraryManagementItemEditor(ListData, itemType);
+
+            if (IsExclusion)
+            {
+                ViewExtension.OnlyAdd();
+            }
+
+            string TitleWindows = string.Empty;
+            switch (itemType)
+            {
+                case ItemType.Genre:
+                    TitleWindows = resources.GetString("LOCLmGenreAdd");
+                    break;
+                case ItemType.Tag:
+                    TitleWindows = resources.GetString("LOCLmTagAdd");
+                    break;
+                case ItemType.Feature:
+                    TitleWindows = resources.GetString("LOCLmFeatureAdd");
+                    break;
+            }
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, TitleWindows, ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmEquivalences)
+            {
+                List<TItemList> temp = (List<TItemList>)CtrlListView.ItemsSource;
+                if (IsExclusion)
+                {
+                    temp.Add(((dynamic)ViewExtension.NewItem).Name);
+                }
+                else
+                {
+                    temp.Add((TItemList)ViewExtension.NewItem);
+                }
+
+                CtrlListView.ItemsSource = null;
+                CtrlListView.ItemsSource = temp;
+            }
+        }
+
+        private void ManageElement<TItemList>(ListView CtrlListView, int Index, List<string> ListAlreadyAdded,
+            ItemType itemType, object ListData, LmEquivalences Data, bool IsExclusion)
+        {
+            LibraryManagementItemEditor ViewExtension = null;
+
+            if (IsExclusion)
+            {
+                ViewExtension = new LibraryManagementItemEditor(
+                    ListData, itemType,
+                    null, Data.Name, string.Empty,
+                    null
+                );
+                ViewExtension.OnlyAdd();
+            }
+            else
+            {
+                ViewExtension = new LibraryManagementItemEditor(
+                    ListData, itemType,
+                    Data.Id, Data.Name, Data.IconUnicode,
+                    ListAlreadyAdded
+                );
+            }
+
+            string TitleWindows = string.Empty;
+            switch (itemType)
+            {
+                case ItemType.Genre:
+                    TitleWindows = resources.GetString("LOCLmGenreEdit");
+                    break;
+                case ItemType.Tag:
+                    TitleWindows = resources.GetString("LOCLmTagEdit");
+                    break;
+                case ItemType.Feature:
+                    TitleWindows = resources.GetString("LOCLmFeatureEdit");
+                    break;
+            }
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, TitleWindows, ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmEquivalences)
+            {
+                List<TItemList> temp = (List<TItemList>)CtrlListView.ItemsSource;
+                if (IsExclusion)
+                {
+                    temp[Index] = ((dynamic)ViewExtension.NewItem).Name;
+                }
+                else
+                {
+                    temp[Index] = (TItemList)ViewExtension.NewItem;
+                }
+
+                CtrlListView.ItemsSource = null;
+                CtrlListView.ItemsSource = temp;
+            }
+        }
+
+        private void RemoveElement<TItemList>(ListView CtrlListView, int Index)
+        {
+            List<TItemList> temp = new List<TItemList>();
+            temp = (List<TItemList>)CtrlListView.ItemsSource;
+            temp.RemoveAt(Index);
+
+            CtrlListView.ItemsSource = null;
+            CtrlListView.ItemsSource = temp;
+        }
     }
 }
