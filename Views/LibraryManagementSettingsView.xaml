@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:commonpluginsshared="clr-namespace:CommonPluginsShared"
              xmlns:converters="clr-namespace:CommonPluginsPlaynite.Converters"
-             mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="600">
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="600">
 
     <UserControl.Resources>
         <commonpluginsshared:IndexConverter x:Key="IndexConverter"/>
@@ -65,7 +65,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn x:Name="LvHeaderIconFeature" Header="{DynamicResource LOCGameIconTitle}" Width="auto">
+                                <GridViewColumn x:Name="LvHeaderIconFeature" Header="{DynamicResource LOCGameIconTitle}" Width="60">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding IconUnicode}" TextAlignment="Center" />
@@ -79,17 +79,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100" x:Name="LvHeaderActionFeature">
+                                <GridViewColumn Width="90" x:Name="LvHeaderActionFeature">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageEquivalence" Click="PART_ManageEquivalenceFeature_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveEquivalence" Click="PART_RemoveEquivalenceFeature_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -110,17 +110,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100">
+                                <GridViewColumn Width="90">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageExclusionFeature" Click="PART_ManageEquivalenceFeature_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveExclusionFeature" Click="PART_RemoveEquivalenceFeature_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -164,7 +164,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn x:Name="LvHeaderIcon" Header="{DynamicResource LOCGameIconTitle}" Width="auto">
+                                <GridViewColumn x:Name="LvHeaderIcon" Header="{DynamicResource LOCGameIconTitle}" Width="60">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding IconUnicode}" TextAlignment="Center" />
@@ -178,17 +178,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100" x:Name="LvHeaderAction">
+                                <GridViewColumn Width="90" x:Name="LvHeaderAction">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageEquivalence" Click="PART_ManageEquivalence_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveEquivalence" Click="PART_RemoveEquivalence_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -209,17 +209,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100">
+                                <GridViewColumn Width="90">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageExclusionFeature" Click="PART_ManageEquivalence_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveExclusionFeature" Click="PART_RemoveEquivalence_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -263,7 +263,7 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="{DynamicResource LOCGameIconTitle}" Width="auto">
+                                <GridViewColumn Header="{DynamicResource LOCGameIconTitle}" Width="60">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock Text="{Binding IconUnicode}" TextAlignment="Center" />
@@ -277,17 +277,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100">
+                                <GridViewColumn Width="90">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageEquivalenceTag" Click="PART_ManageEquivalenceTag_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveEquivalenceTag" Click="PART_RemoveEquivalenceTag_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -308,17 +308,17 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Width="100">
+                                <GridViewColumn Width="90">
                                     <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
                                                 <Button Name="PART_ManageExclusionTag" Click="PART_ManageEquivalenceTag_Click"
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                 <Button Name="PART_RemoveExclusionTag" Click="PART_RemoveEquivalenceTag_Click" 
-                                                        Content="" FontFamily="{DynamicResource CommonFont}" VerticalAlignment="Center"
-                                                        Margin="10,0,0,0"
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
                                                         Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                             </StackPanel>
                                         </DataTemplate>
@@ -335,6 +335,112 @@
                     </Border>
                 </Grid>
             </TabItem>
+
+            <TabItem Header="{DynamicResource LOCCommonIntegration}">
+                <StackPanel Margin="0,10,0,0">
+                    <Label Content="{DynamicResource LOCCommonControlsAvailable}" />
+                    <Separator Margin="0,0,0,10" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+
+                        <CheckBox Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="3"
+                                  Name="PART_FeaturesList"
+                                  IsChecked="{Binding Settings.EnableIntegrationFeatures}">
+                            <Label Content="{DynamicResource LOCLmIntegrationFeatures}" />
+                        </CheckBox>
+                    </Grid>
+                    
+                    <GroupBox IsEnabled="{Binding ElementName=PART_FeaturesList, Path=IsChecked}" 
+                              Header="{DynamicResource LOCLmIntegrationFeaturesOptions}" Margin="0,30,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <CheckBox Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding Settings.UsedDark}"
+                                      Click="CheckBoxDark_Click">
+                                <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
+                            </CheckBox>
+                            
+                            <ListView Grid.Row="2" ItemsSource="{Binding Settings.ItemFeatures}" 
+                                      Name="PART_ListItemFeatures" Height="250">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="140" 
+                                                        DisplayMemberBinding="{Binding Name}" />
+
+                                        <GridViewColumn Header="{DynamicResource LOCDefaultIconTitle}" Width="100">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding IconDefaultFullPath}" 
+                                                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                           Width="32" Height="32" />
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="{DynamicResource LOCLmNameAssociated}" Width="170">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="auto" />
+                                                            <ColumnDefinition Width="auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        
+                                                        <TextBlock Text="{Binding NameAssociated}" VerticalAlignment="Center" Grid.Column="0" />
+                                                        <Button Name="PART_EditName" Click="PART_EditName_Click" Margin="5,0,0,0" Grid.Column="1"
+                                                                Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                        <Button Name="PART_RemoveName" Click="PART_RemoveName_Click" Grid.Column="2"
+                                                                Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                                Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Header="{DynamicResource LOCLmCustomIcon}" Width="100">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding IconCustomBitmapImage}" 
+                                                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                           Width="32" Height="32" />
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+
+                                        <GridViewColumn Width="90">
+                                            <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                        <Button Name="PART_AddCustomIcon" Click="PART_AddCustomIcon_Click"
+                                                                ToolTip="{DynamicResource LOCSelectIconTitle}"
+                                                                Content="&#xefc2;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                        <Button Name="PART_RemoveCustomIcon" Click="PART_RemoveCustomIcon_Click" 
+                                                                Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                                Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>
+    

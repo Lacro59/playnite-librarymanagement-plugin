@@ -95,7 +95,7 @@ namespace LibraryManagement.Views
         }
 
 
-        public void OnlyAdd()
+        public void OnlySimple()
         {
             PART_IconLabel.Visibility = Visibility.Collapsed;
             PART_IconContener.Visibility = Visibility.Collapsed;
@@ -103,7 +103,7 @@ namespace LibraryManagement.Views
             List<ListItem> listItems = (List<ListItem>)PART_OldNames.ItemsSource;
             foreach (var item in listItems)
             {
-                item.OnlyAdd = true;
+                item.OnlySimple = true;
             }
         }
 
@@ -180,6 +180,6 @@ namespace LibraryManagement.Views
     {
         public string Name { get; set; }
         public bool IsChecked { get; set; }
-        public bool OnlyAdd { get; set; }
+        public bool OnlySimple { get; set; }
     }
 }

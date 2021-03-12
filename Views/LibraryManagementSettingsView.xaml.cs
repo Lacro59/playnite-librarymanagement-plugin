@@ -1,22 +1,17 @@
-﻿using CommonPluginsShared;
+﻿using CommonPluginsPlaynite.Common;
+using CommonPluginsShared;
 using LibraryManagement.Models;
 using LibraryManagement.Services;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LibraryManagement.Views
 {
@@ -211,14 +206,13 @@ namespace LibraryManagement.Views
         #endregion
 
 
-
         private void AddElement<TItemList>(ListView CtrlListView, ItemType itemType, object ListData, bool IsExclusion)
         {
             LibraryManagementItemEditor ViewExtension = new LibraryManagementItemEditor(ListData, itemType);
 
             if (IsExclusion)
             {
-                ViewExtension.OnlyAdd();
+                ViewExtension.OnlySimple();
             }
 
             string TitleWindows = string.Empty;
@@ -267,7 +261,7 @@ namespace LibraryManagement.Views
                     null, Data.Name, string.Empty,
                     null
                 );
-                ViewExtension.OnlyAdd();
+                ViewExtension.OnlySimple();
             }
             else
             {
@@ -321,5 +315,93 @@ namespace LibraryManagement.Views
             CtrlListView.ItemsSource = null;
             CtrlListView.ItemsSource = temp;
         }
+
+
+        #region Features icon
+        private void CheckBoxDark_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+
+            if ((bool)cb.IsChecked)
+            {
+                itemFeatures.ForEach(x => x.IsDark = true);
+            }
+            else
+            {
+                itemFeatures.ForEach(x => x.IsDark = false);
+            }
+
+            PART_ListItemFeatures.ItemsSource = null;
+            PART_ListItemFeatures.ItemsSource = itemFeatures;
+        }
+
+
+        private void PART_AddCustomIcon_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            var result = _PlayniteApi.Dialogs.SelectIconFile();
+            if (!result.IsNullOrEmpty())
+            {
+                string PathDest = Path.Combine(_plugin.GetPluginUserDataPath(), Path.GetFileName(result));
+                FileSystem.CopyFile(result, PathDest);
+
+                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+                itemFeatures[index].IconCustom = PathDest;
+
+                PART_ListItemFeatures.ItemsSource = null;
+                PART_ListItemFeatures.ItemsSource = itemFeatures;
+            }
+        }
+
+        private void PART_RemoveCustomIcon_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+            itemFeatures[index].IconCustom = string.Empty;
+
+            PART_ListItemFeatures.ItemsSource = null;
+            PART_ListItemFeatures.ItemsSource = itemFeatures;
+        }
+        
+        private void PART_EditName_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            List<GameFeature> features = _PlayniteApi.Database.Features.ToList();
+
+            LibraryManagementItemEditor ViewExtension = new LibraryManagementItemEditor(
+                  features, ItemType.Feature,
+                  null, (((List<ItemFeature>)PART_ListItemFeatures.ItemsSource)[index]).NameAssociated, string.Empty,
+                  null
+              );
+            ViewExtension.OnlySimple();
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmNameAssociated"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmEquivalences)
+            {
+                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+                itemFeatures[index].NameAssociated = ((LmEquivalences)ViewExtension.NewItem).Name;
+
+                PART_ListItemFeatures.ItemsSource = null;
+                PART_ListItemFeatures.ItemsSource = itemFeatures;
+            }
+        }
+
+        private void PART_RemoveName_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+            itemFeatures[index].NameAssociated = string.Empty;
+
+            PART_ListItemFeatures.ItemsSource = null;
+            PART_ListItemFeatures.ItemsSource = itemFeatures;
+        }
+        #endregion
     }
 }

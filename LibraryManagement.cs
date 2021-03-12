@@ -1,5 +1,7 @@
 ﻿using CommonPluginsShared;
 using CommonPluginsShared.PlayniteExtended;
+using LibraryManagement.Controls;
+using LibraryManagement.Models;
 using LibraryManagement.Services;
 using LibraryManagement.Views;
 using Playnite.SDK;
@@ -27,8 +29,28 @@ namespace LibraryManagement
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
-
+            // Custom elements integration
+            AddCustomElementSupport(new AddCustomElementSupportArgs
+            {
+                ElementList = new List<string> { "LmFeaturesIconList" },
+                SourceName = "LibraryManagement",
+                SettingsRoot = $"{nameof(PluginSettings)}.{nameof(PluginSettings.Settings)}"
+            });
         }
+
+
+        #region Theme integration
+        // List custom controls
+        public override Control GetGameViewControl(GetGameViewControlArgs args)
+        {
+            if (args.Name == "LmFeaturesIconList")
+            {
+                return new LmFeaturesIconList(PlayniteApi, PluginSettings);
+            }
+
+            return null;
+        }
+        #endregion
 
 
         #region Menus
@@ -132,6 +154,12 @@ namespace LibraryManagement
                 if (args.NewValue != null && args.NewValue.Count == 1)
                 {
                     Game GameSelected = args.NewValue[0];
+
+                    List<ItemFeature> itemFeatures = IcoFeatures.GetAvailableItemFeatures(PluginSettings, GameSelected);
+
+                    PluginSettings.Settings.HasData = itemFeatures.Count > 0;
+                    PluginSettings.Settings.DataCount = itemFeatures.Count;
+                    PluginSettings.Settings.DataList = itemFeatures;
                 }
             }
             catch (Exception ex)

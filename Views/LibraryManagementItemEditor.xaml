@@ -57,11 +57,11 @@
 
                         <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center" 
                                   Grid.Column="0" Width="320"
-                                  Visibility="{Binding OnlyAdd, Converter={StaticResource InvertedBooleanToVisibilityConverter }}">
+                                  Visibility="{Binding OnlySimple, Converter={StaticResource InvertedBooleanToVisibilityConverter }}">
                             <Label Content="{Binding Name}" VerticalAlignment="Center" />
                         </CheckBox>
                         <Label Content="{Binding Name}" VerticalAlignment="Center" Width="320"
-                               Visibility="{Binding OnlyAdd, Converter={StaticResource BooleanToVisibilityConverter }}" />
+                               Visibility="{Binding OnlySimple, Converter={StaticResource BooleanToVisibilityConverter }}" />
 
                         <Button Grid.Column="1" VerticalAlignment="Center"
                                 HorizontalAlignment="Right" Click="Button_Click" Tag="{Binding Name}"
