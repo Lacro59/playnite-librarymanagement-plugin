@@ -222,12 +222,53 @@ namespace LibraryManagement
 
             if (PluginSettings.Settings.AutoUpdateGenres)
             {
-                libraryManagementTools.SetGenres(true);
+                try
+                {
+                    libraryManagementTools.SetGenres(true);
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                    PlayniteApi.Notifications.Add(new NotificationMessage(
+                        $"LibraryManagement-AutoUpdateGenres",
+                        "LibraryManagement" + Environment.NewLine + ex.Message,
+                        NotificationType.Error
+                    ));
+                }
             }
 
             if (PluginSettings.Settings.AutoUpdateGenres)
             {
-                libraryManagementTools.SetFeatures(true);
+                try
+                { 
+                    libraryManagementTools.SetFeatures(true);
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                    PlayniteApi.Notifications.Add(new NotificationMessage(
+                        $"LibraryManagement-AutoUpdateGenres",
+                        "LibraryManagement" + Environment.NewLine + ex.Message,
+                        NotificationType.Error
+                    ));
+                }
+            }
+            
+            if (PluginSettings.Settings.AutoUpdateTags)
+            {
+                try
+                { 
+                    libraryManagementTools.SetTags(true);
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                    PlayniteApi.Notifications.Add(new NotificationMessage(
+                        $"LibraryManagement-AutoUpdateTags",
+                        "LibraryManagement" + Environment.NewLine + ex.Message,
+                        NotificationType.Error
+                    ));
+                }
             }
         }
 

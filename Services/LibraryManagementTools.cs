@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LibraryManagement.Services
 {
@@ -109,8 +110,11 @@ namespace LibraryManagement.Services
                                         game.GenreIds.Add((Guid)item.Id);
                                     }
                                 }
-                                
-                                _PlayniteApi.Database.Games.Update(game);                   
+
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
 
                             // Exclusion
@@ -125,7 +129,10 @@ namespace LibraryManagement.Services
                                     }
                                 }
 
-                                _PlayniteApi.Database.Games.Update(game);
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
                         }
 
@@ -195,7 +202,7 @@ namespace LibraryManagement.Services
                     var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
-                        PlayniteDb = (IItemCollection<Game>)_PlayniteApi.Database.Games
+                        PlayniteDb = _PlayniteApi.Database.Games
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
@@ -238,7 +245,10 @@ namespace LibraryManagement.Services
                                     }
                                 }
 
-                                _PlayniteApi.Database.Games.Update(game);
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
 
                             // Exclusion
@@ -253,7 +263,10 @@ namespace LibraryManagement.Services
                                     }
                                 }
 
-                                _PlayniteApi.Database.Games.Update(game);
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
                         }
 
@@ -323,7 +336,7 @@ namespace LibraryManagement.Services
                     var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
-                        PlayniteDb = (IItemCollection<Game>)_PlayniteApi.Database.Games
+                        PlayniteDb = _PlayniteApi.Database.Games
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
@@ -366,7 +379,10 @@ namespace LibraryManagement.Services
                                     }
                                 }
 
-                                _PlayniteApi.Database.Games.Update(game);
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
 
                             // Exclusion
@@ -381,7 +397,10 @@ namespace LibraryManagement.Services
                                     }
                                 }
 
-                                _PlayniteApi.Database.Games.Update(game);
+                                Application.Current.Dispatcher.BeginInvoke((Action)delegate
+                                {
+                                    _PlayniteApi.Database.Games.Update(game);
+                                });
                             }
                         }
 
