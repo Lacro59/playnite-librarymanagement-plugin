@@ -18,16 +18,16 @@ namespace LibraryManagement.Services
         private static readonly ILogger logger = LogManager.GetLogger();
         private static IResourceProvider resources = new ResourceProvider();
 
-        private LibraryManagement _plugin;
-        private LibraryManagementSettings _settings;
-        private IPlayniteAPI _PlayniteApi;
+        private LibraryManagement Plugin;
+        private LibraryManagementSettings PluginSettings;
+        private IPlayniteAPI PlayniteApi;
 
 
-        public LibraryManagementTools(LibraryManagement plugin, IPlayniteAPI PlayniteApi, LibraryManagementSettings settings)
+        public LibraryManagementTools(LibraryManagement Plugin, IPlayniteAPI PlayniteApi, LibraryManagementSettings PluginSettings)
         {
-            _plugin = plugin;
-            _settings = settings;
-            _PlayniteApi = PlayniteApi;
+            this.Plugin = Plugin;
+            this.PluginSettings = PluginSettings;
+            this.PlayniteApi = PlayniteApi;
         }
 
 
@@ -40,7 +40,7 @@ namespace LibraryManagement.Services
             );
             globalProgressOptions.IsIndeterminate = false;
 
-            _PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
             {
                 try
                 {
@@ -49,25 +49,25 @@ namespace LibraryManagement.Services
 
 
                     // Add new genres that not exist
-                    List<Genre> PlayniteGenres = _PlayniteApi.Database.Genres.ToList();
-                    foreach (LmGenreEquivalences lmGenreEquivalences in _settings.ListGenreEquivalences)
+                    List<Genre> PlayniteGenres = PlayniteApi.Database.Genres.ToList();
+                    foreach (LmGenreEquivalences lmGenreEquivalences in PluginSettings.ListGenreEquivalences)
                     {
                         if (lmGenreEquivalences.Id == null)
                         {
                             Genre genre = new Genre(lmGenreEquivalences.NewName);
                             lmGenreEquivalences.Id = genre.Id;
 
-                            _PlayniteApi.Database.Genres.Add(genre);
-                            _plugin.SavePluginSettings(_settings);
+                            PlayniteApi.Database.Genres.Add(genre);
+                            Plugin.SavePluginSettings(PluginSettings);
                         }
                     }
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
-                        PlayniteDb = _PlayniteApi.Database.Games
+                        PlayniteDb = PlayniteApi.Database.Games
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
@@ -92,7 +92,7 @@ namespace LibraryManagement.Services
                         if (GameGenres != null && GameGenres.Count > 0)
                         {
                             // Rename
-                            List<Genre> AllGenresOld = GameGenres.FindAll(x => _settings.ListGenreEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+                            List<Genre> AllGenresOld = GameGenres.FindAll(x => PluginSettings.ListGenreEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllGenresOld.Count > 0)
                             {
@@ -100,10 +100,10 @@ namespace LibraryManagement.Services
                                 foreach (Genre genre in AllGenresOld)
                                 {
                                     game.GenreIds.Remove(genre.Id);
-                                }  
+                                }
 
                                 // Set all
-                                foreach(LmGenreEquivalences item in _settings.ListGenreEquivalences.FindAll(x => x.OldNames.Any(y => AllGenresOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                                foreach (LmGenreEquivalences item in PluginSettings.ListGenreEquivalences.FindAll(x => x.OldNames.Any(y => AllGenresOld.Any(z => z.Name.ToLower() == y.ToLower()))))
                                 {
                                     if (item.Id != null)
                                     {
@@ -113,14 +113,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
 
                             // Exclusion
-                            if (_settings.ListGenreExclusion.Count > 0)
+                            if (PluginSettings.ListGenreExclusion.Count > 0)
                             {
-                                foreach (string GenreName in _settings.ListGenreExclusion)
+                                foreach (string GenreName in PluginSettings.ListGenreExclusion)
                                 {
                                     Genre genreDelete = game.Genres.Find(x => x.Name.ToLower() == GenreName.ToLower());
                                     if (genreDelete != null)
@@ -131,13 +131,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
                     }
+
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
@@ -175,7 +176,7 @@ namespace LibraryManagement.Services
             );
             globalProgressOptions.IsIndeterminate = false;
 
-            _PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
             {
                 try
                 {
@@ -184,25 +185,25 @@ namespace LibraryManagement.Services
 
 
                     // Add new genres that not exist
-                    List<GameFeature> PlayniteFeatures = _PlayniteApi.Database.Features.ToList();
-                    foreach (LmFeatureEquivalences lmFeatureEquivalences in _settings.ListFeatureEquivalences)
+                    List<GameFeature> PlayniteFeatures = PlayniteApi.Database.Features.ToList();
+                    foreach (LmFeatureEquivalences lmFeatureEquivalences in PluginSettings.ListFeatureEquivalences)
                     {
                         if (lmFeatureEquivalences.Id == null)
                         {
                             GameFeature feature = new GameFeature(lmFeatureEquivalences.NewName);
                             lmFeatureEquivalences.Id = feature.Id;
 
-                            _PlayniteApi.Database.Features.Add(feature);
-                            _plugin.SavePluginSettings(_settings);
+                            PlayniteApi.Database.Features.Add(feature);
+                            Plugin.SavePluginSettings(PluginSettings);
                         }
                     }
 
 
                     // Remplace genres
-                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
-                        PlayniteDb = _PlayniteApi.Database.Games
+                        PlayniteDb = PlayniteApi.Database.Games
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
@@ -211,7 +212,7 @@ namespace LibraryManagement.Services
 
                     string CancelText = string.Empty;
 
-                    foreach (Game game in PlayniteDb)
+                    foreach (Game game in PlayniteDb.ToList())
                     {
                         if (activateGlobalProgress.CancelToken.IsCancellationRequested)
                         {
@@ -226,7 +227,7 @@ namespace LibraryManagement.Services
                         if (gameFeatures != null && gameFeatures.Count > 0)
                         {
                             // Rename
-                            List<GameFeature> AllFeaturesOld = gameFeatures.FindAll(x => _settings.ListFeatureEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+                            List<GameFeature> AllFeaturesOld = gameFeatures.FindAll(x => PluginSettings.ListFeatureEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllFeaturesOld.Count > 0)
                             {
@@ -237,7 +238,7 @@ namespace LibraryManagement.Services
                                 }
 
                                 // Set all
-                                foreach (LmFeatureEquivalences item in _settings.ListFeatureEquivalences.FindAll(x => x.OldNames.Any(y => AllFeaturesOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                                foreach (LmFeatureEquivalences item in PluginSettings.ListFeatureEquivalences.FindAll(x => x.OldNames.Any(y => AllFeaturesOld.Any(z => z.Name.ToLower() == y.ToLower()))))
                                 {
                                     if (item.Id != null)
                                     {
@@ -247,14 +248,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
 
                             // Exclusion
-                            if (_settings.ListFeatureExclusion.Count > 0)
+                            if (PluginSettings.ListFeatureExclusion.Count > 0)
                             {
-                                foreach (string FeatureName in _settings.ListFeatureExclusion)
+                                foreach (string FeatureName in PluginSettings.ListFeatureExclusion)
                                 {
                                     GameFeature featureDelete = game.Features.Find(x => x.Name.ToLower() == FeatureName.ToLower());
                                     if (featureDelete != null)
@@ -265,13 +266,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
                     }
+
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
@@ -309,7 +311,7 @@ namespace LibraryManagement.Services
             );
             globalProgressOptions.IsIndeterminate = false;
 
-            _PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
             {
                 try
                 {
@@ -318,25 +320,25 @@ namespace LibraryManagement.Services
 
 
                     // Add new tags that not exist
-                    List<Tag> PlayniteTags = _PlayniteApi.Database.Tags.ToList();
-                    foreach (LmTagsEquivalences lmTagsEquivalences in _settings.ListTagsEquivalences)
+                    List<Tag> PlayniteTags = PlayniteApi.Database.Tags.ToList();
+                    foreach (LmTagsEquivalences lmTagsEquivalences in PluginSettings.ListTagsEquivalences)
                     {
                         if (lmTagsEquivalences.Id == null)
                         {
                             Tag tag = new Tag(lmTagsEquivalences.NewName);
                             lmTagsEquivalences.Id = tag.Id;
 
-                            _PlayniteApi.Database.Tags.Add(tag);
-                            _plugin.SavePluginSettings(_settings);
+                            PlayniteApi.Database.Tags.Add(tag);
+                            Plugin.SavePluginSettings(PluginSettings);
                         }
                     }
 
 
                     // Remplace tags
-                    var PlayniteDb = _PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
-                        PlayniteDb = _PlayniteApi.Database.Games
+                        PlayniteDb = PlayniteApi.Database.Games
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
@@ -360,7 +362,7 @@ namespace LibraryManagement.Services
                         if (Tags != null && Tags.Count > 0)
                         {
                             // Rename
-                            List<Tag> AllTagsOld = Tags.FindAll(x => _settings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+                            List<Tag> AllTagsOld = Tags.FindAll(x => PluginSettings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
 
                             if (AllTagsOld.Count > 0)
                             {
@@ -371,7 +373,7 @@ namespace LibraryManagement.Services
                                 }
 
                                 // Set all
-                                foreach (LmTagsEquivalences item in _settings.ListTagsEquivalences.FindAll(x => x.OldNames.Any(y => AllTagsOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                                foreach (LmTagsEquivalences item in PluginSettings.ListTagsEquivalences.FindAll(x => x.OldNames.Any(y => AllTagsOld.Any(z => z.Name.ToLower() == y.ToLower()))))
                                 {
                                     if (item.Id != null)
                                     {
@@ -381,14 +383,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
 
                             // Exclusion
-                            if (_settings.ListTagsExclusion.Count > 0)
+                            if (PluginSettings.ListTagsExclusion.Count > 0)
                             {
-                                foreach (string TagName in _settings.ListTagsExclusion)
+                                foreach (string TagName in PluginSettings.ListTagsExclusion)
                                 {
                                     Tag TagDelete = game.Tags.Find(x => x.Name.ToLower() == TagName.ToLower());
                                     if (TagDelete != null)
@@ -399,13 +401,14 @@ namespace LibraryManagement.Services
 
                                 Application.Current.Dispatcher.BeginInvoke((Action)delegate
                                 {
-                                    _PlayniteApi.Database.Games.Update(game);
+                                    PlayniteApi.Database.Games.Update(game);
                                 });
                             }
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
                     }
+
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;

@@ -15,6 +15,7 @@
                     <UniformGrid Columns="{Binding CountItems}" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+            
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

@@ -18,11 +18,9 @@ namespace LibraryManagement.Services
     public class LmImageTools
     {
         private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
 
-        private BitmapImage BitmapImageOriginal;
+        private readonly BitmapImage BitmapImageOriginal;
         private Image ImageOriginal;
-
         private Image ImageEdited;
 
 

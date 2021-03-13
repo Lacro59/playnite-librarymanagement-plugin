@@ -81,7 +81,6 @@ namespace LibraryManagement.Controls
 
             this.DataContext = new
             {
-                //Width = (PART_GridContener.ActualHeight + 4) * itemLists.Count,
                 CountItems = itemLists.Count
             };
         }
