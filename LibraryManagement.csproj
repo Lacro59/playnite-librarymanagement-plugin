@@ -40,6 +40,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="LazZiya.ImageResize, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\LazZiya.ImageResize.3.0.2\lib\netstandard2.0\LazZiya.ImageResize.dll</HintPath>
     </Reference>
@@ -65,6 +69,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,8 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\LmFeaturesIconList.xaml.cs">
-      <DependentUpon>LmFeaturesIconList.xaml</DependentUpon>
+    <Compile Include="Controls\PluginFeaturesIconList.xaml.cs">
+      <DependentUpon>PluginFeaturesIconList.xaml</DependentUpon>
     </Compile>
     <Compile Include="LibraryManagement.cs" />
     <Compile Include="LibraryManagementSettings.cs" />
@@ -133,7 +138,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Page Include="Controls\LmFeaturesIconList.xaml">
+    <Page Include="Controls\PluginFeaturesIconList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

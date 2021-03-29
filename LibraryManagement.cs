@@ -32,7 +32,7 @@ namespace LibraryManagement
             // Custom elements integration
             AddCustomElementSupport(new AddCustomElementSupportArgs
             {
-                ElementList = new List<string> { "LmFeaturesIconList" },
+                ElementList = new List<string> { "PluginFeaturesIconList" },
                 SourceName = "LibraryManagement",
                 SettingsRoot = $"{nameof(PluginSettings)}.{nameof(PluginSettings.Settings)}"
             });
@@ -43,9 +43,9 @@ namespace LibraryManagement
         // List custom controls
         public override Control GetGameViewControl(GetGameViewControlArgs args)
         {
-            if (args.Name == "LmFeaturesIconList")
+            if (args.Name == "PluginFeaturesIconList")
             {
-                return new LmFeaturesIconList(PlayniteApi, PluginSettings);
+                return new PluginFeaturesIconList(PlayniteApi, PluginSettings);
             }
 
             return null;

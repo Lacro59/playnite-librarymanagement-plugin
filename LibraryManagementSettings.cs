@@ -13,7 +13,6 @@ namespace LibraryManagement
     public class LibraryManagementSettings : ObservableObject
     {
         #region Settings variables
-        public bool EnableCheckVersion { get; set; } = true;
         public bool MenuInExtensions { get; set; } = true;
 
         public bool AutoUpdateGenres { get; set; } = false;
