@@ -347,7 +347,7 @@
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                        <Expander Grid.Row="0" VerticalAlignment="Center">
+                        <Expander Grid.Row="0">
                             <Expander.Style>
                                 <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource {x:Type Expander}}">
                                     <Setter Property="Background" Value="Transparent" />
@@ -362,7 +362,7 @@
 
                             <Expander.Content>
                                 <Border IsEnabled="{Binding ElementName=PART_FeaturesList, Path=IsChecked}"
-                                        Margin="5"  Padding="10"
+                                        Margin="5" Padding="10"
                                         BorderBrush="{DynamicResource PopupBorderBrush}"
                                         BorderThickness="{DynamicResource PopupBorderThickness}">
                                     <Grid>
@@ -372,17 +372,14 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
 
-                                        <CheckBox Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding Settings.UsedDark}"
-                                                  Click="CheckBoxDark_Click">
+                                        <CheckBox Grid.Row="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click">
                                             <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
                                         </CheckBox>
 
-                                        <ListView Grid.Row="2" ItemsSource="{Binding Settings.ItemFeatures}" 
-                                                  Name="PART_ListItemFeatures" Height="250">
+                                        <ListView Grid.Row="2" ItemsSource="{Binding Settings.ItemFeatures}" Name="PART_ListItemFeatures" Height="250">
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="150" 
-                                                                    DisplayMemberBinding="{Binding Name}" />
+                                                    <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="150" DisplayMemberBinding="{Binding Name}" />
 
                                                     <GridViewColumn Header="{DynamicResource LOCGameIconTitle}" Width="40">
                                                         <GridViewColumn.CellTemplate>
