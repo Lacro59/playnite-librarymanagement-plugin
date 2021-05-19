@@ -84,7 +84,7 @@ namespace LibraryManagement.Controls
             {
                 List<ItemFeature> itemFeatures = IcoFeatures.GetAvailableItemFeatures(PluginSettings, newContext);
                 ObservableCollection<ItemList> itemLists = new ObservableCollection<ItemList>();
-                itemLists = itemFeatures.Select(x => new ItemList { Name = x.NameAssociated, Icon = x.IconBitmapImage }).ToObservable();
+                itemLists = itemFeatures.Select(x => new ItemList { Name = x.NameAssociated, Icon = x.IconString }).ToObservable();
 
                 ControlDataContext.CountItems = itemLists.Count;
                 ControlDataContext.ItemsSource = itemLists;
@@ -111,6 +111,6 @@ namespace LibraryManagement.Controls
     public class ItemList
     {
         public string Name { get; set; }
-        public BitmapImage Icon { get; set; }
+        public string Icon { get; set; }
     }
 }
