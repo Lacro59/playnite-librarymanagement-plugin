@@ -33,14 +33,19 @@ namespace LibraryManagement
             AddCustomElementSupport(new AddCustomElementSupportArgs
             {
                 ElementList = new List<string> { "PluginFeaturesIconList" },
+                SourceName = "LibraryManagement"
+            });
+
+            // Settings integration
+            AddSettingsSupport(new AddSettingsSupportArgs
+            {
                 SourceName = "LibraryManagement",
                 SettingsRoot = $"{nameof(PluginSettings)}.{nameof(PluginSettings.Settings)}"
             });
         }
 
-
         #region Theme integration
-        // List custom controls
+            // List custom controls
         public override Control GetGameViewControl(GetGameViewControlArgs args)
         {
             if (args.Name == "PluginFeaturesIconList")
@@ -74,6 +79,11 @@ namespace LibraryManagement
             });
 
 #if DEBUG
+            gameMenuItems.Add(new GameMenuItem
+            {
+                MenuSection = resources.GetString("LOCLm"),
+                Description = "-"
+            });
             gameMenuItems.Add(new GameMenuItem
             {
                 MenuSection = resources.GetString("LOCLm"),
@@ -130,6 +140,11 @@ namespace LibraryManagement
             });
 
 #if DEBUG
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = "-"
+            });
             mainMenuItems.Add(new MainMenuItem
             {
                 MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
