@@ -187,168 +187,337 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dark\ico_achievements.png">
+    <None Include="Resources\steam\dark\ico_achievements.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_cards.png">
+    <None Include="Resources\steam\dark\ico_cards.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_cart.png">
+    <None Include="Resources\steam\dark\ico_cart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_cc.png">
+    <None Include="Resources\steam\dark\ico_cc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_cloud.png">
+    <None Include="Resources\steam\dark\ico_cloud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_collectibles.png">
+    <None Include="Resources\steam\dark\ico_collectibles.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_commentary.png">
+    <None Include="Resources\steam\dark\ico_commentary.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_controller.png">
+    <None Include="Resources\steam\dark\ico_controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_coop.png">
+    <None Include="Resources\steam\dark\ico_coop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_editor.png">
+    <None Include="Resources\steam\dark\ico_editor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_leaderboards.png">
+    <None Include="Resources\steam\dark\ico_leaderboards.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_multiPlayer.png">
+    <None Include="Resources\steam\dark\ico_multiPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_partial_controller.png">
+    <None Include="Resources\steam\dark\ico_nexus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_remote_play.png">
+    <None Include="Resources\steam\dark\ico_partial_controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_remote_play_together.png">
+    <None Include="Resources\steam\dark\ico_remote_play.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_sdk.png">
+    <None Include="Resources\steam\dark\ico_remote_play_together.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_singlePlayer.png">
+    <None Include="Resources\steam\dark\ico_sdk.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_stats.png">
+    <None Include="Resources\steam\dark\ico_singlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vac.png">
+    <None Include="Resources\steam\dark\ico_stats.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vr_area_roomscale.png">
+    <None Include="Resources\steam\dark\ico_vac.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vr_area_seated.png">
+    <None Include="Resources\steam\dark\ico_vr_area_roomscale.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vr_area_standing.png">
+    <None Include="Resources\steam\dark\ico_vr_area_seated.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vr_input_kbm.png">
+    <None Include="Resources\steam\dark\ico_vr_area_standing.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\dark\ico_vr_input_motion.png">
+    <None Include="Resources\steam\dark\ico_vr_input_kbm.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_achievements.png">
+    <None Include="Resources\steam\dark\ico_vr_input_motion.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_cards.png">
+    <None Include="Resources\steam\dark\ico_workshop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_cart.png">
+    <None Include="Resources\steam\white\ico_achievements.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_cc.png">
+    <None Include="Resources\steam\white\ico_cards.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_cloud.png">
+    <None Include="Resources\steam\white\ico_cart.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_collectibles.png">
+    <None Include="Resources\steam\white\ico_cc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_commentary.png">
+    <None Include="Resources\steam\white\ico_cloud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_controller.png">
+    <None Include="Resources\steam\white\ico_collectibles.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_coop.png">
+    <None Include="Resources\steam\white\ico_commentary.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_editor.png">
+    <None Include="Resources\steam\white\ico_controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_leaderboards.png">
+    <None Include="Resources\steam\white\ico_coop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_multiPlayer.png">
+    <None Include="Resources\steam\white\ico_editor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_partial_controller.png">
+    <None Include="Resources\steam\white\ico_leaderboards.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_remote_play.png">
+    <None Include="Resources\steam\white\ico_multiPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_remote_play_together.png">
+    <None Include="Resources\steam\white\ico_nexus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_sdk.png">
+    <None Include="Resources\steam\white\ico_partial_controller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_singlePlayer.png">
+    <None Include="Resources\steam\white\ico_remote_play.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_stats.png">
+    <None Include="Resources\steam\white\ico_remote_play_together.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vac.png">
+    <None Include="Resources\steam\white\ico_sdk.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vr_area_roomscale.png">
+    <None Include="Resources\steam\white\ico_singlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vr_area_seated.png">
+    <None Include="Resources\steam\white\ico_stats.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vr_area_standing.png">
+    <None Include="Resources\steam\white\ico_vac.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vr_input_kbm.png">
+    <None Include="Resources\steam\white\ico_vr_area_roomscale.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\white\ico_vr_input_motion.png">
+    <None Include="Resources\steam\white\ico_vr_area_seated.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\steam\white\ico_vr_area_standing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\steam\white\ico_vr_input_kbm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\steam\white\ico_vr_input_motion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\steam\white\ico_workshop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\steam\white\ico_overlay.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dark\ico_workshop.png">
+    <None Include="Resources\steam\dark\ico_overlay.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\white\ico_workshop.png">
+    <None Include="Resources\gog\white\ico_achievements.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_cards.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_cart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_cc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_cloud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_collectibles.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_commentary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_controller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_coop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_editor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_leaderboards.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_multiPlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_nexus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_overlay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_partial_controller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_remote_play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_remote_play_together.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_sdk.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_singlePlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_stats.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vr_area_roomscale.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vr_area_seated.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vr_area_standing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vr_input_kbm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_vr_input_motion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\white\ico_workshop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\white\ico_nexus.png">
+    <None Include="Resources\gog\dark\ico_achievements.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dark\ico_nexus.png">
+    <None Include="Resources\gog\dark\ico_cards.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_cart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_cc.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_cloud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_collectibles.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_commentary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_controller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_coop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_editor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_leaderboards.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_multiPlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_nexus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_overlay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_partial_controller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_remote_play.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_remote_play_together.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_sdk.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_singlePlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_stats.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vac.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vr_area_roomscale.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vr_area_seated.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vr_area_standing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vr_input_kbm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_vr_input_motion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\gog\dark\ico_workshop.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -41,6 +41,7 @@ namespace LibraryManagement
         }
 
         public bool UsedDark { get; set; } = false;
+        public bool UsedGog { get; set; } = false;
         public List<ItemFeature> ItemFeatures { get; set; } = new List<ItemFeature>();
         #endregion
 
@@ -147,6 +148,7 @@ namespace LibraryManagement
                     new ItemFeature { Name = "Nexus Mods", IconDefault = "ico_nexus.png" },
                     new ItemFeature { Name = "Online Co-Op", IconDefault = "ico_coop.png" },
                     new ItemFeature { Name = "Online Pvp", IconDefault = "ico_multiPlayer.png" },
+                    new ItemFeature { Name = "Overlay", IconDefault = "ico_overlay.png" },
                     new ItemFeature { Name = "Partial Controller Support", IconDefault = "ico_partial_controller.png" },
                     new ItemFeature { Name = "Pvp", IconDefault = "ico_multiPlayer.png" },
                     new ItemFeature { Name = "Remote Play On Phone", IconDefault = "ico_remote_play.png" },

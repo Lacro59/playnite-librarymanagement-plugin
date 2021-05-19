@@ -27,13 +27,27 @@ namespace LibraryManagement.Models
                 string PluginPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string FullPath = string.Empty;
 
-                if (IsDark)
+                if (IsGog)
                 {
-                    FullPath = Path.Combine(PluginPath, "Resources\\dark", IconDefault);
+                    if (IsDark)
+                    {
+                        FullPath = Path.Combine(PluginPath, "Resources\\gog\\dark", IconDefault);
+                    }
+                    else
+                    {
+                        FullPath = Path.Combine(PluginPath, "Resources\\gog\\white", IconDefault);
+                    }
                 }
                 else
                 {
-                    FullPath = Path.Combine(PluginPath, "Resources\\white", IconDefault);
+                    if (IsDark)
+                    {
+                        FullPath = Path.Combine(PluginPath, "Resources\\steam\\dark", IconDefault);
+                    }
+                    else
+                    {
+                        FullPath = Path.Combine(PluginPath, "Resources\\steam\\white", IconDefault);
+                    }
                 }
 
                 if (File.Exists(FullPath))
@@ -63,6 +77,7 @@ namespace LibraryManagement.Models
         }
 
         public bool IsDark { get; set; }
+        public bool IsGog { get; set; }
 
         [JsonIgnore]
         public string IconString

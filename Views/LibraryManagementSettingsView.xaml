@@ -372,9 +372,21 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
 
-                                        <CheckBox Grid.Row="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click">
-                                            <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
-                                        </CheckBox>
+                                        <Grid Grid.Row="0" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <CheckBox Grid.Column="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click">
+                                                <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
+                                            </CheckBox>
+                                            
+                                            <CheckBox Grid.Column="2" IsChecked="{Binding Settings.UsedGog}" Click="CheckBoxGog_Click">
+                                                <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedGog}" />
+                                            </CheckBox>
+                                        </Grid>
 
                                         <ListView Grid.Row="2" ItemsSource="{Binding Settings.ItemFeatures}" Name="PART_ListItemFeatures" Height="250">
                                             <ListView.View>

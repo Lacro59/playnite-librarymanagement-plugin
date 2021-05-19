@@ -337,6 +337,24 @@ namespace LibraryManagement.Views
             PART_ListItemFeatures.ItemsSource = itemFeatures;
         }
 
+        private void CheckBoxGog_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+
+            if ((bool)cb.IsChecked)
+            {
+                itemFeatures.ForEach(x => x.IsGog = true);
+            }
+            else
+            {
+                itemFeatures.ForEach(x => x.IsGog = false);
+            }
+
+            PART_ListItemFeatures.ItemsSource = null;
+            PART_ListItemFeatures.ItemsSource = itemFeatures;
+        }
+
 
         private void PART_AddCustomIcon_Click(object sender, RoutedEventArgs e)
         {
