@@ -26,9 +26,14 @@ namespace LibraryManagement
     {
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
 
+        private bool IsFinished = true;
+
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
+            // Custom events
+            PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
+
             // Custom elements integration
             AddCustomElementSupport(new AddCustomElementSupportArgs
             {
@@ -44,8 +49,28 @@ namespace LibraryManagement
             });
         }
 
+
+        #region Custom events
+        private void Games_ItemUpdated(object sender, ItemUpdatedEventArgs<Game> e)
+        {
+            if (IsFinished)
+            {
+                Task.Run(() =>
+                {
+                    IsFinished = false;
+                    AutoUpdate(false, e.UpdatedItems[0].NewData);
+                })
+                .ContinueWith(antecedent => 
+                {
+                    IsFinished = true;
+                });
+            }
+        }
+        #endregion
+
+
         #region Theme integration
-            // List custom controls
+        // List custom controls
         public override Control GetGameViewControl(GetGameViewControlArgs args)
         {
             if (args.Name == "PluginFeaturesIconList")
@@ -233,13 +258,19 @@ namespace LibraryManagement
         // Add code to be executed when library is updated.
         public override void OnLibraryUpdated()
         {
+            AutoUpdate(true);
+        }
+
+
+        private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null)
+        {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
 
             if (PluginSettings.Settings.AutoUpdateGenres)
             {
                 try
                 {
-                    libraryManagementTools.SetGenres(true);
+                    libraryManagementTools.SetGenres(OnlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -252,11 +283,11 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateGenres)
+            if (PluginSettings.Settings.AutoUpdateFeatures)
             {
                 try
-                { 
-                    libraryManagementTools.SetFeatures(true);
+                {
+                    libraryManagementTools.SetFeatures(OnlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -268,12 +299,12 @@ namespace LibraryManagement
                     ));
                 }
             }
-            
+
             if (PluginSettings.Settings.AutoUpdateTags)
             {
                 try
-                { 
-                    libraryManagementTools.SetTags(true);
+                {
+                    libraryManagementTools.SetTags(OnlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -286,6 +317,7 @@ namespace LibraryManagement
                 }
             }
         }
+
 
 
         #region Settings

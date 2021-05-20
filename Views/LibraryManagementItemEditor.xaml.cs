@@ -1,5 +1,6 @@
 ﻿using CommonPluginsShared;
 using LibraryManagement.Models;
+using Playnite.SDK.Data;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
@@ -47,44 +48,56 @@ namespace LibraryManagement.Views
             {
                 foreach (var item in (List<Genre>)data)
                 {
-                    listItems.Add(new ListItem
+                    if (!item.Name.IsNullOrEmpty())
                     {
-                        Name = item.Name,
-                        IsChecked = false
-                    });
+                        listItems.Add(new ListItem
+                        {
+                            Name = item.Name,
+                            IsChecked = false
+                        });
+                    }
                 }
             }
             if (data is List<GameFeature>)
             {
                 foreach (var item in (List<GameFeature>)data)
                 {
-                    listItems.Add(new ListItem
+                    if (!item.Name.IsNullOrEmpty())
                     {
-                        Name = item.Name,
-                        IsChecked = false
-                    });
+                        listItems.Add(new ListItem
+                        {
+                            Name = item.Name,
+                            IsChecked = false
+                        });
+                    }
                 }
             }
             if (data is List<Tag>)
             {
                 foreach (var item in (List<Tag>)data)
                 {
-                    listItems.Add(new ListItem
+                    if (!item.Name.IsNullOrEmpty())
                     {
-                        Name = item.Name,
-                        IsChecked = false
-                    });
+                        listItems.Add(new ListItem
+                        {
+                            Name = item.Name,
+                            IsChecked = false
+                        });
+                    }
                 }
             }
             if (ListAlreadyAdded != null)
             {
                 foreach (var item in ListAlreadyAdded)
                 {
-                    listItems.Add(new ListItem
+                    if (!item.IsNullOrEmpty())
                     {
-                        Name = item,
-                        IsChecked = true
-                    });
+                        listItems.Add(new ListItem
+                        {
+                            Name = item,
+                            IsChecked = true
+                        });
+                    }
                 }
             }
 

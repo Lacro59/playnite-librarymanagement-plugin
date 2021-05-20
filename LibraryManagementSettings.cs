@@ -206,7 +206,7 @@ namespace LibraryManagement
             {
                 if (lmFeatureEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
+                    LibraryManagementTools.RenameFeature(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
                 }
             }
 
