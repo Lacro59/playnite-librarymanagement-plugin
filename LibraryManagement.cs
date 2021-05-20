@@ -346,7 +346,6 @@ namespace LibraryManagement
         }
 
 
-
         #region Settings
         public override ISettings GetSettings(bool firstRunSettings)
         {

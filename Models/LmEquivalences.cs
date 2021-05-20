@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Playnite.SDK;
+﻿using Playnite.SDK;
+using Playnite.SDK.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace LibraryManagement.Models
         public List<string> OldNames { get; set; }
         public string IconUnicode { get; set; }
 
-        [JsonIgnore]
+        [DontSerialize]
         public string OldNamesLinear
         {
             get
@@ -24,7 +24,7 @@ namespace LibraryManagement.Models
             }
         }
 
-        [JsonIgnore]
+        [DontSerialize]
         public string NewName
         {
             get

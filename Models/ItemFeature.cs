@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Playnite.SDK;
+﻿using Playnite.SDK;
+using Playnite.SDK.Data;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
@@ -20,7 +20,7 @@ namespace LibraryManagement.Models
         public string Name { get; set; } = string.Empty;
         public string IconDefault { get; set; } = string.Empty;
 
-        [JsonIgnore]
+        [DontSerialize]
         public string IconDefaultFullPath {
             get
             {
@@ -62,7 +62,7 @@ namespace LibraryManagement.Models
 
         public string NameAssociated { get; set; } = string.Empty;
         public string IconCustom { get; set; } = string.Empty;
-        [JsonIgnore]
+        [DontSerialize]
         public BitmapImage IconCustomBitmapImage
         {
             get
@@ -79,7 +79,7 @@ namespace LibraryManagement.Models
         public bool IsDark { get; set; }
         public bool IsGog { get; set; }
 
-        [JsonIgnore]
+        [DontSerialize]
         public string IconString
         {
             get
@@ -94,7 +94,7 @@ namespace LibraryManagement.Models
                 return IconDefaultFullPath;
             }
         }
-        [JsonIgnore]
+        [DontSerialize]
         public BitmapImage IconBitmapImage
         {
             get
