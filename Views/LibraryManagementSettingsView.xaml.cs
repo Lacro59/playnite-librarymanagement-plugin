@@ -35,6 +35,63 @@ namespace LibraryManagement.Views
         }
 
 
+        #region Companies equivalences
+        private void PART_AddEquivalenceCompany_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(bool)PART_ExclusionCompany.IsChecked)
+            {
+                AddElement<LmCompaniesEquivalences>(PART_ListCompanyEquivalences, ItemType.Company, _PlayniteApi.Database.Companies.ToList(), false);
+            }
+            else
+            {
+                AddElement<string>(PART_ListCompanyExclusion, ItemType.Company, _PlayniteApi.Database.Companies.ToList(), true);
+            }
+        }
+
+        private void PART_ManageEquivalenceCompany_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            if (!(bool)PART_ExclusionCompany.IsChecked)
+            {
+                List<string> ListAlreadyAdded = ((List<LmCompaniesEquivalences>)PART_ListCompanyEquivalences.ItemsSource)[index].OldNames;
+                List<Company> companies = _PlayniteApi.Database.Companies.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
+
+                ManageElement<LmCompaniesEquivalences>(PART_ListCompanyEquivalences, index, ListAlreadyAdded,
+                    ItemType.Company, companies, ((List<LmCompaniesEquivalences>)PART_ListCompanyEquivalences.ItemsSource)[index], false);
+            }
+            else
+            {
+                List<Company> companies = _PlayniteApi.Database.Companies.ToList();
+                LmCompaniesEquivalences lmEquivalences = new LmCompaniesEquivalences { Name = ((List<string>)PART_ListCompanyExclusion.ItemsSource)[index] };
+
+                ManageElement<string>(PART_ListCompanyExclusion, index, null,
+                    ItemType.Company, companies, lmEquivalences, true);
+            }
+        }
+
+        private void PART_RemoveEquivalenceCompany_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            if (!(bool)PART_ExclusionCompany.IsChecked)
+            {
+                RemoveElement<LmCompaniesEquivalences>(PART_ListCompanyEquivalences, index);
+            }
+            else
+            {
+                RemoveElement<string>(PART_ListCompanyExclusion, index);
+            }
+        }
+
+        private void PART_SetCompanies_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetCompanies();
+        }
+        #endregion
+
+
         #region Genres equivalences
         private void PART_AddEquivalence_Click(object sender, RoutedEventArgs e)
         {
@@ -149,7 +206,7 @@ namespace LibraryManagement.Views
         #endregion
 
 
-        #region Tags
+        #region Tags equivalences
         private void PART_AddEquivalenceTag_Click(object sender, RoutedEventArgs e)
         {
             if (!(bool)PART_ExclusionTag.IsChecked)
@@ -228,6 +285,9 @@ namespace LibraryManagement.Views
                 case ItemType.Feature:
                     TitleWindows = resources.GetString("LOCLmFeatureAdd");
                     break;
+                case ItemType.Company:
+                    TitleWindows = resources.GetString("LOCLmCompanyAdd");
+                    break;
             }
 
             Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, TitleWindows, ViewExtension);
@@ -236,6 +296,11 @@ namespace LibraryManagement.Views
             if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmEquivalences)
             {
                 List<TItemList> temp = (List<TItemList>)CtrlListView.ItemsSource;
+                if (temp == null)
+                {
+                    temp = new List<TItemList>();
+                }
+
                 if (IsExclusion)
                 {
                     temp.Add(((dynamic)ViewExtension.NewItem).Name);
@@ -284,6 +349,9 @@ namespace LibraryManagement.Views
                     break;
                 case ItemType.Feature:
                     TitleWindows = resources.GetString("LOCLmFeatureEdit");
+                    break;
+                case ItemType.Company:
+                    TitleWindows = resources.GetString("LOCLmCompanyEdit");
                     break;
             }
 

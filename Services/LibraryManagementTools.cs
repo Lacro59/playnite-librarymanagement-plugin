@@ -65,10 +65,6 @@ namespace LibraryManagement.Services
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
-                    if (gameUpdated != null)
-                    {
-                        PlayniteDb = new[] { gameUpdated };
-                    }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
@@ -375,10 +371,6 @@ namespace LibraryManagement.Services
                             .Where(x => x.Added != null)
                             .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
                     }
-                    if (gameUpdated != null)
-                    {
-                        PlayniteDb = new[] { gameUpdated };
-                    }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
@@ -493,6 +485,194 @@ namespace LibraryManagement.Services
             else
             {
                 logger.Warn($"Tag doesn't exist - {Id}");
+            }
+        }
+        #endregion
+
+
+        #region Companies
+        public void SetCompanies(bool OnlyToDay = false, Game gameUpdated = null)
+        {
+            if (gameUpdated != null)
+            {
+                CheckCompanies();
+                UpdateCompanies(gameUpdated);
+                UpdateCompanies(gameUpdated, true);
+                return;
+            }
+
+
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
+                $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
+                true
+            );
+            globalProgressOptions.IsIndeterminate = false;
+
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            {
+                try
+                {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
+
+                    CheckCompanies();
+
+                    // Remplace Companies
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = PlayniteApi.Database.Games
+                            .Where(x => x.Added != null)
+                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                    }
+
+                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+
+                    string CancelText = string.Empty;
+
+                    foreach (Game game in PlayniteDb)
+                    {
+                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        {
+                            CancelText = " canceled";
+                            break;
+                        }
+
+                        Thread.Sleep(10);
+                        UpdateCompanies(game);
+                        UpdateCompanies(game, true);
+
+                        activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    logger.Info($"Task SetCompanies(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                }
+            }, globalProgressOptions);
+        }
+
+        private void CheckCompanies()
+        {
+            // Add new Companies that not exist
+            List<Company> PlayniteCompanies = PlayniteApi.Database.Companies.ToList();
+            foreach (LmCompaniesEquivalences lmCompaniesEquivalences in PluginSettings.ListCompaniesEquivalences)
+            {
+                if (lmCompaniesEquivalences.Id == null)
+                {
+                    Company company = new Company(lmCompaniesEquivalences.NewName);
+                    lmCompaniesEquivalences.Id = company.Id;
+
+                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    {
+                        PlayniteApi.Database.Companies.Add(company);
+                        Plugin.SavePluginSettings(PluginSettings);
+                    }).Wait();
+                }
+            }
+        }
+
+        private void UpdateCompanies(Game game, bool IsPublishers = false)
+        {
+            List<Company> Companies = new List<Company>();
+            if (IsPublishers)
+            {
+                Companies = game.Publishers;
+            }
+            else
+            {
+                Companies = game.Developers;
+            }
+
+            if (Companies != null && Companies.Count > 0)
+            {
+                // Rename
+                List<Company> AllCompaniesOld = Companies.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+
+                if (AllCompaniesOld.Count > 0)
+                {
+                    // Remove all
+                    foreach (Company company in AllCompaniesOld)
+                    {
+                        if (IsPublishers)
+                        {
+                            game.PublisherIds.Remove(company.Id);
+                        }
+                        else
+                        {
+                            game.DeveloperIds.Remove(company.Id);
+                        }
+                    }
+
+                    // Set all
+                    foreach (LmCompaniesEquivalences item in PluginSettings.ListCompaniesEquivalences.FindAll(x => x.OldNames.Any(y => AllCompaniesOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                    {
+                        if (item.Id != null)
+                        {
+                            if (IsPublishers)
+                            {
+                                game.PublisherIds.Add((Guid)item.Id);
+                            }
+                            else
+                            {
+                                game.DeveloperIds.Add((Guid)item.Id);
+                            }
+                        }
+                    }
+
+                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    {
+                        PlayniteApi.Database.Games.Update(game);
+                    }).Wait();
+                }
+
+                // Exclusion
+                if (PluginSettings.ListCompaniesExclusion.Count > 0)
+                {
+                    foreach (string CompanyName in PluginSettings.ListCompaniesExclusion)
+                    {
+                        if (IsPublishers)
+                        {
+                            Company CompanyDelete = game.Publishers.Find(x => x.Name.ToLower() == CompanyName.ToLower());
+                            if (CompanyDelete != null)
+                            {
+                                game.PublisherIds.Remove(CompanyDelete.Id);
+                            }
+                        }
+                        else
+                        {
+                            Company CompanyDelete = game.Developers.Find(x => x.Name.ToLower() == CompanyName.ToLower());
+                            if (CompanyDelete != null)
+                            {
+                                game.DeveloperIds.Remove(CompanyDelete.Id);
+                            }
+                        }
+                    }
+
+                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    {
+                        PlayniteApi.Database.Games.Update(game);
+                    }).Wait();
+                }
+            }
+        }
+
+        public static void RenameCompanies(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        {
+            Company company = PlayniteApi.Database.Companies.Get(Id);
+            if (company != null)
+            {
+                company.Name = NewName;
+                PlayniteApi.Database.Companies.Update(company);
+            }
+            else
+            {
+                logger.Warn($"Company doesn't exist - {Id}");
             }
         }
         #endregion

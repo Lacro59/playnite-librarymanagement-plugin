@@ -15,6 +15,7 @@ namespace LibraryManagement
         #region Settings variables
         public bool MenuInExtensions { get; set; } = true;
 
+        public bool AutoUpdateCompanies { get; set; } = false;
         public bool AutoUpdateGenres { get; set; } = false;
         public bool AutoUpdateFeatures { get; set; } = false;
         public bool AutoUpdateTags { get; set; } = false;
@@ -23,10 +24,12 @@ namespace LibraryManagement
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
         public List<LmFeatureEquivalences> ListFeatureEquivalences { get; set; } = new List<LmFeatureEquivalences>();
         public List<LmTagsEquivalences> ListTagsEquivalences { get; set; } = new List<LmTagsEquivalences>();
+        public List<LmCompaniesEquivalences> ListCompaniesEquivalences { get; set; } = new List<LmCompaniesEquivalences>();
 
         public List<string> ListGenreExclusion { get; set; } = new List<string>();
         public List<string> ListFeatureExclusion { get; set; } = new List<string>();
         public List<string> ListTagsExclusion { get; set; } = new List<string>();
+        public List<string> ListCompaniesExclusion { get; set; } = new List<string>();
 
 
         private bool _EnableIntegrationFeatures { get; set; } = false;
@@ -194,21 +197,21 @@ namespace LibraryManagement
             Plugin.SavePluginSettings(Settings);
 
 
-            // Rename
-            foreach (LmGenreEquivalences lmGenreEquivalences in Settings.ListGenreEquivalences)
-            {
-                if (lmGenreEquivalences.Id != null)
-                {
-                    LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
-                }
-            }
-            foreach (LmFeatureEquivalences lmFeatureEquivalences in Settings.ListFeatureEquivalences)
-            {
-                if (lmFeatureEquivalences.Id != null)
-                {
-                    LibraryManagementTools.RenameFeature(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
-                }
-            }
+            //// Rename
+            //foreach (LmGenreEquivalences lmGenreEquivalences in Settings.ListGenreEquivalences)
+            //{
+            //    if (lmGenreEquivalences.Id != null)
+            //    {
+            //        LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
+            //    }
+            //}
+            //foreach (LmFeatureEquivalences lmFeatureEquivalences in Settings.ListFeatureEquivalences)
+            //{
+            //    if (lmFeatureEquivalences.Id != null)
+            //    {
+            //        LibraryManagementTools.RenameFeature(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
+            //    }
+            //}
 
             this.OnPropertyChanged();
         }

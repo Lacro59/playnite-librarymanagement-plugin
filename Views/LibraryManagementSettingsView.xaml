@@ -24,22 +24,127 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
-                    <CheckBox IsChecked="{Binding Settings.AutoUpdateFeatures}" Grid.Row="0" VerticalAlignment="Center">
+                    <CheckBox IsChecked="{Binding Settings.AutoUpdateCompanies}" Grid.Row="0" VerticalAlignment="Center">
+                        <Label Content="{DynamicResource LOCLmAutoUpdateCompanies}" />
+                    </CheckBox>
+                    
+                    <CheckBox IsChecked="{Binding Settings.AutoUpdateFeatures}" Grid.Row="2" VerticalAlignment="Center">
                         <Label Content="{DynamicResource LOCLmAutoUpdateFeatures}" />
                     </CheckBox>
 
-                    <CheckBox IsChecked="{Binding Settings.AutoUpdateGenres}" Grid.Row="2" VerticalAlignment="Center">
+                    <CheckBox IsChecked="{Binding Settings.AutoUpdateGenres}" Grid.Row="4" VerticalAlignment="Center">
                         <Label Content="{DynamicResource LOCLmAutoUpdateGenres}" />
                     </CheckBox>
 
-                    <CheckBox IsChecked="{Binding Settings.AutoUpdateTags}" Grid.Row="4" VerticalAlignment="Center">
+                    <CheckBox IsChecked="{Binding Settings.AutoUpdateTags}" Grid.Row="6" VerticalAlignment="Center">
                         <Label Content="{DynamicResource LOCLmAutoUpdateTags}" />
                     </CheckBox>
                 </Grid>
             </TabItem>
-            
+
+            <TabItem Header="{DynamicResource LOCCompanyLabel}">
+                <Grid Margin="0,10,0,0" Name="PART_GridContenerCompanies">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddEquivalenceCompany" Click="PART_AddEquivalenceCompany_Click"
+                            Content="{DynamicResource LOCAddNewItem}" HorizontalAlignment="Left" />
+                    <ToggleButton Grid.Row="0" VerticalAlignment="Center" Name="PART_ExclusionCompany" IsChecked="False"
+                                  Content="{DynamicResource LOCLmExclusionList}" HorizontalAlignment="Right" />
+
+                    <ListView Grid.Row="2" Name="PART_ListCompanyEquivalences" 
+                              Visibility="{Binding ElementName=PART_ExclusionCompany, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListCompaniesEquivalences}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn x:Name="LvHeaderNameCompany" Header="{DynamicResource LOCNameLabel}" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}" MinWidth="200" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="LvHeaderIconCompany" Header="{DynamicResource LOCGameIconTitle}" Width="60">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding IconUnicode}" TextAlignment="Center" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn x:Name="LvHeaderOldNameCompany" Header="{DynamicResource LOCLmItemsReplaced}" Width="250">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding OldNamesLinear}" TextWrapping="Wrap" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="90" x:Name="LvHeaderActionCompany">
+                                    <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                <Button Name="PART_ManageEquivalence" Click="PART_ManageEquivalenceCompany_Click"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                <Button Name="PART_RemoveEquivalence" Click="PART_RemoveEquivalenceCompany_Click" 
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <ListView Grid.Row="2" Name="PART_ListCompanyExclusion" 
+                              Visibility="{Binding ElementName=PART_ExclusionCompany, Path=IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"
+                              ItemsSource="{Binding Settings.ListCompaniesExclusion}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="auto">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding}" MinWidth="200" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="90">
+                                    <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                <Button Name="PART_ManageExclusionCompany" Click="PART_ManageEquivalenceCompany_Click"
+                                                        Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                <Button Name="PART_RemoveExclusionCompany" Click="PART_RemoveEquivalenceCompany_Click" 
+                                                        Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                        Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                        Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="{StaticResource NormalBorderBrush}"
+                            Grid.Row="3" Margin="0,10,0,0" Padding="0,5,0,0">
+                        <Button Name="PART_SetCompanies" Content="{DynamicResource LOCLmSetCompanies}"
+                                Style="{StaticResource BottomButton}" HorizontalAlignment="Right" Click="PART_SetCompanies_Click" />
+                    </Border>
+                </Grid>
+            </TabItem>
+  
             <TabItem Header="{DynamicResource LOCFeaturesLabel}">
                 <Grid Margin="0,10,0,0" Name="PART_GridContenerFeatures">
                     <Grid.RowDefinitions>

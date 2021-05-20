@@ -136,6 +136,16 @@ namespace LibraryManagement
             mainMenuItems.Add(new MainMenuItem
             {
                 MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetCompanies"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    libraryManagementTools.SetCompanies();
+                }
+            });
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
                 Description = resources.GetString("LOCLmSetFeatures"),
                 Action = (mainMenuItem) =>
                 {
@@ -265,6 +275,23 @@ namespace LibraryManagement
         private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null)
         {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+
+            if (PluginSettings.Settings.AutoUpdateCompanies)
+            {
+                try
+                {
+                    libraryManagementTools.SetCompanies(OnlyToDay, gameUpdated);
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                    PlayniteApi.Notifications.Add(new NotificationMessage(
+                        $"LibraryManagement-AutoUpdateCompanies",
+                        "LibraryManagement" + Environment.NewLine + ex.Message,
+                        NotificationType.Error
+                    ));
+                }
+            }
 
             if (PluginSettings.Settings.AutoUpdateGenres)
             {

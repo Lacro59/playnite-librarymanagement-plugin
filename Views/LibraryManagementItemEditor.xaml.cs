@@ -22,7 +22,7 @@ namespace LibraryManagement.Views
 {
     public enum ItemType
     {
-        Genre, Tag, Feature
+        Genre, Tag, Feature, Company
     }
 
     /// <summary>
@@ -86,6 +86,21 @@ namespace LibraryManagement.Views
                     }
                 }
             }
+            if (data is List<Company>)
+            {
+                foreach (var item in (List<Company>)data)
+                {
+                    if (!item.Name.IsNullOrEmpty())
+                    {
+                        listItems.Add(new ListItem
+                        {
+                            Name = item.Name,
+                            IsChecked = false
+                        });
+                    }
+                }
+            }
+
             if (ListAlreadyAdded != null)
             {
                 foreach (var item in ListAlreadyAdded)
@@ -160,6 +175,17 @@ namespace LibraryManagement.Views
             if (_itemType == ItemType.Tag)
             {
                 NewItem = new LmTagsEquivalences
+                {
+                    Id = _Id,
+                    Name = PART_NewName.Text,
+                    IconUnicode = IconUnicode,
+                    OldNames = OldNames
+                };
+            }
+
+            if (_itemType == ItemType.Company)
+            {
+                NewItem = new LmCompaniesEquivalences
                 {
                     Id = _Id,
                     Name = PART_NewName.Text,
