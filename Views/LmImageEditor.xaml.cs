@@ -246,24 +246,51 @@ namespace LibraryManagement.Views
 
         private void PART_BtSave_Click(object sender, RoutedEventArgs e)
         {
-            string FilePath = string.Empty;
-
-            if (LmImageToolsIcon != null && LmImageToolsIcon.GetEditedImage() != null && !_GameMenu.Icon.IsNullOrEmpty())
+            try
             {
-                FilePath = _PlayniteApi.Database.GetFullFilePath(_GameMenu.Icon);
-                LmImageToolsIcon.GetEditedImage().Save(FilePath);
+                string FilePath = string.Empty;
+                string PluginCachePath = System.IO.Path.Combine(PlaynitePaths.DataCachePath, "LibraryManagement");
+
+                if (!Directory.Exists(PluginCachePath))
+                {
+                    Directory.CreateDirectory(PluginCachePath);
+                }
+
+                _PlayniteApi.Database.Games.BeginBufferUpdate();
+
+                if (LmImageToolsIcon != null && LmImageToolsIcon.GetEditedImage() != null && !_GameMenu.Icon.IsNullOrEmpty())
+                {
+                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.Icon));
+                    LmImageToolsIcon.GetEditedImage().Save(FilePath);
+                    _GameMenu.Icon = FilePath.GetClone();
+                }
+
+                if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !_GameMenu.CoverImage.IsNullOrEmpty())
+                {
+                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.CoverImage));
+                    LmImageToolsCover.GetEditedImage().Save(FilePath);
+                    _GameMenu.CoverImage = FilePath.GetClone();
+                }
+
+                if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !_GameMenu.BackgroundImage.IsNullOrEmpty())
+                {
+                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.BackgroundImage));
+                    LmImageToolsBackground.GetEditedImage().Save(FilePath);
+                    _GameMenu.BackgroundImage = FilePath.GetClone();
+                }
+
+                _PlayniteApi.Database.Games.Update(_GameMenu);
+                _PlayniteApi.Database.Games.EndBufferUpdate();
             }
-
-            if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !_GameMenu.CoverImage.IsNullOrEmpty())
+            catch (Exception ex)
             {
-                FilePath = _PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage);
-                LmImageToolsCover.GetEditedImage().Save(FilePath);
-            }
+                Common.LogError(ex, false);
 
-            if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !_GameMenu.BackgroundImage.IsNullOrEmpty())
-            {
-                FilePath = _PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage);
-                LmImageToolsBackground.GetEditedImage().Save(FilePath);
+                _PlayniteApi.Notifications.Add(new NotificationMessage(
+                    $"LibraryManagement-Save-Errors",
+                    $"LibraryManagement\r\n" + ex.Message,
+                    NotificationType.Error
+                ));
             }
 
             ((Window)this.Parent).Close();
