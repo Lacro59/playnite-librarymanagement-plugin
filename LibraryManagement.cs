@@ -1,4 +1,5 @@
-﻿using CommonPluginsShared;
+﻿using CommonPluginsPlaynite;
+using CommonPluginsShared;
 using CommonPluginsShared.PlayniteExtended;
 using LibraryManagement.Controls;
 using LibraryManagement.Models;
