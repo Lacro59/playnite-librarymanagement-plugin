@@ -64,6 +64,7 @@ namespace LibraryManagement.Views
             new FileSize { Name = resources.GetString("LOCGameIconTitle"), Width = 1, Height = 1 },
 
             new FileSize { Name = "Heroes - Steam", Width = 96, Height = 31 },
+            new FileSize { Name = "Heroes - GOG", Width = 32, Height = 13 },
 
             new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectDVD"), Width = 27, Height = 38 },
             new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectEpicGamesStore"), Width = 3, Height = 4 },
