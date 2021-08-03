@@ -51,8 +51,8 @@ namespace LibraryManagement
         // Playnite serializes settings object to a JSON object and saves it as text file.
         // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
         #region Variables exposed
-        [DontSerialize]
         private bool _HasData { get; set; } = false;
+        [DontSerialize]
         public bool HasData
         {
             get => _HasData;
@@ -63,8 +63,8 @@ namespace LibraryManagement
             }
         }
 
-        [DontSerialize]
         private int _DataCount { get; set; } = 0;
+        [DontSerialize]
         public int DataCount
         {
             get => _DataCount;
@@ -76,8 +76,8 @@ namespace LibraryManagement
         }
 
 
-        [DontSerialize]
         private List<ItemFeature> _DataList { get; set; } = new List<ItemFeature>();
+        [DontSerialize]
         public List<ItemFeature> DataList
         {
             get => _DataList;
