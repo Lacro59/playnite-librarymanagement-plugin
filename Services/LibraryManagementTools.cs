@@ -145,7 +145,7 @@ namespace LibraryManagement.Services
                     Application.Current.Dispatcher?.BeginInvoke((Action)delegate
                     {
                         PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); ;
+                    }).Wait(); 
                 }
 
                 // Exclusion
