@@ -263,21 +263,21 @@ namespace LibraryManagement.Views
                 {
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.Icon));
                     LmImageToolsIcon.GetEditedImage().Save(FilePath);
-                    _GameMenu.Icon = FilePath.GetClone();
+                    _GameMenu.Icon = string.Copy(FilePath);
                 }
 
                 if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !_GameMenu.CoverImage.IsNullOrEmpty())
                 {
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.CoverImage));
                     LmImageToolsCover.GetEditedImage().Save(FilePath);
-                    _GameMenu.CoverImage = FilePath.GetClone();
+                    _GameMenu.CoverImage = string.Copy(FilePath);
                 }
 
                 if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !_GameMenu.BackgroundImage.IsNullOrEmpty())
                 {
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.BackgroundImage));
                     LmImageToolsBackground.GetEditedImage().Save(FilePath);
-                    _GameMenu.BackgroundImage = FilePath.GetClone();
+                    _GameMenu.BackgroundImage = string.Copy(FilePath);
                 }
 
                 _PlayniteApi.Database.Games.Update(_GameMenu);
