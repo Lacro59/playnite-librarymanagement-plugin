@@ -1,12 +1,6 @@
-[submodule "playnite-plugincommon"]
-	path = playnite-plugincommon
+[submodule "source/playnite-plugincommon"]
+	path = source/playnite-plugincommon
 	url = https://github.com/Lacro59/playnite-plugincommon.git
-[submodule "UI-Cropping-Image"]
-	path = UI-Cropping-Image
-	url = https://github.com/Lacro59/UI-Cropping-Image.git
-[submodule "source\\playnite-plugincommon"]
-	path = source\\playnite-plugincommon
-	url = https://github.com/Lacro59/playnite-plugincommon.git
-[submodule "source\\UI-Cropping-Image"]
-	path = source\\UI-Cropping-Image
+[submodule "source/UI-Cropping-Image"]
+	path = source/UI-Cropping-Image
 	url = https://github.com/Lacro59/UI-Cropping-Image.git
