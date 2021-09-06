@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainView -->
+
+    <sys:String x:Key="LOCLm">Bibliotheksverwaltung</sys:String>
+
+    <sys:String x:Key="LOCLmActionInProgress">Aktion wird ausgeführt...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Genres festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Funktionen festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Tags setzen</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+
+    <!-- LibraryManagementSettingsView -->
+
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Funktionen mit dem Update der Spielbibliothek anwenden</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
+    
+    <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
+
+    <sys:String x:Key="LOCLmFeatureAdd">Neue Eigenschaft hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Eigenschaft bearbeiten</sys:String>
+    
+    <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
+
+    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+
+    <sys:String x:Key="LOCLmItemsReplaced">Ersetzte Elemente</sys:String>
+
+    <sys:String x:Key="LOCLmExclusionList">Ausschlussliste</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Objekt-Icons anzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Icon Optionen aanzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+
+    <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Symbol</sys:String>
+    
+    <!-- LmImageEditor -->
+
+    <sys:String x:Key="LOCLmMediaEditor">Medieneditor</sys:String>
+
+    <sys:String x:Key="LOCLmSelectMedia">Medien auswählen</sys:String>
+    <sys:String x:Key="LOCLmCrop">Zuschneiden</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
+    <sys:String x:Key="LOCLmEdited">Bearbeitet</sys:String>
+    <sys:String x:Key="LOCLmImageName">Bildname</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Bildergröße</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">gewünschte Größe</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Größenänderung mit Zuschneiden auf die gewünschte Größe</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Bildoptionen anwenden</sys:String>
+
+</ResourceDictionary>
