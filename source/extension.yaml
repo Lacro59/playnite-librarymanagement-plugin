@@ -1,0 +1,14 @@
+﻿Id: playnite-librarymanagement-plugin
+Name: LibraryManagement
+Author: Lacro59
+Version: 1.1
+Module: LibraryManagement.dll
+Type: GenericPlugin
+Icon: icon.png
+Links:
+  - Name: Plugin forum
+    Url: https://playnite.link/forum/thread-544.html
+  - Name: Plugin Github
+    Url: https://github.com/Lacro59/playnite-librarymanagement-plugin
+  - Name: Plugin translations
+    Url: https://crowdin.com/project/playnite-extensions
