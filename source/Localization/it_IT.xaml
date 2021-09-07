@@ -34,8 +34,8 @@
 
     <sys:String x:Key="LOCLmExclusionList">Lista esclusioni</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Visualizza l'elenco delle icone delle funzionalità</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Opzioni icone delle funzionalità</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Visualizza l'elenco delle icone delle funzionalit</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Opzioni icone delle funzionalit</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
