@@ -14,12 +14,12 @@
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Застосувати особливості з оновленням бібліотеки ігор</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Застосувати жанри з оновленням бібліотеки ігор</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки ігор</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Застосувати особливості з оновленням бібліотеки іго</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Застосувати жанри з оновленням бібліотеки іго</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки іго</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Додати новий жан</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Редагувати жан</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Додати нову особливість</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Редагувати особливість</sys:String>
@@ -44,7 +44,7 @@
     
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Медіа-редактор</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Медіа-редакто</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
     <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
@@ -52,8 +52,8 @@
     <sys:String x:Key="LOCLmEdited">Змінений</sys:String>
     <sys:String x:Key="LOCLmImageName">Назва зображення</sys:String>
     <sys:String x:Key="LOCLmImageSize">Розмір зображення</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Бажаний розмір</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розміру</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Бажаний розмі</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розмір</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Застосувати параметри зображення</sys:String>
 
 </ResourceDictionary>
