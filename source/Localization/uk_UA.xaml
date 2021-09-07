@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainView -->
+
+    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
+
+    <sys:String x:Key="LOCLmActionInProgress">Виконується дія...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Встановити жанри</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Встановити особливості</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Встановити теги</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+
+    <!-- LibraryManagementSettingsView -->
+
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Застосувати особливості з оновленням бібліотеки ігор</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Застосувати жанри з оновленням бібліотеки ігор</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки ігор</sys:String>
+    
+    <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
+
+    <sys:String x:Key="LOCLmFeatureAdd">Додати нову особливість</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Редагувати особливість</sys:String>
+    
+    <sys:String x:Key="LOCLmTagAdd">Додати новий тег</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Редагувати тег</sys:String>
+
+    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+
+    <sys:String x:Key="LOCLmItemsReplaced">Замінено елементів</sys:String>
+
+    <sys:String x:Key="LOCLmExclusionList">Список винятків</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationFeatures">Відобразити список значків особливостей</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Опції значків особливостей</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+
+    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Користувацький значок</sys:String>
+    
+    <!-- LmImageEditor -->
+
+    <sys:String x:Key="LOCLmMediaEditor">Медіа-редактор</sys:String>
+
+    <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
+    <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Оригінальний</sys:String>
+    <sys:String x:Key="LOCLmEdited">Змінений</sys:String>
+    <sys:String x:Key="LOCLmImageName">Назва зображення</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Розмір зображення</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Бажаний розмір</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розміру</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Застосувати параметри зображення</sys:String>
+
+</ResourceDictionary>
