@@ -9,11 +9,11 @@
     <sys:String x:Key="LOCLmSetGenres">Imposta generi</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Imposta funzioni</sys:String>
     <sys:String x:Key="LOCLmSetTags">Imposta etichette</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Imposta aziende</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Applica aziende con l'aggiornamento della libreria di gioco</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Applica funzioni con l'aggiornamento della libreria di gioco</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Applica i generi con l'aggiornamento della libreria di gioco</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Applica etichette con l'aggiornamento della libreria di gioco</sys:String>
@@ -27,8 +27,8 @@
     <sys:String x:Key="LOCLmTagAdd">Aggiungi nuova etichetta</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Modifica etichetta</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Aggiungi nuova azienda</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Modifica azienda</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Articoli sostituiti</sys:String>
 
@@ -36,8 +36,8 @@
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Visualizza l'elenco delle icone delle funzionalit</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Opzioni icone delle funzionalit</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Icone scure usate</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Icone GOG usate</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nome Associato</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icona Personalizzata</sys:String>
