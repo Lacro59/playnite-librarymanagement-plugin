@@ -32,7 +32,7 @@ namespace LibraryManagement
         public List<string> ListCompaniesExclusion { get; set; } = new List<string>();
 
 
-        private bool _EnableIntegrationFeatures { get; set; } = false;
+        private bool _EnableIntegrationFeatures { get; set; } = true;
         public bool EnableIntegrationFeatures
         {
             get => _EnableIntegrationFeatures;
