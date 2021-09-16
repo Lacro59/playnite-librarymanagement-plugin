@@ -21,8 +21,8 @@
     <sys:String x:Key="LOCLmGenreAdd">Ajouter un genre</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Modifier le genre</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Ajouter une fonctionnalité</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Modifier la fonctionnalité</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Ajouter une fonctionnalit</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Modifier la fonctionnalit</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Ajouter une étiquette</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Modifier l'étiquette</sys:String>
@@ -39,7 +39,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Nom associé</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">Nom associ</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icône personnalisée</sys:String>
     
     <!-- LmImageEditor -->
@@ -49,7 +49,7 @@
     <sys:String x:Key="LOCLmSelectMedia">Sélectionner un média</sys:String>
     <sys:String x:Key="LOCLmCrop">Recadrer</sys:String>
     <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Édité</sys:String>
+    <sys:String x:Key="LOCLmEdited">Édit</sys:String>
     <sys:String x:Key="LOCLmImageName">Nom de l'image</sys:String>
     <sys:String x:Key="LOCLmImageSize">Dimension de l'image</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Dimension souhaitée</sys:String>
