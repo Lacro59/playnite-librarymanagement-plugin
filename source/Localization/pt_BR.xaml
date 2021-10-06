@@ -8,12 +8,12 @@
     <sys:String x:Key="LOCLmActionInProgress">Ação em progresso...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Definir gêneros</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Definir recursos</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Definir tags</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Definir empresas</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Aplicar empresas com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Aplicar recursos com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Aplicar gêneros com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Aplicar gêneros com a atualização da biblioteca de jogos</sys:String>
