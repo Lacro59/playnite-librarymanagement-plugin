@@ -53,7 +53,7 @@
     <sys:String x:Key="LOCLmImageName">Назва зображення</sys:String>
     <sys:String x:Key="LOCLmImageSize">Розмір зображення</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Бажаний розмір</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розмі</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розміру</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Застосувати параметри зображення</sys:String>
 
 </ResourceDictionary>
