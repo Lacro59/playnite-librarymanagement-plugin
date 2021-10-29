@@ -6,20 +6,13 @@ using Playnite.SDK;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LibraryManagement.Views
 {
@@ -153,6 +146,15 @@ namespace LibraryManagement.Views
                 {
                     PART_ImageEdited.Source = bitmapImage;
                     PART_ImageEditedSize.Content = bitmapImage.PixelWidth + " x " + (int)bitmapImage.PixelHeight;
+
+                    if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
+                    {
+                        PART_BtSetIcon.IsEnabled = false;
+                    }
+                    else
+                    {
+                        PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
+                    }
                 }
             }
         }
@@ -207,11 +209,22 @@ namespace LibraryManagement.Views
             {
                 PART_ImageEditedSize.Content = LmImageToolsSelected.GetEditedBitmapImage().PixelWidth + " x " + LmImageToolsSelected.GetEditedBitmapImage().PixelHeight;
                 PART_ImageEdited.Source = LmImageToolsSelected.GetEditedBitmapImage();
+
+                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
+                {
+                    PART_BtSetIcon.IsEnabled = false;
+                }
+                else
+                {
+                    PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty(); 
+                }
             } 
             else
             {
                 PART_ImageEditedSize.Content = string.Empty;
                 PART_ImageEdited.Source = null;
+
+                PART_BtSetIcon.IsEnabled = false;
             }
 
 
@@ -308,6 +321,8 @@ namespace LibraryManagement.Views
             LmImageToolsSelected.RemoveEditedImage();
             PART_ImageEditedSize.Content = string.Empty;
             PART_ImageEdited.Source = null;
+
+            PART_BtSetIcon.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -315,6 +330,15 @@ namespace LibraryManagement.Views
             if (cropToolControl != null)
             {
                 PART_ImageEdited.Source = ImageTools.ConvertBitmapToBitmapImage(cropToolControl.GetBitmapCrop());
+
+                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
+                {
+                    PART_BtSetIcon.IsEnabled = false;
+                }
+                else
+                {
+                    PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
+                }
             }
         }
 
@@ -351,6 +375,13 @@ namespace LibraryManagement.Views
                     cropToolControl.SetCropAreaRatio(rWidth, rHeight);
                 }
             }
+        }
+        
+
+        private void PART_BtSetIcon_Click(object sender, RoutedEventArgs e)
+        {
+            LmImageToolsIcon.SetImageEdited(LmImageToolsSelected.GetEditedImage());
+            PART_BtReset_Click(null, null);
         }
     }
 }

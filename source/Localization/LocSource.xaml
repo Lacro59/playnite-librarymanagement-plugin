@@ -46,6 +46,8 @@
 
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
+    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
+
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Crop</sys:String>
     <sys:String x:Key="LOCLmOriginal">Original</sys:String>

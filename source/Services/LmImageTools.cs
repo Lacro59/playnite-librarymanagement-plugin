@@ -196,6 +196,11 @@ namespace LibraryManagement.Services
         {
             ImageEdited = null;
         }
+
+        public void SetImageEdited(Image ImageEdited)
+        {
+            this.ImageEdited = ImageEdited;
+        }
     }
 
 
