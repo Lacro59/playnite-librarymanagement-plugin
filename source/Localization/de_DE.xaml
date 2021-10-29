@@ -8,12 +8,12 @@
     <sys:String x:Key="LOCLmActionInProgress">Aktion wird ausgeführt...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Genres festlegen</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Funktionen festlegen</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Tags setzen</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Tags festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Unternehmen festlegen</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Unternehmen mit dem Update der Spielebibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Funktionen mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
@@ -27,17 +27,17 @@
     <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Neues Unternehmen hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Unternehmen bearbeiten</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Ersetzte Elemente</sys:String>
 
     <sys:String x:Key="LOCLmExclusionList">Ausschlussliste</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Objekt-Icons anzeigen</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Icon Optionen aanzeigen</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Objekt Icons anzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Icon Optionen anzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwendete dunkle Symbole</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwendete GOG Icons</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Symbol</sys:String>
