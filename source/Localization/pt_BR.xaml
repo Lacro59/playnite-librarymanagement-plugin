@@ -17,6 +17,7 @@
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Aplicar recursos com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Aplicar gêneros com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Aplicar gêneros com a atualização da biblioteca de jogos</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Aplicar tags com a atualização da biblioteca de jogos</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Adicionar novo gênero</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Editar gênero</sys:String>
@@ -41,10 +42,15 @@
 
     <sys:String x:Key="LOCLmNameAssociated">Nome associado</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Personalizar Ícone</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags para Recursos</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Ajustar tags para Recursos</sys:String>
     
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Editor de mídia</sys:String>
+
+    <sys:String x:Key="LOCLmSetAsIco">Definir como ícone</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Selecionar mídia</sys:String>
     <sys:String x:Key="LOCLmCrop">Cortar</sys:String>
