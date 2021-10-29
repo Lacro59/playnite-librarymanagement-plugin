@@ -7,6 +7,7 @@
              xmlns:commonpluginsshared="clr-namespace:CommonPluginsShared"
              xmlns:converters="clr-namespace:CommonPlayniteShared.Converters"
              xmlns:convertersshared="clr-namespace:CommonPluginsShared.Converters"
+             xmlns:playnitecontrols="clr-namespace:CommonPluginsControls.PlayniteControls"
              mc:Ignorable="d" Width="400" Height="420">
 
     <UserControl.Resources>
@@ -21,6 +22,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
@@ -46,8 +49,16 @@
         </StackPanel>
 
         <TextBlock Style="{DynamicResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="4" Text="{DynamicResource LOCSelectItemTitle}" />
-        <ListBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Height="260" Name="PART_OldNames"
+        <playnitecontrols:SearchBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" 
+                                    x:Name="PART_Search" TextChanged="PART_Search_TextChanged" />
+        <ListBox Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Height="260" Name="PART_OldNames"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+            
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,5">
@@ -72,7 +83,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <StackPanel Grid.Column="1" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Column="1" Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="PART_Save" Click="PART_Save_Click" Content="{DynamicResource LOCSaveLabel}"
                     IsEnabled="{Binding ElementName=PART_NewName, Path=Text, Converter={StaticResource StringToBooleanConverter}}" />
             <Button Name="PART_Cancel" Click="PART_Cancel_Click" Content="{DynamicResource LOCCancelLabel}" Margin="10,0,0,0" />

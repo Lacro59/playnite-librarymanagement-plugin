@@ -1,22 +1,16 @@
-﻿using CommonPluginsShared;
+﻿using CommonPluginsShared.Extensions;
 using LibraryManagement.Models;
-using Playnite.SDK.Data;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LibraryManagement.Views
 {
@@ -117,7 +111,7 @@ namespace LibraryManagement.Views
             }
 
             listItems.Sort((x, y) => x.Name.CompareTo(y.Name));
-            PART_OldNames.ItemsSource = listItems;
+            PART_OldNames.ItemsSource = listItems.ToObservable();
             PART_NewName.Text = NewName;
             PART_IconUnicode.Text = IconUnicode;
         }
@@ -213,12 +207,37 @@ namespace LibraryManagement.Views
         {
             PART_NewName.Text = (string)((Button)sender).Tag;
         }
+
+
+        private void PART_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource)
+                .ForEach(x => x.IsVisible = true);
+
+            if (!PART_Search.Text.IsNullOrEmpty())
+            {
+                ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource)
+                    .Where(x => !x.Name.RemoveDiacritics().Contains(PART_Search.Text.RemoveDiacritics(), StringComparison.InvariantCultureIgnoreCase))
+                    .ForEach(x => x.IsVisible = false);
+            }
+        }
     }
 
-    public class ListItem
+    public class ListItem : ObservableObject
     {
         public string Name { get; set; }
         public bool IsChecked { get; set; }
         public bool OnlySimple { get; set; }
+
+        private bool isVisible = true;
+        public bool IsVisible
+        {
+            get => isVisible;
+            set
+            {
+                isVisible = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
