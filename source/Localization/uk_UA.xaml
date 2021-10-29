@@ -17,6 +17,7 @@
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Застосувати особливості з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Застосувати жанри з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки ігор</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Застосувати теги до особливостей з оновленням бібліотеки ігор</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
@@ -41,10 +42,15 @@
 
     <sys:String x:Key="LOCLmNameAssociated">Ім'я пов’язане</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Користувацький значок</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToFeatures">Теги до особливостей</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Встановити теги до особливостей</sys:String>
     
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Медіа-редактор</sys:String>
+
+    <sys:String x:Key="LOCLmSetAsIco">Встановити як значок</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
     <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
