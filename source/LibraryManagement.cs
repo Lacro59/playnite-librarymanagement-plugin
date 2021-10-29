@@ -174,6 +174,16 @@ namespace LibraryManagement
                     libraryManagementTools.SetTags();
                 }
             });
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetTagsToFeatures"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    libraryManagementTools.SetTagsToFeatures();
+                }
+            });
 
 #if DEBUG
             mainMenuItems.Add(new MainMenuItem
@@ -339,6 +349,23 @@ namespace LibraryManagement
                     Common.LogError(ex, false);
                     PlayniteApi.Notifications.Add(new NotificationMessage(
                         $"LibraryManagement-AutoUpdateTags",
+                        "LibraryManagement" + Environment.NewLine + ex.Message,
+                        NotificationType.Error
+                    ));
+                }
+            }
+
+            if (PluginSettings.Settings.AutoUpdateTagsToFeatures)
+            {
+                try
+                {
+                    libraryManagementTools.SetTagsToFeatures(OnlyToDay, gameUpdated);
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                    PlayniteApi.Notifications.Add(new NotificationMessage(
+                        $"LibraryManagement-AutoUpdateTagsToFeatures",
                         "LibraryManagement" + Environment.NewLine + ex.Message,
                         NotificationType.Error
                     ));

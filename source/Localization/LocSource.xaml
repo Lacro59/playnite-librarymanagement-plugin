@@ -41,6 +41,9 @@
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
     
     <!-- LmImageEditor -->
 

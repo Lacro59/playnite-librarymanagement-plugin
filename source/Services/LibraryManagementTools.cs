@@ -1,6 +1,7 @@
 ﻿using CommonPluginsShared;
 using LibraryManagement.Models;
 using Playnite.SDK;
+using Playnite.SDK.Data;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
@@ -138,7 +139,7 @@ namespace LibraryManagement.Services
                     {
                         if (item.Id != null)
                         {
-                            game.GenreIds.Add((Guid)item.Id);
+                            game.GenreIds.AddMissing((Guid)item.Id);
                         }
                     }
 
@@ -291,7 +292,7 @@ namespace LibraryManagement.Services
                     {
                         if (item.Id != null)
                         {
-                            game.FeatureIds.Add((Guid)item.Id);
+                            game.FeatureIds.AddMissing((Guid)item.Id);
                         }
                     }
 
@@ -444,7 +445,7 @@ namespace LibraryManagement.Services
                     {
                         if (item.Id != null)
                         {
-                            game.TagIds.Add((Guid)item.Id);
+                            game.TagIds.AddMissing((Guid)item.Id);
                         }
                     }
 
@@ -616,11 +617,11 @@ namespace LibraryManagement.Services
                         {
                             if (IsPublishers)
                             {
-                                game.PublisherIds.Add((Guid)item.Id);
+                                game.PublisherIds.AddMissing((Guid)item.Id);
                             }
                             else
                             {
-                                game.DeveloperIds.Add((Guid)item.Id);
+                                game.DeveloperIds.AddMissing((Guid)item.Id);
                             }
                         }
                     }
@@ -675,6 +676,95 @@ namespace LibraryManagement.Services
                 logger.Warn($"Company doesn't exist - {Id}");
             }
         }
+        #endregion
+
+
+        #region TagsToFeatures
+        public void SetTagsToFeatures(bool OnlyToDay = false, Game gameUpdated = null)
+        {
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
+                $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
+                true
+            );
+            globalProgressOptions.IsIndeterminate = false;
+
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            {
+                try
+                {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
+
+
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = PlayniteApi.Database.Games
+                            .Where(x => x.Added != null)
+                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                    }
+
+                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+
+                    string CancelText = string.Empty;
+
+                    foreach (Game game in PlayniteDb)
+                    {
+                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        {
+                            CancelText = " canceled";
+                            break;
+                        }
+
+                        Thread.Sleep(10);
+                        UpdateTagsToFeatures(game);
+
+                        activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false);
+                }
+            }, globalProgressOptions);
+        }
+
+
+        private void UpdateTagsToFeatures(Game game)
+        {
+            if (game.Tags != null && game.Tags.Count > 0)
+            {
+                List<Tag> Tags = Serialization.GetClone(game.Tags);
+
+                for (int i = 0; i < game.Tags.Count; i++)
+                {
+                    var finded = PluginSettings.ListTagsToFeatures.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
+                    if (finded != null)
+                    {
+                        game.TagIds.Remove(Tags[i].Id);
+                        if (game.FeatureIds != null)
+                        {
+                            game.FeatureIds.AddMissing(finded.FeatureId);
+                        }
+                        else
+                        {
+                            game.FeatureIds = new List<Guid> { finded.FeatureId };
+                        }
+                    }
+                }
+
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                {
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
+            }
+        }
+
         #endregion
     }
 }

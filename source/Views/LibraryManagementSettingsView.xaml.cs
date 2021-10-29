@@ -490,5 +490,43 @@ namespace LibraryManagement.Views
             PART_ListItemFeatures.ItemsSource = itemFeatures;
         }
         #endregion
+
+
+        #region TagsToFeatures
+        private void PART_AddTagsToFeatures_Click(object sender, RoutedEventArgs e)
+        {
+            var ViewExtension = new LmTagToFeatureView(_PlayniteApi);
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LocLmTagsToFeatures"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null)
+            {
+                List<LmTagToFeature> temp = (List<LmTagToFeature>)PART_ListTagsToFeatures.ItemsSource;
+                if (temp == null)
+                {
+                    temp = new List<LmTagToFeature>();
+                }
+
+                temp.Add((LmTagToFeature)ViewExtension.NewItem);
+
+                PART_ListTagsToFeatures.ItemsSource = null;
+                PART_ListTagsToFeatures.ItemsSource = temp;
+            }
+        }
+
+        private void PART_RemoveTagsToFeatures_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            RemoveElement<LmTagToFeature>(PART_ListTagsToFeatures, index);
+        }
+
+        private void PART_SetTagsToFEatures_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetTagsToFeatures();
+        }
+        #endregion
     }
 }

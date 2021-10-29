@@ -19,6 +19,7 @@ namespace LibraryManagement
         public bool AutoUpdateGenres { get; set; } = false;
         public bool AutoUpdateFeatures { get; set; } = false;
         public bool AutoUpdateTags { get; set; } = false;
+        public bool AutoUpdateTagsToFeatures { get; set; } = false;
 
 
         public List<LmGenreEquivalences> ListGenreEquivalences { get; set; } = new List<LmGenreEquivalences>();
@@ -30,6 +31,9 @@ namespace LibraryManagement
         public List<string> ListFeatureExclusion { get; set; } = new List<string>();
         public List<string> ListTagsExclusion { get; set; } = new List<string>();
         public List<string> ListCompaniesExclusion { get; set; } = new List<string>();
+
+
+        public List<LmTagToFeature> ListTagsToFeatures { get; set; } = new List<LmTagToFeature>();
 
 
         private bool _EnableIntegrationFeatures { get; set; } = true;

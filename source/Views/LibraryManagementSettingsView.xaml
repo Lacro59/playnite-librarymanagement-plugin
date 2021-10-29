@@ -7,7 +7,7 @@
              xmlns:commonpluginsshared="clr-namespace:CommonPluginsShared"
              xmlns:converters="clr-namespace:CommonPlayniteShared.Converters"
              xmlns:convertersshared="clr-namespace:CommonPluginsShared.Converters"
-             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="600">
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="620">
 
     <UserControl.Resources>
         <convertersshared:IndexConverter x:Key="IndexConverter"/>
@@ -441,6 +441,67 @@
                                 Style="{StaticResource BottomButton}" HorizontalAlignment="Right" Click="PART_SetTag_Click" />
                     </Border>
                 </Grid>
+            </TabItem>
+
+            <TabItem Header="{DynamicResource LOCCommonMisc}">
+                <StackPanel Margin="0,10,0,0" Name="PART_GridContenerTagsToFeatures">
+                    <Label Content="{DynamicResource LOCLmTagsToFeatures}" />
+                    <Separator Margin="0,0,0,10" />
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="0" VerticalAlignment="Center" Name="PART_AddTagsToFeatures" Click="PART_AddTagsToFeatures_Click"
+                            Content="{DynamicResource LOCAddNewItem}" HorizontalAlignment="Left" />
+
+                        <ListView Grid.Row="2" Name="PART_ListTagsToFeatures" Height="250"
+                                  Visibility="{Binding ElementName=PART_ExclusionTag, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                                  ItemsSource="{Binding Settings.ListTagsToFeatures}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="{DynamicResource LOCTagLabel}" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding TagName}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="{DynamicResource LOCFeatureLabel}" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding FeatureName}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="90">
+                                        <GridViewColumnHeader Content="" />
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" Grid.Column="4" HorizontalAlignment="Right">
+                                                    <Button Name="PART_RemoveTagsToFeatures" Click="PART_RemoveTagsToFeatures_Click" 
+                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                            ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <Border DockPanel.Dock="Bottom" BorderThickness="0,1,0,0" BorderBrush="{StaticResource NormalBorderBrush}"
+                                Grid.Row="3" Margin="0,10,0,0" Padding="0,5,0,0">
+                            <Button Name="PART_SetTagsToFEatures" Content="{DynamicResource LOCLmSetTagsToFeatures}"
+                                Style="{StaticResource BottomButton}" HorizontalAlignment="Right" Click="PART_SetTagsToFEatures_Click" />
+                        </Border>
+                    </Grid>
+                </StackPanel>
             </TabItem>
 
             <TabItem Header="{DynamicResource LOCCommonIntegration}">
