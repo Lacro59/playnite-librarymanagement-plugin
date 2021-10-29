@@ -17,6 +17,7 @@
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
