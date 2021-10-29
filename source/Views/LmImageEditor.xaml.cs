@@ -1,4 +1,4 @@
-﻿using CommonPluginsPlaynite;
+﻿using CommonPlayniteShared;
 using CommonPluginsShared;
 using CroppingImageLibrary;
 using LibraryManagement.Services;

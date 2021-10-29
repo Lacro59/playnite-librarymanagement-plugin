@@ -1,4 +1,4 @@
-﻿using CommonPluginsPlaynite.Common;
+﻿using CommonPlayniteShared.Common;
 using CommonPluginsShared;
 using LibraryManagement.Models;
 using LibraryManagement.Services;

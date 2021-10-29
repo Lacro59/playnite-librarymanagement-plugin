@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using LazZiya.ImageResize;
-using CommonPluginsPlaynite.Common;
+using CommonPlayniteShared.Common;
 using CommonPluginsShared;
 using System.Windows.Media.Imaging;
 using System.IO;

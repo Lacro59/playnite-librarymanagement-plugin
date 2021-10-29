@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LibraryManagement.Views"
              xmlns:controls="clr-namespace:CommonPluginsControls.Controls"
-             xmlns:converters="clr-namespace:CommonPluginsPlaynite.Converters"
+             xmlns:converters="clr-namespace:CommonPlayniteShared.Converters"
              xmlns:playnitecontrols="clr-namespace:CommonPluginsControls.PlayniteControls"
              xmlns:croppingimagelibrary="clr-namespace:CroppingImageLibrary;assembly=CroppingImageLibrary"
              mc:Ignorable="d" Height="700" Width="1280">
