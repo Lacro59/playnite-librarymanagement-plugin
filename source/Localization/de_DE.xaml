@@ -17,6 +17,7 @@
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Funktionen mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
@@ -41,10 +42,15 @@
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Symbol</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
     
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Medieneditor</sys:String>
+
+    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Medien auswählen</sys:String>
     <sys:String x:Key="LOCLmCrop">Zuschneiden</sys:String>
