@@ -47,7 +47,7 @@
                         <Label Content="{DynamicResource LOCLmAutoUpdateTags}" />
                     </CheckBox>
 
-                    <CheckBox IsChecked="{Binding Settings.AutoUpdateTagsToFeatures}" Grid.Row="6" VerticalAlignment="Center">
+                    <CheckBox IsChecked="{Binding Settings.AutoUpdateTagsToFeatures}" Grid.Row="8" VerticalAlignment="Center">
                         <Label Content="{DynamicResource LOCLmAutoUpdateTagsToFeatures}" />
                     </CheckBox>
                 </Grid>

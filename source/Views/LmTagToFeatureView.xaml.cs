@@ -82,8 +82,7 @@ namespace LibraryManagement.Views
 
         private void FeatureSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((ObservableCollection<ListElement>)PART_FeatureList.ItemsSource)
-                .ForEach(x => x.IsVisible = true);
+            ((ObservableCollection<ListElement>)PART_FeatureList.ItemsSource).ForEach(x => x.IsVisible = true);
 
             if (!FeatureSearch.Text.IsNullOrEmpty())
             {

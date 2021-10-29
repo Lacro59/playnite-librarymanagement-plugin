@@ -211,8 +211,7 @@ namespace LibraryManagement.Views
 
         private void PART_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource)
-                .ForEach(x => x.IsVisible = true);
+            ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource).ForEach(x => x.IsVisible = true);
 
             if (!PART_Search.Text.IsNullOrEmpty())
             {
