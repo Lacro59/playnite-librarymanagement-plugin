@@ -10,3 +10,13 @@ Packages:
       - Fixed many bugs
       - More fields managed
       - Many UI tweaks
+  - Version: 2.1
+    RequiredApiVersion: 6.1.0
+    ReleaseDate: 2021-10-29
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v2.0/playnite-librarymanagement-plugin_2_0.pext
+    Changelog:
+      - Added a function to transfer tags to features
+      - Added an option to create icon from background or cover image
+      - Updated localizations
+      - Added search box
+      - Fixed many bugs
