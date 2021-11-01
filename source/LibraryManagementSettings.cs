@@ -182,20 +182,6 @@ namespace LibraryManagement
             {
                 Settings.ItemFeatures = ItemFeatures;
             }
-            else
-            {
-                for (int i = 0; i < Settings.ItemFeatures.Count(); i++)
-                {
-                    if (Settings.ItemFeatures[i].NameAssociated.IsNullOrEmpty())
-                    {
-                        var finded = ItemFeatures.Find(x => x.Name == Settings.ItemFeatures[i].Name);
-                        if (finded != null)
-                        {
-                            Settings.ItemFeatures[i].NameAssociated = finded.NameAssociated;
-                        }
-                    }
-                }
-            }
         }
 
         // Code executed when settings view is opened and user starts editing values.

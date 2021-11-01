@@ -122,7 +122,7 @@ namespace LibraryManagement.Views
             PART_IconLabel.Visibility = Visibility.Collapsed;
             PART_IconContener.Visibility = Visibility.Collapsed;
 
-            List<ListItem> listItems = (List<ListItem>)PART_OldNames.ItemsSource;
+            ObservableCollection<ListItem> listItems = (ObservableCollection<ListItem>)PART_OldNames.ItemsSource;
             foreach (var item in listItems)
             {
                 item.OnlySimple = true;
