@@ -33,7 +33,7 @@ namespace LibraryManagement
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
             // Custom events
-            PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
+            //PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
 
             // Custom elements integration
             AddCustomElementSupport(new AddCustomElementSupportArgs
