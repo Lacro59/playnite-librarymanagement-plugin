@@ -14,6 +14,7 @@ namespace LibraryManagement
     {
         #region Settings variables
         public bool MenuInExtensions { get; set; } = true;
+        public DateTime LastAutoLibUpdateAssetsDownload { get; set; } = DateTime.Now;
 
         public bool AutoUpdateCompanies { get; set; } = false;
         public bool AutoUpdateGenres { get; set; } = false;

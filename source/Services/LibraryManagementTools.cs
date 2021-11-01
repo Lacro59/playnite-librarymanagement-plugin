@@ -63,8 +63,7 @@ namespace LibraryManagement.Services
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null)
-                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
                     }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
@@ -216,8 +215,7 @@ namespace LibraryManagement.Services
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null)
-                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
                     }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
@@ -369,8 +367,7 @@ namespace LibraryManagement.Services
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null)
-                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
                     }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
@@ -523,8 +520,7 @@ namespace LibraryManagement.Services
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null)
-                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
                     }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
@@ -700,8 +696,7 @@ namespace LibraryManagement.Services
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null)
-                            .Where(x => ((DateTime)x.Added).ToString("yyyy-MM-dd") == DateTime.Now.ToString("yyyy-MM-dd"));
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
                     }
 
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
