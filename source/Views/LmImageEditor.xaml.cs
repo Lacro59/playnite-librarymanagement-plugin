@@ -1,4 +1,5 @@
 ﻿using CommonPlayniteShared;
+using CommonPlayniteShared.Common;
 using CommonPluginsShared;
 using CroppingImageLibrary;
 using LibraryManagement.Services;
@@ -6,6 +7,7 @@ using Playnite.SDK;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -78,7 +80,7 @@ namespace LibraryManagement.Views
             InitializeComponent();
 
 
-            List<string> ListMedia = new List<string>();
+            ObservableCollection<string> ListMedia = new ObservableCollection<string>();
 
             if (!_GameMenu.Icon.IsNullOrEmpty())
             {
@@ -263,6 +265,7 @@ namespace LibraryManagement.Views
             try
             {
                 string FilePath = string.Empty;
+                string FilePathOld = string.Empty;
                 string PluginCachePath = System.IO.Path.Combine(PlaynitePaths.DataCachePath, "LibraryManagement");
 
                 if (!Directory.Exists(PluginCachePath))
@@ -272,25 +275,50 @@ namespace LibraryManagement.Views
 
                 _PlayniteApi.Database.Games.BeginBufferUpdate();
 
-                if (LmImageToolsIcon != null && LmImageToolsIcon.GetEditedImage() != null && !_GameMenu.Icon.IsNullOrEmpty())
+                if (LmImageToolsIcon != null && LmImageToolsIcon.GetEditedImage() != null)
                 {
+                    if (_GameMenu.Icon.IsNullOrEmpty())
+                    {
+                        _GameMenu.Icon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + ".png");
+                    }
+                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + (Path.GetExtension(_GameMenu.Icon).Contains("ico", StringComparison.OrdinalIgnoreCase) ? ".png" : Path.GetExtension(_GameMenu.Icon)));
+
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.Icon));
+                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.Icon);
                     LmImageToolsIcon.GetEditedImage().Save(FilePath);
-                    _GameMenu.Icon = string.Copy(FilePath);
+
+                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.DeleteFileSafe(FilePathOld);
+
+                    _GameMenu.Icon = NewIcon;
                 }
 
                 if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !_GameMenu.CoverImage.IsNullOrEmpty())
                 {
+                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() +  Path.GetExtension(_GameMenu.CoverImage));
+
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.CoverImage));
+                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage);
                     LmImageToolsCover.GetEditedImage().Save(FilePath);
-                    _GameMenu.CoverImage = string.Copy(FilePath);
+
+                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.DeleteFileSafe(FilePathOld);
+
+                    _GameMenu.CoverImage = NewIcon;
                 }
 
                 if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !_GameMenu.BackgroundImage.IsNullOrEmpty())
                 {
+                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + Path.GetExtension(_GameMenu.BackgroundImage));
+
                     FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.BackgroundImage));
+                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage);
                     LmImageToolsBackground.GetEditedImage().Save(FilePath);
-                    _GameMenu.BackgroundImage = string.Copy(FilePath);
+
+                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.DeleteFileSafe(FilePathOld);
+
+                    _GameMenu.BackgroundImage = NewIcon;
                 }
 
                 _PlayniteApi.Database.Games.Update(_GameMenu);
@@ -380,6 +408,21 @@ namespace LibraryManagement.Views
 
         private void PART_BtSetIcon_Click(object sender, RoutedEventArgs e)
         {
+            if (LmImageToolsIcon == null)
+            {
+                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameCoverImageTitle"))
+                {
+                    LmImageToolsIcon = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage));
+                }
+                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameBackgroundTitle"))
+                {
+                    LmImageToolsIcon = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage));
+                }
+                
+                ((ObservableCollection<string>)PART_ComboBoxMedia.ItemsSource).Add(resources.GetString("LOCGameIconTitle"));
+            }
+
+
             LmImageToolsIcon.SetImageEdited(LmImageToolsSelected.GetEditedImage());
             PART_BtReset_Click(null, null);
         }
