@@ -91,7 +91,7 @@ namespace LibraryManagement.Services
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }, globalProgressOptions);
         }
@@ -243,7 +243,7 @@ namespace LibraryManagement.Services
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }, globalProgressOptions);
         }
@@ -395,7 +395,7 @@ namespace LibraryManagement.Services
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }, globalProgressOptions);
         }
@@ -549,7 +549,7 @@ namespace LibraryManagement.Services
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }, globalProgressOptions);
         }
@@ -724,7 +724,7 @@ namespace LibraryManagement.Services
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }, globalProgressOptions);
         }

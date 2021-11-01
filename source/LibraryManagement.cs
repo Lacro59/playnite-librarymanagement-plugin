@@ -225,7 +225,7 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                Common.LogError(ex, false);
+                Common.LogError(ex, false, true, "LibraryManagement");
             }
         }
 
@@ -295,12 +295,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
-                    PlayniteApi.Notifications.Add(new NotificationMessage(
-                        $"LibraryManagement-AutoUpdateCompanies",
-                        "LibraryManagement" + Environment.NewLine + ex.Message,
-                        NotificationType.Error
-                    ));
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
 
@@ -312,12 +307,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
-                    PlayniteApi.Notifications.Add(new NotificationMessage(
-                        $"LibraryManagement-AutoUpdateGenres",
-                        "LibraryManagement" + Environment.NewLine + ex.Message,
-                        NotificationType.Error
-                    ));
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
 
@@ -329,12 +319,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
-                    PlayniteApi.Notifications.Add(new NotificationMessage(
-                        $"LibraryManagement-AutoUpdateGenres",
-                        "LibraryManagement" + Environment.NewLine + ex.Message,
-                        NotificationType.Error
-                    ));
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
 
@@ -346,12 +331,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
-                    PlayniteApi.Notifications.Add(new NotificationMessage(
-                        $"LibraryManagement-AutoUpdateTags",
-                        "LibraryManagement" + Environment.NewLine + ex.Message,
-                        NotificationType.Error
-                    ));
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
 
@@ -363,12 +343,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    Common.LogError(ex, false);
-                    PlayniteApi.Notifications.Add(new NotificationMessage(
-                        $"LibraryManagement-AutoUpdateTagsToFeatures",
-                        "LibraryManagement" + Environment.NewLine + ex.Message,
-                        NotificationType.Error
-                    ));
+                    Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
         }

@@ -326,13 +326,7 @@ namespace LibraryManagement.Views
             }
             catch (Exception ex)
             {
-                Common.LogError(ex, false);
-
-                _PlayniteApi.Notifications.Add(new NotificationMessage(
-                    $"LibraryManagement-Save-Errors",
-                    $"LibraryManagement\r\n" + ex.Message,
-                    NotificationType.Error
-                ));
+                Common.LogError(ex, false, true, "LibraryManagement");
             }
 
             ((Window)this.Parent).Close();
