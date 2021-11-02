@@ -91,6 +91,7 @@
     <Compile Include="Models\LmTagsEquivalences.cs" />
     <Compile Include="Models\LmFeatureEquivalences.cs" />
     <Compile Include="Models\LmGenreEquivalences.cs" />
+    <Compile Include="Models\LmTagToGenre.cs" />
     <Compile Include="Models\LmTagToFeature.cs" />
     <Compile Include="playnite-plugincommon\CommonPluginsControls\Controls\ComboBoxRemovable.xaml.cs">
       <DependentUpon>ComboBoxRemovable.xaml</DependentUpon>
@@ -120,8 +121,8 @@
     <Compile Include="Views\LmImageEditor.xaml.cs">
       <DependentUpon>LmImageEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LmTagToFeatureView.xaml.cs">
-      <DependentUpon>LmTagToFeatureView.xaml</DependentUpon>
+    <Compile Include="Views\LmTagToItemView.xaml.cs">
+      <DependentUpon>LmTagToItemView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -266,7 +267,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LmTagToFeatureView.xaml">
+    <Page Include="Views\LmTagToItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

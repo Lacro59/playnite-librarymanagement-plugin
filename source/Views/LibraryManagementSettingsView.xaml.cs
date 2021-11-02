@@ -495,9 +495,9 @@ namespace LibraryManagement.Views
         #region TagsToFeatures
         private void PART_AddTagsToFeatures_Click(object sender, RoutedEventArgs e)
         {
-            var ViewExtension = new LmTagToFeatureView(_PlayniteApi);
+            var ViewExtension = new LmTagToItemView(_PlayniteApi, TypeItem.FeatureItem);
 
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LocLmTagsToFeatures"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagsToFeatures"), ViewExtension);
             windowExtension.ShowDialog();
 
             if (ViewExtension.NewItem != null)
@@ -526,6 +526,44 @@ namespace LibraryManagement.Views
         {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
             libraryManagementTools.SetTagsToFeatures();
+        }
+        #endregion
+
+
+        #region TagsToGenres
+        private void PART_AddTagsToGenres_Click(object sender, RoutedEventArgs e)
+        {
+            var ViewExtension = new LmTagToItemView(_PlayniteApi, TypeItem.GenreItem);
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LocLmTagsToGenres"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null)
+            {
+                List<LmTagToGenre> temp = (List<LmTagToGenre>)PART_ListTagsToGenres.ItemsSource;
+                if (temp == null)
+                {
+                    temp = new List<LmTagToGenre>();
+                }
+
+                temp.Add((LmTagToGenre)ViewExtension.NewItem);
+
+                PART_ListTagsToGenres.ItemsSource = null;
+                PART_ListTagsToGenres.ItemsSource = temp;
+            }
+        }
+
+        private void PART_RemoveTagsToGenres_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            RemoveElement<LmTagToFeature>(PART_ListTagsToGenres, index);
+        }
+
+        private void PART_SetTagsToGenres_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetTagsToGenres();
         }
         #endregion
     }

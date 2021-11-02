@@ -759,7 +759,93 @@ namespace LibraryManagement.Services
                 }).Wait();
             }
         }
+        #endregion
 
+
+        #region TagsToGenres
+        public void SetTagsToGenres(bool OnlyToDay = false, Game gameUpdated = null)
+        {
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
+                $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
+                true
+            );
+            globalProgressOptions.IsIndeterminate = false;
+
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            {
+                try
+                {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
+
+
+                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = PlayniteApi.Database.Games
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
+                    }
+
+                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+
+                    string CancelText = string.Empty;
+
+                    foreach (Game game in PlayniteDb)
+                    {
+                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        {
+                            CancelText = " canceled";
+                            break;
+                        }
+
+                        Thread.Sleep(10);
+                        UpdateTagsToGenres(game);
+
+                        activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false, true, "LibraryManagement");
+                }
+            }, globalProgressOptions);
+        }
+
+
+        private void UpdateTagsToGenres(Game game)
+        {
+            if (game.Tags != null && game.Tags.Count > 0)
+            {
+                List<Tag> Tags = Serialization.GetClone(game.Tags);
+
+                for (int i = 0; i < game.Tags.Count; i++)
+                {
+                    var finded = PluginSettings.ListTagsToGenres.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
+                    if (finded != null)
+                    {
+                        game.TagIds.Remove(Tags[i].Id);
+                        if (game.GenreIds != null)
+                        {
+                            game.GenreIds.AddMissing(finded.GenreId);
+                        }
+                        else
+                        {
+                            game.GenreIds = new List<Guid> { finded.GenreId };
+                        }
+                    }
+                }
+
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                {
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
+            }
+        }
         #endregion
     }
 }
