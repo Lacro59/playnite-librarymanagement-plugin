@@ -20,3 +20,11 @@ Packages:
       - Updated localizations
       - Added search box
       - Fixed many bugs
+  - Version: 2.2
+    RequiredApiVersion: 6.1.0
+    ReleaseDate: 2021-11-02
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v2.2/playnite-librarymanagement-plugin_2_2.pext
+    Changelog:
+      - Added a function to transfer tags to genress
+      - Fixed crash
+      - Fixed many bugs
