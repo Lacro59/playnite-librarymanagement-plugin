@@ -18,7 +18,7 @@
     <sys:String x:Key="LOCLmAutoUpdateGenres">Застосувати жанри з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Застосувати теги до особливостей з оновленням бібліотеки ігор</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Застосувати теги до жанрів з оновленням бібліотеки ігор</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
@@ -47,8 +47,8 @@
     <sys:String x:Key="LOCLmTagsToFeatures">Теги до особливостей</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Встановити теги до особливостей</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Теги до жанрів</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
     
     <!-- LmImageEditor -->
 

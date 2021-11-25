@@ -17,8 +17,8 @@
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Appliquer des fonctionnalités avec la mise à jour de la bibliothèque de jeu</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Appliquer les genres avec la mise à jour de la bibliothèque de jeu</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Appliquer les étiquettes avec la mise à jour de la bibliothèque</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Appliquer les étiquettes aux fonctionnalités avec la mise à jour de la bibliothèque</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Appliquer les étiquettes vers fonctionnalités avec la mise à jour de la bibliothèque</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Appliquer les étiquettes vers genres avec la mise à jour de la bibliothèque</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Ajouter un genre</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Modifier le genre</sys:String>
@@ -44,11 +44,11 @@
     <sys:String x:Key="LOCLmNameAssociated">Nom associ</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icône personnalisée</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags aux fonctionnalités</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Définir les tags aux fonctionnalités</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags vers fonctionnalités</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Définir les tags vers fonctionnalités</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Étiquettes vers genres</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Définir les étiquettes vers genres</sys:String>
     
     <!-- LmImageEditor -->
 
