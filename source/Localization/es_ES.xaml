@@ -18,7 +18,7 @@
     <sys:String x:Key="LOCLmAutoUpdateGenres">Aplicar géneros con la actualización de la biblioteca del juego</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Aplicar etiquetas con la actualización de la biblioteca de juegos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Aplicar etiquetas a características con la actualización de la biblioteca de juegos</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Aplicar etiquetas a géneros con la actualización de la biblioteca de juegos</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Añadir género nuevo</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Editar género</sys:String>
@@ -47,8 +47,8 @@
     <sys:String x:Key="LOCLmTagsToFeatures">Etiquetas a Características</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Establecer Etiquetas a Características</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Etiquetas a Géneros</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Establecer Etiquetas a Géneros</sys:String>
     
     <!-- LmImageEditor -->
 
