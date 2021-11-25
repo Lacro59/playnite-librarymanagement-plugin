@@ -29,7 +29,7 @@
             <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="10" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="10" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
@@ -50,7 +50,9 @@
         <TextBlock Style="{DynamicResource BaseTextBlockStyle}" Grid.Column="0" Grid.Row="4" Text="{DynamicResource LOCSelectItemTitle}" />
         <playnitecontrols:SearchBox Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" 
                                     x:Name="PART_Search" TextChanged="PART_Search_TextChanged" />
-        <ListBox Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Height="260" Name="PART_OldNames"
+
+        <Grid Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Name="PART_LbContener">
+            <ListBox Name="PART_OldNames" Height="{Binding ElementName=PART_LbContener, Path=ActualHeight}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
@@ -81,6 +83,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        </Grid>
 
         <StackPanel Grid.Column="1" Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Name="PART_Save" Click="PART_Save_Click" Content="{DynamicResource LOCSaveLabel}"
