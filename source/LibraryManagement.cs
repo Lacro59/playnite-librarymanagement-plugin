@@ -1,5 +1,4 @@
-﻿using CommonPlayniteShared;
-using CommonPluginsShared;
+﻿using CommonPluginsShared;
 using CommonPluginsShared.PlayniteExtended;
 using LibraryManagement.Controls;
 using LibraryManagement.Models;
@@ -11,15 +10,11 @@ using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace LibraryManagement
 {
@@ -32,9 +27,6 @@ namespace LibraryManagement
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
         {
-            // Custom events
-            //PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
-
             // Custom elements integration
             AddCustomElementSupport(new AddCustomElementSupportArgs
             {

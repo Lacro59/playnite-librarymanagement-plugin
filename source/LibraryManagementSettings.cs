@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement
 {
@@ -180,6 +179,11 @@ namespace LibraryManagement
                 new ItemFeature { Name = "VR Standing", NameAssociated = "VR Standing", IconDefault = "ico_vr_area_standing.png" },
                 new ItemFeature { Name = "Workshop", NameAssociated = "Workshop", IconDefault = "ico_workshop.png" }
             };
+
+            if (ItemFeatures.Find(x => x.Name.Equals("vr")) == null)
+            {
+                ItemFeatures.Add(new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" });
+            }
 
             if (Settings.ItemFeatures.Count == 0)
             {

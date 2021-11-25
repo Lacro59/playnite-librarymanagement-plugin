@@ -9,9 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Threading;
 
 namespace LibraryManagement.Controls
 {
@@ -22,7 +20,7 @@ namespace LibraryManagement.Controls
     {
         private LibraryManagementSettingsViewModel PluginSettings;
 
-        private PluginFeaturesIconListDataContext ControlDataContext;
+        private PluginFeaturesIconListDataContext ControlDataContext = new PluginFeaturesIconListDataContext();
         internal override IDataContext _ControlDataContext
         {
             get
@@ -41,6 +39,7 @@ namespace LibraryManagement.Controls
             this.PluginSettings = PluginSettings;
 
             InitializeComponent();
+            this.DataContext = ControlDataContext;
 
             Task.Run(() =>
             {
@@ -58,44 +57,35 @@ namespace LibraryManagement.Controls
 
         public override void SetDefaultDataContext()
         {
-            ControlDataContext = new PluginFeaturesIconListDataContext
-            {
-                IsActivated = PluginSettings.Settings.EnableIntegrationFeatures,
+            ControlDataContext.IsActivated = PluginSettings.Settings.EnableIntegrationFeatures;
 
-                CountItems = 0,
-                ItemsSource = new ObservableCollection<ItemList>()
-            };
+            ControlDataContext.CountItems = 0;
+            ControlDataContext.ItemsSource = new ObservableCollection<ItemList>();
         }
 
 
-        public override Task<bool> SetData(Game newContext)
+        public override void SetData(Game newContext)
         {
-            return Task.Run(() =>
-            {
-                List<ItemFeature> itemFeatures = IcoFeatures.GetAvailableItemFeatures(PluginSettings, newContext);
-                ObservableCollection<ItemList> itemLists = new ObservableCollection<ItemList>();
-                itemLists = itemFeatures.Select(x => new ItemList { Name = x.NameAssociated, Icon = x.IconString }).ToObservable();
+            List<ItemFeature> itemFeatures = IcoFeatures.GetAvailableItemFeatures(PluginSettings, newContext);
+            ObservableCollection<ItemList> itemLists = new ObservableCollection<ItemList>();
+            itemLists = itemFeatures.Select(x => new ItemList { Name = x.NameAssociated, Icon = x.IconString }).ToObservable();
 
-                ControlDataContext.CountItems = itemLists.Count;
-                ControlDataContext.ItemsSource = itemLists;
-
-                this.Dispatcher.BeginInvoke(DispatcherPriority.Loaded, new ThreadStart(delegate
-                {
-                    this.DataContext = ControlDataContext;
-                }));
-
-                return true;
-            });
+            ControlDataContext.CountItems = itemLists.Count;
+            ControlDataContext.ItemsSource = itemLists;
         }
     }
 
 
-    public class PluginFeaturesIconListDataContext : IDataContext
+    public class PluginFeaturesIconListDataContext : ObservableObject, IDataContext
     {
-        public bool IsActivated { get; set; }
+        private bool _IsActivated;
+        public bool IsActivated { get => _IsActivated; set => SetValue(ref _IsActivated, value); }
 
-        public int CountItems { get; set; }
-        public ObservableCollection<ItemList> ItemsSource { get; set; }
+        public int _CountItems;
+        public int CountItems { get => _CountItems; set => SetValue(ref _CountItems, value); }
+
+        public ObservableCollection<ItemList> _ItemsSource;
+        public ObservableCollection<ItemList> ItemsSource { get => _ItemsSource; set => SetValue(ref _ItemsSource, value); }
     }
 
     public class ItemList
