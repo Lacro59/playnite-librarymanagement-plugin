@@ -808,6 +808,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
@@ -818,9 +819,27 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateTagsToFeatures(game);
+                        if (UpdateTagsToFeatures(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateTagsToFeatures",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCLmTagsToFeatures")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsToFeaturesUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
                     }
 
 
@@ -836,8 +855,10 @@ namespace LibraryManagement.Services
         }
 
 
-        private void UpdateTagsToFeatures(Game game)
+        private bool UpdateTagsToFeatures(Game game)
         {
+            bool IsUpdated = false;
+
             if (game.Tags != null && game.Tags.Count > 0)
             {
                 List<Tag> Tags = Serialization.GetClone(game.Tags);
@@ -847,6 +868,7 @@ namespace LibraryManagement.Services
                     var finded = PluginSettings.ListTagsToFeatures.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
                     if (finded != null)
                     {
+                        IsUpdated = true;
                         game.TagIds.Remove(Tags[i].Id);
                         if (game.FeatureIds != null)
                         {
@@ -859,11 +881,16 @@ namespace LibraryManagement.Services
                     }
                 }
 
-                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                if (IsUpdated)
                 {
-                    PlayniteApi.Database.Games.Update(game);
-                }).Wait();
+                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    {
+                        PlayniteApi.Database.Games.Update(game);
+                    }).Wait();
+                }
             }
+
+            return IsUpdated;
         }
         #endregion
 
@@ -895,6 +922,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
@@ -905,9 +933,27 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateTagsToGenres(game);
+                        if (UpdateTagsToGenres(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateTagsToGenres",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCLmTagsToGenres")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsToGenresUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
                     }
 
 
@@ -923,8 +969,9 @@ namespace LibraryManagement.Services
         }
 
 
-        private void UpdateTagsToGenres(Game game)
+        private bool UpdateTagsToGenres(Game game)
         {
+            bool IsUpdated = false;
             if (game.Tags != null && game.Tags.Count > 0)
             {
                 List<Tag> Tags = Serialization.GetClone(game.Tags);
@@ -934,6 +981,7 @@ namespace LibraryManagement.Services
                     var finded = PluginSettings.ListTagsToGenres.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
                     if (finded != null)
                     {
+                        IsUpdated = true;
                         game.TagIds.Remove(Tags[i].Id);
                         if (game.GenreIds != null)
                         {
@@ -946,11 +994,16 @@ namespace LibraryManagement.Services
                     }
                 }
 
-                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                if (IsUpdated)
                 {
-                    PlayniteApi.Database.Games.Update(game);
-                }).Wait();
+                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    {
+                        PlayniteApi.Database.Games.Update(game);
+                    }).Wait();
+                }
             }
+
+            return IsUpdated;
         }
         #endregion
     }
