@@ -1,4 +1,5 @@
-﻿using CommonPluginsShared;
+﻿using CommonPluginsControls.Views;
+using CommonPluginsShared;
 using LibraryManagement.Models;
 using Playnite.SDK;
 using Playnite.SDK.Data;
@@ -9,7 +10,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace LibraryManagement.Services
@@ -69,6 +69,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
@@ -79,10 +80,28 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateGenre(game);
+                        if (UpdateGenre(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
                     }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateGenre",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCGameGenresTitle")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmGenresUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
+                    } 
 
 
                     stopWatch.Stop();
@@ -116,8 +135,9 @@ namespace LibraryManagement.Services
             }
         }
 
-        private void UpdateGenre(Game game)
+        private bool UpdateGenre(Game game)
         {
+            bool IsUpdated = false;
             List<Genre> GameGenres = game.Genres;
 
             if (GameGenres != null && GameGenres.Count > 0)
@@ -131,6 +151,7 @@ namespace LibraryManagement.Services
                     foreach (Genre genre in AllGenresOld)
                     {
                         game.GenreIds.Remove(genre.Id);
+                        IsUpdated = true;
                     }
 
                     // Set all
@@ -139,13 +160,9 @@ namespace LibraryManagement.Services
                         if (item.Id != null)
                         {
                             game.GenreIds.AddMissing((Guid)item.Id);
+                            IsUpdated = true;
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); 
                 }
 
                 // Exclusion
@@ -157,15 +174,21 @@ namespace LibraryManagement.Services
                         if (genreDelete != null)
                         {
                             game.GenreIds.Remove(genreDelete.Id);
+                            IsUpdated = true;
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); ;
                 }
             }
+
+            if (IsUpdated)
+            {
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                {
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
+            }
+
+            return IsUpdated;
         }
 
         public static void RenameGenre(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
@@ -221,6 +244,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb.ToList())
                     {
@@ -231,9 +255,27 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateFeature(game);
+                        if (UpdateFeature(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateFeature",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCFeaturesLabel")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmFeaturesUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
                     }
 
 
@@ -268,8 +310,9 @@ namespace LibraryManagement.Services
             }
         }
 
-        private void UpdateFeature(Game game)
+        private bool UpdateFeature(Game game)
         {
+            bool IsUpdated = false;
             List<GameFeature> gameFeatures = game.Features;
 
             if (gameFeatures != null && gameFeatures.Count > 0)
@@ -283,6 +326,7 @@ namespace LibraryManagement.Services
                     foreach (GameFeature feature in AllFeaturesOld)
                     {
                         game.FeatureIds.Remove(feature.Id);
+                        IsUpdated = true;
                     }
 
                     // Set all
@@ -291,13 +335,17 @@ namespace LibraryManagement.Services
                         if (item.Id != null)
                         {
                             game.FeatureIds.AddMissing((Guid)item.Id);
+                            IsUpdated = true;
                         }
                     }
 
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    if (IsUpdated)
                     {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait();
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Games.Update(game);
+                        }).Wait();
+                    }
                 }
 
                 // Exclusion
@@ -309,15 +357,21 @@ namespace LibraryManagement.Services
                         if (featureDelete != null)
                         {
                             game.FeatureIds.Remove(featureDelete.Id);
+                            IsUpdated = true;
                         }
                     }
 
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    if (IsUpdated)
                     {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); ;
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Games.Update(game);
+                        }).Wait();
+                    }
                 }
             }
+
+            return IsUpdated;
         }
 
         public static void RenameFeature(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
@@ -373,6 +427,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
@@ -383,9 +438,27 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateTags(game);
+                        if (UpdateTags(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateTag",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCTagsLabel")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
                     }
 
 
@@ -420,8 +493,9 @@ namespace LibraryManagement.Services
             }
         }
 
-        private void UpdateTags(Game game)
+        private bool UpdateTags(Game game)
         {
+            bool IsUpdated = false;
             List<Tag> Tags = game.Tags;
 
             if (Tags != null && Tags.Count > 0)
@@ -435,6 +509,7 @@ namespace LibraryManagement.Services
                     foreach (Tag tag in AllTagsOld)
                     {
                         game.TagIds.Remove(tag.Id);
+                        IsUpdated = true;
                     }
 
                     // Set all
@@ -443,13 +518,9 @@ namespace LibraryManagement.Services
                         if (item.Id != null)
                         {
                             game.TagIds.AddMissing((Guid)item.Id);
+                            IsUpdated = true;
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); 
                 }
 
                 // Exclusion
@@ -461,15 +532,21 @@ namespace LibraryManagement.Services
                         if (TagDelete != null)
                         {
                             game.TagIds.Remove(TagDelete.Id);
+                            IsUpdated = true;
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait(); 
                 }
             }
+
+            if (IsUpdated)
+            {
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                {
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
+            }
+
+            return IsUpdated;
         }
 
         public static void RenameTags(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
@@ -526,6 +603,7 @@ namespace LibraryManagement.Services
                     activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
 
                     string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
@@ -536,10 +614,31 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        UpdateCompanies(game);
-                        UpdateCompanies(game, true);
+                        if (UpdateCompanies(game))
+                        {
+                            gamesUpdated.Add(game);
+                        }
+                        if (UpdateCompanies(game, true))
+                        {
+                            gamesUpdated.AddMissing(game);
+                        }
 
                         activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateCompany",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCCompaniesLabel")),
+                             NotificationType.Error,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmCompaniesUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
                     }
 
 
@@ -574,8 +673,9 @@ namespace LibraryManagement.Services
             }
         }
 
-        private void UpdateCompanies(Game game, bool IsPublishers = false)
+        private bool UpdateCompanies(Game game, bool IsPublishers = false)
         {
+            bool IsUpdated = false;
             List<Company> Companies = new List<Company>();
             if (IsPublishers)
             {
@@ -599,10 +699,12 @@ namespace LibraryManagement.Services
                         if (IsPublishers)
                         {
                             game.PublisherIds.Remove(company.Id);
+                            IsUpdated = true;
                         }
                         else
                         {
                             game.DeveloperIds.Remove(company.Id);
+                            IsUpdated = true;
                         }
                     }
 
@@ -614,18 +716,15 @@ namespace LibraryManagement.Services
                             if (IsPublishers)
                             {
                                 game.PublisherIds.AddMissing((Guid)item.Id);
+                                IsUpdated = true;
                             }
                             else
                             {
                                 game.DeveloperIds.AddMissing((Guid)item.Id);
+                                IsUpdated = true;
                             }
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait();
                 }
 
                 // Exclusion
@@ -639,6 +738,7 @@ namespace LibraryManagement.Services
                             if (CompanyDelete != null)
                             {
                                 game.PublisherIds.Remove(CompanyDelete.Id);
+                                IsUpdated = true;
                             }
                         }
                         else
@@ -647,16 +747,22 @@ namespace LibraryManagement.Services
                             if (CompanyDelete != null)
                             {
                                 game.DeveloperIds.Remove(CompanyDelete.Id);
+                                IsUpdated = true;
                             }
                         }
                     }
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait();
                 }
             }
+
+            if (IsUpdated)
+            {
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                {
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
+            }
+
+            return IsUpdated;
         }
 
         public static void RenameCompanies(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
