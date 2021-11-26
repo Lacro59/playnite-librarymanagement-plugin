@@ -11,6 +11,14 @@
     <sys:String x:Key="LOCLmSetTags">Imposta etichette</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Imposta aziende</sys:String>
 
+    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Applica aziende con l'aggiornamento della libreria di gioco</sys:String>
@@ -65,5 +73,10 @@
     <sys:String x:Key="LOCLmSizeWished">Dimensioni desiderate</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Ridimensiona con il ritaglio per avere la dimensione desiderata</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Applica le opzioni immagine</sys:String>
+
+    <!-- Notifications -->
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
+Click to see the list</sys:String>
+    
 
 </ResourceDictionary>
