@@ -617,6 +617,11 @@
                                                 <ColumnDefinition Width="10" />
                                                 <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
                                             
                                             <CheckBox Grid.Column="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click">
                                                 <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
@@ -624,6 +629,10 @@
                                             
                                             <CheckBox Grid.Column="2" IsChecked="{Binding Settings.UsedGog}" Click="CheckBoxGog_Click">
                                                 <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedGog}" />
+                                            </CheckBox>
+
+                                            <CheckBox Grid.Row="2" Grid.ColumnSpan="3" IsChecked="{Binding Settings.OneForSameIcon}">
+                                                <Label Content="{DynamicResource LOCLmIntegrationOneForSameIcon}" />
                                             </CheckBox>
                                         </Grid>
 

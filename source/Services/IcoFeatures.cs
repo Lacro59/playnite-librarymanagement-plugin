@@ -1,10 +1,10 @@
-﻿using LibraryManagement.Models;
+﻿using CommonPluginsShared.Extensions;
+using LibraryManagement.Models;
 using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagement.Services
 {
@@ -17,7 +17,7 @@ namespace LibraryManagement.Services
             if (GameContext != null && GameContext.Features != null)
             {
                 Result = PluginSettings.Settings.ItemFeatures.Where(
-                    x => GameContext.Features.Any(y => y.Name.ToLower() == x.NameAssociated.ToLower())
+                    x => GameContext.Features.Any(y => y.Name.IsEqual(x.NameAssociated))
                 ).ToList();
             }
 

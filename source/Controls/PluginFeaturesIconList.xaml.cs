@@ -2,6 +2,7 @@
 using CommonPluginsShared.Interfaces;
 using LibraryManagement.Models;
 using LibraryManagement.Services;
+using MoreLinq;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using System;
@@ -69,6 +70,34 @@ namespace LibraryManagement.Controls
             List<ItemFeature> itemFeatures = IcoFeatures.GetAvailableItemFeatures(PluginSettings, newContext);
             ObservableCollection<ItemList> itemLists = new ObservableCollection<ItemList>();
             itemLists = itemFeatures.Select(x => new ItemList { Name = x.NameAssociated, Icon = x.IconString }).ToObservable();
+
+            if (PluginSettings.Settings.OneForSameIcon)
+            {
+                itemFeatures.ForEach(x => 
+                {
+                    string NewName = string.Empty;
+                    itemLists.Where(y => x.IconString == y.Icon)?.ToList().ForEach(y => 
+                    {
+                        if (!y.Name.Contains(Environment.NewLine))
+                        {
+                            if (NewName.IsNullOrEmpty())
+                            {
+                                NewName = y.Name;
+                            }
+                            else
+                            {
+                                NewName += Environment.NewLine + y.Name;
+                            }
+                        }
+                    });
+                    if (!NewName.IsNullOrEmpty())
+                    {
+                        itemLists.Where(y => x.IconString == y.Icon)?.ToList().ForEach(y => y.Name = NewName);
+                    }
+                });
+
+                itemLists = itemLists.DistinctBy(x=> x.Icon).ToObservable();
+            }
 
             ControlDataContext.CountItems = itemLists.Count;
             ControlDataContext.ItemsSource = itemLists;

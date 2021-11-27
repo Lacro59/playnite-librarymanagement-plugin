@@ -49,6 +49,7 @@ namespace LibraryManagement
             }
         }
 
+        public bool OneForSameIcon { get; set; } = false;
         public bool UsedDark { get; set; } = false;
         public bool UsedGog { get; set; } = false;
         public List<ItemFeature> ItemFeatures { get; set; } = new List<ItemFeature>();
