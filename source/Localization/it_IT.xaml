@@ -11,13 +11,13 @@
     <sys:String x:Key="LOCLmSetTags">Imposta etichette</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Imposta aziende</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Generi aggiornati</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Funzionalità aggiornate</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Tag aggiornati</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Aziende aggiornate</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag dei generi aggiornati</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag delle funzionalità aggiornate</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -57,6 +57,8 @@
 
     <sys:String x:Key="LOCLmTagsToGenres">Tag ai generi</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Imposta i tag ai generi</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostra un'icona quando le funzioni usano la stessa icona</sys:String>
     
     <!-- LmImageEditor -->
 
@@ -75,8 +77,8 @@
     <sys:String x:Key="LOCLmApplyImageOptions">Applica le opzioni immagine</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Giochi aggiornati ({1})
+Clicca per vedere l'elenco</sys:String>
     
 
 </ResourceDictionary>

@@ -57,6 +57,8 @@
 
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
     
     <!-- LmImageEditor -->
 
