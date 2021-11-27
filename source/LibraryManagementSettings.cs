@@ -1,4 +1,5 @@
-﻿using LibraryManagement.Models;
+﻿using CommonPluginsShared.Extensions;
+using LibraryManagement.Models;
 using LibraryManagement.Services;
 using Playnite.SDK;
 using Playnite.SDK.Data;
@@ -172,6 +173,7 @@ namespace LibraryManagement
                 new ItemFeature { Name = "Stats", NameAssociated = "Stats", IconDefault = "ico_stats.png" },
                 new ItemFeature { Name = "Trading Cards", NameAssociated = "Trading Cards", IconDefault = "ico_cards.png" },
                 new ItemFeature { Name = "Valve Anti-Cheat Enabled", NameAssociated = "Valve Anti-Cheat Enabled", IconDefault = "ico_vac.png" },
+                new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" },
                 new ItemFeature { Name = "VR Gamepad", NameAssociated = "VR Gamepad", IconDefault = "ico_vr_input_motion.png" },
                 new ItemFeature { Name = "VR Keyboard/Mouse", NameAssociated = "VR Keyboard/Mouse", IconDefault = "ico_vr_input_kbm.png" },
                 new ItemFeature { Name = "VR Motion Controllers", NameAssociated = "VR Motion Controllers", IconDefault = "ico_vr_input_motion.png" },
@@ -181,15 +183,17 @@ namespace LibraryManagement
                 new ItemFeature { Name = "Workshop", NameAssociated = "Workshop", IconDefault = "ico_workshop.png" }
             };
 
-            if (ItemFeatures.Find(x => x.Name.Equals("vr")) == null)
-            {
-                ItemFeatures.Add(new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" });
-            }
-
             if (Settings.ItemFeatures.Count == 0)
             {
                 Settings.ItemFeatures = ItemFeatures;
             }
+
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("vr")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" });
+            }
+
+            Settings.ItemFeatures = Settings.ItemFeatures.OrderBy(x => x.Name).ToList();
         }
 
         // Code executed when settings view is opened and user starts editing values.
