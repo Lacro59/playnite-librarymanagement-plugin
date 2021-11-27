@@ -28,3 +28,12 @@ Packages:
       - Added a function to transfer tags to genress
       - Fixed crash
       - Fixed many bugs
+  - Version: 2.3
+    RequiredApiVersion: 6.2.0
+    ReleaseDate: 2021-11-27
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v2.3/playnite-librarymanagement-plugin_2_3.pext
+    Changelog:
+      - Updated localizations
+      - Added VR feature icon
+      - Added an option to combine features with a same icon
+      - Fixed many bugs
