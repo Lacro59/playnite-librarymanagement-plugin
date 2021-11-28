@@ -58,7 +58,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags para Gêneros</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Ajustar tags para Gêneros</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar um ícone quando os recursos usam o mesmo ícone</sys:String>
     
     <!-- LmImageEditor -->
 
