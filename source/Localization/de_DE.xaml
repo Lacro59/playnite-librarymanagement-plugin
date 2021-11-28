@@ -11,13 +11,13 @@
     <sys:String x:Key="LOCLmSetTags">Tags festlegen</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Unternehmen festlegen</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Genres aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Funktionen aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Tags aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Unternehmen aktualisiert</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags zu Genres aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Funktionen aktualisiert</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -58,7 +58,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
     
     <!-- LmImageEditor -->
 
@@ -77,8 +77,8 @@
     <sys:String x:Key="LOCLmApplyImageOptions">Bildoptionen anwenden</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Spiele aktualisiert ({1})
+Klicken, um die Liste zu sehen</sys:String>
     
 
 </ResourceDictionary>
