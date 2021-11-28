@@ -58,7 +58,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Étiquettes vers genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Définir les étiquettes vers genres</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Afficher une icône lorsque les fonctionnalités utilisent la même icône</sys:String>
     
     <!-- LmImageEditor -->
 
