@@ -89,12 +89,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateGenre",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCGameGenresTitle")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmGenresUpdated"), listDataUpdated);
@@ -264,12 +264,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateFeature",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCFeaturesLabel")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmFeaturesUpdated"), listDataUpdated);
@@ -447,12 +447,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTag",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCTagsLabel")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsUpdated"), listDataUpdated);
@@ -627,12 +627,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateCompany",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCCompaniesLabel")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmCompaniesUpdated"), listDataUpdated);
@@ -828,12 +828,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTagsToFeatures",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCLmTagsToFeatures")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsToFeaturesUpdated"), listDataUpdated);
@@ -942,12 +942,12 @@ namespace LibraryManagement.Services
                     }
 
 
-                    if (gamesUpdated.Count > 0)
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTagsToGenres",
                              $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCLmTagsToGenres")),
-                             NotificationType.Error,
+                             NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
                                  Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsToGenresUpdated"), listDataUpdated);

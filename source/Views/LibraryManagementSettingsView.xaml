@@ -30,6 +30,8 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
                     <CheckBox IsChecked="{Binding Settings.AutoUpdateCompanies}" Grid.Row="0" VerticalAlignment="Center">
@@ -54,6 +56,10 @@
 
                     <CheckBox IsChecked="{Binding Settings.AutoUpdateTagsToGenres}" Grid.Row="10" VerticalAlignment="Center">
                         <Label Content="{DynamicResource LOCLmAutoUpdateTagsToGenres}" />
+                    </CheckBox>
+
+                    <CheckBox IsChecked="{Binding Settings.NotifitcationAfterUpdate}" Grid.Row="20" VerticalAlignment="Center">
+                        <Label Content="{DynamicResource LOCLmDisplayNotificationAfterUpdate}" />
                     </CheckBox>
                 </Grid>
             </TabItem>

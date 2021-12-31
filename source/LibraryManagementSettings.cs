@@ -16,6 +16,8 @@ namespace LibraryManagement
         public bool MenuInExtensions { get; set; } = true;
         public DateTime LastAutoLibUpdateAssetsDownload { get; set; } = DateTime.Now;
 
+        public bool NotifitcationAfterUpdate { get; set; } = true;
+
         public bool AutoUpdateCompanies { get; set; } = false;
         public bool AutoUpdateGenres { get; set; } = false;
         public bool AutoUpdateFeatures { get; set; } = false;
