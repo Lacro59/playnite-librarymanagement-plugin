@@ -27,6 +27,8 @@
     <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Добавить жан</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редактировать жан</sys:String>
