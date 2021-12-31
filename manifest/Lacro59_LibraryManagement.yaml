@@ -37,3 +37,12 @@ Packages:
       - Added VR feature icon
       - Added an option to combine features with a same icon
       - Fixed many bugs
+  - Version: 2.4
+    RequiredApiVersion: 6.2.0
+    ReleaseDate: 2021-12-31
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v2.4/playnite-librarymanagement-plugin_2_4.pext
+    Changelog:
+      - Updated localizations
+      - Added DLC feature icon
+      - Added new settings options
+      - Fixed many bugs
