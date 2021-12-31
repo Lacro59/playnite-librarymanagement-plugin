@@ -27,6 +27,8 @@
     <sys:String x:Key="LOCLmAutoUpdateTags">Appliquer les étiquettes avec la mise à jour de la bibliothèque</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Appliquer les étiquettes vers fonctionnalités avec la mise à jour de la bibliothèque</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Appliquer les étiquettes vers genres avec la mise à jour de la bibliothèque</sys:String>
+
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Ajouter un genre</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Modifier le genre</sys:String>
