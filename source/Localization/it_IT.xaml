@@ -16,8 +16,8 @@
     <sys:String x:Key="LOCLmTagsUpdated">Tag aggiornati</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Aziende aggiornate</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag dei generi aggiornati</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag delle funzionalità aggiornate</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag ai generi aggiornati</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag alle funzionalità aggiornate</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -52,8 +52,8 @@
     <sys:String x:Key="LOCLmNameAssociated">Nome Associato</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icona Personalizzata</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tag alle funzionalità</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Imposta i tag alle funzionalità</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tag alle funzionalit</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Imposta i tag alle funzionalit</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenres">Tag ai generi</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Imposta i tag ai generi</sys:String>
