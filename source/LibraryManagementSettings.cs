@@ -144,6 +144,7 @@ namespace LibraryManagement
                 new ItemFeature { Name = "Co-Op", NameAssociated = "Co-Op", IconDefault = "ico_coop.png" },
                 new ItemFeature { Name = "Co-Operative", NameAssociated = "Co-Operative", IconDefault = "ico_coop.png" },
                 new ItemFeature { Name = "Cross-Platform Multiplayer", NameAssociated = "Cross-Platform Multiplayer", IconDefault = "ico_multiPlayer.png" },
+                new ItemFeature { Name = "DLC", NameAssociated = "DLC", IconDefault = "ico_dlc.png" },
                 new ItemFeature { Name = "Full Controller Support", NameAssociated = "Full Controller Support", IconDefault = "ico_controller.png" },
                 new ItemFeature { Name = "In-App Purchases", NameAssociated = "In-App Purchases", IconDefault = "ico_cart.png" },
                 new ItemFeature { Name = "Includes Level Editor", NameAssociated = "Includes Level Editor", IconDefault = "ico_editor.png" },
@@ -191,6 +192,11 @@ namespace LibraryManagement
             if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("vr")) == null)
             {
                 Settings.ItemFeatures.Add(new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" });
+            }
+
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("dlc")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "DLC", NameAssociated = "DLC", IconDefault = "ico_dlc.png" });
             }
 
             Settings.ItemFeatures = Settings.ItemFeatures.OrderBy(x => x.Name).ToList();
