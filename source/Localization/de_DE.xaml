@@ -27,6 +27,8 @@
     <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Anwenden von Tags auf Funktionen mit dem Update der Spielebibliothek</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Tags auf Genres mit der Aktualisierung der Spielbibliothek anwenden</sys:String>
+
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
