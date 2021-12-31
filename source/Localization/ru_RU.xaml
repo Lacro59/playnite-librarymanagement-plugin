@@ -3,7 +3,7 @@
 
     <!-- MainView -->
 
-    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
+    <sys:String x:Key="LOCLm">Управление библиотекой</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
@@ -28,14 +28,14 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Добавить жанр</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Редактировать жанр</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
     
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">Добавить тег</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Редактировать метку</sys:String>
 
     <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
@@ -47,10 +47,10 @@
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Пользовательская иконка</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
@@ -67,11 +67,11 @@
     <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
+    <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Оригинал</sys:String>
     <sys:String x:Key="LOCLmEdited">Edited</sys:String>
     <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Размер изображения</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>

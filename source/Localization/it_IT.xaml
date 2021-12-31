@@ -16,8 +16,8 @@
     <sys:String x:Key="LOCLmTagsUpdated">Tag aggiornati</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Aziende aggiornate</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag dei generi aggiornati</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag delle funzionalità aggiornate</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag ai generi aggiornati</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag alle funzionalità aggiornate</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
