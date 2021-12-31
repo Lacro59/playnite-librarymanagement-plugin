@@ -28,14 +28,14 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Добавить жанр</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Редактировать жанр</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Добавить жан</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Редактировать жан</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Добавить тег</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Редактировать метку</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Редактировать метк</sys:String>
 
     <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
