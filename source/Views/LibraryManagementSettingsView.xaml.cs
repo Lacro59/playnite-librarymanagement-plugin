@@ -55,7 +55,7 @@ namespace LibraryManagement.Views
             if (!(bool)PART_ExclusionCompany.IsChecked)
             {
                 List<string> ListAlreadyAdded = ((List<LmCompaniesEquivalences>)PART_ListCompanyEquivalences.ItemsSource)[index].OldNames;
-                List<Company> companies = _PlayniteApi.Database.Companies.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
+                List<Company> companies = _PlayniteApi.Database.Companies.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower()))?.ToList() ?? new List<Company>();
 
                 ManageElement<LmCompaniesEquivalences>(PART_ListCompanyEquivalences, index, ListAlreadyAdded,
                     ItemType.Company, companies, ((List<LmCompaniesEquivalences>)PART_ListCompanyEquivalences.ItemsSource)[index], false);
@@ -112,7 +112,7 @@ namespace LibraryManagement.Views
             if (!(bool)PART_Exclusion.IsChecked)
             {
                 List<string> ListAlreadyAdded = ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index].OldNames;
-                List<Genre> genres = _PlayniteApi.Database.Genres.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
+                List<Genre> genres = _PlayniteApi.Database.Genres.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower()))?.ToList() ?? new List<Genre>();
 
                 ManageElement<LmGenreEquivalences>(PART_ListGenreEquivalences, index, ListAlreadyAdded,
                     ItemType.Genre, genres, ((List<LmGenreEquivalences>)PART_ListGenreEquivalences.ItemsSource)[index], false);
@@ -169,7 +169,7 @@ namespace LibraryManagement.Views
             if (!(bool)PART_ExclusionFeature.IsChecked)
             {
                 List<string> ListAlreadyAdded = ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index].OldNames;
-                List<GameFeature> features = _PlayniteApi.Database.Features.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
+                List<GameFeature> features = _PlayniteApi.Database.Features.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower()))?.ToList() ?? new List<GameFeature>();
 
                 ManageElement<LmFeatureEquivalences>(PART_ListFeatureEquivalences, index, ListAlreadyAdded,
                     ItemType.Feature, features, ((List<LmFeatureEquivalences>)PART_ListFeatureEquivalences.ItemsSource)[index], false);
@@ -226,7 +226,7 @@ namespace LibraryManagement.Views
             if (!(bool)PART_ExclusionTag.IsChecked)
             {
                 List<string> ListAlreadyAdded = ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index].OldNames;
-                List<Tag> tags = _PlayniteApi.Database.Tags.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower())).ToList();
+                List<Tag> tags = _PlayniteApi.Database.Tags.Where(x => !ListAlreadyAdded.Any(y => x.Name.ToLower() == y.ToLower()))?.ToList() ?? new List<Tag>();
 
                 ManageElement<LmTagsEquivalences>(PART_ListTagEquivalences, index, ListAlreadyAdded,
                     ItemType.Tag, tags, ((List<LmTagsEquivalences>)PART_ListTagEquivalences.ItemsSource)[index], false);
