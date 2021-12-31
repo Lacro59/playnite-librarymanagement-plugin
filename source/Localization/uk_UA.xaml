@@ -27,6 +27,8 @@
     <sys:String x:Key="LOCLmAutoUpdateTags">Застосувати теги з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Застосувати теги до особливостей з оновленням бібліотеки ігор</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Застосувати теги до жанрів з оновленням бібліотеки ігор</sys:String>
+
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
