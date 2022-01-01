@@ -28,7 +28,7 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Aplicar tags com a atualização da biblioteca de jogos</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Aplicar tags a gêneros com a atualização da biblioteca de jogos</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Exibir uma notificação com resultado após uma atualização</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Adicionar novo gênero</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Editar gênero</sys:String>
