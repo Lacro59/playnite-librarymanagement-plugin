@@ -79,10 +79,17 @@ namespace LibraryManagement.Services
                             break;
                         }
 
-                        Thread.Sleep(10);
-                        if (UpdateGenre(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            Thread.Sleep(10);
+                            if (UpdateGenre(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
@@ -254,10 +261,17 @@ namespace LibraryManagement.Services
                             break;
                         }
 
-                        Thread.Sleep(10);
-                        if (UpdateFeature(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            Thread.Sleep(10);
+                            if (UpdateFeature(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
@@ -437,10 +451,17 @@ namespace LibraryManagement.Services
                             break;
                         }
 
-                        Thread.Sleep(10);
-                        if (UpdateTags(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            Thread.Sleep(10);
+                            if (UpdateTags(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
@@ -614,13 +635,20 @@ namespace LibraryManagement.Services
                         }
 
                         Thread.Sleep(10);
-                        if (UpdateCompanies(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            if (UpdateCompanies(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                            if (UpdateCompanies(game, true))
+                            {
+                                gamesUpdated.AddMissing(game);
+                            }
                         }
-                        if (UpdateCompanies(game, true))
+                        catch (Exception ex)
                         {
-                            gamesUpdated.AddMissing(game);
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
@@ -818,10 +846,17 @@ namespace LibraryManagement.Services
                             break;
                         }
 
-                        Thread.Sleep(10);
-                        if (UpdateTagsToFeatures(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            Thread.Sleep(10);
+                            if (UpdateTagsToFeatures(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
@@ -932,10 +967,17 @@ namespace LibraryManagement.Services
                             break;
                         }
 
-                        Thread.Sleep(10);
-                        if (UpdateTagsToGenres(game))
+                        try
                         {
-                            gamesUpdated.Add(game);
+                            Thread.Sleep(10);
+                            if (UpdateTagsToGenres(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
                         activateGlobalProgress.CurrentProgressValue++;
