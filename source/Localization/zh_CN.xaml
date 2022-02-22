@@ -3,84 +3,84 @@
 
     <!-- MainView -->
 
-    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
+    <sys:String x:Key="LOCLm">库之打理-LibraryManagement</sys:String>
 
-    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmActionInProgress">正在执行中...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">设置流派</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">设置功能特色</sys:String>
+    <sys:String x:Key="LOCLmSetTags">设置标签</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">设置公司</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">流派已更新</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">功能特色已更新</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">标签已更新</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">公司已更新</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">标签到流派已更新</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">标签到功能特色已更新</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">在游戏库更新时应用公司</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">在游戏库更新时应用功能特色</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">在游戏库更新时应用流派</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">在游戏库更新时应用标签</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">在游戏库更新时应用标签到功能特色</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">在游戏库更新时应用标签到流派</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">更新后显示结果通知</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">添加新流派</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">编辑流派</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">添加新功能特色</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">编辑功能特色</sys:String>
     
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">添加新标签</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">编辑标签</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">添加新公司</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">编辑公司</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">已替换项目</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">排除列表</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">显示功能特色图标列表</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">功能特色图标选项</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">使用暗色图标</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">使用 GOG 图标</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">关联的名称</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">自定义图标</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">标签到功能特色</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">设置标签到功能特色</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">标签到流派</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">设置标签到流派</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支持）</sys:String>
     
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">媒体编辑器</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">设置为图标</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">选择媒体</sys:String>
+    <sys:String x:Key="LOCLmCrop">裁剪</sys:String>
+    <sys:String x:Key="LOCLmOriginal">原始的</sys:String>
+    <sys:String x:Key="LOCLmEdited">已编辑</sys:String>
+    <sys:String x:Key="LOCLmImageName">图像名称</sys:String>
+    <sys:String x:Key="LOCLmImageSize">图像大小</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">想要的大小</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">通过裁剪调整大小以达到所需的大小</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">应用图像选项</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} 个游戏已更新（{1}）
+点击查看列表</sys:String>
     
 
 </ResourceDictionary>
