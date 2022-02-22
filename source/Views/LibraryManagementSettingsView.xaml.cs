@@ -489,6 +489,34 @@ namespace LibraryManagement.Views
             PART_ListItemFeatures.ItemsSource = null;
             PART_ListItemFeatures.ItemsSource = itemFeatures;
         }
+
+
+        private void PART_AddNewFeature_Click(object sender, RoutedEventArgs e)
+        {
+            var ViewExtension = new AddNewFeatureIcon(_plugin);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAddNewFeature"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.itemFeature != null)
+            {
+                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+                itemFeatures.Add(ViewExtension.itemFeature);
+
+                PART_ListItemFeatures.ItemsSource = null;
+                PART_ListItemFeatures.ItemsSource = itemFeatures;
+            }
+        }
+
+        private void PART_RemoveFeature_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+            itemFeatures.RemoveAt(index);
+
+            PART_ListItemFeatures.ItemsSource = null;
+            PART_ListItemFeatures.ItemsSource = itemFeatures;
+        }
         #endregion
 
 

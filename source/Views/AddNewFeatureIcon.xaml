@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="LibraryManagement.Views.AddNewFeatureIcon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibraryManagement.Views"
+             mc:Ignorable="d" 
+             Height="300" Width="500">
+    
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource LOCNameLabel}" />
+        <TextBox Grid.Row="0" Grid.Column="2" Name="PART_Name" TextChanged="PART_TextChanged" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="{DynamicResource LOCLmNameAssociated}" />
+        <TextBox Grid.Row="2" Grid.Column="2" Name="PART_NameAssociated" TextChanged="PART_TextChanged" />
+
+        <Label Grid.Row="4" Grid.Column="0" Content="{DynamicResource LOCLmCustomIcon}" />
+        <Image Grid.Row="4" Grid.Column="2" Name="PART_IconCustom" HorizontalAlignment="Left" Width="32" Height="32" />
+        <Button Grid.Row="4" Grid.Column="4"
+                Name="PART_AddCustomIcon" Click="PART_AddCustomIcon_Click" ToolTip="{DynamicResource LOCSelectIconTitle}"
+                Content="&#xefc2;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center" />
+
+        <StackPanel Grid.ColumnSpan="10" Grid.Column="1" Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="PART_Save" Click="PART_Save_Click" Content="{DynamicResource LOCSaveLabel}" IsEnabled="False" />
+            <Button Name="PART_Cancel" Click="PART_Cancel_Click" Content="{DynamicResource LOCCancelLabel}" Margin="10,0,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

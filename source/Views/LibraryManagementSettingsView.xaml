@@ -619,9 +619,9 @@
 
                                         <Grid Grid.Row="0" >
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="10" />
-                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="auto" />
@@ -629,23 +629,42 @@
                                                 <RowDefinition Height="auto" />
                                             </Grid.RowDefinitions>
                                             
-                                            <CheckBox Grid.Column="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click">
+                                            <CheckBox Grid.Column="0" IsChecked="{Binding Settings.UsedDark}" Click="CheckBoxDark_Click" VerticalAlignment="Center">
                                                 <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedDark}" />
                                             </CheckBox>
-                                            
-                                            <CheckBox Grid.Column="2" IsChecked="{Binding Settings.UsedGog}" Click="CheckBoxGog_Click">
+
+                                            <CheckBox Grid.Column="2" IsChecked="{Binding Settings.UsedGog}" Click="CheckBoxGog_Click" VerticalAlignment="Center">
                                                 <Label Content="{DynamicResource LOCLmIntegrationFeaturesUsedGog}" />
                                             </CheckBox>
 
-                                            <CheckBox Grid.Row="2" Grid.ColumnSpan="3" IsChecked="{Binding Settings.OneForSameIcon}">
+                                            <CheckBox Grid.Row="2" Grid.ColumnSpan="3" IsChecked="{Binding Settings.OneForSameIcon}" VerticalAlignment="Center">
                                                 <Label Content="{DynamicResource LOCLmIntegrationOneForSameIcon}" />
                                             </CheckBox>
+
+                                            <Button Grid.Column="2" Grid.Row="2" Content="{DynamicResource LOCLmTagAddNewFeature}" 
+                                                    HorizontalAlignment="Right" Name="PART_AddNewFeature"
+                                                    Click="PART_AddNewFeature_Click"/>
                                         </Grid>
 
                                         <ListView Grid.Row="2" ItemsSource="{Binding Settings.ItemFeatures}" Name="PART_ListItemFeatures" Height="250">
                                             <ListView.View>
                                                 <GridView>
-                                                    <GridViewColumn Header="{DynamicResource LOCNameLabel}" Width="150" DisplayMemberBinding="{Binding Name}" />
+                                                    <GridViewColumn Width="150">
+                                                        <GridViewColumnHeader Content="{DynamicResource LOCNameLabel}" />
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <Label Content="{Binding Name}" VerticalAlignment="Center" />
+                                                                    <Button Name="PART_RemoveFeature" Click="PART_RemoveFeature_Click" 
+                                                                            HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                            ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                                            Visibility="{Binding IsAdd, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
 
                                                     <GridViewColumn Header="{DynamicResource LOCGameIconTitle}" Width="40">
                                                         <GridViewColumn.CellTemplate>
@@ -702,6 +721,7 @@
                                                                     <Button Name="PART_RemoveCustomIcon" Click="PART_RemoveCustomIcon_Click" 
                                                                             Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                                             Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
+                                                                            Visibility="{Binding IsAdd, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
                                                                             Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                                 </StackPanel>
                                                             </DataTemplate>

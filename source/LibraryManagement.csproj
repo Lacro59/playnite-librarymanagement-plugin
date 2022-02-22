@@ -121,6 +121,9 @@
     <Compile Include="Services\IcoFeatures.cs" />
     <Compile Include="Services\LmImageTools.cs" />
     <Compile Include="Services\LibraryManagementTools.cs" />
+    <Compile Include="Views\AddNewFeatureIcon.xaml.cs">
+      <DependentUpon>AddNewFeatureIcon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LibraryManagementItemEditor.xaml.cs">
       <DependentUpon>LibraryManagementItemEditor.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,10 @@
     <Page Include="playnite-plugincommon\CommonPluginsControls\Views\OptionsDownloadData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddNewFeatureIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LibraryManagementItemEditor.xaml">
       <SubType>Designer</SubType>

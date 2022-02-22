@@ -109,5 +109,7 @@ namespace LibraryManagement.Models
                 return BitmapExtensions.BitmapFromFile(IconDefaultFullPath, new BitmapLoadProperties(100, 0));
             }
         }
+
+        public bool IsAdd { get; set; }
     }
 }
