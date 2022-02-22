@@ -182,6 +182,9 @@
                     <CheckBox VerticalAlignment="Center" Grid.Row="2" Name="PART_CheckBoxCropping" Grid.Column="0" Grid.ColumnSpan="2">
                         <Label Content="{DynamicResource LOCLmResizeWithCrop}" />
                     </CheckBox>
+                    <ToggleButton VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right"
+                                  ToolTip="{DynamicResource LOCLmFlipHorizontal}"
+                                  Content="&#xea6d;" FontFamily="{DynamicResource CommonFont}" Name="PART_Flip" />
 
                     <Button Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
                             IsEnabled="False"

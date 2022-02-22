@@ -57,7 +57,7 @@ namespace LibraryManagement.Services
         }
 
 
-        public BitmapImage ApplyImageOptions(int? Width, int? Height, bool? Cropping)
+        public BitmapImage ApplyImageOptions(int? Width, int? Height, bool? Cropping, bool? Flip)
         {
             Width = (Width == null) ? 0 : Width;
             Height = (Height == null) ? 0 : Height;
@@ -71,8 +71,7 @@ namespace LibraryManagement.Services
             }
 
 
-            ImageEdited = null;
-
+            ImageEdited = ImageOriginal;
 
             if ((bool)Cropping)
             {
@@ -100,6 +99,11 @@ namespace LibraryManagement.Services
                 }
             }
 
+            if (ImageEdited != null && (bool)Flip)
+            {
+                ImageEdited.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            }
+
             if (ImageEdited == null)
             {
                 return null;
@@ -107,7 +111,7 @@ namespace LibraryManagement.Services
             return ImageTools.ConvertImageToBitmapImage(ImageEdited);
         }
 
-        public BitmapImage ApplyImageOptions(string FileTempPath, int? Width, int? Height, bool? Cropping)
+        public BitmapImage ApplyImageOptions(string FileTempPath, int? Width, int? Height, bool? Cropping, bool? Flip)
         {
             Width = (Width == null) ? 0 : Width;
             Height = (Height == null) ? 0 : Height;
@@ -137,7 +141,6 @@ namespace LibraryManagement.Services
 
             ImageEdited = null;
 
-
             if ((bool)Cropping)
             {
                 if (Width == 0 || Height == 0)
@@ -162,6 +165,11 @@ namespace LibraryManagement.Services
                 {
                     ImageEdited = ImageScale.Scale((int)Width, (int)Height);
                 }
+            }
+
+            if (ImageEdited != null && (bool)Flip)
+            {
+                ImageEdited.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
 
             if (ImageEdited == null)

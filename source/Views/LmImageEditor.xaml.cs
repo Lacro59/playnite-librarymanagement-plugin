@@ -133,14 +133,15 @@ namespace LibraryManagement.Views
                 int.TryParse(PART_SizeWishedHeight.Text, out int Height);
 
                 bool Cropping = (bool)PART_CheckBoxCropping.IsChecked;
+                bool Flip = (bool)PART_Flip.IsChecked;
 
                 if (!File.Exists(FileTempPath))
                 {
-                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(Width, Height, Cropping);
+                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(Width, Height, Cropping, Flip);
                 }
                 else
                 {
-                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(FileTempPath, Width, Height, Cropping);
+                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(FileTempPath, Width, Height, Cropping, Flip);
                 }
 
 
