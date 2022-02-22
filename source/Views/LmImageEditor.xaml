@@ -113,7 +113,7 @@
 
                     <CheckBox VerticalAlignment="Center" Grid.Row="2" Name="PART_CheckBoxKeppRatio"
                               Click="PART_CheckBoxKeppRatio_Click" Grid.Column="0" Grid.ColumnSpan="2">
-                        <Label Content="{DynamicResource LOCLmResizeWithCrop}" />
+                        <Label Content="{DynamicResource LOCLmKeepAspectRation}" />
                     </CheckBox>
                 </Grid>
 

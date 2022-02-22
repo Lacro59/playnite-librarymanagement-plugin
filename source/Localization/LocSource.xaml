@@ -76,6 +76,7 @@
     <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
 
     <!-- Notifications -->
