@@ -61,12 +61,15 @@
     <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати значок, коли особливості використовують однаковий значок</sys:String>
-    
+
+    <sys:String x:Key="LOCLmTagAddNewFeature">Додати нову особливість</sys:String>
+
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Медіа-редактор</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Встановити як значок</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Віддзеркалити горизонтально</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
     <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
@@ -76,6 +79,7 @@
     <sys:String x:Key="LOCLmImageSize">Розмір зображення</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Бажаний розмір</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Змінити розмір з обрізанням до бажаного розміру</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Зберігати співвідношення сторін</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Застосувати параметри зображення</sys:String>
 
     <!-- Notifications -->
