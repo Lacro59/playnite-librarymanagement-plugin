@@ -61,12 +61,15 @@
     <sys:String x:Key="LOCLmSetTagsToGenres">Imposta i tag ai generi</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostra un'icona quando le funzioni usano la stessa icona</sys:String>
-    
+
+    <sys:String x:Key="LOCLmTagAddNewFeature">Aggiungi nuova funzione</sys:String>
+
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Editor di media</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Imposta come icona</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Ribalta orizzontalmente</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Seleziona il media</sys:String>
     <sys:String x:Key="LOCLmCrop">Ritaglia</sys:String>
@@ -76,6 +79,7 @@
     <sys:String x:Key="LOCLmImageSize">Dimensione immagine</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Dimensioni desiderate</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Ridimensiona con il ritaglio per avere la dimensione desiderata</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Mantieni proporzioni</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Applica le opzioni immagine</sys:String>
 
     <!-- Notifications -->
