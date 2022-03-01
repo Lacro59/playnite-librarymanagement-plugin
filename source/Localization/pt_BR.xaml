@@ -62,14 +62,14 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar um ícone quando os recursos usam o mesmo ícone</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Adicionar novo recurso</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Editor de mídia</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Definir como ícone</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontal</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Inverter horizontalmente</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Selecionar mídia</sys:String>
     <sys:String x:Key="LOCLmCrop">Cortar</sys:String>
@@ -79,7 +79,7 @@
     <sys:String x:Key="LOCLmImageSize">Tamanho da imagem</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Tamanho desejado</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Redimensione com corte para ter o tamanho desejado</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Manter proporção</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Aplicar opções de imagem</sys:String>
 
     <!-- Notifications -->
