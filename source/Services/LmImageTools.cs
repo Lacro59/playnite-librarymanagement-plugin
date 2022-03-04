@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using LazZiya.ImageResize;
 using CommonPlayniteShared.Common;
@@ -10,7 +8,6 @@ using CommonPluginsShared;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Drawing.Imaging;
-using System.Windows.Media;
 using Playnite.SDK;
 
 namespace LibraryManagement.Services
@@ -28,7 +25,7 @@ namespace LibraryManagement.Services
         {
             try
             {
-                using (var stream = FileSystem.OpenReadFileStreamSafe(ImagePath))
+                using (Stream stream = FileSystem.OpenReadFileStreamSafe(ImagePath))
                 {
                     BitmapImageOriginal = BitmapExtensions.BitmapFromStream(stream);
                     ImageOriginal = Image.FromStream(stream);
@@ -120,7 +117,7 @@ namespace LibraryManagement.Services
             Image ImageScale = null;
             try
             {
-                using (var stream = FileSystem.OpenReadFileStreamSafe(FileTempPath))
+                using (Stream stream = FileSystem.OpenReadFileStreamSafe(FileTempPath))
                 {
                     ImageScale = Image.FromStream(stream);
                 }

@@ -66,7 +66,7 @@ namespace LibraryManagement.Services
                     CheckGenre();
 
                     // Remplace genres
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
@@ -255,7 +255,7 @@ namespace LibraryManagement.Services
                     CheckFeature();
 
                     // Remplace features
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
@@ -452,7 +452,7 @@ namespace LibraryManagement.Services
                     CheckTags();
 
                     // Remplace tags
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
@@ -642,7 +642,7 @@ namespace LibraryManagement.Services
                     CheckCompanies();
 
                     // Remplace Companies
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
@@ -860,8 +860,7 @@ namespace LibraryManagement.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
@@ -988,8 +987,7 @@ namespace LibraryManagement.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-
-                    var PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
                     if (OnlyToDay)
                     {
                         PlayniteDb = PlayniteApi.Database.Games
