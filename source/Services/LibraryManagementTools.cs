@@ -35,6 +35,13 @@ namespace LibraryManagement.Services
         #region Genres
         public void SetGenres(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListGenreEquivalences?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             if (gameUpdated != null)
             {
                 CheckGenre();
@@ -217,6 +224,13 @@ namespace LibraryManagement.Services
         #region Features
         public void SetFeatures(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListFeatureEquivalences?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             if (gameUpdated != null)
             {
                 CheckFeature();
@@ -407,6 +421,13 @@ namespace LibraryManagement.Services
         #region Tags
         public void SetTags(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListTagsEquivalences?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             if (gameUpdated != null)
             {
                 CheckTags();
@@ -589,6 +610,13 @@ namespace LibraryManagement.Services
         #region Companies
         public void SetCompanies(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListCompaniesEquivalences?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             if (gameUpdated != null)
             {
                 CheckCompanies();
@@ -812,6 +840,13 @@ namespace LibraryManagement.Services
         #region TagsToFeatures
         public void SetTagsToFeatures(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListTagsToFeatures?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
                 $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
                 true
@@ -933,6 +968,13 @@ namespace LibraryManagement.Services
         #region TagsToGenres
         public void SetTagsToGenres(bool OnlyToDay = false, Game gameUpdated = null)
         {
+            if (PluginSettings.ListTagsToGenres?.Count == 0)
+            {
+                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                return;
+            }
+
+
             GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
                 $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
                 true
