@@ -61,12 +61,15 @@
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
-    
+
+    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontal</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
@@ -76,6 +79,7 @@
     <sys:String x:Key="LOCLmImageSize">Размер изображения</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
 
     <!-- Notifications -->
