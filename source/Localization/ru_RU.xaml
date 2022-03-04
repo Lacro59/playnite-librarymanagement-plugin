@@ -69,7 +69,8 @@
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontal</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
@@ -85,6 +86,8 @@
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
 Click to see the list</sys:String>
-    
+
+    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+
 
 </ResourceDictionary>
