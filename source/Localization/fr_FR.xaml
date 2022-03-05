@@ -69,8 +69,8 @@
     <sys:String x:Key="LOCLmMediaEditor">Éditeur de média</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Définir comme icône</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Retourner horizontalement</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Retourner verticalement</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Sélectionner un média</sys:String>
     <sys:String x:Key="LOCLmCrop">Recadrer</sys:String>
@@ -87,7 +87,7 @@
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Jeux mis à jour ({1})
 Cliquez pour voir la liste</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Il n'y a pas de données ! Veuillez définir des équivalences dans les paramètres du plugin.</sys:String>
 
 
 </ResourceDictionary>
