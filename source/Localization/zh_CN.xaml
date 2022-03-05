@@ -62,15 +62,15 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支持）</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">添加新功能特色</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">媒体编辑器</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">设置为图标</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">水平翻转</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">竖直翻转</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">选择媒体</sys:String>
     <sys:String x:Key="LOCLmCrop">裁剪</sys:String>
@@ -80,14 +80,14 @@
     <sys:String x:Key="LOCLmImageSize">图像大小</sys:String>
     <sys:String x:Key="LOCLmSizeWished">想要的大小</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">通过裁剪调整大小以达到所需的大小</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">保持宽高比</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">应用图像选项</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} 个游戏已更新（{1}）
 点击查看列表</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">没有数据！请在插件设置中设置等量。</sys:String>
 
 
 </ResourceDictionary>
