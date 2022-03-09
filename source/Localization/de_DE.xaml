@@ -62,7 +62,7 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Funktion hinzufügen</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -80,7 +80,7 @@
     <sys:String x:Key="LOCLmImageSize">Bildergröße</sys:String>
     <sys:String x:Key="LOCLmSizeWished">gewünschte Größe</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Größenänderung mit Zuschneiden auf die gewünschte Größe</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Seitenverhältnis beibehalten</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Bildoptionen anwenden</sys:String>
 
     <!-- Notifications -->
