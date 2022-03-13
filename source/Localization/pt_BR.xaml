@@ -69,8 +69,8 @@
     <sys:String x:Key="LOCLmMediaEditor">Editor de mídia</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Definir como ícone</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Virar Horizontalmente</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Virar Verticalmente</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Selecionar mídia</sys:String>
     <sys:String x:Key="LOCLmCrop">Cortar</sys:String>
