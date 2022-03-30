@@ -62,15 +62,15 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar un icono cuando las características usen el mismo icono</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Añadir nueva característica</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Editor de medios</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Establecer como icono</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Voltear horizontalmente</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Voltear verticalmente</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Seleccionar media</sys:String>
     <sys:String x:Key="LOCLmCrop">Recortar</sys:String>
@@ -80,14 +80,14 @@
     <sys:String x:Key="LOCLmImageSize">Tamaño de la imagen</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Tamaño deseado</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Redimensionar con el recorte para tener el tamaño deseado</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Mantener la relación de aspecto</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Aplicar opciones de imagen</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Juegos actualizados ({1})
 Haz clic para ver la lista</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">¡No hay datos! Por favor, establece equivalencias en la configuración del plugin.</sys:String>
 
 
 </ResourceDictionary>
