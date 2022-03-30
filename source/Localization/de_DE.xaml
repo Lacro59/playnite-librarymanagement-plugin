@@ -28,7 +28,7 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Anwenden von Tags auf Funktionen mit dem Update der Spielebibliothek</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Tags auf Genres mit der Aktualisierung der Spielbibliothek anwenden</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Anzeige einer Benachrichtigung mit dem Ergebnis nach einer Aktualisierung</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
@@ -52,7 +52,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwendete GOG Icons</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Symbol</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Icon</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Funktionen</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Funktionen setzen</sys:String>
@@ -60,7 +60,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Icon anzeigen, wenn Funktionen das selbe Icon verwenden</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Neue Funktion hinzufügen</sys:String>
 
@@ -69,8 +69,8 @@
     <sys:String x:Key="LOCLmMediaEditor">Medieneditor</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Als Icon festlegen</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Horizontal spiegeln</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Vertikal spiegeln</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Medien auswählen</sys:String>
     <sys:String x:Key="LOCLmCrop">Zuschneiden</sys:String>
@@ -87,7 +87,7 @@
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Spiele aktualisiert ({1})
 Klicken, um die Liste zu sehen</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Es gibt keine Daten! Bitte stellen Sie die Äquivalenzen in den Plugin Einstellungen ein.</sys:String>
 
 
 </ResourceDictionary>
