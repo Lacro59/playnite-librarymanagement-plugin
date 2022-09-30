@@ -60,7 +60,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги до жанрів</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати значок, коли особливості використовують однаковий значок</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати один значок, коли особливості використовують однаковий значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Додати нову особливість</sys:String>
 
