@@ -585,7 +585,7 @@ namespace LibraryManagement.Views
         {
             int index = int.Parse(((Button)sender).Tag.ToString());
 
-            RemoveElement<LmTagToFeature>(PART_ListTagsToGenres, index);
+            RemoveElement<LmTagToGenre>(PART_ListTagsToGenres, index);
         }
 
         private void PART_SetTagsToGenres_Click(object sender, RoutedEventArgs e)
