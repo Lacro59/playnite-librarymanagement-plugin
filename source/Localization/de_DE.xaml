@@ -7,22 +7,22 @@
 
     <sys:String x:Key="LOCLmActionInProgress">Aktion wird ausgeführt...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Genres festlegen</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Funktionen festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Features festlegen</sys:String>
     <sys:String x:Key="LOCLmSetTags">Tags festlegen</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Unternehmen festlegen</sys:String>
 
     <sys:String x:Key="LOCLmGenresUpdated">Genres aktualisiert</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Funktionen aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Features aktualisiert</sys:String>
     <sys:String x:Key="LOCLmTagsUpdated">Tags aktualisiert</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Unternehmen aktualisiert</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags zu Genres aktualisiert</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Funktionen aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Features aktualisiert</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Unternehmen mit dem Update der Spielebibliothek anwenden</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Funktionen mit dem Update der Spielbibliothek anwenden</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Features mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Anwenden von Tags auf Funktionen mit dem Update der Spielebibliothek</sys:String>
@@ -33,8 +33,8 @@
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Neue Eigenschaft hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Eigenschaft bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Neues Feature hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Feature bearbeiten</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
@@ -46,29 +46,29 @@
 
     <sys:String x:Key="LOCLmExclusionList">Ausschlussliste</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Objekt Icons anzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Feature Symbole anzeigen</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Icon Optionen anzeigen</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwendete dunkle Symbole</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwendete GOG Icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwende dunkle Symbole</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Funktionen</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Funktionen setzen</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Features</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Features setzen</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Icon anzeigen, wenn Funktionen das selbe Icon verwenden</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Funktion hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Merkmale hinzufügen</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Medieneditor</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Als Icon festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Als Symbol festlegen</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Horizontal spiegeln</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Vertikal spiegeln</sys:String>
 
