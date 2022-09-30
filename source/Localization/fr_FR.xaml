@@ -62,7 +62,7 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Afficher une icône lorsque les fonctionnalités utilisent la même icône</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Ajouter une fonctionnalité</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Ajouter une fonctionnalit</sys:String>
 
     <!-- LmImageEditor -->
 
