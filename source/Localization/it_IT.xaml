@@ -54,8 +54,8 @@
     <sys:String x:Key="LOCLmNameAssociated">Nome Associato</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icona Personalizzata</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tag alle funzionalit</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Imposta i tag alle funzionalit</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tag alle funzionalità</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Imposta i tag alle funzionalità</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenres">Tag ai generi</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Imposta i tag ai generi</sys:String>
