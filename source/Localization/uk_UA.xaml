@@ -60,7 +60,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги до жанрів</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати значок, коли особливості використовують однаковий значок</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати один значок, коли особливості використовують однаковий значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Додати нову особливість</sys:String>
 
@@ -69,8 +69,8 @@
     <sys:String x:Key="LOCLmMediaEditor">Медіа-редактор</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Встановити як значок</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Віддзеркалити горизонтально</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Віддзеркалити вертикально</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
     <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
@@ -87,7 +87,7 @@
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Ігри оновлено ({1})
 Натисніть, щоб побачити список</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Дані відсутні! Будь ласка, встановіть еквіваленти в налаштуваннях плагіну.</sys:String>
 
 
 </ResourceDictionary>

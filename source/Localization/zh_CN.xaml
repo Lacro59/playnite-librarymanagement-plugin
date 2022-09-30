@@ -44,15 +44,15 @@
 
     <sys:String x:Key="LOCLmItemsReplaced">已替换项目</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">排除列表</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">排除列</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">显示功能特色图标列表</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">显示功能特色图标列</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">功能特色图标选项</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">使用暗色图标</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">使用 GOG 图标</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">使用暗色图</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">使用 GOG 图</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">关联的名称</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">自定义图标</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">自定义图</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">标签到功能特色</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">设置标签到功能特色</sys:String>
@@ -60,34 +60,34 @@
     <sys:String x:Key="LOCLmTagsToGenres">标签到流派</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">设置标签到流派</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支持）</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支持</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">添加新功能特色</sys:String>
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">媒体编辑器</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">媒体编辑</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">设置为图标</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">设置为图</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">水平翻转</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">竖直翻转</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">选择媒体</sys:String>
     <sys:String x:Key="LOCLmCrop">裁剪</sys:String>
-    <sys:String x:Key="LOCLmOriginal">原始的</sys:String>
+    <sys:String x:Key="LOCLmOriginal">原始</sys:String>
     <sys:String x:Key="LOCLmEdited">已编辑</sys:String>
     <sys:String x:Key="LOCLmImageName">图像名称</sys:String>
     <sys:String x:Key="LOCLmImageSize">图像大小</sys:String>
     <sys:String x:Key="LOCLmSizeWished">想要的大小</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">通过裁剪调整大小以达到所需的大小</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">保持宽高比</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">应用图像选项</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} 个游戏已更新（{1}）
-点击查看列表</sys:String>
+点击查看列</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">没有数据！请在插件设置中设置等量。</sys:String>
 
 
 </ResourceDictionary>

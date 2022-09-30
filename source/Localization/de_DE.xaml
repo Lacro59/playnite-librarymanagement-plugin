@@ -7,34 +7,34 @@
 
     <sys:String x:Key="LOCLmActionInProgress">Aktion wird ausgeführt...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Genres festlegen</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Funktionen festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Features festlegen</sys:String>
     <sys:String x:Key="LOCLmSetTags">Tags festlegen</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Unternehmen festlegen</sys:String>
 
     <sys:String x:Key="LOCLmGenresUpdated">Genres aktualisiert</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Funktionen aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Features aktualisiert</sys:String>
     <sys:String x:Key="LOCLmTagsUpdated">Tags aktualisiert</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Unternehmen aktualisiert</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags zu Genres aktualisiert</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Funktionen aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Features aktualisiert</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Unternehmen mit dem Update der Spielebibliothek anwenden</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Funktionen mit dem Update der Spielbibliothek anwenden</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Features mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Anwenden von Tags auf Funktionen mit dem Update der Spielebibliothek</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Tags auf Genres mit der Aktualisierung der Spielbibliothek anwenden</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Anzeige einer Benachrichtigung mit dem Ergebnis nach einer Aktualisierung</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Neue Eigenschaft hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Eigenschaft bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Neues Feature hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Feature bearbeiten</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
@@ -46,31 +46,31 @@
 
     <sys:String x:Key="LOCLmExclusionList">Ausschlussliste</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Objekt Icons anzeigen</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Liste der Feature Symbole anzeigen</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Icon Optionen anzeigen</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwendete dunkle Symbole</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwendete GOG Icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwende dunkle Symbole</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Symbol</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Funktionen</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Funktionen setzen</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Features</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Features setzen</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Merkmale hinzufügen</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Medieneditor</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Als Icon festlegen</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Als Symbol festlegen</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Horizontal spiegeln</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Vertikal spiegeln</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Medien auswählen</sys:String>
     <sys:String x:Key="LOCLmCrop">Zuschneiden</sys:String>
@@ -80,14 +80,14 @@
     <sys:String x:Key="LOCLmImageSize">Bildergröße</sys:String>
     <sys:String x:Key="LOCLmSizeWished">gewünschte Größe</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Größenänderung mit Zuschneiden auf die gewünschte Größe</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Seitenverhältnis beibehalten</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Bildoptionen anwenden</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Spiele aktualisiert ({1})
 Klicken, um die Liste zu sehen</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Es gibt keine Daten! Bitte stellen Sie die Äquivalenzen in den Plugin Einstellungen ein.</sys:String>
 
 
 </ResourceDictionary>

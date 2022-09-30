@@ -6,88 +6,93 @@
     <sys:String x:Key="LOCLm">Управление библиотекой</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Добавить жанр</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Добавить функции</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Добавить теги</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Добавить компанию</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Жанры обновлены</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Функции обновлены</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Теги обновлены</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Компании обновлены</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Теги к жанрам обновлены</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Теги к функциям обновлены
+</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Применить компании с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Применение функций с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Применяйте жанры с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Применить теги с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Применение тегов к функциям с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">
+Применяйте теги к жанрам с обновлением библиотеки игр</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показать уведомление с результатом после обновления
+</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Добавить жан</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редактировать жан</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Добавить новую функцию</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Добавить функцию</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Добавить тег</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Редактировать метк</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Редактировать метку</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Добавить новую компанию</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Добавить компанию</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">Элементы заменены</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">Список исключений</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Показать список значков функций</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Параметры значков функций</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Использованы темные значки
+</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">Связанное имя
+</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Пользовательская иконка</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Теги к функциям</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Добавить теги к функциям</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Теги к жанрам</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Добавить теги к жанрам</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показывать значок, когда функции используют один и тот же значок</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Добавить новую функцию</sys:String>
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Медиа редактор</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Добавить значок</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Отразить по горизонтали</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Отразить по вертикали</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">Выберите медиа файл</sys:String>
     <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
     <sys:String x:Key="LOCLmOriginal">Оригинал</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
+    <sys:String x:Key="LOCLmEdited">Редактор</sys:String>
+    <sys:String x:Key="LOCLmImageName">Название изображения</sys:String>
     <sys:String x:Key="LOCLmImageSize">Размер изображения</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Желаемый размер</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Измените размер с обрезкой, чтобы получить желаемый размер</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Сохранять пропорции</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Применить параметры изображения</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Игры обновлены ({1})
+Нажмите, чтобы увидеть список</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Нет данных! Пожалуйста, установите эквиваленты в настройках плагина.</sys:String>
 
 
 </ResourceDictionary>

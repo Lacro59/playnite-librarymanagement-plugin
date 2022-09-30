@@ -6,12 +6,12 @@
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">تعيين الأنواع</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
     <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">تم تحديث الأنواع</sys:String>
     <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
     <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
@@ -30,16 +30,16 @@
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">إضافة نوع جديد</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">تعديل النوع</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">إضافة ميزة جديدة</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
     
     <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">إضافة شركة جديدة</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
@@ -49,39 +49,39 @@
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">أيقونات GOG المستخدمة</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">علامات إلى الميزات</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">علامات إلى الأنواع</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">إضافة ميزة جديدة</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">تعيين كأيقونة</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">قلب عموديا</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Crop</sys:String>
     <sys:String x:Key="LOCLmOriginal">Original</sys:String>
     <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
+    <sys:String x:Key="LOCLmImageName">اسم الصورة</sys:String>
+    <sys:String x:Key="LOCLmImageSize">حجم الصورة</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
     <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">تطبيق خيارات الصورة</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
