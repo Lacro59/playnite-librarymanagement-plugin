@@ -1,5 +1,6 @@
 ﻿using CommonPluginsControls.Views;
 using CommonPluginsShared;
+using CommonPluginsShared.Extensions;
 using LibraryManagement.Models;
 using Playnite.SDK;
 using Playnite.SDK.Data;
@@ -538,14 +539,14 @@ namespace LibraryManagement.Services
         private bool UpdateTags(Game game)
         {
             bool IsUpdated = false;
-            List<Tag> Tags = game.Tags;
+            List<Tag> Tags = game?.Tags;
 
             if (Tags != null && Tags.Count > 0)
             {
                 // Rename
-                List<Tag> AllTagsOld = Tags.FindAll(x => PluginSettings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+                List<Tag> AllTagsOld = Tags.FindAll(x => PluginSettings.ListTagsEquivalences.Any(y => y.OldNames.Any(z => z.IsEqual(x.Name))));
 
-                if (AllTagsOld.Count > 0)
+                if (AllTagsOld?.Count > 0)
                 {
                     // Remove all
                     foreach (Tag tag in AllTagsOld)
@@ -555,7 +556,7 @@ namespace LibraryManagement.Services
                     }
 
                     // Set all
-                    foreach (LmTagsEquivalences item in PluginSettings.ListTagsEquivalences.FindAll(x => x.OldNames.Any(y => AllTagsOld.Any(z => z.Name.ToLower() == y.ToLower()))))
+                    foreach (LmTagsEquivalences item in PluginSettings.ListTagsEquivalences.FindAll(x => x.OldNames.Any(y => AllTagsOld.Any(z => z.Name.IsEqual(y)))))
                     {
                         if (item.Id != null)
                         {
@@ -570,7 +571,7 @@ namespace LibraryManagement.Services
                 {
                     foreach (string TagName in PluginSettings.ListTagsExclusion)
                     {
-                        Tag TagDelete = game.Tags.Find(x => x.Name.ToLower() == TagName.ToLower());
+                        Tag TagDelete = game?.Tags?.Find(x => x.Name.IsEqual(TagName));
                         if (TagDelete != null)
                         {
                             game.TagIds.Remove(TagDelete.Id);
@@ -927,36 +928,32 @@ namespace LibraryManagement.Services
         private bool UpdateTagsToFeatures(Game game)
         {
             bool IsUpdated = false;
+            List<Tag> Tags = Serialization.GetClone(game?.Tags);
 
-            if (game.Tags != null && game.Tags.Count > 0)
+            game?.Tags?.ForEach(y =>
             {
-                List<Tag> Tags = Serialization.GetClone(game.Tags);
-
-                for (int i = 0; i < game.Tags.Count; i++)
+                var finded = PluginSettings.ListTagsToFeatures.Where(x => x.TagId == y.Id).FirstOrDefault();
+                if (finded != null)
                 {
-                    var finded = PluginSettings.ListTagsToFeatures.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
-                    if (finded != null)
+                    IsUpdated = true;
+                    game.TagIds.Remove(y.Id);
+                    if (game.FeatureIds != null)
                     {
-                        IsUpdated = true;
-                        game.TagIds.Remove(Tags[i].Id);
-                        if (game.FeatureIds != null)
-                        {
-                            game.FeatureIds.AddMissing(finded.FeatureId);
-                        }
-                        else
-                        {
-                            game.FeatureIds = new List<Guid> { finded.FeatureId };
-                        }
+                        game.FeatureIds.AddMissing(finded.FeatureId);
+                    }
+                    else
+                    {
+                        game.FeatureIds = new List<Guid> { finded.FeatureId };
                     }
                 }
+            });
 
-                if (IsUpdated)
+            if (IsUpdated)
+            {
+                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
                 {
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait();
-                }
+                    PlayniteApi.Database.Games.Update(game);
+                }).Wait();
             }
 
             return IsUpdated;
@@ -1054,36 +1051,25 @@ namespace LibraryManagement.Services
         private bool UpdateTagsToGenres(Game game)
         {
             bool IsUpdated = false;
-            if (game.Tags != null && game.Tags.Count > 0)
-            {
-                List<Tag> Tags = Serialization.GetClone(game.Tags);
+            List<Tag> Tags = Serialization.GetClone(game?.Tags);
 
-                for (int i = 0; i < game.Tags.Count; i++)
+            game?.Tags?.ForEach(y =>
+            {
+                var finded = PluginSettings.ListTagsToGenres.Where(x => x.TagId == y.Id).FirstOrDefault();
+                if (finded != null)
                 {
-                    var finded = PluginSettings.ListTagsToGenres.Where(x => x.TagId == Tags[i].Id).FirstOrDefault();
-                    if (finded != null)
+                    IsUpdated = true;
+                    game.TagIds.Remove(y.Id);
+                    if (game.GenreIds != null)
                     {
-                        IsUpdated = true;
-                        game.TagIds.Remove(Tags[i].Id);
-                        if (game.GenreIds != null)
-                        {
-                            game.GenreIds.AddMissing(finded.GenreId);
-                        }
-                        else
-                        {
-                            game.GenreIds = new List<Guid> { finded.GenreId };
-                        }
+                        game.GenreIds.AddMissing(finded.GenreId);
+                    }
+                    else
+                    {
+                        game.GenreIds = new List<Guid> { finded.GenreId };
                     }
                 }
-
-                if (IsUpdated)
-                {
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                    {
-                        PlayniteApi.Database.Games.Update(game);
-                    }).Wait();
-                }
-            }
+            });
 
             return IsUpdated;
         }
