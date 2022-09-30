@@ -5,7 +5,7 @@
 
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
-    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
+    <sys:String x:Key="LOCLmActionInProgress">処理中…</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
     <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
@@ -44,7 +44,7 @@
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">除外リスト</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
