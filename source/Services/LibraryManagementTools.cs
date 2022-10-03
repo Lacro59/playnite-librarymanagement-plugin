@@ -38,7 +38,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListGenreEquivalences?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetGenres: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
                 return;
             }
 
@@ -227,7 +231,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListFeatureEquivalences?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetFeatures: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
                 return;
             }
 
@@ -424,7 +432,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListTagsEquivalences?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetTags: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
                 return;
             }
 
@@ -613,7 +625,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListCompaniesEquivalences?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                    $"LibraryManagement-{new Guid()}",
+                    $"LibraryManagement" + System.Environment.NewLine + "SetCompanies: " + resources.GetString("LOCLmNoEquivalence"),
+                    NotificationType.Error
+                ));
                 return;
             }
 
@@ -843,7 +859,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListTagsToFeatures?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetTagsToFeatures: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
                 return;
             }
 
@@ -966,7 +986,11 @@ namespace LibraryManagement.Services
         {
             if (PluginSettings.ListTagsToGenres?.Count == 0)
             {
-                API.Instance.Dialogs.ShowErrorMessage(resources.GetString("LOCLmNoEquivalence"), resources.GetString("LOCLm"));
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetTagsToGenres: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
                 return;
             }
 
