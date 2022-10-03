@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,8 @@ namespace LibraryManagement
     {
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
 
-        private bool IsFinished = true;
+        private bool IsFinished { get; set; } = true;
+        private bool IsStarted { get; set; } = false;
 
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
@@ -267,13 +269,17 @@ namespace LibraryManagement
         // Add code to be executed when Playnite is initialized.
         public override void OnApplicationStarted(OnApplicationStartedEventArgs args)
         {
-            
+            Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+                IsStarted = true;
+            });
         }
 
         // Add code to be executed when Playnite is shutting down.
         public override void OnApplicationStopped(OnApplicationStoppedEventArgs args)
         {
-            
+
         }
         #endregion
 
@@ -281,7 +287,10 @@ namespace LibraryManagement
         // Add code to be executed when library is updated.
         public override void OnLibraryUpdated(OnLibraryUpdatedEventArgs args)
         {
-            AutoUpdate(true);
+            if (IsStarted)
+            {
+                AutoUpdate(true);
+            }
         }
 
 

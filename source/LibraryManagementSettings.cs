@@ -107,15 +107,7 @@ namespace LibraryManagement
         private LibraryManagementSettings EditingClone { get; set; }
 
         private LibraryManagementSettings _Settings;
-        public LibraryManagementSettings Settings
-        {
-            get => _Settings;
-            set
-            {
-                _Settings = value;
-                OnPropertyChanged();
-            }
-        }
+        public LibraryManagementSettings Settings { get => _Settings; set => SetValue(ref _Settings, value); }
 
 
         public LibraryManagementSettingsViewModel(LibraryManagement plugin)
@@ -124,7 +116,7 @@ namespace LibraryManagement
             Plugin = plugin;
 
             // Load saved settings.
-            var savedSettings = plugin.LoadPluginSettings<LibraryManagementSettings>();
+            LibraryManagementSettings savedSettings = plugin.LoadPluginSettings<LibraryManagementSettings>();
 
             // LoadPluginSettings returns null if not saved data is available.
             if (savedSettings != null)
@@ -137,7 +129,7 @@ namespace LibraryManagement
             }
 
 
-            var ItemFeatures = new List<ItemFeature>() {
+            List<ItemFeature> ItemFeatures = new List<ItemFeature>() {
                 new ItemFeature { Name = "Achievements", NameAssociated = "Achievements", IconDefault = "ico_achievements.png" },
                 new ItemFeature { Name = "Captions Available", NameAssociated = "Captions Available", IconDefault = "ico_cc.png" },
                 new ItemFeature { Name = "Cloud Saves", NameAssociated = "Cloud Saves", IconDefault = "ico_cloud.png" },

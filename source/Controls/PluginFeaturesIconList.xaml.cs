@@ -24,14 +24,8 @@ namespace LibraryManagement.Controls
         private PluginFeaturesIconListDataContext ControlDataContext = new PluginFeaturesIconListDataContext();
         internal override IDataContext _ControlDataContext
         {
-            get
-            {
-                return ControlDataContext;
-            }
-            set
-            {
-                ControlDataContext = (PluginFeaturesIconListDataContext)_ControlDataContext;
-            }
+            get => ControlDataContext;
+            set => ControlDataContext = (PluginFeaturesIconListDataContext)_ControlDataContext;
         }
 
 
