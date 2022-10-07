@@ -62,3 +62,9 @@ Packages:
     Changelog:
       - Fixed crashes
       - Fixed bugs
+  - Version: 3.0.2
+    RequiredApiVersion: 6.5.0
+    ReleaseDate: 2022-10-07
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v3.0.2/playnite-librarymanagement-plugin_3_0_2.pext
+    Changelog:
+      - Fixed missing reference
