@@ -20,6 +20,8 @@ namespace LibraryManagement.Models
         public string Name { get; set; } = string.Empty;
         public string IconDefault { get; set; } = string.Empty;
 
+        public Playnite.SDK.Models.GameFeature Feature { get; set; }
+
         [DontSerialize]
         public string IconDefaultFullPath {
             get
