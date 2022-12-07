@@ -30,29 +30,29 @@
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
     
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Új műfaj hozzáadása</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Műfaj szerkesztése</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Új jellemző hozzáadása</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Jellemző szerkesztése</sys:String>
     
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">Új címke létrehozása</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Címke szerkesztése</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Új cég hozzáadása</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Cég szerkesztése</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">Elemek lecserélve</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">Kizárási lista</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Használt sötét ikonok</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Használt GOG ikonok</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Egyedi ikon</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
     <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
@@ -62,7 +62,7 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Új jellemző hozzáadása</sys:String>
 
     <!-- LmImageEditor -->
 
