@@ -194,19 +194,21 @@ namespace LibraryManagement.Views
             }
 
             ImageProperty imageProperty = LmImageToolsSelected.GetOriginalImageProperty();
+            if (imageProperty != null)
+            {
+                PART_ImageOriginalSize.Content = imageProperty.Width + " x " + imageProperty.Height;
 
-            PART_ImageOriginalSize.Content = imageProperty.Width + " x " + imageProperty.Height;
+                PART_GridOriginalContener.Children.Clear();
+                cropToolControl = new CropToolControl();
+                cropToolControl.Name = "PART_ImageOriginal";
+                cropToolControl.MaxWidth = PART_GridOriginalContener.ActualWidth;
+                cropToolControl.MaxHeight = PART_GridOriginalContener.ActualHeight;
 
-            PART_GridOriginalContener.Children.Clear();
-            cropToolControl = new CropToolControl();
-            cropToolControl.Name = "PART_ImageOriginal";
-            cropToolControl.MaxWidth = PART_GridOriginalContener.ActualWidth;
-            cropToolControl.MaxHeight = PART_GridOriginalContener.ActualHeight;
-            
-            cropToolControl.SetImage(LmImageToolsSelected.GetOriginalBitmapImage());
-            PART_GridOriginalContener.Children.Add(cropToolControl);
+                cropToolControl.SetImage(LmImageToolsSelected.GetOriginalBitmapImage());
+                PART_GridOriginalContener.Children.Add(cropToolControl);
 
-            cropToolControl.ShowText(false);
+                cropToolControl.ShowText(false);
+            }
 
             if (LmImageToolsSelected.GetEditedBitmapImage() != null)
             {

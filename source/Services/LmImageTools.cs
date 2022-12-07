@@ -25,10 +25,17 @@ namespace LibraryManagement.Services
         {
             try
             {
-                using (Stream stream = FileSystem.OpenReadFileStreamSafe(ImagePath))
+                if (File.Exists(ImagePath))
                 {
-                    BitmapImageOriginal = BitmapExtensions.BitmapFromStream(stream);
-                    ImageOriginal = Image.FromStream(stream);
+                    using (Stream stream = FileSystem.OpenReadFileStreamSafe(ImagePath))
+                    {
+                        BitmapImageOriginal = BitmapExtensions.BitmapFromStream(stream);
+                        ImageOriginal = Image.FromStream(stream);
+                    }
+                }
+                else
+                {
+                    logger.Warn($"File is not exists : {ImagePath}");
                 }
             }
             catch (Exception ex)
