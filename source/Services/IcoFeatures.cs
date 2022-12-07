@@ -17,8 +17,19 @@ namespace LibraryManagement.Services
             if (GameContext != null && GameContext.Features != null)
             {
                 Result = PluginSettings.Settings.ItemFeatures.Where(
-                    x => GameContext.Features.Any(y => y.Name.IsEqual(x.NameAssociated))
+                    x => 
+                    { 
+                        var feature = GameContext.Features.FirstOrDefault(y => y.Name.IsEqual(x.NameAssociated)); 
+                        if (feature != null)
+                        {
+                            x.Feature = feature;
+                            return true;
+                        }
+                        x.Feature = null;
+                        return false;
+                    }
                 ).ToList();
+
             }
 
             return Result;
