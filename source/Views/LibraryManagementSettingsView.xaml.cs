@@ -549,5 +549,43 @@ namespace LibraryManagement.Views
             libraryManagementTools.SetTagsToGenres();
         }
         #endregion
+
+
+        #region #TagsToCategories
+        private void PART_AddTagsToCategories_Click(object sender, RoutedEventArgs e)
+        {
+            var ViewExtension = new LmTagToItemView(_PlayniteApi, TypeItem.CategoryItem);
+
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LocLmTagsToCategories"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.NewItem != null)
+            {
+                List<LmTagToCategory> temp = (List<LmTagToCategory>)PART_ListTagsToCategories.ItemsSource;
+                if (temp == null)
+                {
+                    temp = new List<LmTagToCategory>();
+                }
+
+                temp.Add((LmTagToCategory)ViewExtension.NewItem);
+
+                PART_ListTagsToCategories.ItemsSource = null;
+                PART_ListTagsToCategories.ItemsSource = temp;
+            }
+        }
+
+        private void PART_RemoveTagsToCategories_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            RemoveElement<LmTagToCategory>(PART_ListTagsToCategories, index);
+        }
+
+        private void PART_SetTagsToCategories_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
+            libraryManagementTools.SetTagsToCategories();
+        }
+        #endregion
     }
 }

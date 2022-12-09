@@ -39,6 +39,7 @@ namespace LibraryManagement
 
         public List<LmTagToFeature> ListTagsToFeatures { get; set; } = new List<LmTagToFeature>();
         public List<LmTagToGenre> ListTagsToGenres { get; set; } = new List<LmTagToGenre>();
+        public List<LmTagToCategory> ListTagsToCategories { get; set; } = new List<LmTagToCategory>();
 
 
         private bool _EnableIntegrationFeatures { get; set; } = true;

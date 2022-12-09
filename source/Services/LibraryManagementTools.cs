@@ -1098,5 +1098,124 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
         #endregion
+
+
+        #region TagsToCategories
+        public void SetTagsToCategories(bool OnlyToDay = false, Game gameUpdated = null)
+        {
+            if (PluginSettings.ListTagsToGenres?.Count == 0)
+            {
+                API.Instance.Notifications.Add(new NotificationMessage(
+                     $"LibraryManagement-{new Guid()}",
+                     $"LibraryManagement" + System.Environment.NewLine + "SetTagsToCategories: " + resources.GetString("LOCLmNoEquivalence"),
+                     NotificationType.Error
+                 ));
+                return;
+            }
+
+
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
+                $"LibraryManagement - {resources.GetString("LOCLmActionInProgress")}",
+                true
+            );
+            globalProgressOptions.IsIndeterminate = false;
+
+            PlayniteApi.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            {
+                try
+                {
+                    Stopwatch stopWatch = new Stopwatch();
+                    stopWatch.Start();
+
+                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
+                    if (OnlyToDay)
+                    {
+                        PlayniteDb = PlayniteApi.Database.Games
+                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
+                    }
+
+                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+
+                    string CancelText = string.Empty;
+                    List<Game> gamesUpdated = new List<Game>();
+
+                    foreach (Game game in PlayniteDb)
+                    {
+                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        {
+                            CancelText = " canceled";
+                            break;
+                        }
+
+                        try
+                        {
+                            Thread.Sleep(10);
+                            if (UpdateTagsToCategories(game))
+                            {
+                                gamesUpdated.Add(game);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Common.LogError(ex, false, true, "LibraryManagement");
+                        }
+
+                        activateGlobalProgress.CurrentProgressValue++;
+                    }
+
+
+                    if (gamesUpdated.Count > 0 && PluginSettings.NotifitcationAfterUpdate)
+                    {
+                        PlayniteApi.Notifications.Add(new NotificationMessage(
+                             $"LibraryManagement-UpdateTagsToGenres",
+                             $"LibraryManagement" + System.Environment.NewLine + string.Format(resources.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, resources.GetString("LOCLmTagsToGenres")),
+                             NotificationType.Info,
+                             () => {
+                                 ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
+                                 Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, resources.GetString("LOCLmTagsToGenresUpdated"), listDataUpdated);
+                                 windowExtension.ShowDialog();
+                             }
+                         ));
+                    }
+
+
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                }
+                catch (Exception ex)
+                {
+                    Common.LogError(ex, false, true, "LibraryManagement");
+                }
+            }, globalProgressOptions);
+        }
+
+
+        private bool UpdateTagsToCategories(Game game)
+        {
+            bool IsUpdated = false;
+            List<Tag> Tags = Serialization.GetClone(game?.Tags);
+
+            game?.Tags?.ForEach(y =>
+            {
+                var finded = PluginSettings.ListTagsToCategories.Where(x => x.TagId == y.Id).FirstOrDefault();
+                if (finded != null)
+                {
+                    IsUpdated = true;
+                    game.TagIds.Remove(y.Id);
+                    if (game.CategoryIds != null)
+                    {
+                        game.CategoryIds.AddMissing(finded.CategoryId);
+                    }
+                    else
+                    {
+                        game.CategoryIds = new List<Guid> { finded.CategoryId };
+                    }
+                }
+            });
+
+            return IsUpdated;
+        }
+        #endregion
     }
 }

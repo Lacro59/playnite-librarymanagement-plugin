@@ -14,7 +14,7 @@ namespace LibraryManagement.Views
 {
     public enum TypeItem
     {
-        FeatureItem, GenreItem
+        FeatureItem, GenreItem, CategoryItem
     }
 
     /// <summary>
@@ -58,6 +58,16 @@ namespace LibraryManagement.Views
 
                     PART_ItemLabel.Content = resources.GetString("LOCGenresLabel");
                     break;
+
+                case TypeItem.CategoryItem:
+                    ListTags = PlayniteApi.Database.Tags
+                            .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
+
+                    ListItems = PlayniteApi.Database.Categories
+                            .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
+
+                    PART_ItemLabel.Content = resources.GetString("LOCCategoriesLabel");
+                    break;
             }
 
             PART_TagList.ItemsSource = ListTags;
@@ -86,6 +96,16 @@ namespace LibraryManagement.Views
                         TagName = ((ListElement)PART_TagList.SelectedItem).Name,
                         GenreId = ((ListElement)PART_ItemsList.SelectedItem).Id,
                         GenreName = ((ListElement)PART_ItemsList.SelectedItem).Name,
+                    };
+                    break;
+
+                case TypeItem.CategoryItem:
+                    NewItem = new LmTagToCategory
+                    {
+                        TagId = ((ListElement)PART_TagList.SelectedItem).Id,
+                        TagName = ((ListElement)PART_TagList.SelectedItem).Name,
+                        CategoryId = ((ListElement)PART_ItemsList.SelectedItem).Id,
+                        CategoryName = ((ListElement)PART_ItemsList.SelectedItem).Name,
                     };
                     break;
             }
@@ -138,14 +158,6 @@ namespace LibraryManagement.Views
         public string Name { get; set; }
 
         private bool isVisible = true;
-        public bool IsVisible
-        {
-            get => isVisible;
-            set
-            {
-                isVisible = value;
-                OnPropertyChanged();
-            }
-        }
+        public bool IsVisible { get => isVisible; set => SetValue(ref isVisible, value); }
     }
 }

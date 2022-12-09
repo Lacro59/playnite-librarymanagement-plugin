@@ -188,6 +188,16 @@ namespace LibraryManagement
                     libraryManagementTools.SetTagsToGenres();
                 }
             });
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmSetTagsToCategories"),
+                Action = (mainMenuItem) =>
+                {
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    libraryManagementTools.SetTagsToCategories();
+                }
+            });
 
 #if DEBUG
             mainMenuItems.Add(new MainMenuItem
