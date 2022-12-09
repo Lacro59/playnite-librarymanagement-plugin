@@ -18,12 +18,12 @@ namespace LibraryManagement.Views
 {
     public partial class LibraryManagementSettingsView : UserControl
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
+        private static ILogger logger { get; set; } = LogManager.GetLogger();
+        private static IResourceProvider resources { get; set; } = new ResourceProvider();
 
-        private LibraryManagement _plugin;
-        private IPlayniteAPI _PlayniteApi;
-        private LibraryManagementSettings _settings;
+        private LibraryManagement _plugin { get; set; }
+        private IPlayniteAPI _PlayniteApi { get; set; }
+        private LibraryManagementSettings _settings { get; set; }
 
         public LibraryManagementSettingsView(LibraryManagement plugin, IPlayniteAPI PlayniteApi, LibraryManagementSettings settings)
         {
@@ -315,8 +315,7 @@ namespace LibraryManagement.Views
             }
         }
 
-        private void ManageElement<TItemList>(ListView CtrlListView, int Index, List<string> ListAlreadyAdded,
-            ItemType itemType, object ListData, LmEquivalences Data, bool IsExclusion)
+        private void ManageElement<TItemList>(ListView CtrlListView, int Index, List<string> ListAlreadyAdded, ItemType itemType, object ListData, LmEquivalences Data, bool IsExclusion)
         {
             LibraryManagementItemEditor ViewExtension = null;
 
@@ -424,76 +423,12 @@ namespace LibraryManagement.Views
         }
 
 
-        private void PART_AddCustomIcon_Click(object sender, RoutedEventArgs e)
-        {
-            int index = int.Parse(((Button)sender).Tag.ToString());
-
-            var result = _PlayniteApi.Dialogs.SelectIconFile();
-            if (!result.IsNullOrEmpty())
-            {
-                string PathDest = Path.Combine(_plugin.GetPluginUserDataPath(), Path.GetFileName(result));
-                FileSystem.CopyFile(result, PathDest);
-
-                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
-                itemFeatures[index].IconCustom = PathDest;
-
-                PART_ListItemFeatures.ItemsSource = null;
-                PART_ListItemFeatures.ItemsSource = itemFeatures;
-            }
-        }
-
-        private void PART_RemoveCustomIcon_Click(object sender, RoutedEventArgs e)
-        {
-            int index = int.Parse(((Button)sender).Tag.ToString());
-
-            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
-            itemFeatures[index].IconCustom = string.Empty;
-
-            PART_ListItemFeatures.ItemsSource = null;
-            PART_ListItemFeatures.ItemsSource = itemFeatures;
-        }
-        
-        private void PART_EditName_Click(object sender, RoutedEventArgs e)
-        {
-            int index = int.Parse(((Button)sender).Tag.ToString());
-
-            List<GameFeature> features = _PlayniteApi.Database.Features.ToList();
-
-            LibraryManagementItemEditor ViewExtension = new LibraryManagementItemEditor(
-                  features, ItemType.Feature,
-                  null, (((List<ItemFeature>)PART_ListItemFeatures.ItemsSource)[index]).NameAssociated, string.Empty,
-                  null
-              );
-            ViewExtension.OnlySimple();
-
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmNameAssociated"), ViewExtension);
-            windowExtension.ShowDialog();
-
-            if (ViewExtension.NewItem != null && ViewExtension.NewItem is LmEquivalences)
-            {
-                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
-                itemFeatures[index].NameAssociated = ((LmEquivalences)ViewExtension.NewItem).Name;
-
-                PART_ListItemFeatures.ItemsSource = null;
-                PART_ListItemFeatures.ItemsSource = itemFeatures;
-            }
-        }
-
-        private void PART_RemoveName_Click(object sender, RoutedEventArgs e)
-        {
-            int index = int.Parse(((Button)sender).Tag.ToString());
-
-            List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
-            itemFeatures[index].NameAssociated = string.Empty;
-
-            PART_ListItemFeatures.ItemsSource = null;
-            PART_ListItemFeatures.ItemsSource = itemFeatures;
-        }
-
-
         private void PART_AddNewFeature_Click(object sender, RoutedEventArgs e)
         {
-            var ViewExtension = new AddNewFeatureIcon(_plugin);
+            bool IsGog = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsGog;
+            bool IsDark = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsDark;
+
+            var ViewExtension = new AddEditNewFeatureIcon(_plugin, IsGog, IsDark);
             Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAddNewFeature"), ViewExtension);
             windowExtension.ShowDialog();
 
@@ -501,6 +436,26 @@ namespace LibraryManagement.Views
             {
                 List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
                 itemFeatures.Add(ViewExtension.itemFeature);
+
+                PART_ListItemFeatures.ItemsSource = null;
+                PART_ListItemFeatures.ItemsSource = itemFeatures;
+            }
+        }
+        
+        private void PART_EditFeature_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+            bool IsGog = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsGog;
+            bool IsDark = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsDark;
+
+            var ViewExtension = new AddEditNewFeatureIcon(_plugin, IsGog, IsDark, ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource)[index]);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAddNewFeature"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.itemFeature != null)
+            {
+                List<ItemFeature> itemFeatures = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource);
+                itemFeatures[index] = ViewExtension.itemFeature;
 
                 PART_ListItemFeatures.ItemsSource = null;
                 PART_ListItemFeatures.ItemsSource = itemFeatures;

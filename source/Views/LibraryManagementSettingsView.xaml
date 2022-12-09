@@ -655,12 +655,6 @@
                                                             <DataTemplate>
                                                                 <Grid>
                                                                     <Label Content="{Binding Name}" VerticalAlignment="Center" />
-                                                                    <Button Name="PART_RemoveFeature" Click="PART_RemoveFeature_Click" 
-                                                                            HorizontalAlignment="Right" VerticalAlignment="Center"
-                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}"
-                                                                            ToolTip="{DynamicResource LOCRemoveLabel}"
-                                                                            Visibility="{Binding IsAdd, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                                 </Grid>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
@@ -687,13 +681,6 @@
                                                                     </Grid.ColumnDefinitions>
 
                                                                     <TextBlock Text="{Binding NameAssociated}" VerticalAlignment="Center" Grid.Column="0" />
-                                                                    <Button Name="PART_EditName" Click="PART_EditName_Click" Margin="5,0,0,0" Grid.Column="1"
-                                                                            Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
-                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
-                                                                    <Button Name="PART_RemoveName" Click="PART_RemoveName_Click" Grid.Column="2"
-                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
-                                                                            Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
-                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                                 </Grid>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
@@ -713,16 +700,14 @@
                                                         <GridViewColumnHeader Content=""></GridViewColumnHeader>
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                                    <Button Name="PART_AddCustomIcon" Click="PART_AddCustomIcon_Click"
-                                                                            ToolTip="{DynamicResource LOCSelectIconTitle}"
-                                                                            Content="&#xefc2;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Button Name="PART_EditFeature" Click="PART_EditFeature_Click" 
+                                                                            Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                                             Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
-                                                                    <Button Name="PART_RemoveCustomIcon" Click="PART_RemoveCustomIcon_Click" 
-                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
-                                                                            Margin="5,0,0,0" ToolTip="{DynamicResource LOCRemoveLabel}"
-                                                                            Visibility="{Binding IsAdd, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
-                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                                    <Button Name="PART_RemoveFeature" Click="PART_RemoveFeature_Click" VerticalAlignment="Center"
+                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                            ToolTip="{DynamicResource LOCRemoveLabel}" Margin="5,0,0,0"
+                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />                                                                    
                                                                 </StackPanel>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>

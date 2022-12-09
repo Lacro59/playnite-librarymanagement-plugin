@@ -126,8 +126,8 @@
     <Compile Include="Services\IcoFeatures.cs" />
     <Compile Include="Services\LmImageTools.cs" />
     <Compile Include="Services\LibraryManagementTools.cs" />
-    <Compile Include="Views\AddNewFeatureIcon.xaml.cs">
-      <DependentUpon>AddNewFeatureIcon.xaml</DependentUpon>
+    <Compile Include="Views\AddEditNewFeatureIcon.xaml.cs">
+      <DependentUpon>AddEditNewFeatureIcon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LibraryManagementItemEditor.xaml.cs">
       <DependentUpon>LibraryManagementItemEditor.xaml</DependentUpon>
@@ -277,7 +277,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\AddNewFeatureIcon.xaml">
+    <Page Include="Views\AddEditNewFeatureIcon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

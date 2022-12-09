@@ -23,7 +23,8 @@ namespace LibraryManagement.Models
         public Playnite.SDK.Models.GameFeature Feature { get; set; }
 
         [DontSerialize]
-        public string IconDefaultFullPath {
+        public string IconDefaultFullPath 
+        {
             get
             {
                 string PluginPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -57,7 +58,6 @@ namespace LibraryManagement.Models
                     return FullPath;
                 }
 
-                logger.Error($"No ico find for {FullPath}");
                 return string.Empty;
             }
         }
