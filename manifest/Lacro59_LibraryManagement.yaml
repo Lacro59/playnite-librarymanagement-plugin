@@ -68,3 +68,13 @@ Packages:
     PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v3.0.2/playnite-librarymanagement-plugin_3_0_2.pext
     Changelog:
       - Fixed missing reference
+  - Version: 3.1
+    RequiredApiVersion: 6.7.0
+    ReleaseDate: 2022-12-14
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v3.1/playnite-librarymanagement-plugin_3_1.pext
+    Changelog:
+      - Exposed features (by felixkmh)
+      - Fixed crashes
+      - Added misc. option Tag to Categories
+      - Added a custom age ratings icon for custom theme (see wiki)
+      - Full edit for features icons
