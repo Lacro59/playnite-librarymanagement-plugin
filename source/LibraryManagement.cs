@@ -32,7 +32,7 @@ namespace LibraryManagement
             // Custom elements integration
             AddCustomElementSupport(new AddCustomElementSupportArgs
             {
-                ElementList = new List<string> { "PluginFeaturesIconList" },
+                ElementList = new List<string> { "PluginFeaturesIconList", "PluginAgeRating" },
                 SourceName = "LibraryManagement"
             });
 
@@ -71,6 +71,11 @@ namespace LibraryManagement
             if (args.Name == "PluginFeaturesIconList")
             {
                 return new PluginFeaturesIconList(PlayniteApi, PluginSettings);
+            }
+
+            if (args.Name == "PluginAgeRating")
+            {
+                return new PluginAgeRating(PlayniteApi, PluginSettings);
             }
 
             return null;
@@ -281,7 +286,7 @@ namespace LibraryManagement
         {
             Task.Run(() =>
             {
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
                 IsStarted = true;
             });
         }

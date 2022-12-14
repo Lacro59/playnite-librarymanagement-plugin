@@ -1,0 +1,23 @@
+﻿<controls:PluginUserControlExtendBase  
+        xmlns:controls="clr-namespace:CommonPluginsShared.Controls" 
+        x:Class="LibraryManagement.Controls.PluginAgeRating"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:LibraryManagement.Controls" 
+        xmlns:converters="clr-namespace:CommonPluginsShared.Converters"
+        d:DataContext="{d:DesignInstance Type=local:PluginAgeRatingDataContext}"
+        mc:Ignorable="d" d:DesignHeight="50" d:DesignWidth="50">
+
+    <UserControl.Resources>
+        <converters:HeightToFontSizeConverter x:Key="HeightToFontSizeConverter" />
+    </UserControl.Resources>
+
+    <Grid Width="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=ActualHeight}">
+        <Border Background="{Binding Color, FallbackValue=SeaGreen}" BorderBrush="Black" BorderThickness="2" />
+        <TextBlock Text="{Binding Age, FallbackValue='12'}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Foreground="Black" FontWeight="Bold" 
+                   FontSize="{Binding RelativeSource={RelativeSource AncestorType=ContentControl}, Path=ActualHeight, Converter={StaticResource HeightToFontSizeConverter}}" />
+    </Grid>
+</controls:PluginUserControlExtendBase>

@@ -40,6 +40,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="akr.WPF.Controls.ColorPicker">
+      <HintPath>..\..\playnite-howlongtobeat-plugin\source\playnite-plugincommon\CommonPluginsResources\Resources\akr.WPF.Controls.ColorPicker.dll</HintPath>
+    </Reference>
     <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
       <HintPath>packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -92,11 +95,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\PluginAgeRating.xaml.cs">
+      <DependentUpon>PluginAgeRating.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PluginFeaturesIconList.xaml.cs">
       <DependentUpon>PluginFeaturesIconList.xaml</DependentUpon>
     </Compile>
     <Compile Include="LibraryManagement.cs" />
     <Compile Include="LibraryManagementSettings.cs" />
+    <Compile Include="Models\AgeRating.cs" />
     <Compile Include="Models\ItemFeature.cs" />
     <Compile Include="Models\LmEquivalences.cs" />
     <Compile Include="Models\LmCompaniesEquivalences.cs" />
@@ -108,6 +115,9 @@
     <Compile Include="Models\LmTagToFeature.cs" />
     <Compile Include="playnite-plugincommon\CommonPluginsControls\Controls\ComboBoxRemovable.xaml.cs">
       <DependentUpon>ComboBoxRemovable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="playnite-plugincommon\CommonPluginsControls\Controls\ControlPickerGradient.xaml.cs">
+      <DependentUpon>ControlPickerGradient.xaml</DependentUpon>
     </Compile>
     <Compile Include="playnite-plugincommon\CommonPluginsControls\PlayniteControls\NullableIntBox.xaml.cs">
       <DependentUpon>NullableIntBox.xaml</DependentUpon>
@@ -129,6 +139,9 @@
     <Compile Include="Services\LibraryManagementTools.cs" />
     <Compile Include="Views\AddEditNewFeatureIcon.xaml.cs">
       <DependentUpon>AddEditNewFeatureIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEditNewAgeRating.xaml.cs">
+      <DependentUpon>AddEditNewAgeRating.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LibraryManagementItemEditor.xaml.cs">
       <DependentUpon>LibraryManagementItemEditor.xaml</DependentUpon>
@@ -160,6 +173,10 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Include="Controls\PluginAgeRating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\PluginFeaturesIconList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -258,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="playnite-plugincommon\CommonPluginsControls\Controls\ControlPickerGradient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="playnite-plugincommon\CommonPluginsControls\PlayniteControls\NullableIntBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -279,6 +300,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AddEditNewFeatureIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddEditNewAgeRating.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

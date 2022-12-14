@@ -448,8 +448,8 @@ namespace LibraryManagement.Views
             bool IsGog = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsGog;
             bool IsDark = ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource).FirstOrDefault().IsDark;
 
-            var ViewExtension = new AddEditNewFeatureIcon(_plugin, IsGog, IsDark, ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource)[index]);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagAddNewFeature"), ViewExtension);
+            AddEditNewFeatureIcon ViewExtension = new AddEditNewFeatureIcon(_plugin, IsGog, IsDark, ((List<ItemFeature>)PART_ListItemFeatures.ItemsSource)[index]);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmTagEditFeature"), ViewExtension);
             windowExtension.ShowDialog();
 
             if (ViewExtension.itemFeature != null)
@@ -585,6 +585,54 @@ namespace LibraryManagement.Views
         {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(_plugin, _PlayniteApi, _settings);
             libraryManagementTools.SetTagsToCategories();
+        }
+        #endregion
+
+
+        #region AgeRatings
+        private void PART_AddNewAgeRating_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(_plugin, null);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmAddNewAgeRating"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.ageRating != null)
+            {
+                List<Models.AgeRating> ageRating = ((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource);
+                ageRating.Add(ViewExtension.ageRating);
+
+                PART_ListAgeRatings.ItemsSource = null;
+                PART_ListAgeRatings.ItemsSource = ageRating;
+            }
+        }
+
+        private void PART_EditAgeRating_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(_plugin, ((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource)[index]);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmEditAgeRating"), ViewExtension);
+            windowExtension.ShowDialog();
+
+            if (ViewExtension.ageRating != null)
+            {
+                List<Models.AgeRating> ageRating = ((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource);
+                ageRating[index] = ViewExtension.ageRating;
+
+                PART_ListAgeRatings.ItemsSource = null;
+                PART_ListAgeRatings.ItemsSource = ageRating;
+            }
+        }
+
+        private void PART_RemoveAgeRating_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)sender).Tag.ToString());
+
+            List<Models.AgeRating> ageRating = ((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource);
+            ageRating.RemoveAt(index);
+
+            PART_ListAgeRatings.ItemsSource = null;
+            PART_ListAgeRatings.ItemsSource = ageRating;
         }
         #endregion
     }

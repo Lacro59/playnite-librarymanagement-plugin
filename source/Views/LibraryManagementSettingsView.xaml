@@ -695,6 +695,8 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
                         <Expander Grid.Row="0">
@@ -810,6 +812,106 @@
                                                                             Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
                                                                             Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
                                                                     <Button Name="PART_RemoveFeature" Click="PART_RemoveFeature_Click" VerticalAlignment="Center"
+                                                                            Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}"
+                                                                            ToolTip="{DynamicResource LOCRemoveLabel}" Margin="5,0,0,0"
+                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />                                                                    
+                                                                </StackPanel>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                    </Grid>
+                                </Border>
+                            </Expander.Content>
+                        </Expander>
+
+                        <Expander Grid.Row="2">
+                            <Expander.Style>
+                                <Style TargetType="{x:Type Expander}" BasedOn="{StaticResource {x:Type Expander}}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Style>
+                            </Expander.Style>
+
+                            <Expander.Header>
+                                <CheckBox Name="PART_AgeRatings" IsChecked="{Binding Settings.EnableIntegrationAgeRatings}">
+                                    <Label Content="{DynamicResource LOCLmIntegrationAgeRatings}" />
+                                </CheckBox>
+                            </Expander.Header>
+
+                            <Expander.Content>
+                                <Border IsEnabled="{Binding ElementName=PART_AgeRatings, Path=IsChecked}"
+                                        Margin="5" Padding="10"
+                                        BorderBrush="{DynamicResource PopupBorderBrush}"
+                                        BorderThickness="{DynamicResource PopupBorderThickness}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="10" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto" />
+                                                <RowDefinition Height="10" />
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Button Grid.Column="2" Grid.Row="2" Content="{DynamicResource LOCLmAddNewAgeRating}" 
+                                                    HorizontalAlignment="Right" Name="PART_AddNewAgeRating"
+                                                    Click="PART_AddNewAgeRating_Click" />
+                                        </Grid>
+
+                                        <ListView Grid.Row="2" ItemsSource="{Binding Settings.AgeRatings}" Name="PART_ListAgeRatings" Height="250">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Width="280">
+                                                        <GridViewColumnHeader Content="{DynamicResource LOCAgeRatingsLabel}" />
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <Label Content="{Binding AgeRatingString}" VerticalAlignment="Center" />
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+
+                                                    <GridViewColumn Header="{DynamicResource LOCLmColor}" Width="70">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <TextBlock Name="PART_ArColor" Background="{Binding Color}" VerticalAlignment="Center" Width="38" HorizontalAlignment="Center" />
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+
+                                                    <GridViewColumn Header="{DynamicResource LOCAgeRatingLabel}" Width="110">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <Grid>
+                                                                    <TextBlock Text="{Binding Age}" VerticalAlignment="Center" />
+                                                                </Grid>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+
+                                                    <GridViewColumn Width="90">
+                                                        <GridViewColumnHeader Content=""></GridViewColumnHeader>
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <Button Name="PART_EditAgeRating" Click="PART_EditAgeRating_Click" 
+                                                                            Content="&#xec55;" FontFamily="{DynamicResource FontIcoFont}" VerticalAlignment="Center"
+                                                                            Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />
+                                                                    <Button Name="PART_RemoveAgeRating" Click="PART_RemoveAgeRating_Click" VerticalAlignment="Center"
                                                                             Content="&#xec53;" FontFamily="{DynamicResource FontIcoFont}"
                                                                             ToolTip="{DynamicResource LOCRemoveLabel}" Margin="5,0,0,0"
                                                                             Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBoxItem}}, Mode=OneWay, Converter={StaticResource IndexConverter}}" />                                                                    
