@@ -384,6 +384,9 @@ namespace LibraryManagement
                     Common.LogError(ex, false, true, "LibraryManagement");
                 }
             }
+
+            PluginSettings.Settings.LastAutoLibUpdateAssetsDownload = DateTime.Now;
+            SavePluginSettings(PluginSettings.Settings);
         }
 
 
