@@ -1,30 +1,30 @@
 param(
-	[string]$ConfigurationName, 
+	[string]$ConfigurationName,
 	[string]$OutDir,
-	[string]$SolutionDir 
+	[string]$SolutionDir
 )
 
 
 $PlaynitePathTEMP = "C:\Playnite_dev"
-if (Test-Path -Path $PlaynitePathTEMP) 
+if (Test-Path -Path $PlaynitePathTEMP)
 {
 	$PlaynitePath = $PlaynitePathTEMP
 }
 
 $PlaynitePathTEMP = "D:\Playnite_dev"
-if (Test-Path -Path $PlaynitePathTEMP) 
+if (Test-Path -Path $PlaynitePathTEMP)
 {
 	$PlaynitePath = $PlaynitePathTEMP
 }
 
 $PlaynitePathTEMP = "G:\Playnite_dev"
-if (Test-Path -Path $PlaynitePathTEMP) 
+if (Test-Path -Path $PlaynitePathTEMP)
 {
 	$PlaynitePath = $PlaynitePathTEMP
 }
 
 $PlaynitePathTEMP = "F:\Playnite_dev"
-if (Test-Path -Path $PlaynitePathTEMP) 
+if (Test-Path -Path $PlaynitePathTEMP)
 {
 	$PlaynitePath = $PlaynitePathTEMP
 }
@@ -34,10 +34,10 @@ $ToolboxPath = (Join-Path $PlaynitePath "toolbox.exe")
 $OutDirPath = (Join-Path $OutDir "..")
 
 
-if ($ConfigurationName -eq "release") 
+if ($ConfigurationName -eq "release")
 {
 	$Version = ""
-	foreach($Line in Get-Content (Join-Path $SolutionDir  "extension.yaml")) 
+	foreach($Line in Get-Content (Join-Path $SolutionDir  "extension.yaml"))
 	{
 		if($Line -imatch "Version:")
 		{
@@ -55,24 +55,24 @@ if ($ConfigurationName -eq "release")
 		if (Test-Path $ToolboxPath)
 		{
 			& $ToolboxPath "pack" $OutDir $OutDirPath
-		
+
 			$Result = & $ToolboxPath "verify" "installer" $Manifest
 			if($Result -imatch "Installer manifest passed verification")
-			{		
-				
+			{
+
 			}
-			else 
+			else
 			{
 				echo $Result
-			}		
+			}
 		}
-		else 
+		else
 		{
-			echo "toolbox.exe not find."
-		}	
+			echo "toolbox.exe is missing."
+		}
 	}
 	else
 	{
-		echo "Manifest not contains actual version"
+		echo "Manifest is missing current version."
 	}
 }
