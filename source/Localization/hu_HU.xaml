@@ -29,13 +29,13 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
-    
+
     <sys:String x:Key="LOCLmGenreAdd">Új műfaj hozzáadása</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Műfaj szerkesztése</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Új jellemző hozzáadása</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Jellemző szerkesztése</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Új címke létrehozása</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Címke szerkesztése</sys:String>
 
@@ -51,6 +51,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Használt sötét ikonok</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Használt GOG ikonok</sys:String>
 
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
+
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Egyedi ikon</sys:String>
 
@@ -60,9 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Új jellemző hozzáadása</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -88,6 +97,5 @@
 Click to see the list</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
-
 
 </ResourceDictionary>

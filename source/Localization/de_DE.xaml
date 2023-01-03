@@ -29,13 +29,13 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Tags auf Genres mit der Aktualisierung der Spielbibliothek anwenden</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Anzeige einer Benachrichtigung mit dem Ergebnis nach einer Aktualisierung</sys:String>
-    
+
     <sys:String x:Key="LOCLmGenreAdd">Neues Genre hinzufügen</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Genre bearbeiten</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Neues Feature hinzufügen</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Feature bearbeiten</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
 
@@ -51,6 +51,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwende dunkle Symbole</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
+
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Icon</sys:String>
 
@@ -60,9 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Neue Merkmale hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -88,6 +97,5 @@
 Klicken, um die Liste zu sehen</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">Es gibt keine Daten! Bitte stellen Sie die Äquivalenzen in den Plugin Einstellungen ein.</sys:String>
-
 
 </ResourceDictionary>
