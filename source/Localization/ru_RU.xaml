@@ -6,7 +6,7 @@
     <sys:String x:Key="LOCLm">Управление библиотекой</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Добавить жанр</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Добавить жан</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Добавить функции</sys:String>
     <sys:String x:Key="LOCLmSetTags">Добавить теги</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Добавить компанию</sys:String>
@@ -17,21 +17,18 @@
     <sys:String x:Key="LOCLmCompaniesUpdated">Компании обновлены</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Теги к жанрам обновлены</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Теги к функциям обновлены
-</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Теги к функциям обновлены</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Применить компании с обновлением библиотеки игр</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Применение функций с обновлением библиотеки игр</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Применяйте жанры с обновлением библиотеки игр</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Применить теги с обновлением библиотеки игр</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Применение тегов к функциям с обновлением библиотеки игр</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">
-Применяйте теги к жанрам с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Применить компании с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Применение функций с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Применяйте жанры с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Применить теги с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Применение тегов к функциям с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Применяйте теги к жанрам с обновлением библиотеки иг</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показать уведомление с результатом после обновления
-</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показать уведомление с результатом после обновления</sys:String>
     
     <sys:String x:Key="LOCLmGenreAdd">Добавить жан</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редактировать жан</sys:String>
@@ -51,12 +48,10 @@
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Показать список значков функций</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Параметры значков функций</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Использованы темные значки
-</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Использованы темные значки</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Связанное имя
-</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">Связанное имя</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Пользовательская иконка</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">Теги к функциям</sys:String>
@@ -71,7 +66,7 @@
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Медиа редактор</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Медиа редакто</sys:String>
 
     <sys:String x:Key="LOCLmSetAsIco">Добавить значок</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Отразить по горизонтали</sys:String>
@@ -80,11 +75,11 @@
     <sys:String x:Key="LOCLmSelectMedia">Выберите медиа файл</sys:String>
     <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
     <sys:String x:Key="LOCLmOriginal">Оригинал</sys:String>
-    <sys:String x:Key="LOCLmEdited">Редактор</sys:String>
+    <sys:String x:Key="LOCLmEdited">Редакто</sys:String>
     <sys:String x:Key="LOCLmImageName">Название изображения</sys:String>
     <sys:String x:Key="LOCLmImageSize">Размер изображения</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Желаемый размер</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Измените размер с обрезкой, чтобы получить желаемый размер</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Желаемый разме</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Измените размер с обрезкой, чтобы получить желаемый разме</sys:String>
     <sys:String x:Key="LOCLmKeepAspectRation">Сохранять пропорции</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Применить параметры изображения</sys:String>
 
