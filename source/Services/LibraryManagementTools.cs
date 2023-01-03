@@ -70,15 +70,10 @@ namespace LibraryManagement.Services
 
                     CheckGenre();
 
-                    // Remplace genres
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    // Replace genres
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -263,15 +258,10 @@ namespace LibraryManagement.Services
 
                     CheckFeature();
 
-                    // Remplace features
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    // Replace features
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -464,15 +454,10 @@ namespace LibraryManagement.Services
 
                     CheckTags();
 
-                    // Remplace tags
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    // Replace tags
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -658,15 +643,10 @@ namespace LibraryManagement.Services
 
                     CheckCompanies();
 
-                    // Remplace Companies
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    // Replace Companies
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -881,14 +861,9 @@ namespace LibraryManagement.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -1008,14 +983,9 @@ namespace LibraryManagement.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -1127,14 +1097,9 @@ namespace LibraryManagement.Services
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    IEnumerable<Game> PlayniteDb = PlayniteApi.Database.Games.Where(x => x.Hidden == true || x.Hidden == false);
-                    if (OnlyToDay)
-                    {
-                        PlayniteDb = PlayniteApi.Database.Games
-                            .Where(x => x.Added != null && x.Added > PluginSettings.LastAutoLibUpdateAssetsDownload);
-                    }
+                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = (double)PlayniteDb.Count();
+                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
@@ -1217,5 +1182,13 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
         #endregion
+
+        private ICollection<Game> GetGamesToUpdate(bool onlyRecentlyUpdated)
+        {
+            if (onlyRecentlyUpdated)
+                return PlayniteApi.Database.Games.Where(g => g.Added > PluginSettings.LastAutoLibUpdateAssetsDownload || g.Modified > PluginSettings.LastAutoLibUpdateAssetsDownload).ToList();
+            else
+                return PlayniteApi.Database.Games;
+        }
     }
 }
