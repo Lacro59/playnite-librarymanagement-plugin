@@ -60,7 +60,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">标签到流派</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">设置标签到流派</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支持</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题支</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">添加新功能特色</sys:String>
 
@@ -87,7 +87,7 @@
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} 个游戏已更新（{1}）
 点击查看列</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">没有数据！请在插件设置中设置等量。</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">没有数据！请在插件设置中设置等量</sys:String>
 
 
 </ResourceDictionary>
