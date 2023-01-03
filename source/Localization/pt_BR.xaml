@@ -29,13 +29,13 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Aplicar tags a gêneros com a atualização da biblioteca de jogos</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Exibir uma notificação com resultado após uma atualização</sys:String>
-    
+
     <sys:String x:Key="LOCLmGenreAdd">Adicionar novo gênero</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Editar gênero</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Adicionar nova característica</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Editar funcionalidade</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Adicionar nova marcação</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Editar tag</sys:String>
 
@@ -51,6 +51,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Ícones escuros usados</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Ícones GOG utilizados</sys:String>
 
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
+
     <sys:String x:Key="LOCLmNameAssociated">Nome associado</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Personalizar Ícone</sys:String>
 
@@ -60,9 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags para Gêneros</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Ajustar tags para Gêneros</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar um ícone quando os recursos usam o mesmo ícone</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Adicionar novo recurso</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -88,6 +97,5 @@
 Clique para ver a lista</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">Não há dados! Por favor, defina equivalências nas configurações do plugin.</sys:String>
-
 
 </ResourceDictionary>
