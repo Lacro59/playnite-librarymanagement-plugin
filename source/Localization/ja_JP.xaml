@@ -44,7 +44,7 @@
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">除外リスト</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">除外リス</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
