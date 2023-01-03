@@ -33,8 +33,8 @@
     <sys:String x:Key="LOCLmGenreAdd">Ajouter un genre</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Modifier le genre</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Ajouter une fonctionnalit</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Modifier la fonctionnalit</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Ajouter une fonctionnalité</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Modifier la fonctionnalité</sys:String>
 
     <sys:String x:Key="LOCLmTagAdd">Ajouter une étiquette</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Modifier l'étiquette</sys:String>
@@ -51,12 +51,12 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Utiliser les icônes sombres</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Utiliser les icônes GOG</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Afficher les évaluations d'âge</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Ajouter une nouvelle évaluation d'âge</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Modifier l'évaluation d'âge</sys:String>
+    <sys:String x:Key="LOCLmColor">Couleur </sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Nom associ</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">Nom associé</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icône personnalisée</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">Tags vers fonctionnalités</sys:String>
@@ -65,13 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Étiquettes vers genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Définir les étiquettes vers genres</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Étiquettes vers catégories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Définir les étiquettes vers catégories</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Afficher une icône lorsque les fonctionnalités utilisent la même icône</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Ajouter une fonctionnalit</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Ajouter une fonctionnalité</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Modifier la fonctionnalité</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -84,7 +84,7 @@
     <sys:String x:Key="LOCLmSelectMedia">Sélectionner un média</sys:String>
     <sys:String x:Key="LOCLmCrop">Recadrer</sys:String>
     <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Édit</sys:String>
+    <sys:String x:Key="LOCLmEdited">Modifié</sys:String>
     <sys:String x:Key="LOCLmImageName">Nom de l'image</sys:String>
     <sys:String x:Key="LOCLmImageSize">Dimension de l'image</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Dimension souhaitée</sys:String>
