@@ -29,13 +29,13 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Застосувати теги до жанрів з оновленням бібліотеки ігор</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показувати сповіщення з результатом після оновлення</sys:String>
-    
+
     <sys:String x:Key="LOCLmGenreAdd">Додати новий жанр</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редагувати жанр</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Додати нову особливість</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Редагувати особливість</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Додати новий тег</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Редагувати тег</sys:String>
 
@@ -51,6 +51,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Використані темні іконки</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Використані іконки GOG</sys:String>
 
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
+
     <sys:String x:Key="LOCLmNameAssociated">Ім'я пов’язане</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Користувацький значок</sys:String>
 
@@ -60,9 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги до жанрів</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати один значок, коли особливості використовують однаковий значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Додати нову особливість</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -88,6 +97,5 @@
 Натисніть, щоб побачити список</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">Дані відсутні! Будь ласка, встановіть еквіваленти в налаштуваннях плагіну.</sys:String>
-
 
 </ResourceDictionary>
