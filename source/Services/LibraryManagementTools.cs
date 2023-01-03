@@ -135,16 +135,30 @@ namespace LibraryManagement.Services
             List<Genre> PlayniteGenres = PlayniteApi.Database.Genres.ToList();
             foreach (LmGenreEquivalences lmGenreEquivalences in PluginSettings.ListGenreEquivalences)
             {
-                if (lmGenreEquivalences.Id == null)
+                var findedById = PlayniteGenres.Find(x => x.Id == lmGenreEquivalences.Id);
+                if (lmGenreEquivalences.Id == null || findedById == null)
                 {
-                    Genre genre = new Genre(lmGenreEquivalences.NewName);
-                    lmGenreEquivalences.Id = genre.Id;
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    var findedByName = PlayniteGenres.Find(x => x.Name.IsEqual(lmGenreEquivalences.NewName));
+                    if (findedByName != null)
                     {
-                        PlayniteApi.Database.Genres.Add(genre);
-                        Plugin.SavePluginSettings(PluginSettings);
-                    }).Wait();
+                        lmGenreEquivalences.Id = findedByName.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
+                    else
+                    {
+                        Genre genre = new Genre(lmGenreEquivalences.NewName);
+                        lmGenreEquivalences.Id = genre.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Genres.Add(genre);
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
                 }
             }
         }
@@ -178,6 +192,21 @@ namespace LibraryManagement.Services
                         }
                     }
                 }
+
+
+                // Remove same
+                List<Genre> AllGenresSame = GameGenres.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.NewName.IsEqual(x.Name) && x.Id != y.Id));
+
+                if (AllGenresSame.Count > 0)
+                {
+                    // Remove all
+                    foreach (Genre genre in AllGenresSame)
+                    {
+                        game.GenreIds.Remove(genre.Id);
+                        IsUpdated = true;
+                    }
+                }
+
 
                 // Exclusion
                 if (PluginSettings.ListGenreExclusion.Count > 0)
@@ -323,16 +352,30 @@ namespace LibraryManagement.Services
             List<GameFeature> PlayniteFeatures = PlayniteApi.Database.Features.ToList();
             foreach (LmFeatureEquivalences lmFeatureEquivalences in PluginSettings.ListFeatureEquivalences)
             {
-                if (lmFeatureEquivalences.Id == null)
+                var findedById = PlayniteFeatures.Find(x => x.Id == lmFeatureEquivalences.Id);
+                if (lmFeatureEquivalences.Id == null || findedById == null)
                 {
-                    GameFeature feature = new GameFeature(lmFeatureEquivalences.NewName);
-                    lmFeatureEquivalences.Id = feature.Id;
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    var findedByName = PlayniteFeatures.Find(x => x.Name.IsEqual(lmFeatureEquivalences.NewName));
+                    if (findedByName != null)
                     {
-                        PlayniteApi.Database.Features.Add(feature);
-                        Plugin.SavePluginSettings(PluginSettings);
-                    }).Wait();
+                        lmFeatureEquivalences.Id = findedByName.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
+                    else
+                    {
+                        GameFeature feature = new GameFeature(lmFeatureEquivalences.NewName);
+                        lmFeatureEquivalences.Id = feature.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Features.Add(feature);
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
                 }
             }
         }
@@ -374,6 +417,21 @@ namespace LibraryManagement.Services
                         }).Wait();
                     }
                 }
+
+
+                // Remove same
+                List<GameFeature> AllFeaturesSame = gameFeatures.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.NewName.IsEqual(x.Name) && x.Id != y.Id));
+
+                if (AllFeaturesSame.Count > 0)
+                {
+                    // Remove all
+                    foreach (GameFeature feature in AllFeaturesSame)
+                    {
+                        game.FeatureIds.Remove(feature.Id);
+                        IsUpdated = true;
+                    }
+                }
+
 
                 // Exclusion
                 if (PluginSettings.ListFeatureExclusion.Count > 0)
@@ -519,16 +577,30 @@ namespace LibraryManagement.Services
             List<Tag> PlayniteTags = PlayniteApi.Database.Tags.ToList();
             foreach (LmTagsEquivalences lmTagsEquivalences in PluginSettings.ListTagsEquivalences)
             {
-                if (lmTagsEquivalences.Id == null)
+                var findedById = PlayniteTags.Find(x => x.Id == lmTagsEquivalences.Id);
+                if (lmTagsEquivalences.Id == null || findedById == null)
                 {
-                    Tag tag = new Tag(lmTagsEquivalences.NewName);
-                    lmTagsEquivalences.Id = tag.Id;
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    var findedByName = PlayniteTags.Find(x => x.Name.IsEqual(lmTagsEquivalences.NewName));
+                    if (findedByName != null)
                     {
-                        PlayniteApi.Database.Tags.Add(tag);
-                        Plugin.SavePluginSettings(PluginSettings);
-                    }).Wait();
+                        lmTagsEquivalences.Id = findedByName.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
+                    else
+                    {
+                        Tag tag = new Tag(lmTagsEquivalences.NewName);
+                        lmTagsEquivalences.Id = tag.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Tags.Add(tag);
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
                 }
             }
         }
@@ -562,6 +634,21 @@ namespace LibraryManagement.Services
                         }
                     }
                 }
+
+
+                // Remove same
+                List<Tag> AllTagsSame = Tags.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.NewName.IsEqual(x.Name) && x.Id != y.Id));
+
+                if (AllTagsSame.Count > 0)
+                {
+                    // Remove all
+                    foreach (Tag tag in AllTagsSame)
+                    {
+                        game.TagIds.Remove(tag.Id);
+                        IsUpdated = true;
+                    }
+                }
+
 
                 // Exclusion
                 if (PluginSettings.ListTagsExclusion.Count > 0)
@@ -712,16 +799,30 @@ namespace LibraryManagement.Services
             List<Company> PlayniteCompanies = PlayniteApi.Database.Companies.ToList();
             foreach (LmCompaniesEquivalences lmCompaniesEquivalences in PluginSettings.ListCompaniesEquivalences)
             {
-                if (lmCompaniesEquivalences.Id == null)
+                var findedById = PlayniteCompanies.Find(x => x.Id == lmCompaniesEquivalences.Id);
+                if (lmCompaniesEquivalences.Id == null || findedById == null)
                 {
-                    Company company = new Company(lmCompaniesEquivalences.NewName);
-                    lmCompaniesEquivalences.Id = company.Id;
-
-                    Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                    var findedByName = PlayniteCompanies.Find(x => x.Name.IsEqual(lmCompaniesEquivalences.NewName));
+                    if (findedByName != null)
                     {
-                        PlayniteApi.Database.Companies.Add(company);
-                        Plugin.SavePluginSettings(PluginSettings);
-                    }).Wait();
+                        lmCompaniesEquivalences.Id = findedByName.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
+                    else
+                    {
+                        Company company = new Company(lmCompaniesEquivalences.NewName);
+                        lmCompaniesEquivalences.Id = company.Id;
+
+                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
+                        {
+                            PlayniteApi.Database.Companies.Add(company);
+                            Plugin.SavePluginSettings(PluginSettings);
+                        }).Wait();
+                    }
                 }
             }
         }
@@ -742,7 +843,7 @@ namespace LibraryManagement.Services
             if (Companies != null && Companies.Count > 0)
             {
                 // Rename
-                List<Company> AllCompaniesOld = Companies.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.OldNames.Any(z => z.ToLower() == x.Name.ToLower())));
+                List<Company> AllCompaniesOld = Companies.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.OldNames.Any(z => z.IsEqual(x.Name))));
 
                 if (AllCompaniesOld.Count > 0)
                 {
@@ -779,6 +880,29 @@ namespace LibraryManagement.Services
                         }
                     }
                 }
+
+
+                // Remove same
+                List<Company> AllCompaniesSame = Companies.FindAll(x => PluginSettings.ListCompaniesEquivalences.Any(y => y.NewName.IsEqual(x.Name) && x.Id != y.Id));
+
+                if (AllCompaniesSame.Count > 0)
+                {
+                    // Remove all
+                    foreach (Company company in AllCompaniesSame)
+                    {
+                        if (IsPublishers)
+                        {
+                            game.PublisherIds.Remove(company.Id);
+                            IsUpdated = true;
+                        }
+                        else
+                        {
+                            game.DeveloperIds.Remove(company.Id);
+                            IsUpdated = true;
+                        }
+                    }
+                }
+
 
                 // Exclusion
                 if (PluginSettings.ListCompaniesExclusion.Count > 0)
@@ -1182,6 +1306,7 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
         #endregion
+
 
         private ICollection<Game> GetGamesToUpdate(bool onlyRecentlyUpdated)
         {
