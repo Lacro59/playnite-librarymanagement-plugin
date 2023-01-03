@@ -29,17 +29,17 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
-    
-    <sys:String x:Key="LOCLmGenreAdd">إضافة نوع جدي</sys:String>
+
+    <sys:String x:Key="LOCLmGenreAdd">إضافة نوع جد</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">تعديل النوع</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">إضافة ميزة جديد</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">إضافة ميزة جدي</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">إضافة شركة جديد</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">إضافة شركة جدي</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
@@ -49,7 +49,12 @@
     <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">أيقونات GOG المستخدم</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">أيقونات GOG المستخد</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
@@ -60,15 +65,19 @@
     <sys:String x:Key="LOCLmTagsToGenres">علامات إلى الأنواع</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">إضافة ميزة جديد</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">إضافة ميزة جدي</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">تعيين كأيقون</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">تعيين كأيقو</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">قلب عموديا</sys:String>
 
@@ -88,6 +97,5 @@
 Click to see the list</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
-
 
 </ResourceDictionary>
