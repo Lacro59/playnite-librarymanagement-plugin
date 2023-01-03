@@ -78,3 +78,11 @@ Packages:
       - Added misc. option Tag to Categories
       - Added a custom age ratings icon for custom theme (see wiki)
       - Full edit for features icons
+  - Version: 3.1
+    RequiredApiVersion: 6.8.0
+    ReleaseDate: 2023-01-03
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v3.1.1/playnite-librarymanagement-plugin_3_1_1.pext
+    Changelog:
+      - Updated localizations
+      - Fixed duplicate entries created
+      - Fixed game updates always running for (almost) every game (thanks to Jeshibu)
