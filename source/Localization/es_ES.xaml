@@ -87,7 +87,7 @@
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Juegos actualizados ({1})
 Haz clic para ver la lista</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">¡No hay datos! Por favor, establece equivalencias en la configuración del plugin.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence"></sys:String>
 
 
 </ResourceDictionary>
