@@ -137,14 +137,7 @@ namespace LibraryManagement
             LibraryManagementSettings savedSettings = plugin.LoadPluginSettings<LibraryManagementSettings>();
 
             // LoadPluginSettings returns null if not saved data is available.
-            if (savedSettings != null)
-            {
-                Settings = savedSettings;
-            }
-            else
-            {
-                Settings = new LibraryManagementSettings();
-            }
+            Settings = savedSettings ?? new LibraryManagementSettings();
 
 
             if (Settings.ItemFeatures.Count == 0)
@@ -249,6 +242,7 @@ namespace LibraryManagement
                     );
                 });
             }
+
 
             Settings.ItemFeatures = Settings.ItemFeatures.OrderBy(x => x.Name).ToList();
         }

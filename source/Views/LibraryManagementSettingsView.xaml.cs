@@ -592,7 +592,7 @@ namespace LibraryManagement.Views
         #region AgeRatings
         private void PART_AddNewAgeRating_Click(object sender, RoutedEventArgs e)
         {
-            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(_plugin, null);
+            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(null);
             Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmAddNewAgeRating"), ViewExtension);
             windowExtension.ShowDialog();
 
@@ -610,7 +610,7 @@ namespace LibraryManagement.Views
         {
             int index = int.Parse(((Button)sender).Tag.ToString());
 
-            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(_plugin, ((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource)[index]);
+            AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource)[index]);
             Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(_PlayniteApi, resources.GetString("LOCLmEditAgeRating"), ViewExtension);
             windowExtension.ShowDialog();
 
