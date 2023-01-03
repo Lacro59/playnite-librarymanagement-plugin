@@ -29,13 +29,13 @@
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Применяйте теги к жанрам с обновлением библиотеки иг</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показать уведомление с результатом после обновления</sys:String>
-    
+
     <sys:String x:Key="LOCLmGenreAdd">Добавить жан</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Редактировать жан</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">Добавить новую функцию</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Добавить функцию</sys:String>
-    
+
     <sys:String x:Key="LOCLmTagAdd">Добавить тег</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Редактировать метку</sys:String>
 
@@ -51,6 +51,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Использованы темные значки</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
+
     <sys:String x:Key="LOCLmNameAssociated">Связанное имя</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Пользовательская иконка</sys:String>
 
@@ -60,9 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги к жанрам</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Добавить теги к жанрам</sys:String>
 
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показывать значок, когда функции используют один и тот же значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Добавить новую функцию</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -88,6 +97,5 @@
 Нажмите, чтобы увидеть список</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">Нет данных! Пожалуйста, установите эквиваленты в настройках плагина.</sys:String>
-
 
 </ResourceDictionary>
