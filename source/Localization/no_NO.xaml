@@ -51,10 +51,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Vis aldersgrenser</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Legg til ny aldersgrense</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Endre aldersgrense</sys:String>
+    <sys:String x:Key="LOCLmColor">Farge</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
@@ -65,7 +65,7 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Emneord til kategorier</sys:String>
     <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Vis et ikon når funksjoner bruker det samme ikonet</sys:String>
