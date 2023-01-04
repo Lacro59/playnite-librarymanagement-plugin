@@ -51,10 +51,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Використані темні іконки</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Використані іконки GOG</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Показувати вікові рейтинги</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Додати новий віковий рейтинг</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Змінити віковий рейтинг</sys:String>
+    <sys:String x:Key="LOCLmColor">Колір</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Ім'я пов’язане</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Користувацький значок</sys:String>
@@ -65,13 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги до жанрів</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Встановити теги до жанрів</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Мітки до категорій</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Встановити теги до категорій</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показувати один значок, коли особливості використовують однаковий значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Додати нову особливість</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Редагувати нову особливість</sys:String>
 
     <!-- LmImageEditor -->
 
