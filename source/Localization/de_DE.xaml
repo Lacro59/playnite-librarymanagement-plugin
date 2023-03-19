@@ -8,12 +8,12 @@
     <sys:String x:Key="LOCLmActionInProgress">Aktion wird ausgeführt...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Genres festlegen</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Features festlegen</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Tags festlegen</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Schlagwörter festlegen</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Unternehmen festlegen</sys:String>
 
     <sys:String x:Key="LOCLmGenresUpdated">Genres aktualisiert</sys:String>
     <sys:String x:Key="LOCLmFeaturesUpdated">Features aktualisiert</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags aktualisiert</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Schlagwörter aktualisiert</sys:String>
     <sys:String x:Key="LOCLmCompaniesUpdated">Unternehmen aktualisiert</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags zu Genres aktualisiert</sys:String>
@@ -24,7 +24,7 @@
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Unternehmen mit dem Update der Spielebibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Features mit dem Update der Spielbibliothek anwenden</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Genres mit dem Update der Spielbibliothek anwenden</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Tags beim Update der Spielebibliothek hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Schlagwörter beim Update der Spielebibliothek hinzufügen</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Anwenden von Tags auf Funktionen mit dem Update der Spielebibliothek</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Tags auf Genres mit der Aktualisierung der Spielbibliothek anwenden</sys:String>
 
@@ -36,8 +36,8 @@
     <sys:String x:Key="LOCLmFeatureAdd">Neues Feature hinzufügen</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Feature bearbeiten</sys:String>
 
-    <sys:String x:Key="LOCLmTagAdd">Neuen Tag hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Tag bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">Neues Schlagwort hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Schlagwort bearbeiten</sys:String>
 
     <sys:String x:Key="LOCLmCompanyAdd">Neues Unternehmen hinzufügen</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Unternehmen bearbeiten</sys:String>
@@ -51,27 +51,27 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwende dunkle Symbole</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Alterseinstufungen anzeigen</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Neue Alterseinstufung hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Alterseinstufung bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmColor">Farbe</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Benutzerdefiniertes Icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags zu Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Tags zu Features setzen</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Schlagwörter zu Features</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Schlagwörter zu Features setzen</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags zu Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Tags auf Genres setzen</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Schlagwörter zu Genres</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Schlagwörter auf Genres setzen</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Schlagwörter zu Kategorien</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Schlagwörter auf Kategorien setzen</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Symbol anzeigen, wenn Funktionen das selbe Symbol verwenden</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Nur ein Symbol anzeigen, wenn Features das selbe Symbol verwenden</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Merkmale hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Neue Features hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Neues Feature bearbeiten</sys:String>
 
     <!-- LmImageEditor -->
 
