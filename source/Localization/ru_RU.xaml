@@ -3,10 +3,10 @@
 
     <!-- MainView -->
 
-    <sys:String x:Key="LOCLm">Управление библиотекой</sys:String>
+    <sys:String x:Key="LOCLm">Управление Библиотекой</sys:String>
 
-    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Добавить жан</sys:String>
+    <sys:String x:Key="LOCLmActionInProgress">Выполнение...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Задать жанр</sys:String>
     <sys:String x:Key="LOCLmSetFeatures">Добавить функции</sys:String>
     <sys:String x:Key="LOCLmSetTags">Добавить теги</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Добавить компанию</sys:String>
@@ -21,12 +21,13 @@
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Применить компании с обновлением библиотеки иг</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Применение функций с обновлением библиотеки иг</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Применяйте жанры с обновлением библиотеки иг</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Применить теги с обновлением библиотеки иг</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Применение тегов к функциям с обновлением библиотеки иг</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Применяйте теги к жанрам с обновлением библиотеки иг</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Применить компании с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Применение функций с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Применяйте жанры с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Применить теги с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Применение тегов к функциям с обновлением библиотеки игр</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">
+Применяйте теги к жанрам с обновлением библиотеки игр</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Показать уведомление с результатом после обновления</sys:String>
 
@@ -51,10 +52,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Использованы темные значки</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Показать возрастные рейтинги</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Добавить новый возрастной рейтинг</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Изменить возрастной рейтинг</sys:String>
+    <sys:String x:Key="LOCLmColor">Цвет</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Связанное имя</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Пользовательская иконка</sys:String>
@@ -65,13 +66,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Теги к жанрам</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Добавить теги к жанрам</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Теги к категориям</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Установить теги для категорий</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Показывать значок, когда функции используют один и тот же значок</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Добавить новую функцию</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Редактировать новую функцию</sys:String>
 
     <!-- LmImageEditor -->
 
