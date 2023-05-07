@@ -51,9 +51,9 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Verwende dunkle Symbole</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Alterseinstufungen anzeigen</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Neue Alterseinstufung hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Alterseinstufung bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Altersfreigaben anzeigen</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Neue Altersfreigabe hinzufügen</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Altersfreigabe bearbeiten</sys:String>
     <sys:String x:Key="LOCLmColor">Farbe</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name zugeordnet</sys:String>
@@ -65,13 +65,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Schlagwörter zu Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Schlagwörter auf Genres setzen</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Schlagwörter zu Kategorien</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Schlagwörter auf Kategorien setzen</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Tags zu Kategorien</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Tags auf Kategorien setzen</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Nur ein Symbol anzeigen, wenn Features das selbe Symbol verwenden</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Neue Features hinzufügen</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Neues Feature bearbeiten</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Neue Funktion bearbeiten</sys:String>
 
     <!-- LmImageEditor -->
 
