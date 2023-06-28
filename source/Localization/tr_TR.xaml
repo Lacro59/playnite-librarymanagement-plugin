@@ -36,37 +36,37 @@
     <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
 
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">Yeni etiket ekle</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Etiketi düzenle</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Yeni Firma Ekle</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Firmayı Düzenle</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">Yeri değiştirilen öğeler</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">Dışlama listesi</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Özellik simgelerinin listesini görüntüle</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Özellik simgeleri seçenekleri</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Koyu simgeleri kullan</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Kullanılan GOG simgeleri</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Yaş derecelendirmelerini görüntüle</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Yeni bir yaş derecelendirmesi ekle</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Yaş derecelendirmesini düzenle</sys:String>
+    <sys:String x:Key="LOCLmColor">Renk</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">İlişkili Ad</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Kişisel simge</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Özelliklere etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Özelliklere etiketler ayarla</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Türlere Etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Türlere etiketler ayarla</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Kategorilere Etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Kategorilere etiketler ayarla</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
