@@ -3,38 +3,38 @@
 
     <!-- MainView -->
 
-    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
+    <sys:String x:Key="LOCLm">KütüphaneYönetimi</sys:String>
 
-    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmActionInProgress">Eylem işleniyor...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Türleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Özellikleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Etiketleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Firmaları ayarla</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Türler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Özellikler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Etiketler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Firmalar güncellendi</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Türlere ait etiketler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Özelliklere ait etiketler güncellendi</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Oyun kütüphanesi güncellemesi olan firmaları uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Oyun kütüphanesi güncellemesi olan özellikleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Oyun kütüphanesi güncellemesi olan türleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Oyun kütüphanesi güncellemesi olan etiketleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Oyun kütüphanesi güncellemesi olan özelliklere etiket uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Oyun kütüphanesi güncellemesi olan türlere etiket uygula</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Bir güncellemeden sonra sonuç içeren bir bildirim görüntüle</sys:String>
 
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Yeni bir tür ekle</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Tür düzenle</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Yeni özellik ekle</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Özelliği düzenle</sys:String>
 
     <sys:String x:Key="LOCLmTagAdd">Yeni etiket ekle</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Etiketi düzenle</sys:String>
@@ -68,34 +68,34 @@
     <sys:String x:Key="LOCLmTagsToCategories">Kategorilere Etiketler</sys:String>
     <sys:String x:Key="LOCLmSetTagsToCategories">Kategorilere etiketler ayarla</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Özellikler aynı simgeyi kullanıyorsa tek simge göster</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Yeni özellik ekle</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Yeni özellik düzenle</sys:String>
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Medya düzenleyici</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Simge olarak ayarla</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Yatay olarak çevir</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Dikey olarak çevir</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">Ortam dosyası seç</sys:String>
+    <sys:String x:Key="LOCLmCrop">Kırp</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Özgün</sys:String>
+    <sys:String x:Key="LOCLmEdited">Düzenlenmiş</sys:String>
+    <sys:String x:Key="LOCLmImageName">Görsel adı</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Görsel boyutu</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Arzu edilen boyut</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Arzu edilen boyuta ulaşmak için kırparak yeniden boyutlandır</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">En boy oranını koru</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Görsel seçeneklerini uygula</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Oyun güncellendi ({1})
+Listeyi görmek için tıklayın</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Veri yok! Eklenti seçeneklerinde eşdeğerlikleri ayarlayın.</sys:String>
 
 </ResourceDictionary>
