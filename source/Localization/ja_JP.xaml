@@ -6,96 +6,96 @@
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">処理中…</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">ジャンルを設定</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">特徴を設定</sys:String>
+    <sys:String x:Key="LOCLmSetTags">タグを設定</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">企業を設定</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">ジャンルを更新しました</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">特徴を更新しました</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">タグを更新しました</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">企業を更新しました</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">タグをジャンルへを更新しました</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">タグを特徴へを更新しました</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">ゲームライブラリの更新時に企業を適用</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">ゲームライブラリの更新時に特徴を適用</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">ゲームライブラリの更新時にジャンルを適用</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">ゲームライブラリの更新時にタグを適用</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">ゲームライブラリの更新時にタグを特徴へを適用</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">ゲームライブラリの更新時にタグをジャンルへを適用</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">更新後に結果を含む通知を表示</sys:String>
 
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">新しいジャンルを追加</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">ジャンルを編集</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">新しい特徴を追加</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">特徴を編集</sys:String>
 
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">新しいタグを追加</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">タグを編集</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">新しい企業を追加</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">企業を編集</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">置き換えられる項目</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">除外リス</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">除外リスト</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">特徴アイコンの一覧を表示</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">特徴アイコンのオプション</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">ダークアイコンを使用</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">GOG アイコンを使用</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">年齢別レーティングを表示</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">新しい年齢別レーティングを追加</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">年齢別レーティングを編集</sys:String>
+    <sys:String x:Key="LOCLmColor">色</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">関連付けられた名前</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">カスタムアイコン</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">タグを特徴へ</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">タグを特徴へを設定</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">タグをジャンルへ</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">タグをジャンルへを設定</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">タグをカテゴリへ</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">タグをカテゴリへを設定</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">特徴が同じアイコンを使用しているときアイコンを 1 つにまとめる</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">新しい特徴を追加</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">新しい特徴を編集</sys:String>
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">メディアエディター</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">アイコンに設定</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">左右反転</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">上下反転</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">メディアを選択</sys:String>
+    <sys:String x:Key="LOCLmCrop">トリミング</sys:String>
+    <sys:String x:Key="LOCLmOriginal">オリジナル</sys:String>
+    <sys:String x:Key="LOCLmEdited">編集済み</sys:String>
+    <sys:String x:Key="LOCLmImageName">画像名</sys:String>
+    <sys:String x:Key="LOCLmImageSize">画像サイズ</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">希望のサイズ</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">希望のサイズにトリミングしてリサイズする</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">アスペクト比を保持</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">画像オプションを適用</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} ゲームが更新されました ({1})
+クリックしてリストを表示</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">データがありません! プラグインの設定で同等性を設定してください。</sys:String>
 
 </ResourceDictionary>
