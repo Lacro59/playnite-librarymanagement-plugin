@@ -6,10 +6,10 @@
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">処理中…</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">ジャンルを設定</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">特徴を設定</sys:String>
-    <sys:String x:Key="LOCLmSetTags">タグを設定</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">企業を設定</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">ジャンルを適用</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">特徴を適用</sys:String>
+    <sys:String x:Key="LOCLmSetTags">タグを適用</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">企業を適用</sys:String>
 
     <sys:String x:Key="LOCLmGenresUpdated">ジャンルを更新しました</sys:String>
     <sys:String x:Key="LOCLmFeaturesUpdated">特徴を更新しました</sys:String>
@@ -42,7 +42,7 @@
     <sys:String x:Key="LOCLmCompanyAdd">新しい企業を追加</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">企業を編集</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">置き換えられる項目</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">置換する項目</sys:String>
 
     <sys:String x:Key="LOCLmExclusionList">除外リスト</sys:String>
 
@@ -60,13 +60,13 @@
     <sys:String x:Key="LOCLmCustomIcon">カスタムアイコン</sys:String>
 
     <sys:String x:Key="LOCLmTagsToFeatures">タグを特徴へ</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">タグを特徴へを設定</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">タグを特徴へを適用</sys:String>
 
     <sys:String x:Key="LOCLmTagsToGenres">タグをジャンルへ</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">タグをジャンルへを設定</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">タグをジャンルへを適用</sys:String>
 
     <sys:String x:Key="LOCLmTagsToCategories">タグをカテゴリへ</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">タグをカテゴリへを設定</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">タグをカテゴリへを適用</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">特徴が同じアイコンを使用しているときアイコンを 1 つにまとめる</sys:String>
 
@@ -77,7 +77,7 @@
 
     <sys:String x:Key="LOCLmMediaEditor">メディアエディター</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">アイコンに設定</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">アイコンとして設定</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">左右反転</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">上下反転</sys:String>
 
