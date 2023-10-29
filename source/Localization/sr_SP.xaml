@@ -11,13 +11,13 @@
     <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
     <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Sjangre oppdatert</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Funksjoner oppdatert</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tagger oppdatert</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Selskaper oppdatert</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tagger til sjangre oppdatert</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tagger til funksjoner oppdatert</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -51,10 +51,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Vis aldersgrenser</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Legg til ny aldersgrense</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Endre aldersgrense</sys:String>
-    <sys:String x:Key="LOCLmColor">Farge</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmColor">Color</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
@@ -65,12 +65,12 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Emneord til kategorier</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
     <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Vis et ikon når funksjoner bruker det samme ikonet</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Legg til ny funksjon</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
     <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
@@ -89,12 +89,12 @@
     <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Behold størrelsesforhold</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
     <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Spill oppdatert ({1})
-Klikk for å se listen</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
+Click to see the list</sys:String>
 
     <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
 
