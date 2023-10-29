@@ -52,6 +52,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
     <sys:String x:Key="LOCLmColor">Color</sys:String>

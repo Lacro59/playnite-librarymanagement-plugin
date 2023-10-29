@@ -5,8 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:LibraryManagement.Views"
              xmlns:converters="clr-namespace:CommonPlayniteShared.Converters"
-             xmlns:convertersshared="clr-namespace:CommonPluginsShared.Converters"
-             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="620">
+             xmlns:convertersshared="clr-namespace:CommonPluginsShared.Converters" 
+             xmlns:librarymanagement="clr-namespace:LibraryManagement"
+             mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="620"
+             d:DataContext="{d:DesignInstance Type=librarymanagement:LibraryManagementSettingsViewModel, IsDesignTimeCreatable=True}">
 
     <UserControl.Resources>
         <convertersshared:IndexConverter x:Key="IndexConverter"/>
@@ -849,10 +851,16 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="auto" />
                                             <RowDefinition Height="10" />
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition Height="10" />
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
 
-                                        <Grid Grid.Row="0" >
+                                        <Grid Grid.Row="0">
+                                            <CheckBox IsChecked="{Binding Settings.ShowMissingAge}" Content="{DynamicResource LOCLmShowAgeMissing}" />
+                                        </Grid>
+                                        
+                                        <Grid Grid.Row="2" >
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="10" />
@@ -869,7 +877,7 @@
                                                     Click="PART_AddNewAgeRating_Click" />
                                         </Grid>
 
-                                        <ListView Grid.Row="2" ItemsSource="{Binding Settings.AgeRatings}" Name="PART_ListAgeRatings" Height="250">
+                                        <ListView Grid.Row="4" ItemsSource="{Binding Settings.AgeRatings}" Name="PART_ListAgeRatings" Height="250">
                                             <ListView.View>
                                                 <GridView>
                                                     <GridViewColumn Width="280">

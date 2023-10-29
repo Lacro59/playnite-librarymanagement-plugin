@@ -58,6 +58,7 @@ namespace LibraryManagement
         public bool EnableIntegrationAgeRatings { get => _EnableIntegrationAgeRatings; set => SetValue(ref _EnableIntegrationAgeRatings, value); }
 
         public List<AgeRating> AgeRatings { get; set; } = new List<AgeRating>();
+        public bool ShowMissingAge { get; set; } = true;
         #endregion
 
         // Playnite serializes settings object to a JSON object and saves it as text file.

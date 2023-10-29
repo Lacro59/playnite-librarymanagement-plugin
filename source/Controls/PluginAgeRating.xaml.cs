@@ -59,12 +59,22 @@ namespace LibraryManagement.Controls
 
         public override void SetData(Game newContext)
         {
-            Models.AgeRating finded = PluginSettings.Settings.AgeRatings?.Where(x => newContext.AgeRatings?.Where(y => x.AgeRatingIds.Any(z => z == y.Id))?.Count() > 0)?.FirstOrDefault();
+            Models.AgeRating finded = PluginSettings.Settings.AgeRatings?
+                .Where(x => newContext.AgeRatings?.Where(y => x.AgeRatingIds.Any(z => z == y.Id))?.Count() > 0)?
+                .OrderByDescending(x => x.Age)
+                .FirstOrDefault();
+
             if (finded != null)
             {
                 this.Visibility = System.Windows.Visibility.Visible;
                 ControlDataContext.Color = finded.Color;
                 ControlDataContext.Age = finded.Age.ToString();
+            }
+            else if (PluginSettings.Settings.ShowMissingAge)
+            {
+                this.Visibility = System.Windows.Visibility.Visible;
+                ControlDataContext.Color = null;
+                ControlDataContext.Age = "?";
             }
             else
             {
@@ -82,10 +92,10 @@ namespace LibraryManagement.Controls
         public bool IsActivated { get => _IsActivated; set => SetValue(ref _IsActivated, value); }
 
     
-        private SolidColorBrush _Color;
+        private SolidColorBrush _Color = new SolidColorBrush(Colors.Gray);
         public SolidColorBrush Color { get => _Color; set => SetValue(ref _Color, value); }
     
-        private string _Age;
+        private string _Age = "?";
         public string Age { get => _Age; set => SetValue(ref _Age, value); }
     }
 }
