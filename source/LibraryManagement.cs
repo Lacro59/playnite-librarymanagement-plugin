@@ -24,7 +24,7 @@ namespace LibraryManagement
         public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
 
         private bool IsFinished { get; set; } = true;
-        private bool IsStarted { get; set; } = false;
+        private bool PreventLibraryUpdatedOnStart  { get; set; } = true;
 
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
@@ -286,8 +286,8 @@ namespace LibraryManagement
         {
             Task.Run(() =>
             {
-                Thread.Sleep(10000);
-                IsStarted = true;
+                Thread.Sleep(30000);
+                PreventLibraryUpdatedOnStart = false;
             });
         }
 
@@ -302,7 +302,7 @@ namespace LibraryManagement
         // Add code to be executed when library is updated.
         public override void OnLibraryUpdated(OnLibraryUpdatedEventArgs args)
         {
-            if (IsStarted)
+            if (!PreventLibraryUpdatedOnStart)
             {
                 AutoUpdate(true);
             }
