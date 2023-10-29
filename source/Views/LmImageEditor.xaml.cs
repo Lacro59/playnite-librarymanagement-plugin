@@ -8,6 +8,7 @@ using Playnite.SDK.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -76,9 +77,7 @@ namespace LibraryManagement.Views
             _PlayniteApi = PlayniteApi;
             _GameMenu = GameMenu;
 
-
             InitializeComponent();
-
 
             ObservableCollection<string> ListMedia = new ObservableCollection<string>();
 
@@ -98,7 +97,6 @@ namespace LibraryManagement.Views
                 ListMedia.Add(resources.GetString("LOCGameBackgroundTitle"));
             }
 
-
             PART_ComboBoxMedia.ItemsSource = ListMedia;
 
             cropSizes.Sort((x, y) => x.Name.CompareTo(y.Name));
@@ -116,15 +114,12 @@ namespace LibraryManagement.Views
                 BitmapImage bitmapImage = null;
 
                 // Crop
-                if (!Directory.Exists(PlaynitePaths.ImagesCachePath)) 
-                {
-                    Directory.CreateDirectory(PlaynitePaths.ImagesCachePath);
-                }
+                FileSystem.CreateDirectory(PlaynitePaths.ImagesCachePath);
 
-                string FileTempPath = System.IO.Path.Combine(PlaynitePaths.ImagesCachePath, "lm_temp.png");
+                string FileTempPath = Path.Combine(PlaynitePaths.ImagesCachePath, "lm_temp.png");
                 if (cropToolControl != null)
                 {
-                    var temp = cropToolControl.GetBitmapCrop();                  
+                    Bitmap temp = cropToolControl.GetBitmapCrop();             
                     temp.Save(FileTempPath);
                 }
 
@@ -135,29 +130,19 @@ namespace LibraryManagement.Views
                 bool Cropping = (bool)PART_CheckBoxCropping.IsChecked;
                 bool Flip = (bool)PART_Flip.IsChecked;
 
-                if (!File.Exists(FileTempPath))
-                {
-                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(Width, Height, Cropping, Flip);
-                }
-                else
-                {
-                    bitmapImage = LmImageToolsSelected.ApplyImageOptions(FileTempPath, Width, Height, Cropping, Flip);
-                }
+                bitmapImage = !File.Exists(FileTempPath)
+                    ? LmImageToolsSelected.ApplyImageOptions(Width, Height, Cropping, Flip)
+                    : LmImageToolsSelected.ApplyImageOptions(FileTempPath, Width, Height, Cropping, Flip);
 
 
                 if (bitmapImage != null)
                 {
                     PART_ImageEdited.Source = bitmapImage;
-                    PART_ImageEditedSize.Content = bitmapImage.PixelWidth + " x " + (int)bitmapImage.PixelHeight;
+                    PART_ImageEditedSize.Content = bitmapImage.PixelWidth + " x " + bitmapImage.PixelHeight;
 
-                    if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
-                    {
-                        PART_BtSetIcon.IsEnabled = false;
-                    }
-                    else
-                    {
-                        PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
-                    }
+                    PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                        ? false
+                        : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
                 }
             }
         }
@@ -193,6 +178,8 @@ namespace LibraryManagement.Views
                 LmImageToolsSelected = LmImageToolsBackground;
             }
 
+            PART_ComboBoxCropSize.SelectedIndex = -1;
+
             ImageProperty imageProperty = LmImageToolsSelected.GetOriginalImageProperty();
             if (imageProperty != null)
             {
@@ -215,15 +202,10 @@ namespace LibraryManagement.Views
                 PART_ImageEditedSize.Content = LmImageToolsSelected.GetEditedBitmapImage().PixelWidth + " x " + LmImageToolsSelected.GetEditedBitmapImage().PixelHeight;
                 PART_ImageEdited.Source = LmImageToolsSelected.GetEditedBitmapImage();
 
-                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
-                {
-                    PART_BtSetIcon.IsEnabled = false;
-                }
-                else
-                {
-                    PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty(); 
-                }
-            } 
+                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                    ? false
+                    : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
+            }
             else
             {
                 PART_ImageEditedSize.Content = string.Empty;
@@ -231,7 +213,6 @@ namespace LibraryManagement.Views
 
                 PART_BtSetIcon.IsEnabled = false;
             }
-
 
             // Reset crop area
             PART_CropWishedWidth.Text = string.Empty;
@@ -269,12 +250,9 @@ namespace LibraryManagement.Views
             {
                 string FilePath = string.Empty;
                 string FilePathOld = string.Empty;
-                string PluginCachePath = System.IO.Path.Combine(PlaynitePaths.DataCachePath, "LibraryManagement");
+                string PluginCachePath = Path.Combine(PlaynitePaths.DataCachePath, "LibraryManagement");
 
-                if (!Directory.Exists(PluginCachePath))
-                {
-                    Directory.CreateDirectory(PluginCachePath);
-                }
+                FileSystem.CreateDirectory(PluginCachePath);
 
                 _PlayniteApi.Database.Games.BeginBufferUpdate();
 
@@ -286,7 +264,7 @@ namespace LibraryManagement.Views
                     }
                     string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + (Path.GetExtension(_GameMenu.Icon).Contains("ico", StringComparison.OrdinalIgnoreCase) ? ".png" : Path.GetExtension(_GameMenu.Icon)));
 
-                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.Icon));
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.Icon));
                     FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.Icon);
                     LmImageToolsIcon.GetEditedImage().Save(FilePath);
 
@@ -300,7 +278,7 @@ namespace LibraryManagement.Views
                 {
                     string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() +  Path.GetExtension(_GameMenu.CoverImage));
 
-                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.CoverImage));
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.CoverImage));
                     FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage);
                     LmImageToolsCover.GetEditedImage().Save(FilePath);
 
@@ -314,7 +292,7 @@ namespace LibraryManagement.Views
                 {
                     string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + Path.GetExtension(_GameMenu.BackgroundImage));
 
-                    FilePath = System.IO.Path.Combine(PluginCachePath, System.IO.Path.GetFileName(_GameMenu.BackgroundImage));
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.BackgroundImage));
                     FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage);
                     LmImageToolsBackground.GetEditedImage().Save(FilePath);
 
@@ -356,14 +334,9 @@ namespace LibraryManagement.Views
             {
                 PART_ImageEdited.Source = ImageTools.ConvertBitmapToBitmapImage(cropToolControl.GetBitmapCrop());
 
-                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
-                {
-                    PART_BtSetIcon.IsEnabled = false;
-                }
-                else
-                {
-                    PART_BtSetIcon.IsEnabled = !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
-                }
+                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                    ? false
+                    : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
             }
         }
 
@@ -418,7 +391,6 @@ namespace LibraryManagement.Views
                 
                 ((ObservableCollection<string>)PART_ComboBoxMedia.ItemsSource).Add(resources.GetString("LOCGameIconTitle"));
             }
-
 
             LmImageToolsIcon.SetImageEdited(LmImageToolsSelected.GetEditedImage());
             PART_BtReset_Click(null, null);

@@ -84,6 +84,8 @@
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
 
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Crop</sys:String>
     <sys:String x:Key="LOCLmOriginal">Original</sys:String>

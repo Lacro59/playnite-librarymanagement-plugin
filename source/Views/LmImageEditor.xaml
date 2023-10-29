@@ -8,7 +8,8 @@
              xmlns:converters="clr-namespace:CommonPlayniteShared.Converters"
              xmlns:playnitecontrols="clr-namespace:CommonPluginsControls.PlayniteControls"
              xmlns:croppingimagelibrary="clr-namespace:CroppingImageLibrary;assembly=CroppingImageLibrary"
-             mc:Ignorable="d" Height="700" Width="1280">
+             mc:Ignorable="d" 
+             Height="700" Width="1200">
 
     <UserControl.Resources>
         <converters:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
@@ -62,6 +63,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Content="{DynamicResource LOCSettingsTargetAspectRatioLabel}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" />
+                    
                     <Grid Grid.Column="1" Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -155,6 +157,7 @@
                         </Grid>
 
                         <Label Content="{DynamicResource LOCLmPresets}" Grid.Column="2" VerticalAlignment="Center" />
+                        
                         <controls:ComboBoxRemovable Grid.Column="4" VerticalAlignment="Center"
                                                 x:Name="PART_ComboBoxFileSize"
                                                 SelectionChanged="PART_ComboBoxFileSize_SelectionChanged">
@@ -221,8 +224,8 @@
 
                 <Grid Grid.Row="2" Name="PART_GridOriginalContener">
                     <croppingimagelibrary:CropToolControl Name="PART_ImageOriginal" 
-                                                          MaxHeight="{Binding ElementName=PART_GridOriginalContener, Path=ActualHeight}"
-                                                          MaxWidth="{Binding ElementName=PART_GridOriginalContener, Path=ActualWidth}" />
+                                                          Height="{Binding ElementName=PART_GridOriginalContener, Path=ActualHeight}"
+                                                          Width="{Binding ElementName=PART_GridOriginalContener, Path=ActualWidth}" />
                 </Grid>
 
                 <Grid Grid.Row="4">
