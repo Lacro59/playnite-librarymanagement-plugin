@@ -45,16 +45,8 @@ namespace LibraryManagement
         public List<LmTagToCategory> ListTagsToCategories { get; set; } = new List<LmTagToCategory>();
 
 
-        private bool _EnableIntegrationFeatures { get; set; } = true;
-        public bool EnableIntegrationFeatures
-        {
-            get => _EnableIntegrationFeatures;
-            set
-            {
-                _EnableIntegrationFeatures = value;
-                OnPropertyChanged();
-            }
-        }
+        private bool _EnableIntegrationFeatures = true;
+        public bool EnableIntegrationFeatures { get => _EnableIntegrationFeatures; set => SetValue(ref _EnableIntegrationFeatures, value); }
 
         public bool OneForSameIcon { get; set; } = false;
         public bool UsedDark { get; set; } = false;
@@ -62,16 +54,8 @@ namespace LibraryManagement
         public List<ItemFeature> ItemFeatures { get; set; } = new List<ItemFeature>();
 
 
-        private bool _EnableIntegrationAgeRatings { get; set; } = true;
-        public bool EnableIntegrationAgeRatings
-        {
-            get => _EnableIntegrationAgeRatings;
-            set
-            {
-                _EnableIntegrationAgeRatings = value;
-                OnPropertyChanged();
-            }
-        }
+        private bool _EnableIntegrationAgeRatings = true;
+        public bool EnableIntegrationAgeRatings { get => _EnableIntegrationAgeRatings; set => SetValue(ref _EnableIntegrationAgeRatings, value); }
 
         public List<AgeRating> AgeRatings { get; set; } = new List<AgeRating>();
         #endregion
@@ -79,42 +63,18 @@ namespace LibraryManagement
         // Playnite serializes settings object to a JSON object and saves it as text file.
         // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
         #region Variables exposed
-        private bool _HasData { get; set; } = false;
+        private bool _HasData = false;
         [DontSerialize]
-        public bool HasData
-        {
-            get => _HasData;
-            set
-            {
-                _HasData = value;
-                OnPropertyChanged();
-            }
-        }
+        public bool HasData { get => _HasData; set => SetValue(ref _HasData, value); }
 
-        private int _DataCount { get; set; } = 0;
+        private int _DataCount = 0;
         [DontSerialize]
-        public int DataCount
-        {
-            get => _DataCount;
-            set
-            {
-                _DataCount = value;
-                OnPropertyChanged();
-            }
-        }
+        public int DataCount { get => _DataCount; set => SetValue(ref _DataCount, value); }
 
 
-        private List<ItemFeature> _DataList { get; set; } = new List<ItemFeature>();
+        private List<ItemFeature> _DataList = new List<ItemFeature>();
         [DontSerialize]
-        public List<ItemFeature> DataList
-        {
-            get => _DataList;
-            set
-            {
-                _DataList = value;
-                OnPropertyChanged();
-            }
-        }
+        public List<ItemFeature> DataList { get => _DataList; set => SetValue(ref _DataList, value); }
         #endregion
     }
 
