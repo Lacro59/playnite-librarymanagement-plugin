@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>

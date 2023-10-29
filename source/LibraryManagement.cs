@@ -87,8 +87,7 @@ namespace LibraryManagement
         // To add new game menu items override GetGameMenuItems
         public override IEnumerable<GameMenuItem> GetGameMenuItems(GetGameMenuItemsArgs args)
         {
-            var GameMenu = args.Games.First();
-
+            Game GameMenu = args.Games.First();
             List<GameMenuItem> gameMenuItems = new List<GameMenuItem>();
 
             gameMenuItems.Add(new GameMenuItem
@@ -133,6 +132,20 @@ namespace LibraryManagement
             }
            
             List<MainMenuItem> mainMenuItems = new List<MainMenuItem>();
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = resources.GetString("LOCLmApplyAll"),
+                Action = (mainMenuItem) =>
+                {
+                    AutoUpdate(false, null, true);
+                }
+            });
+            mainMenuItems.Add(new MainMenuItem
+            {
+                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                Description = "-",
+            });
             mainMenuItems.Add(new MainMenuItem
             {
                 MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
@@ -309,11 +322,11 @@ namespace LibraryManagement
         }
 
 
-        private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null)
+        private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null, bool force = false)
         {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
 
-            if (PluginSettings.Settings.AutoUpdateCompanies)
+            if (PluginSettings.Settings.AutoUpdateCompanies || force)
             {
                 try
                 {
@@ -325,7 +338,7 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateGenres)
+            if (PluginSettings.Settings.AutoUpdateGenres || force)
             {
                 try
                 {
@@ -337,7 +350,7 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateFeatures)
+            if (PluginSettings.Settings.AutoUpdateFeatures || force)
             {
                 try
                 {
@@ -349,7 +362,7 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateTags)
+            if (PluginSettings.Settings.AutoUpdateTags || force)
             {
                 try
                 {
@@ -361,7 +374,7 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateTagsToFeatures)
+            if (PluginSettings.Settings.AutoUpdateTagsToFeatures || force)
             {
                 try
                 {
@@ -373,7 +386,7 @@ namespace LibraryManagement
                 }
             }
 
-            if (PluginSettings.Settings.AutoUpdateTagsToGenres)
+            if (PluginSettings.Settings.AutoUpdateTagsToGenres || force)
             {
                 try
                 {
