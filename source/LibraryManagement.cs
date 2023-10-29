@@ -10,6 +10,7 @@ using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -92,7 +93,7 @@ namespace LibraryManagement
 
             gameMenuItems.Add(new GameMenuItem
             {
-                MenuSection = resources.GetString("LOCLm"),
+                Icon = Path.Combine(PluginFolder, "Resources", "media_editor.png"),
                 Description = resources.GetString("LOCLmMediaEditor"),
                 Action = (gameMenuItem) =>
                 {
