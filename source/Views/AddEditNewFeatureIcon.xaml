@@ -48,12 +48,7 @@
         <Grid Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="6" Name="PART_LbContener">
             <ListBox Name="PART_OldNames" Height="{Binding ElementName=PART_LbContener, Path=ActualHeight}"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
-                        <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
-                
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,5">

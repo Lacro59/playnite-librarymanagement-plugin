@@ -53,36 +53,32 @@
 
         <Grid Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" Name="PART_LbContener">
             <ListBox Name="PART_OldNames" Height="{Binding ElementName=PART_LbContener, Path=ActualHeight}"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
-                    <Setter Property="Visibility" Value="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                </Style>
-            </ListBox.ItemContainerStyle>
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
 
-                        <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center" 
-                                  Grid.Column="0" Width="320"
-                                  Visibility="{Binding OnlySimple, Converter={StaticResource InvertedBooleanToVisibilityConverter }}">
-                            <Label Content="{Binding Name}" VerticalAlignment="Center" />
-                        </CheckBox>
-                        <Label Content="{Binding Name}" VerticalAlignment="Center" Width="320"
-                               Visibility="{Binding OnlySimple, Converter={StaticResource BooleanToVisibilityConverter }}" />
+                            <CheckBox IsChecked="{Binding IsChecked}" VerticalAlignment="Center" 
+                                      Grid.Column="0" Width="320"
+                                      Visibility="{Binding OnlySimple, Converter={StaticResource InvertedBooleanToVisibilityConverter }}">
+                                <Label Content="{Binding Name}" VerticalAlignment="Center" />
+                            </CheckBox>
+                            
+                            <Label Content="{Binding Name}" VerticalAlignment="Center" Width="320"
+                                   Visibility="{Binding OnlySimple, Converter={StaticResource BooleanToVisibilityConverter }}" />
 
-                        <Button Grid.Column="1" VerticalAlignment="Center"
-                                HorizontalAlignment="Right" Click="Button_Click" Tag="{Binding Name}"
-                                Content="" FontFamily="{DynamicResource CommonFont}" />
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                            <Button Grid.Column="1" VerticalAlignment="Center"
+                                    HorizontalAlignment="Right" Click="Button_Click" Tag="{Binding Name}"
+                                    Content="" FontFamily="{DynamicResource CommonFont}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
 
         <StackPanel Grid.Column="1" Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Right">

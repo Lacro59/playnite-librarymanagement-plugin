@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace LibraryManagement.Views
 {
@@ -121,6 +122,9 @@ namespace LibraryManagement.Views
                     PART_CbIcon.SelectedIndex = ItemFeatures.FindIndex(x => x.IconDefault.IsEqual(itemFeature.IconDefault));
                 }
             }
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(PART_OldNames.ItemsSource);
+            view.Filter = UserFilter;
         }
 
 
@@ -178,14 +182,11 @@ namespace LibraryManagement.Views
 
         private void PART_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource).ForEach(x => x.IsVisible = true);
-
-            if (!PART_Search.Text.IsNullOrEmpty())
-            {
-                ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource)
-                    .Where(x => !x.Name.RemoveDiacritics().Contains(PART_Search.Text.RemoveDiacritics(), StringComparison.InvariantCultureIgnoreCase))
-                    .ForEach(x => x.IsVisible = false);
-            }
+            CollectionViewSource.GetDefaultView(PART_OldNames.ItemsSource).Refresh();
+        }
+        private bool UserFilter(object item)
+        {
+            return (item as ListItem).Name.RemoveDiacritics().Contains(PART_Search.Text.RemoveDiacritics());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

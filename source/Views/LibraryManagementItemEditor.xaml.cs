@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 
 namespace LibraryManagement.Views
@@ -113,6 +114,9 @@ namespace LibraryManagement.Views
             PART_OldNames.ItemsSource = listItems.ToObservable();
             PART_NewName.Text = NewName;
             PART_IconUnicode.Text = IconUnicode;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(PART_OldNames.ItemsSource);
+            view.Filter = UserFilter;
         }
 
 
@@ -210,14 +214,11 @@ namespace LibraryManagement.Views
 
         private void PART_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource).ForEach(x => x.IsVisible = true);
-
-            if (!PART_Search.Text.IsNullOrEmpty())
-            {
-                ((ObservableCollection<ListItem>)PART_OldNames.ItemsSource)
-                    .Where(x => !x.Name.RemoveDiacritics().Contains(PART_Search.Text.RemoveDiacritics(), StringComparison.InvariantCultureIgnoreCase))
-                    .ForEach(x => x.IsVisible = false);
-            }
+            CollectionViewSource.GetDefaultView(PART_OldNames.ItemsSource).Refresh();
+        }
+        private bool UserFilter(object item)
+        {
+            return (item as ListItem).Name.RemoveDiacritics().Contains(PART_Search.Text.RemoveDiacritics());
         }
     }
 
@@ -226,16 +227,5 @@ namespace LibraryManagement.Views
         public string Name { get; set; }
         public bool IsChecked { get; set; }
         public bool OnlySimple { get; set; }
-
-        private bool isVisible = true;
-        public bool IsVisible
-        {
-            get => isVisible;
-            set
-            {
-                isVisible = value;
-                OnPropertyChanged();
-            }
-        }
     }
 }
