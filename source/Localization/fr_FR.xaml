@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Étiquettes vers genres mis à jour</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Étiquettes vers fonctionnalités mises à jour</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Appliquer les entreprises avec la mise à jour de la bibliothèque de jeu</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Utiliser les icônes GOG</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Afficher les évaluations d'âge</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Ajouter une nouvelle évaluation d'âge</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Modifier l'évaluation d'âge</sys:String>
     <sys:String x:Key="LOCLmColor">Couleur </sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Définir comme icône</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Retourner horizontalement</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Retourner verticalement</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Sélectionner un média</sys:String>
     <sys:String x:Key="LOCLmCrop">Recadrer</sys:String>
