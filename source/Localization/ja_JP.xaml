@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">タグをジャンルへを更新しました</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">タグを特徴へを更新しました</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">ゲームライブラリの更新時に企業を適用</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">GOG アイコンを使用</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">年齢別レーティングを表示</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">新しい年齢別レーティングを追加</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">年齢別レーティングを編集</sys:String>
     <sys:String x:Key="LOCLmColor">色</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">アイコンとして設定</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">左右反転</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">上下反転</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">メディアを選択</sys:String>
     <sys:String x:Key="LOCLmCrop">トリミング</sys:String>
