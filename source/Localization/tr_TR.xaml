@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Türlere ait etiketler güncellendi</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Özelliklere ait etiketler güncellendi</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Tümüne uygula</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Oyun kütüphanesi güncellemesi olan firmaları uygula</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Kullanılan GOG simgeleri</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Yaş derecelendirmelerini görüntüle</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Yıl eksik olduğunda görüntüle</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Yeni bir yaş derecelendirmesi ekle</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Yaş derecelendirmesini düzenle</sys:String>
     <sys:String x:Key="LOCLmColor">Renk</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Simge olarak ayarla</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Yatay olarak çevir</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Dikey olarak çevir</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Ön ayarlar</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Ortam dosyası seç</sys:String>
     <sys:String x:Key="LOCLmCrop">Kırp</sys:String>
