@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Теги до жанрів оновлено</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Теги до особливостей оновлено</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Застосувати все</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Застосувати компанії з оновленням бібліотеки ігор</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Використані іконки GOG</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Показувати вікові рейтинги</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Показувати коли відсутній вік</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Додати новий віковий рейтинг</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Змінити віковий рейтинг</sys:String>
     <sys:String x:Key="LOCLmColor">Колір</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Встановити як значок</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Віддзеркалити горизонтально</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Віддзеркалити вертикально</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Шаблони</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Оберіть медіафайл</sys:String>
     <sys:String x:Key="LOCLmCrop">Обрізати</sys:String>
