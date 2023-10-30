@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tagger til sjangre oppdatert</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tagger til funksjoner oppdatert</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Vis aldersgrenser</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Legg til ny aldersgrense</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Endre aldersgrense</sys:String>
     <sys:String x:Key="LOCLmColor">Farge</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Crop</sys:String>
