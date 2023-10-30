@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag ai generi aggiornati</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag alle funzionalità aggiornate</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Applica tutti</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Applica aziende con l'aggiornamento della libreria di gioco</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Icone GOG usate</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Visualizza valutazioni per età</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostra quando manca l'età</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Aggiungi nuova valutazione dell'età</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Modifica classificazione età</sys:String>
     <sys:String x:Key="LOCLmColor">Colore</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Imposta come icona</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Rifletti orizzontalmente</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Capovolgi verticalmente</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Preimpostazioni</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Seleziona il media</sys:String>
     <sys:String x:Key="LOCLmCrop">Ritaglia</sys:String>
