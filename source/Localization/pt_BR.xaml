@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags de gêneros atualizados</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags para recursos atualizados</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Aplicar tudo</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Aplicar empresas com a atualização da biblioteca de jogos</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Ícones GOG utilizados</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Exibir classificações de idade</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostrar quando a idade estiver faltando</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Adicionar nova classificação de idade</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Editar classificação de idade</sys:String>
     <sys:String x:Key="LOCLmColor">Cor</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Definir como ícone</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Virar Horizontalmente</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Virar Verticalmente</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Predefinições</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Selecionar mídia</sys:String>
     <sys:String x:Key="LOCLmCrop">Cortar</sys:String>
