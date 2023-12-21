@@ -19,7 +19,7 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Метки к жанрам обновлены</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Метки к функциям обновлены</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">Применить все</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -54,7 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Показать возрастные рейтинги</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Показывать когда возраст отсутствует</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Добавить новый возрастной рейтинг</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Изменить возрастной рейтинг</sys:String>
     <sys:String x:Key="LOCLmColor">Цве</sys:String>
@@ -84,7 +84,7 @@
     <sys:String x:Key="LOCLmFlipHorizontal">Отразить по горизонтали</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Отразить по вертикали</sys:String>
 
-    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+    <sys:String x:Key="LOCLmPresets">Пресеты</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Выберите медиа файл</sys:String>
     <sys:String x:Key="LOCLmCrop">Кадрирование</sys:String>
