@@ -53,11 +53,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Használt sötét ikonok</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Használt GOG ikonok</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Korhatár besorolások megjelenítése</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Megjelenítés, ha az életkor hiányzik</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Új korhatár besorolás hozzáadása</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Korhatár besorolás szerkesztése</sys:String>
+    <sys:String x:Key="LOCLmColor">Szín</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Egyedi ikon</sys:String>
@@ -78,24 +78,24 @@
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Médiaszerkesztő</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Beállítás ikonként</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Vízszintes tükrözés</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Függőleges tükrözés</sys:String>
 
     <sys:String x:Key="LOCLmPresets">Presets</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">Média kiválasztása</sys:String>
+    <sys:String x:Key="LOCLmCrop">Vágás</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Eredeti</sys:String>
+    <sys:String x:Key="LOCLmEdited">Szerkesztett</sys:String>
+    <sys:String x:Key="LOCLmImageName">Kép neve</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Képméret</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Kívánt méret</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Átméretezés a kívánt méretre vágással</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Méretarány megtartása</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Képbeállítások alkalmazása</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
