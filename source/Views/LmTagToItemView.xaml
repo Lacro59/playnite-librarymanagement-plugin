@@ -27,7 +27,13 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <Label Content="{DynamicResource LOCTagsLabel}" Grid.Column="0" />
+        <DockPanel Grid.Column="0">
+            <Label Content="{DynamicResource LOCTagsLabel}" DockPanel.Dock="Left"/>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="{DynamicResource LOCLmTagKeepLabel}" HorizontalAlignment="Stretch"/>
+                <CheckBox Name="PART_TagKeep" IsChecked="False" Margin="10,0,0,0"/>
+            </StackPanel>
+        </DockPanel>
         <playnitecontrols:SearchBox Grid.Column="0" Grid.Row="2" x:Name="TagSearch" TextChanged="TagSearch_TextChanged" />
         <ListBox Grid.Column="0" Grid.Row="4" Name="PART_TagList" SelectionChanged="PART_List_SelectionChanged">
             <ListBox.ItemContainerStyle>

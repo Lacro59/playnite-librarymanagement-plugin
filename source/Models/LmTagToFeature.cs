@@ -13,5 +13,7 @@ namespace LibraryManagement.Models
 
         public Guid FeatureId { get; set; }
         public string FeatureName { get; set; }
+
+        public bool KeepTag { get; set; }
     }
 }

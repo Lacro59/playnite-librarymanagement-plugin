@@ -517,6 +517,13 @@
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
+                                                    <GridViewColumn Header="{DynamicResource LOCLmTagKeepLabel}" Width="70">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <CheckBox Name="PART_KeepTags" IsChecked="{Binding KeepTag}" HorizontalAlignment="Center"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
                                                     <GridViewColumn Width="90">
                                                         <GridViewColumnHeader Content="" />
                                                         <GridViewColumn.CellTemplate>
@@ -588,6 +595,13 @@
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>
+                                                    <GridViewColumn Header="{DynamicResource LOCLmTagKeepLabel}" Width="70">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <CheckBox Name="PART_KeepTags" IsChecked="{Binding KeepTag}" HorizontalAlignment="Center"/>
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
                                                     <GridViewColumn Width="90">
                                                         <GridViewColumnHeader Content="" />
                                                         <GridViewColumn.CellTemplate>
@@ -656,6 +670,13 @@
                                                         <GridViewColumn.CellTemplate>
                                                             <DataTemplate>
                                                                 <TextBlock Text="{Binding CategoryName}" />
+                                                            </DataTemplate>
+                                                        </GridViewColumn.CellTemplate>
+                                                    </GridViewColumn>
+                                                    <GridViewColumn Header="{DynamicResource LOCLmTagKeepLabel}" Width="70">
+                                                        <GridViewColumn.CellTemplate>
+                                                            <DataTemplate>
+                                                                <CheckBox Name="PART_KeepTags" IsChecked="{Binding KeepTag}" HorizontalAlignment="Center"/>
                                                             </DataTemplate>
                                                         </GridViewColumn.CellTemplate>
                                                     </GridViewColumn>

@@ -75,6 +75,7 @@
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
     <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagKeepLabel">Keep Tag</sys:String>
 
     <!-- LmImageEditor -->
 
