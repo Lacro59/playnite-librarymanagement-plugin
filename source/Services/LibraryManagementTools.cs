@@ -1055,7 +1055,10 @@ namespace LibraryManagement.Services
                 if (finded != null)
                 {
                     IsUpdated = true;
-                    game.TagIds.Remove(y.Id);
+                    if (finded.KeepTag == false)
+                    {
+                        game.TagIds.Remove(y.Id);
+                    }
                     if (game.FeatureIds != null)
                     {
                         game.FeatureIds.AddMissing(finded.FeatureId);
@@ -1177,7 +1180,10 @@ namespace LibraryManagement.Services
                 if (finded != null)
                 {
                     IsUpdated = true;
-                    game.TagIds.Remove(y.Id);
+                    if (finded.KeepTag == false)
+                    {
+                        game.TagIds.Remove(y.Id);
+                    }
                     if (game.GenreIds != null)
                     {
                         game.GenreIds.AddMissing(finded.GenreId);
@@ -1291,7 +1297,10 @@ namespace LibraryManagement.Services
                 if (finded != null)
                 {
                     IsUpdated = true;
-                    game.TagIds.Remove(y.Id);
+                    if (finded.KeepTag == false)
+                    {
+                        game.TagIds.Remove(y.Id);
+                    }
                     if (game.CategoryIds != null)
                     {
                         game.CategoryIds.AddMissing(finded.CategoryId);

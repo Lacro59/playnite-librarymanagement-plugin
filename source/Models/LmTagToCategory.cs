@@ -13,5 +13,7 @@ namespace LibraryManagement.Models
 
         public Guid CategoryId { get; set; }
         public string CategoryName { get; set; }
+
+        public bool KeepTag { get; set; }
     }
 }

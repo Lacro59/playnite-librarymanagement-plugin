@@ -13,5 +13,7 @@ namespace LibraryManagement.Models
 
         public Guid GenreId { get; set; }
         public string GenreName { get; set; }
+
+        public bool KeepTag { get; set; }
     }
 }

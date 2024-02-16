@@ -86,6 +86,7 @@ namespace LibraryManagement.Views
                         TagName = ((ListElement)PART_TagList.SelectedItem).Name,
                         FeatureId = ((ListElement)PART_ItemsList.SelectedItem).Id,
                         FeatureName = ((ListElement)PART_ItemsList.SelectedItem).Name,
+                        KeepTag = (bool)PART_TagKeep.IsChecked,
                     };
                     break;
 
@@ -96,6 +97,7 @@ namespace LibraryManagement.Views
                         TagName = ((ListElement)PART_TagList.SelectedItem).Name,
                         GenreId = ((ListElement)PART_ItemsList.SelectedItem).Id,
                         GenreName = ((ListElement)PART_ItemsList.SelectedItem).Name,
+                        KeepTag = (bool)PART_TagKeep.IsChecked,
                     };
                     break;
 
@@ -106,6 +108,7 @@ namespace LibraryManagement.Views
                         TagName = ((ListElement)PART_TagList.SelectedItem).Name,
                         CategoryId = ((ListElement)PART_ItemsList.SelectedItem).Id,
                         CategoryName = ((ListElement)PART_ItemsList.SelectedItem).Name,
+                        KeepTag = (bool)PART_TagKeep.IsChecked,
                     };
                     break;
             }
@@ -156,6 +159,7 @@ namespace LibraryManagement.Views
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public bool KeepTag { get; set; }
 
         private bool isVisible = true;
         public bool IsVisible { get => isVisible; set => SetValue(ref isVisible, value); }
