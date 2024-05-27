@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- MainView -->
+
+    <sys:String x:Key="LOCLm">KütüphaneYönetimi</sys:String>
+
+    <sys:String x:Key="LOCLmActionInProgress">Eylem işleniyor...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Türleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Özellikleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Etiketleri ayarla</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Firmaları ayarla</sys:String>
+
+    <sys:String x:Key="LOCLmGenresUpdated">Türler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Özellikler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Etiketler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Firmalar güncellendi</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Türlere ait etiketler güncellendi</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Özelliklere ait etiketler güncellendi</sys:String>
+
+    <sys:String x:Key="LOCLmApplyAll">Tümüne uygula</sys:String>
+
+    <!-- LibraryManagementSettingsView -->
+
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Oyun kütüphanesi güncellemesi olan firmaları uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Oyun kütüphanesi güncellemesi olan özellikleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Oyun kütüphanesi güncellemesi olan türleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Oyun kütüphanesi güncellemesi olan etiketleri uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Oyun kütüphanesi güncellemesi olan özelliklere etiket uygula</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Oyun kütüphanesi güncellemesi olan türlere etiket uygula</sys:String>
+
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Bir güncellemeden sonra sonuç içeren bir bildirim görüntüle</sys:String>
+
+    <sys:String x:Key="LOCLmGenreAdd">Yeni bir tür ekle</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Tür düzenle</sys:String>
+
+    <sys:String x:Key="LOCLmFeatureAdd">Yeni özellik ekle</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Özelliği düzenle</sys:String>
+
+    <sys:String x:Key="LOCLmTagAdd">Yeni etiket ekle</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Etiketi düzenle</sys:String>
+
+    <sys:String x:Key="LOCLmCompanyAdd">Yeni Firma Ekle</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Firmayı Düzenle</sys:String>
+
+    <sys:String x:Key="LOCLmItemsReplaced">Yeri değiştirilen öğeler</sys:String>
+
+    <sys:String x:Key="LOCLmExclusionList">Dışlama listesi</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationFeatures">Özellik simgelerinin listesini görüntüle</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Özellik simgeleri seçenekleri</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Koyu simgeleri kullan</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Kullanılan GOG simgeleri</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Yaş derecelendirmelerini görüntüle</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Yıl eksik olduğunda görüntüle</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Yeni bir yaş derecelendirmesi ekle</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Yaş derecelendirmesini düzenle</sys:String>
+    <sys:String x:Key="LOCLmColor">Renk</sys:String>
+
+    <sys:String x:Key="LOCLmNameAssociated">İlişkili Ad</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Kişisel simge</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToFeatures">Özelliklere etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Özelliklere etiketler ayarla</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToGenres">Türlere Etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Türlere etiketler ayarla</sys:String>
+
+    <sys:String x:Key="LOCLmTagsToCategories">Kategorilere Etiketler</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Kategorilere etiketler ayarla</sys:String>
+
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Özellikler aynı simgeyi kullanıyorsa tek simge göster</sys:String>
+
+    <sys:String x:Key="LOCLmTagAddNewFeature">Yeni özellik ekle</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Yeni özellik düzenle</sys:String>
+
+    <!-- LmImageEditor -->
+
+    <sys:String x:Key="LOCLmMediaEditor">Medya düzenleyici</sys:String>
+
+    <sys:String x:Key="LOCLmSetAsIco">Simge olarak ayarla</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Yatay olarak çevir</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Dikey olarak çevir</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Ön ayarlar</sys:String>
+
+    <sys:String x:Key="LOCLmSelectMedia">Ortam dosyası seç</sys:String>
+    <sys:String x:Key="LOCLmCrop">Kırp</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Özgün</sys:String>
+    <sys:String x:Key="LOCLmEdited">Düzenlenmiş</sys:String>
+    <sys:String x:Key="LOCLmImageName">Görsel adı</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Görsel boyutu</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Arzu edilen boyut</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Arzu edilen boyuta ulaşmak için kırparak yeniden boyutlandır</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">En boy oranını koru</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Görsel seçeneklerini uygula</sys:String>
+
+    <!-- Notifications -->
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Oyun güncellendi ({1})
+Listeyi görmek için tıklayın</sys:String>
+
+    <sys:String x:Key="LOCLmNoEquivalence">Veri yok! Eklenti seçeneklerinde eşdeğerlikleri ayarlayın.</sys:String>
+
+</ResourceDictionary>

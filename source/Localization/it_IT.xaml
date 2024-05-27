@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tag ai generi aggiornati</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tag alle funzionalità aggiornate</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Applica tutti</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Applica aziende con l'aggiornamento della libreria di gioco</sys:String>
@@ -51,10 +53,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Icone scure usate</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Icone GOG usate</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Visualizza valutazioni per età</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostra quando manca l'età</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Aggiungi nuova valutazione dell'età</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Modifica classificazione età</sys:String>
+    <sys:String x:Key="LOCLmColor">Colore</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nome Associato</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icona Personalizzata</sys:String>
@@ -65,13 +68,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tag ai generi</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Imposta i tag ai generi</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Etichette alle categorie</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Imposta etichette alle categorie</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostra un'icona quando le funzioni usano la stessa icona</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Aggiungi nuova funzione</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Modifica nuova funzione</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Imposta come icona</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Rifletti orizzontalmente</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Capovolgi verticalmente</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Preimpostazioni</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Seleziona il media</sys:String>
     <sys:String x:Key="LOCLmCrop">Ritaglia</sys:String>

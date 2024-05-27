@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
@@ -52,6 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">أيقونات GOG المستخد</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
     <sys:String x:Key="LOCLmColor">Color</sys:String>
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">تعيين كأيقو</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">قلب عموديا</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
     <sys:String x:Key="LOCLmCrop">Crop</sys:String>

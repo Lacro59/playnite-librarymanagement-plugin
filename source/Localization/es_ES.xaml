@@ -19,6 +19,8 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Etiquetas a géneros actualizadas</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Etiquetas a características actualizadas</sys:String>
 
+    <sys:String x:Key="LOCLmApplyAll">Aplicar todo</sys:String>
+
     <!-- LibraryManagementSettingsView -->
 
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Aplicar compañías con la actualización de la librería de juegos</sys:String>
@@ -51,9 +53,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Iconos oscurados usados</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Iconos GOG usados</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Mostrar valoraciones de edad</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostrar cuando falta la edad</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Añadir nueva valoración de edad</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Editar valoración de edad</sys:String>
     <sys:String x:Key="LOCLmColor">Color</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nombre Asociado</sys:String>
@@ -65,13 +68,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Etiquetas a Géneros</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Establecer Etiquetas a Géneros</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Etiquetas a Categorías</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Establecer etiquetas a categorías</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar un icono cuando las características usen el mismo icono</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Añadir nueva característica</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Editar nueva característica</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Establecer como icono</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Voltear horizontalmente</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Voltear verticalmente</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Preconfiguraciones</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Seleccionar media</sys:String>
     <sys:String x:Key="LOCLmCrop">Recortar</sys:String>
