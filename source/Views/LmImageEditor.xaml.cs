@@ -106,8 +106,6 @@ namespace LibraryManagement.Views
         {
             if (LmImageToolsSelected != null)
             {
-                BitmapImage bitmapImage = null;
-
                 // Crop
                 FileSystem.CreateDirectory(PlaynitePaths.ImagesCachePath);
 
@@ -125,7 +123,7 @@ namespace LibraryManagement.Views
                 bool Cropping = (bool)PART_CheckBoxCropping.IsChecked;
                 bool Flip = (bool)PART_Flip.IsChecked;
 
-                bitmapImage = !File.Exists(FileTempPath)
+                BitmapImage bitmapImage = !File.Exists(FileTempPath)
                     ? LmImageToolsSelected.ApplyImageOptions(Width, Height, Cropping, Flip)
                     : LmImageToolsSelected.ApplyImageOptions(FileTempPath, Width, Height, Cropping, Flip);
 

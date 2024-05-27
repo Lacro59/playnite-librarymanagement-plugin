@@ -131,7 +131,7 @@ namespace LibraryManagement
             {
                 MenuInExtensions = "@";
             }
-           
+
             List<MainMenuItem> mainMenuItems = new List<MainMenuItem>();
             mainMenuItems.Add(new MainMenuItem
             {
@@ -298,9 +298,9 @@ namespace LibraryManagement
         // Add code to be executed when Playnite is initialized.
         public override void OnApplicationStarted(OnApplicationStartedEventArgs args)
         {
-            Task.Run(() =>
+            _ = Task.Run(() =>
             {
-                Thread.Sleep(30000);
+                Thread.Sleep(10000);
                 PreventLibraryUpdatedOnStart = false;
             });
         }
@@ -323,7 +323,7 @@ namespace LibraryManagement
         }
 
 
-        private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null, bool force = false)
+        private void AutoUpdate(bool onlyToDay = false, Game gameUpdated = null, bool force = false)
         {
             LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
 
@@ -331,7 +331,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetCompanies(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetCompanies(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -343,7 +343,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetGenres(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetGenres(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -355,7 +355,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetFeatures(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetFeatures(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -367,7 +367,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetTags(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetTags(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -379,7 +379,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetTagsToFeatures(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetTagsToFeatures(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
@@ -391,7 +391,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetTagsToGenres(OnlyToDay, gameUpdated);
+                    libraryManagementTools.SetTagsToGenres(onlyToDay, gameUpdated);
                 }
                 catch (Exception ex)
                 {
