@@ -45,8 +45,8 @@ namespace LibraryManagement
         public List<LmTagToCategory> ListTagsToCategories { get; set; } = new List<LmTagToCategory>();
 
 
-        private bool _EnableIntegrationFeatures = true;
-        public bool EnableIntegrationFeatures { get => _EnableIntegrationFeatures; set => SetValue(ref _EnableIntegrationFeatures, value); }
+        private bool enableIntegrationFeatures = true;
+        public bool EnableIntegrationFeatures { get => enableIntegrationFeatures; set => SetValue(ref enableIntegrationFeatures, value); }
 
         public bool OneForSameIcon { get; set; } = false;
         public bool UsedDark { get; set; } = false;
@@ -54,8 +54,8 @@ namespace LibraryManagement
         public List<ItemFeature> ItemFeatures { get; set; } = new List<ItemFeature>();
 
 
-        private bool _EnableIntegrationAgeRatings = true;
-        public bool EnableIntegrationAgeRatings { get => _EnableIntegrationAgeRatings; set => SetValue(ref _EnableIntegrationAgeRatings, value); }
+        private bool enableIntegrationAgeRatings = true;
+        public bool EnableIntegrationAgeRatings { get => enableIntegrationAgeRatings; set => SetValue(ref enableIntegrationAgeRatings, value); }
 
         public List<AgeRating> AgeRatings { get; set; } = new List<AgeRating>();
         public bool ShowMissingAge { get; set; } = true;
@@ -64,18 +64,18 @@ namespace LibraryManagement
         // Playnite serializes settings object to a JSON object and saves it as text file.
         // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
         #region Variables exposed
-        private bool _HasData = false;
+        private bool hasData = false;
         [DontSerialize]
-        public bool HasData { get => _HasData; set => SetValue(ref _HasData, value); }
+        public bool HasData { get => hasData; set => SetValue(ref hasData, value); }
 
-        private int _DataCount = 0;
+        private int dataCount = 0;
         [DontSerialize]
-        public int DataCount { get => _DataCount; set => SetValue(ref _DataCount, value); }
+        public int DataCount { get => dataCount; set => SetValue(ref dataCount, value); }
 
 
-        private List<ItemFeature> _DataList = new List<ItemFeature>();
+        private List<ItemFeature> dataList = new List<ItemFeature>();
         [DontSerialize]
-        public List<ItemFeature> DataList { get => _DataList; set => SetValue(ref _DataList, value); }
+        public List<ItemFeature> DataList { get => dataList; set => SetValue(ref dataList, value); }
         #endregion
     }
 
@@ -85,8 +85,8 @@ namespace LibraryManagement
         private readonly LibraryManagement Plugin;
         private LibraryManagementSettings EditingClone { get; set; }
 
-        private LibraryManagementSettings _Settings;
-        public LibraryManagementSettings Settings { get => _Settings; set => SetValue(ref _Settings, value); }
+        private LibraryManagementSettings settings;
+        public LibraryManagementSettings Settings { get => settings; set => SetValue(ref settings, value); }
 
 
         public LibraryManagementSettingsViewModel(LibraryManagement plugin)
@@ -103,7 +103,8 @@ namespace LibraryManagement
 
             if (Settings.ItemFeatures.Count == 0)
             {
-                List<ItemFeature> ItemFeatures = new List<ItemFeature>() {
+                List<ItemFeature> ItemFeatures = new List<ItemFeature>() 
+                {
                     new ItemFeature { Name = "Achievements", NameAssociated = "Achievements", IconDefault = "ico_achievements.png" },
                     new ItemFeature { Name = "Captions Available", NameAssociated = "Captions Available", IconDefault = "ico_cc.png" },
                     new ItemFeature { Name = "Cloud Saves", NameAssociated = "Cloud Saves", IconDefault = "ico_cloud.png" },
@@ -167,7 +168,7 @@ namespace LibraryManagement
 
             if (Settings.AgeRatings.Count == 0)
             {
-                Task.Run(() =>
+                _ = Task.Run(() =>
                 {
                     System.Threading.SpinWait.SpinUntil(() => API.Instance.Database.IsOpen, -1);
 
@@ -184,7 +185,7 @@ namespace LibraryManagement
                     List<string> Age_17 = new List<string> { "CERO D", "ESRB M" };
                     List<string> Age_18 = new List<string> { "ACB R18", "ACB X18", "CERO Z", "ClassInd 18", "ESRB AO", "GRAC 18", "PEGI 18", "USK 18" };
 
-                    Application.Current.Dispatcher?.Invoke(() =>
+                    _ = Application.Current.Dispatcher?.Invoke(() =>
                         Settings.AgeRatings = new List<AgeRating>
                         {
                             new AgeRating { Age = 3, Color = new SolidColorBrush(Colors.White), AgeRatingIds = API.Instance.Database.AgeRatings?.Where(x => Age_3.Any(y => y.IsEqual(x.Name)))?.Select(x => x.Id)?.ToList() ?? new List<Guid>() },

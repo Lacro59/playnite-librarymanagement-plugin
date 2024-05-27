@@ -19,17 +19,17 @@ namespace LibraryManagement.Controls
     /// </summary>
     public partial class PluginFeaturesIconList : PluginUserControlExtendBase
     {
-        private LibraryManagementSettingsViewModel PluginSettings;
+        private LibraryManagementSettingsViewModel PluginSettings { get; set; }
 
         private PluginFeaturesIconListDataContext ControlDataContext = new PluginFeaturesIconListDataContext();
-        internal override IDataContext _ControlDataContext
+        internal override IDataContext controlDataContext
         {
             get => ControlDataContext;
-            set => ControlDataContext = (PluginFeaturesIconListDataContext)_ControlDataContext;
+            set => ControlDataContext = (PluginFeaturesIconListDataContext)controlDataContext;
         }
 
 
-        public PluginFeaturesIconList(IPlayniteAPI PlayniteApi, LibraryManagementSettingsViewModel PluginSettings)
+        public PluginFeaturesIconList(LibraryManagementSettingsViewModel PluginSettings)
         {
             this.PluginSettings = PluginSettings;
 
@@ -41,7 +41,7 @@ namespace LibraryManagement.Controls
                 this.Dispatcher.BeginInvoke((Action)delegate
                 {
                     PluginSettings.PropertyChanged += PluginSettings_PropertyChanged;
-                    PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
+                    API.Instance.Database.Games.ItemUpdated += Games_ItemUpdated;
 
                     // Apply settings
                     PluginSettings_PropertyChanged(null, null);
@@ -101,14 +101,14 @@ namespace LibraryManagement.Controls
 
     public class PluginFeaturesIconListDataContext : ObservableObject, IDataContext
     {
-        private bool _IsActivated;
-        public bool IsActivated { get => _IsActivated; set => SetValue(ref _IsActivated, value); }
+        private bool isActivated;
+        public bool IsActivated { get => isActivated; set => SetValue(ref isActivated, value); }
 
-        public int _CountItems;
-        public int CountItems { get => _CountItems; set => SetValue(ref _CountItems, value); }
+        public int countItems;
+        public int CountItems { get => countItems; set => SetValue(ref countItems, value); }
 
-        public ObservableCollection<ItemList> _ItemsSource;
-        public ObservableCollection<ItemList> ItemsSource { get => _ItemsSource; set => SetValue(ref _ItemsSource, value); }
+        public ObservableCollection<ItemList> itemsSource;
+        public ObservableCollection<ItemList> ItemsSource { get => itemsSource; set => SetValue(ref itemsSource, value); }
     }
 
     public class ItemList

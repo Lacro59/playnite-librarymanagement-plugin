@@ -14,21 +14,9 @@ namespace LibraryManagement.Models
         public string IconUnicode { get; set; }
 
         [DontSerialize]
-        public string OldNamesLinear
-        {
-            get
-            {
-                return String.Join(", ", OldNames.ToArray());
-            }
-        }
+        public string OldNamesLinear => string.Join(", ", OldNames.ToArray());
 
         [DontSerialize]
-        public string NewName
-        {
-            get
-            {
-                return (IconUnicode + " " + Name).Trim();
-            }
-        }
+        public string NewName => (IconUnicode + " " + Name).Trim();
     }
 }

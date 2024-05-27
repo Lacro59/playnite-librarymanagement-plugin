@@ -24,21 +24,17 @@ namespace LibraryManagement.Views
     /// </summary>
     public partial class LmImageEditor : UserControl
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
+        private Game GameMenu { get; set; }
 
-        private IPlayniteAPI _PlayniteApi;
-        private Game _GameMenu;
+        public LmImageTools LmImageToolsIcon { get; set; }
+        public LmImageTools LmImageToolsCover { get; set; }
+        public LmImageTools LmImageToolsBackground { get; set; }
 
-        public LmImageTools LmImageToolsIcon;
-        public LmImageTools LmImageToolsCover;
-        public LmImageTools LmImageToolsBackground;
+        private LmImageTools LmImageToolsSelected { get; set; }
 
-        private LmImageTools LmImageToolsSelected;
+        private CropToolControl CropToolControl { get; set; }
 
-        private CropToolControl cropToolControl;
-
-        public static List<FileSize> fileSizes = new List<FileSize>
+        public static List<FileSize> FileSizes { get; set; } = new List<FileSize>
         {
             new FileSize { Name = "Icon", Width = 128, Height = 128 },
             new FileSize { Name = "Icon", Width = 256, Height = 256 },
@@ -55,55 +51,54 @@ namespace LibraryManagement.Views
             new FileSize { Name = "Heroes - Galaxy 2.0", Width = 1600, Height = 650 }
         };
 
-        public static List<FileSize> cropSizes = new List<FileSize>
+        public static List<FileSize> CropSizes { get; set; } = new List<FileSize>
         {
-            new FileSize { Name = resources.GetString("LOCGameIconTitle"), Width = 1, Height = 1 },
+            new FileSize { Name = ResourceProvider.GetString("LOCGameIconTitle"), Width = 1, Height = 1 },
 
             new FileSize { Name = "Heroes - Steam", Width = 96, Height = 31 },
             new FileSize { Name = "Heroes - GOG", Width = 32, Height = 13 },
 
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectDVD"), Width = 27, Height = 38 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectEpicGamesStore"), Width = 3, Height = 4 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectGogGalaxy2"), Width = 22, Height = 31 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectIgdb"), Width = 3, Height = 4 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectSteam"), Width = 92, Height = 43 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectSteamVertical"), Width = 2, Height = 3 },
-            new FileSize { Name = "Grid - " + resources.GetString("LOCSettingsCovertAspectTwitch"), Width = 3, Height = 4 }
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectDVD"), Width = 27, Height = 38 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectEpicGamesStore"), Width = 3, Height = 4 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectGogGalaxy2"), Width = 22, Height = 31 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectIgdb"), Width = 3, Height = 4 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectSteam"), Width = 92, Height = 43 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectSteamVertical"), Width = 2, Height = 3 },
+            new FileSize { Name = "Grid - " + ResourceProvider.GetString("LOCSettingsCovertAspectTwitch"), Width = 3, Height = 4 }
         };
 
 
-        public LmImageEditor(IPlayniteAPI PlayniteApi, Game GameMenu)
+        public LmImageEditor(Game gameMenu)
         {
-            _PlayniteApi = PlayniteApi;
-            _GameMenu = GameMenu;
+            GameMenu = gameMenu;
 
             InitializeComponent();
 
             ObservableCollection<string> ListMedia = new ObservableCollection<string>();
 
-            if (!_GameMenu.Icon.IsNullOrEmpty())
+            if (!GameMenu.Icon.IsNullOrEmpty())
             {
-                LmImageToolsIcon = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.Icon));
-                ListMedia.Add(resources.GetString("LOCGameIconTitle"));
+                LmImageToolsIcon = new LmImageTools(API.Instance.Database.GetFullFilePath(GameMenu.Icon));
+                ListMedia.Add(ResourceProvider.GetString("LOCGameIconTitle"));
             }
-            if (!_GameMenu.CoverImage.IsNullOrEmpty())
+            if (!GameMenu.CoverImage.IsNullOrEmpty())
             {
-                LmImageToolsCover = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage));
-                ListMedia.Add(resources.GetString("LOCGameCoverImageTitle"));
+                LmImageToolsCover = new LmImageTools(API.Instance.Database.GetFullFilePath(GameMenu.CoverImage));
+                ListMedia.Add(ResourceProvider.GetString("LOCGameCoverImageTitle"));
             }
-            if (!_GameMenu.BackgroundImage.IsNullOrEmpty())
+            if (!GameMenu.BackgroundImage.IsNullOrEmpty())
             {
-                LmImageToolsBackground = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage));
-                ListMedia.Add(resources.GetString("LOCGameBackgroundTitle"));
+                LmImageToolsBackground = new LmImageTools(API.Instance.Database.GetFullFilePath(GameMenu.BackgroundImage));
+                ListMedia.Add(ResourceProvider.GetString("LOCGameBackgroundTitle"));
             }
 
             PART_ComboBoxMedia.ItemsSource = ListMedia;
 
-            cropSizes.Sort((x, y) => x.Name.CompareTo(y.Name));
-            PART_ComboBoxCropSize.ItemsSource = cropSizes;
+            CropSizes.Sort((x, y) => x.Name.CompareTo(y.Name));
+            PART_ComboBoxCropSize.ItemsSource = CropSizes;
 
-            fileSizes.Sort((x, y) => x.Name.CompareTo(y.Name));
-            PART_ComboBoxFileSize.ItemsSource = fileSizes;
+            FileSizes.Sort((x, y) => x.Name.CompareTo(y.Name));
+            PART_ComboBoxFileSize.ItemsSource = FileSizes;
         }
 
 
@@ -117,15 +112,15 @@ namespace LibraryManagement.Views
                 FileSystem.CreateDirectory(PlaynitePaths.ImagesCachePath);
 
                 string FileTempPath = Path.Combine(PlaynitePaths.ImagesCachePath, "lm_temp.png");
-                if (cropToolControl != null)
+                if (CropToolControl != null)
                 {
-                    Bitmap temp = cropToolControl.GetBitmapCrop();             
+                    Bitmap temp = CropToolControl.GetBitmapCrop();
                     temp.Save(FileTempPath);
                 }
 
                 // Resize
-                int.TryParse(PART_SizeWishedWidth.Text, out int Width);
-                int.TryParse(PART_SizeWishedHeight.Text, out int Height);
+                _ = int.TryParse(PART_SizeWishedWidth.Text, out int Width);
+                _ = int.TryParse(PART_SizeWishedHeight.Text, out int Height);
 
                 bool Cropping = (bool)PART_CheckBoxCropping.IsChecked;
                 bool Flip = (bool)PART_Flip.IsChecked;
@@ -140,7 +135,7 @@ namespace LibraryManagement.Views
                     PART_ImageEdited.Source = bitmapImage;
                     PART_ImageEditedSize.Content = bitmapImage.PixelWidth + " x " + bitmapImage.PixelHeight;
 
-                    PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                    PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameIconTitle")
                         ? false
                         : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
                 }
@@ -165,15 +160,15 @@ namespace LibraryManagement.Views
 
         private void PART_ComboBoxMedia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle"))
+            if ((string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameIconTitle"))
             {
                 LmImageToolsSelected = LmImageToolsIcon;
             }
-            if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameCoverImageTitle"))
+            if ((string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameCoverImageTitle"))
             {
                 LmImageToolsSelected = LmImageToolsCover;
             }
-            if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameBackgroundTitle"))
+            if ((string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameBackgroundTitle"))
             {
                 LmImageToolsSelected = LmImageToolsBackground;
             }
@@ -186,15 +181,17 @@ namespace LibraryManagement.Views
                 PART_ImageOriginalSize.Content = imageProperty.Width + " x " + imageProperty.Height;
 
                 PART_GridOriginalContener.Children.Clear();
-                cropToolControl = new CropToolControl();
-                cropToolControl.Name = "PART_ImageOriginal";
-                cropToolControl.MaxWidth = PART_GridOriginalContener.ActualWidth;
-                cropToolControl.MaxHeight = PART_GridOriginalContener.ActualHeight;
+                CropToolControl = new CropToolControl
+                {
+                    Name = "PART_ImageOriginal",
+                    MaxWidth = PART_GridOriginalContener.ActualWidth,
+                    MaxHeight = PART_GridOriginalContener.ActualHeight
+                };
 
-                cropToolControl.SetImage(LmImageToolsSelected.GetOriginalBitmapImage());
-                PART_GridOriginalContener.Children.Add(cropToolControl);
+                CropToolControl.SetImage(LmImageToolsSelected.GetOriginalBitmapImage());
+                _ = PART_GridOriginalContener.Children.Add(CropToolControl);
 
-                cropToolControl.ShowText(false);
+                CropToolControl.ShowText(false);
             }
 
             if (LmImageToolsSelected.GetEditedBitmapImage() != null)
@@ -202,7 +199,7 @@ namespace LibraryManagement.Views
                 PART_ImageEditedSize.Content = LmImageToolsSelected.GetEditedBitmapImage().PixelWidth + " x " + LmImageToolsSelected.GetEditedBitmapImage().PixelHeight;
                 PART_ImageEdited.Source = LmImageToolsSelected.GetEditedBitmapImage();
 
-                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameIconTitle")
                     ? false
                     : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
             }
@@ -234,9 +231,9 @@ namespace LibraryManagement.Views
                 PART_CropWishedWidth.Text = string.Empty;
                 PART_CropWishedHeight.Text = string.Empty;
                 
-                if (cropToolControl != null)
+                if (CropToolControl != null)
                 {
-                    cropToolControl.SetCropArea(0, 0);
+                    CropToolControl.SetCropArea(0, 0);
                 }
 
                 PART_CheckBoxKeppRatio.IsChecked = false;
@@ -254,56 +251,56 @@ namespace LibraryManagement.Views
 
                 FileSystem.CreateDirectory(PluginCachePath);
 
-                _PlayniteApi.Database.Games.BeginBufferUpdate();
+                API.Instance.Database.Games.BeginBufferUpdate();
 
                 if (LmImageToolsIcon != null && LmImageToolsIcon.GetEditedImage() != null)
                 {
-                    if (_GameMenu.Icon.IsNullOrEmpty())
+                    if (GameMenu.Icon.IsNullOrEmpty())
                     {
-                        _GameMenu.Icon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + ".png");
+                        GameMenu.Icon = Path.Combine(GameMenu.Id.ToString(), Guid.NewGuid() + ".png");
                     }
-                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + (Path.GetExtension(_GameMenu.Icon).Contains("ico", StringComparison.OrdinalIgnoreCase) ? ".png" : Path.GetExtension(_GameMenu.Icon)));
+                    string NewIcon = Path.Combine(GameMenu.Id.ToString(), Guid.NewGuid() + (Path.GetExtension(GameMenu.Icon).Contains("ico", StringComparison.OrdinalIgnoreCase) ? ".png" : Path.GetExtension(GameMenu.Icon)));
 
-                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.Icon));
-                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.Icon);
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(GameMenu.Icon));
+                    FilePathOld = API.Instance.Database.GetFullFilePath(GameMenu.Icon);
                     LmImageToolsIcon.GetEditedImage().Save(FilePath);
 
-                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.CopyFile(FilePath, API.Instance.Database.GetFullFilePath(NewIcon));
                     FileSystem.DeleteFileSafe(FilePathOld);
 
-                    _GameMenu.Icon = NewIcon;
+                    GameMenu.Icon = NewIcon;
                 }
 
-                if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !_GameMenu.CoverImage.IsNullOrEmpty())
+                if (LmImageToolsCover != null && LmImageToolsCover.GetEditedImage() != null && !GameMenu.CoverImage.IsNullOrEmpty())
                 {
-                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() +  Path.GetExtension(_GameMenu.CoverImage));
+                    string NewIcon = Path.Combine(GameMenu.Id.ToString(), Guid.NewGuid() +  Path.GetExtension(GameMenu.CoverImage));
 
-                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.CoverImage));
-                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage);
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(GameMenu.CoverImage));
+                    FilePathOld = API.Instance.Database.GetFullFilePath(GameMenu.CoverImage);
                     LmImageToolsCover.GetEditedImage().Save(FilePath);
 
-                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.CopyFile(FilePath, API.Instance.Database.GetFullFilePath(NewIcon));
                     FileSystem.DeleteFileSafe(FilePathOld);
 
-                    _GameMenu.CoverImage = NewIcon;
+                    GameMenu.CoverImage = NewIcon;
                 }
 
-                if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !_GameMenu.BackgroundImage.IsNullOrEmpty())
+                if (LmImageToolsBackground != null && LmImageToolsBackground.GetEditedImage() != null && !GameMenu.BackgroundImage.IsNullOrEmpty())
                 {
-                    string NewIcon = Path.Combine(_GameMenu.Id.ToString(), Guid.NewGuid() + Path.GetExtension(_GameMenu.BackgroundImage));
+                    string NewIcon = Path.Combine(GameMenu.Id.ToString(), Guid.NewGuid() + Path.GetExtension(GameMenu.BackgroundImage));
 
-                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(_GameMenu.BackgroundImage));
-                    FilePathOld = _PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage);
+                    FilePath = Path.Combine(PluginCachePath, Path.GetFileName(GameMenu.BackgroundImage));
+                    FilePathOld = API.Instance.Database.GetFullFilePath(GameMenu.BackgroundImage);
                     LmImageToolsBackground.GetEditedImage().Save(FilePath);
 
-                    FileSystem.CopyFile(FilePath, _PlayniteApi.Database.GetFullFilePath(NewIcon));
+                    FileSystem.CopyFile(FilePath, API.Instance.Database.GetFullFilePath(NewIcon));
                     FileSystem.DeleteFileSafe(FilePathOld);
 
-                    _GameMenu.BackgroundImage = NewIcon;
+                    GameMenu.BackgroundImage = NewIcon;
                 }
 
-                _PlayniteApi.Database.Games.Update(_GameMenu);
-                _PlayniteApi.Database.Games.EndBufferUpdate();
+                API.Instance.Database.Games.Update(GameMenu);
+                API.Instance.Database.Games.EndBufferUpdate();
             }
             catch (Exception ex)
             {
@@ -330,11 +327,11 @@ namespace LibraryManagement.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (cropToolControl != null)
+            if (CropToolControl != null)
             {
-                PART_ImageEdited.Source = ImageTools.ConvertBitmapToBitmapImage(cropToolControl.GetBitmapCrop());
+                PART_ImageEdited.Source = ImageTools.ConvertBitmapToBitmapImage(CropToolControl.GetBitmapCrop());
 
-                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameIconTitle")
+                PART_BtSetIcon.IsEnabled = (string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameIconTitle")
                     ? false
                     : !((string)PART_ComboBoxMedia.SelectedItem).IsNullOrEmpty();
             }
@@ -343,9 +340,9 @@ namespace LibraryManagement.Views
 
         private void PART_CheckBoxKeppRatio_Click(object sender, RoutedEventArgs e)
         {
-            if (cropToolControl != null)
+            if (CropToolControl != null)
             {
-                cropToolControl.SetKeepRatio((bool)PART_CheckBoxKeppRatio.IsChecked);
+                CropToolControl.SetKeepRatio((bool)PART_CheckBoxKeppRatio.IsChecked);
             }
         }
 
@@ -363,14 +360,14 @@ namespace LibraryManagement.Views
 
         private void SetCrop()
         {
-            int.TryParse(PART_CropWishedWidth.Text, out int rWidth);
-            int.TryParse(PART_CropWishedHeight.Text, out int rHeight);
+            _ = int.TryParse(PART_CropWishedWidth.Text, out int rWidth);
+            _ = int.TryParse(PART_CropWishedHeight.Text, out int rHeight);
 
             if (rWidth != 0 && rHeight != 0 && LmImageToolsSelected != null)
             {
-                if (cropToolControl != null)
+                if (CropToolControl != null)
                 {
-                    cropToolControl.SetCropAreaRatio(rWidth, rHeight);
+                    CropToolControl.SetCropAreaRatio(rWidth, rHeight);
                 }
             }
         }
@@ -380,16 +377,16 @@ namespace LibraryManagement.Views
         {
             if (LmImageToolsIcon == null)
             {
-                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameCoverImageTitle"))
+                if ((string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameCoverImageTitle"))
                 {
-                    LmImageToolsIcon = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.CoverImage));
+                    LmImageToolsIcon = new LmImageTools(API.Instance.Database.GetFullFilePath(GameMenu.CoverImage));
                 }
-                if ((string)PART_ComboBoxMedia.SelectedItem == resources.GetString("LOCGameBackgroundTitle"))
+                if ((string)PART_ComboBoxMedia.SelectedItem == ResourceProvider.GetString("LOCGameBackgroundTitle"))
                 {
-                    LmImageToolsIcon = new LmImageTools(_PlayniteApi.Database.GetFullFilePath(_GameMenu.BackgroundImage));
+                    LmImageToolsIcon = new LmImageTools(API.Instance.Database.GetFullFilePath(GameMenu.BackgroundImage));
                 }
-                
-                ((ObservableCollection<string>)PART_ComboBoxMedia.ItemsSource).Add(resources.GetString("LOCGameIconTitle"));
+
+                ((ObservableCollection<string>)PART_ComboBoxMedia.ItemsSource).Add(ResourceProvider.GetString("LOCGameIconTitle"));
             }
 
             LmImageToolsIcon.SetImageEdited(LmImageToolsSelected.GetEditedImage());

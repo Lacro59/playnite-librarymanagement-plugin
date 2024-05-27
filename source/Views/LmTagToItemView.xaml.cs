@@ -22,16 +22,13 @@ namespace LibraryManagement.Views
     /// </summary>
     public partial class LmTagToItemView : UserControl
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
-
-        public dynamic NewItem;
-        private TypeItem typeItem;
+        public dynamic NewItem { get; set; }
+        private TypeItem TypeItem { get; set; }
 
 
-        public LmTagToItemView(IPlayniteAPI PlayniteApi, TypeItem typeItem)
+        public LmTagToItemView(TypeItem typeItem)
         {
-            this.typeItem = typeItem;
+            TypeItem = typeItem;
 
             InitializeComponent();
 
@@ -40,33 +37,36 @@ namespace LibraryManagement.Views
             switch (typeItem)
             {
                 case TypeItem.FeatureItem:
-                    ListTags = PlayniteApi.Database.Tags
+                    ListTags = API.Instance.Database.Tags
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    ListItems = PlayniteApi.Database.Features
+                    ListItems = API.Instance.Database.Features
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    PART_ItemLabel.Content = resources.GetString("LOCFeaturesLabel");
+                    PART_ItemLabel.Content = ResourceProvider.GetString("LOCFeaturesLabel");
                     break;
 
                 case TypeItem.GenreItem:
-                    ListTags = PlayniteApi.Database.Tags
+                    ListTags = API.Instance.Database.Tags
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    ListItems = PlayniteApi.Database.Genres
+                    ListItems = API.Instance.Database.Genres
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    PART_ItemLabel.Content = resources.GetString("LOCGenresLabel");
+                    PART_ItemLabel.Content = ResourceProvider.GetString("LOCGenresLabel");
                     break;
 
                 case TypeItem.CategoryItem:
-                    ListTags = PlayniteApi.Database.Tags
+                    ListTags = API.Instance.Database.Tags
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    ListItems = PlayniteApi.Database.Categories
+                    ListItems = API.Instance.Database.Categories
                             .Select(x => new ListElement { Id = x.Id, Name = x.Name }).OrderBy(x => x.Name).ToObservable();
 
-                    PART_ItemLabel.Content = resources.GetString("LOCCategoriesLabel");
+                    PART_ItemLabel.Content = ResourceProvider.GetString("LOCCategoriesLabel");
+                    break;
+
+                default:
                     break;
             }
 
@@ -77,7 +77,7 @@ namespace LibraryManagement.Views
 
         private void PART_Save_Click(object sender, RoutedEventArgs e)
         {
-            switch (typeItem)
+            switch (TypeItem)
             {
                 case TypeItem.FeatureItem:
                     NewItem = new LmTagToFeature
@@ -107,6 +107,9 @@ namespace LibraryManagement.Views
                         CategoryId = ((ListElement)PART_ItemsList.SelectedItem).Id,
                         CategoryName = ((ListElement)PART_ItemsList.SelectedItem).Name,
                     };
+                    break;
+
+                default:
                     break;
             }
 

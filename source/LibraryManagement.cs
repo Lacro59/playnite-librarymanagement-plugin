@@ -22,10 +22,10 @@ namespace LibraryManagement
 {
     public class LibraryManagement : PluginExtended<LibraryManagementSettingsViewModel>
     {
-        public override Guid Id { get; } = Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
+        public override Guid Id => Guid.Parse("d02f854e-900d-48df-b01c-6d13e985f479");
 
         private bool IsFinished { get; set; } = true;
-        private bool PreventLibraryUpdatedOnStart  { get; set; } = true;
+        private bool PreventLibraryUpdatedOnStart { get; set; } = true;
 
 
         public LibraryManagement(IPlayniteAPI api) : base(api)
@@ -71,12 +71,12 @@ namespace LibraryManagement
         {
             if (args.Name == "PluginFeaturesIconList")
             {
-                return new PluginFeaturesIconList(PlayniteApi, PluginSettings);
+                return new PluginFeaturesIconList(PluginSettings);
             }
 
             if (args.Name == "PluginAgeRating")
             {
-                return new PluginAgeRating(PlayniteApi, PluginSettings);
+                return new PluginAgeRating(PluginSettings);
             }
 
             return null;
@@ -94,11 +94,11 @@ namespace LibraryManagement
             gameMenuItems.Add(new GameMenuItem
             {
                 Icon = Path.Combine(PluginFolder, "Resources", "media_editor.png"),
-                Description = resources.GetString("LOCLmMediaEditor"),
+                Description = ResourceProvider.GetString("LOCLmMediaEditor"),
                 Action = (gameMenuItem) =>
                 {
-                    LmImageEditor ViewExtension = new LmImageEditor(PlayniteApi, GameMenu);
-                    Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(PlayniteApi, "ImageEditor", ViewExtension);
+                    LmImageEditor ViewExtension = new LmImageEditor(GameMenu);
+                    Window windowExtension = PlayniteUiHelper.CreateExtensionWindow("ImageEditor", ViewExtension);
                     windowExtension.ShowDialog();
                 }
             });
@@ -106,12 +106,12 @@ namespace LibraryManagement
 #if DEBUG
             gameMenuItems.Add(new GameMenuItem
             {
-                MenuSection = resources.GetString("LOCLm"),
+                MenuSection = ResourceProvider.GetString("LOCLm"),
                 Description = "-"
             });
             gameMenuItems.Add(new GameMenuItem
             {
-                MenuSection = resources.GetString("LOCLm"),
+                MenuSection = ResourceProvider.GetString("LOCLm"),
                 Description = "Test",
                 Action = (gameMenuItem) =>
                 {
@@ -135,8 +135,8 @@ namespace LibraryManagement
             List<MainMenuItem> mainMenuItems = new List<MainMenuItem>();
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmApplyAll"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmApplyAll"),
                 Action = (mainMenuItem) =>
                 {
                     AutoUpdate(false, null, true);
@@ -144,76 +144,76 @@ namespace LibraryManagement
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
                 Description = "-",
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetCompanies"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetCompanies"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetCompanies();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetFeatures"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetFeatures"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetFeatures();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetGenres"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetGenres"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetGenres();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetTags"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetTags"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetTags();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetTagsToFeatures"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetTagsToFeatures"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetTagsToFeatures();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetTagsToGenres"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetTagsToGenres"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetTagsToGenres();
                 }
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
-                Description = resources.GetString("LOCLmSetTagsToCategories"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
+                Description = ResourceProvider.GetString("LOCLmSetTagsToCategories"),
                 Action = (mainMenuItem) =>
                 {
-                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+                    LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
                     libraryManagementTools.SetTagsToCategories();
                 }
             });
@@ -221,12 +221,12 @@ namespace LibraryManagement
 #if DEBUG
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
                 Description = "-"
             });
             mainMenuItems.Add(new MainMenuItem
             {
-                MenuSection = MenuInExtensions + resources.GetString("LOCLm"),
+                MenuSection = MenuInExtensions + ResourceProvider.GetString("LOCLm"),
                 Description = "Test",
                 Action = (mainMenuItem) =>
                 {
@@ -325,7 +325,7 @@ namespace LibraryManagement
 
         private void AutoUpdate(bool OnlyToDay = false, Game gameUpdated = null, bool force = false)
         {
-            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PlayniteApi, PluginSettings.Settings);
+            LibraryManagementTools libraryManagementTools = new LibraryManagementTools(this, PluginSettings.Settings);
 
             if (PluginSettings.Settings.AutoUpdateCompanies || force)
             {
@@ -412,7 +412,7 @@ namespace LibraryManagement
 
         public override UserControl GetSettingsView(bool firstRunSettings)
         {
-            return new LibraryManagementSettingsView(this, PlayniteApi, PluginSettings.Settings);
+            return new LibraryManagementSettingsView(this, PluginSettings.Settings);
         }
         #endregion
     }

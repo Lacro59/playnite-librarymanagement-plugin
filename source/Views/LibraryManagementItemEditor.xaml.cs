@@ -24,23 +24,23 @@ namespace LibraryManagement.Views
     /// </summary>
     public partial class LibraryManagementItemEditor : UserControl
     {
-        public object NewItem;
+        public object NewItem { get; set; }
 
-        public Guid? _Id;
-        public ItemType _itemType;
+        private Guid? Id { get; set; }
+        private ItemType ItemType { get; set; }
 
 
-        public LibraryManagementItemEditor(object data, ItemType itemType, Guid? Id = null, string NewName = "", string IconUnicode = "", List<string> ListAlreadyAdded = null)
+        public LibraryManagementItemEditor(object data, ItemType itemType, Guid? id = null, string newName = "", string iconUnicode = "", List<string> ListAlreadyAdded = null)
         {
-            _Id = Id;
-            _itemType = itemType;
+            Id = id;
+            ItemType = itemType;
 
             InitializeComponent();
 
             List<ListItem> listItems = new List<ListItem>();
             if (data is List<Genre>)
             {
-                foreach (var item in (List<Genre>)data)
+                foreach (Genre item in (List<Genre>)data)
                 {
                     if (!item.Name.IsNullOrEmpty())
                     {
@@ -54,7 +54,7 @@ namespace LibraryManagement.Views
             }
             if (data is List<GameFeature>)
             {
-                foreach (var item in (List<GameFeature>)data)
+                foreach (GameFeature item in (List<GameFeature>)data)
                 {
                     if (!item.Name.IsNullOrEmpty())
                     {
@@ -68,7 +68,7 @@ namespace LibraryManagement.Views
             }
             if (data is List<Tag>)
             {
-                foreach (var item in (List<Tag>)data)
+                foreach (Tag item in (List<Tag>)data)
                 {
                     if (!item.Name.IsNullOrEmpty())
                     {
@@ -82,7 +82,7 @@ namespace LibraryManagement.Views
             }
             if (data is List<Company>)
             {
-                foreach (var item in (List<Company>)data)
+                foreach (Company item in (List<Company>)data)
                 {
                     if (!item.Name.IsNullOrEmpty())
                     {
@@ -97,7 +97,7 @@ namespace LibraryManagement.Views
 
             if (ListAlreadyAdded != null)
             {
-                foreach (var item in ListAlreadyAdded)
+                foreach (string item in ListAlreadyAdded)
                 {
                     if (!item.IsNullOrEmpty())
                     {
@@ -112,8 +112,8 @@ namespace LibraryManagement.Views
 
             listItems.Sort((x, y) => x.Name.CompareTo(y.Name));
             PART_OldNames.ItemsSource = listItems.ToObservable();
-            PART_NewName.Text = NewName;
-            PART_IconUnicode.Text = IconUnicode;
+            PART_NewName.Text = newName;
+            PART_IconUnicode.Text = iconUnicode;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(PART_OldNames.ItemsSource);
             view.Filter = UserFilter;
@@ -126,7 +126,7 @@ namespace LibraryManagement.Views
             PART_IconContener.Visibility = Visibility.Collapsed;
 
             ObservableCollection<ListItem> listItems = (ObservableCollection<ListItem>)PART_OldNames.ItemsSource;
-            foreach (var item in listItems)
+            foreach (ListItem item in listItems)
             {
                 item.OnlySimple = true;
             }
@@ -147,44 +147,44 @@ namespace LibraryManagement.Views
 
             string IconUnicode = PART_IconUnicode.Text;
 
-            if (_itemType == ItemType.Genre)
+            if (ItemType == ItemType.Genre)
             {
                 NewItem = new LmGenreEquivalences
                 {
-                    Id = _Id,
+                    Id = Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames
                 };
             }
 
-            if (_itemType == ItemType.Feature)
+            if (ItemType == ItemType.Feature)
             {
                 NewItem = new LmFeatureEquivalences
                 {
-                    Id = _Id,
+                    Id = Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames
                 };
             }
 
-            if (_itemType == ItemType.Tag)
+            if (ItemType == ItemType.Tag)
             {
                 NewItem = new LmTagsEquivalences
                 {
-                    Id = _Id,
+                    Id = Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames
                 };
             }
 
-            if (_itemType == ItemType.Company)
+            if (ItemType == ItemType.Company)
             {
                 NewItem = new LmCompaniesEquivalences
                 {
-                    Id = _Id,
+                    Id = Id,
                     Name = PART_NewName.Text,
                     IconUnicode = IconUnicode,
                     OldNames = OldNames
@@ -203,7 +203,7 @@ namespace LibraryManagement.Views
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             Hyperlink link = (Hyperlink)sender;
-            Process.Start((string)link.Tag);
+            _ = Process.Start((string)link.Tag);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

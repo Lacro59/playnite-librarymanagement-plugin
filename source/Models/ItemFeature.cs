@@ -14,9 +14,6 @@ namespace LibraryManagement.Models
 {
     public class ItemFeature
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-
-
         public string Name { get; set; } = string.Empty;
         public string IconDefault { get; set; } = string.Empty;
 
@@ -28,89 +25,41 @@ namespace LibraryManagement.Models
             get
             {
                 string PluginPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string FullPath = string.Empty;
-
+                string FullPath;
                 if (IsGog)
                 {
-                    if (IsDark)
-                    {
-                        FullPath = Path.Combine(PluginPath, "Resources\\gog\\dark", IconDefault);
-                    }
-                    else
-                    {
-                        FullPath = Path.Combine(PluginPath, "Resources\\gog\\white", IconDefault);
-                    }
+                    FullPath = IsDark
+                        ? Path.Combine(PluginPath, "Resources\\gog\\dark", IconDefault)
+                        : Path.Combine(PluginPath, "Resources\\gog\\white", IconDefault);
                 }
                 else
                 {
-                    if (IsDark)
-                    {
-                        FullPath = Path.Combine(PluginPath, "Resources\\steam\\dark", IconDefault);
-                    }
-                    else
-                    {
-                        FullPath = Path.Combine(PluginPath, "Resources\\steam\\white", IconDefault);
-                    }
+                    FullPath = IsDark
+                        ? Path.Combine(PluginPath, "Resources\\steam\\dark", IconDefault)
+                        : Path.Combine(PluginPath, "Resources\\steam\\white", IconDefault);
                 }
 
-                if (File.Exists(FullPath))
-                {
-                    return FullPath;
-                }
-
-                return string.Empty;
+                return File.Exists(FullPath) ? FullPath : string.Empty;
             }
         }
 
         public string NameAssociated { get; set; } = string.Empty;
         public string IconCustom { get; set; } = string.Empty;
         [DontSerialize]
-        public BitmapImage IconCustomBitmapImage
-        {
-            get
-            {
-                if (!IconCustom.IsNullOrEmpty() && File.Exists(IconCustom))
-                {
-                    return BitmapExtensions.BitmapFromFile(IconCustom, new BitmapLoadProperties(100, 0));
-                }
-
-                return null;
-            }
-        }
+        public BitmapImage IconCustomBitmapImage => !IconCustom.IsNullOrEmpty() && File.Exists(IconCustom)
+                    ? BitmapExtensions.BitmapFromFile(IconCustom, new BitmapLoadProperties(100, 0))
+                    : null;
 
         public bool IsDark { get; set; }
         public bool IsGog { get; set; }
 
         [DontSerialize]
-        public string IconString
-        {
-            get
-            {
-                // Icon custom
-                if (!IconCustom.IsNullOrEmpty() && File.Exists(IconCustom))
-                {
-                    return IconCustom;
-                }
+        public string IconString => !IconCustom.IsNullOrEmpty() && File.Exists(IconCustom) ? IconCustom : IconDefaultFullPath;
 
-                // Default icon
-                return IconDefaultFullPath;
-            }
-        }
         [DontSerialize]
-        public BitmapImage IconBitmapImage
-        {
-            get
-            {
-                // Icon custom
-                if (!IconCustom.IsNullOrEmpty() && File.Exists(IconCustom))
-                {
-                    return IconCustomBitmapImage;
-                }
-
-                // Default icon
-                return BitmapExtensions.BitmapFromFile(IconDefaultFullPath, new BitmapLoadProperties(100, 0));
-            }
-        }
+        public BitmapImage IconBitmapImage => !IconCustom.IsNullOrEmpty() && File.Exists(IconCustom)
+                    ? IconCustomBitmapImage
+                    : BitmapExtensions.BitmapFromFile(IconDefaultFullPath, new BitmapLoadProperties(100, 0));
 
         public bool IsAdd { get; set; }
     }

@@ -20,17 +20,17 @@ namespace LibraryManagement.Controls
     /// </summary>
     public partial class PluginAgeRating : PluginUserControlExtendBase
     {
-        private LibraryManagementSettingsViewModel PluginSettings;
+        private LibraryManagementSettingsViewModel PluginSettings { get; set; }
 
         private PluginAgeRatingDataContext ControlDataContext = new PluginAgeRatingDataContext();
-        internal override IDataContext _ControlDataContext
+        internal override IDataContext controlDataContext
         {
             get => ControlDataContext;
-            set => ControlDataContext = (PluginAgeRatingDataContext)_ControlDataContext;
+            set => ControlDataContext = (PluginAgeRatingDataContext)controlDataContext;
         }
 
 
-        public PluginAgeRating(IPlayniteAPI PlayniteApi, LibraryManagementSettingsViewModel PluginSettings)
+        public PluginAgeRating(LibraryManagementSettingsViewModel PluginSettings)
         {
             this.PluginSettings = PluginSettings;
 
@@ -42,7 +42,7 @@ namespace LibraryManagement.Controls
                 this.Dispatcher.BeginInvoke((Action)delegate
                 {
                     PluginSettings.PropertyChanged += PluginSettings_PropertyChanged;
-                    PlayniteApi.Database.Games.ItemUpdated += Games_ItemUpdated;
+                    API.Instance.Database.Games.ItemUpdated += Games_ItemUpdated;
 
                     // Apply settings
                     PluginSettings_PropertyChanged(null, null);
@@ -88,14 +88,14 @@ namespace LibraryManagement.Controls
 
     public class PluginAgeRatingDataContext : ObservableObject, IDataContext
     {
-        private bool _IsActivated;
-        public bool IsActivated { get => _IsActivated; set => SetValue(ref _IsActivated, value); }
+        private bool isActivated;
+        public bool IsActivated { get => isActivated; set => SetValue(ref isActivated, value); }
 
     
-        private SolidColorBrush _Color = new SolidColorBrush(Colors.Gray);
-        public SolidColorBrush Color { get => _Color; set => SetValue(ref _Color, value); }
+        private SolidColorBrush color = new SolidColorBrush(Colors.Gray);
+        public SolidColorBrush Color { get => color; set => SetValue(ref color, value); }
     
-        private string _Age = "?";
-        public string Age { get => _Age; set => SetValue(ref _Age, value); }
+        private string age = "?";
+        public string Age { get => age; set => SetValue(ref age, value); }
     }
 }

@@ -14,20 +14,20 @@ namespace LibraryManagement.Services
 {
     public class LmImageTools
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
+        private static ILogger Logger => LogManager.GetLogger();
 
-        private readonly BitmapImage BitmapImageOriginal;
-        private Image ImageOriginal;
-        private Image ImageEdited;
+        private BitmapImage BitmapImageOriginal { get; }
+        private Image ImageOriginal { get; set; }
+        private Image ImageEdited { get; set; }
 
 
-        public LmImageTools(string ImagePath)
+        public LmImageTools(string imagePath)
         {
             try
             {
-                if (File.Exists(ImagePath))
+                if (File.Exists(imagePath))
                 {
-                    using (Stream stream = FileSystem.OpenReadFileStreamSafe(ImagePath))
+                    using (Stream stream = FileSystem.OpenReadFileStreamSafe(imagePath))
                     {
                         BitmapImageOriginal = BitmapExtensions.BitmapFromStream(stream);
                         ImageOriginal = Image.FromStream(stream);
@@ -35,7 +35,7 @@ namespace LibraryManagement.Services
                 }
                 else
                 {
-                    logger.Warn($"File is not exists : {ImagePath}");
+                    Logger.Warn($"File is not exists : {imagePath}");
                 }
             }
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace LibraryManagement.Services
                 Common.LogError(ex, false, true, "LibraryManagement");
             }
         }
-        
+
 
         public BitmapImage GetOriginalBitmapImage()
         {
@@ -52,58 +52,53 @@ namespace LibraryManagement.Services
 
         public ImageProperty GetOriginalImageProperty()
         {
-            if (ImageOriginal == null)
-            {
-                return null;
-            }
-
-            return ImageTools.GetImapeProperty(ImageOriginal);
+            return ImageOriginal == null ? null : ImageTools.GetImapeProperty(ImageOriginal);
         }
 
 
-        public BitmapImage ApplyImageOptions(int? Width, int? Height, bool? Cropping, bool? Flip)
+        public BitmapImage ApplyImageOptions(int? width, int? height, bool? cropping, bool? flip)
         {
-            Width = (Width == null) ? 0 : Width;
-            Height = (Height == null) ? 0 : Height;
-            Cropping = (Cropping == null) ? false : Cropping;
+            width = (width == null) ? 0 : width;
+            height = (height == null) ? 0 : height;
+            cropping = (cropping == null) ? false : cropping;
 
 
-            if (Width == 0 && Height == 0)
+            if (width == 0 && height == 0)
             {
-                Width = ImageOriginal.Width;
-                Height = ImageOriginal.Height;
+                width = ImageOriginal.Width;
+                height = ImageOriginal.Height;
             }
 
 
             ImageEdited = ImageOriginal;
 
-            if ((bool)Cropping)
+            if ((bool)cropping)
             {
-                if (Width == 0 || Height == 0)
+                if (width == 0 || height == 0)
                 {
                     return null;
                 }
 
-                ImageEdited = ImageOriginal.ScaleAndCrop((int)Width, (int)Height);
+                ImageEdited = ImageOriginal.ScaleAndCrop((int)width, (int)height);
             }
             else
             {
                 // Resize
-                if (Width == 0)
+                if (width == 0)
                 {
-                    ImageEdited = ImageOriginal.ScaleByHeight((int)Height);
+                    ImageEdited = ImageOriginal.ScaleByHeight((int)height);
                 }
-                else if (Height == 0)
+                else if (height == 0)
                 {
-                    ImageEdited = ImageOriginal.ScaleByWidth((int)Width);
+                    ImageEdited = ImageOriginal.ScaleByWidth((int)width);
                 }
                 else
                 {
-                    ImageEdited = ImageOriginal.Scale((int)Width, (int)Height);
+                    ImageEdited = ImageOriginal.Scale((int)width, (int)height);
                 }
             }
 
-            if (ImageEdited != null && (bool)Flip)
+            if (ImageEdited != null && (bool)flip)
             {
                 ImageEdited.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
@@ -115,16 +110,16 @@ namespace LibraryManagement.Services
             return ImageTools.ConvertImageToBitmapImage(ImageEdited);
         }
 
-        public BitmapImage ApplyImageOptions(string FileTempPath, int? Width, int? Height, bool? Cropping, bool? Flip)
+        public BitmapImage ApplyImageOptions(string fileTempPath, int? width, int? height, bool? cropping, bool? flip)
         {
-            Width = (Width == null) ? 0 : Width;
-            Height = (Height == null) ? 0 : Height;
-            Cropping = (Cropping == null) ? false : Cropping;
+            width = (width == null) ? 0 : width;
+            height = (height == null) ? 0 : height;
+            cropping = (cropping == null) ? false : cropping;
 
             Image ImageScale = null;
             try
             {
-                using (Stream stream = FileSystem.OpenReadFileStreamSafe(FileTempPath))
+                using (Stream stream = FileSystem.OpenReadFileStreamSafe(fileTempPath))
                 {
                     ImageScale = Image.FromStream(stream);
                 }
@@ -136,42 +131,42 @@ namespace LibraryManagement.Services
             }
 
 
-            if (Width == 0 && Height == 0)
+            if (width == 0 && height == 0)
             {
-                Width = ImageScale.Width;
-                Height = ImageScale.Height;
+                width = ImageScale.Width;
+                height = ImageScale.Height;
             }
 
 
             ImageEdited = null;
 
-            if ((bool)Cropping)
+            if ((bool)cropping)
             {
-                if (Width == 0 || Height == 0)
+                if (width == 0 || height == 0)
                 {
                     return null;
                 }
 
-                ImageEdited = ImageScale.ScaleAndCrop((int)Width, (int)Height);
+                ImageEdited = ImageScale.ScaleAndCrop((int)width, (int)height);
             }
             else
             {
                 // Resize
-                if (Width == 0)
+                if (width == 0)
                 {
-                    ImageEdited = ImageScale.ScaleByHeight((int)Height);
+                    ImageEdited = ImageScale.ScaleByHeight((int)height);
                 }
-                else if (Height == 0)
+                else if (height == 0)
                 {
-                    ImageEdited = ImageScale.ScaleByWidth((int)Width);
+                    ImageEdited = ImageScale.ScaleByWidth((int)width);
                 }
                 else
                 {
-                    ImageEdited = ImageScale.Scale((int)Width, (int)Height);
+                    ImageEdited = ImageScale.Scale((int)width, (int)height);
                 }
             }
 
-            if (ImageEdited != null && (bool)Flip)
+            if (ImageEdited != null && (bool)flip)
             {
                 ImageEdited.RotateFlip(RotateFlipType.RotateNoneFlipX);
             }
@@ -186,22 +181,12 @@ namespace LibraryManagement.Services
 
         public BitmapImage GetEditedBitmapImage()
         {
-            if (ImageEdited == null)
-            {
-                return null;
-            }
-
-            return ImageTools.ConvertImageToBitmapImage(ImageEdited);
+            return ImageEdited == null ? null : ImageTools.ConvertImageToBitmapImage(ImageEdited);
         }
 
         public Image GetEditedImage()
         {
-            if (ImageEdited == null)
-            {
-                return null;
-            }
-
-            return ImageEdited;
+            return ImageEdited == null ? null : ImageEdited;
         }
 
         public void RemoveEditedImage()
@@ -209,9 +194,9 @@ namespace LibraryManagement.Services
             ImageEdited = null;
         }
 
-        public void SetImageEdited(Image ImageEdited)
+        public void SetImageEdited(Image imageEdited)
         {
-            this.ImageEdited = ImageEdited;
+            ImageEdited = imageEdited;
         }
     }
 

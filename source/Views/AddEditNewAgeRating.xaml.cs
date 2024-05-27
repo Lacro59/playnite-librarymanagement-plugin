@@ -18,10 +18,7 @@ namespace LibraryManagement.Views
     /// </summary>
     public partial class AddEditNewAgeRating : UserControl
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
-        private static IResourceProvider resources = new ResourceProvider();
-
-        public AgeRating ageRating;
+        public AgeRating AgeRating { get; set; }
 
 
         public AddEditNewAgeRating(AgeRating ageRating = null)
@@ -49,7 +46,7 @@ namespace LibraryManagement.Views
 
         private void PART_Save_Click(object sender, RoutedEventArgs e)
         {
-            ageRating = new AgeRating
+            AgeRating = new AgeRating
             {
                 Age = Convert.ToInt32(PART_NumericBox.LongValue),
                 AgeRatingIds = ((ObservableCollection<CheckElement>)PART_ListAgeRating.ItemsSource).Where(x => x.IsCheck).Select(x => x.Id).ToList(),
@@ -80,10 +77,9 @@ namespace LibraryManagement.Views
 
         private void PART_TM_ColorOK_Click(object sender, RoutedEventArgs e)
         {
-            Color color = default(Color);
             if (PART_SelectorColorPicker.IsSimpleColor)
             {
-                color = PART_SelectorColorPicker.SimpleColor;
+                Color color = PART_SelectorColorPicker.SimpleColor;
                 PART_Color.Background = new SolidColorBrush(color);
             }
 
