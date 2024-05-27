@@ -3,7 +3,7 @@
 
     <!-- MainView -->
 
-    <sys:String x:Key="LOCLm">AdministrarBiblioteca</sys:String>
+    <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
     <sys:String x:Key="LOCLmActionInProgress">Ação em progresso...</sys:String>
     <sys:String x:Key="LOCLmSetGenres">Definir gêneros</sys:String>
@@ -18,6 +18,8 @@
 
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags de gêneros atualizados</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags para recursos atualizados</sys:String>
+
+    <sys:String x:Key="LOCLmApplyAll">Aplicar tudo</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -51,10 +53,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Ícones escuros usados</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Ícones GOG utilizados</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Exibir classificações de idade</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostrar quando a idade estiver faltando</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Adicionar nova classificação de idade</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Editar classificação de idade</sys:String>
+    <sys:String x:Key="LOCLmColor">Cor</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nome associado</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Personalizar Ícone</sys:String>
@@ -65,13 +68,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">Tags para Gêneros</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">Ajustar tags para Gêneros</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Etiquetas para Categorias</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Definir etiquetas para Categorias</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Mostrar um ícone quando os recursos usam o mesmo ícone</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Adicionar novo recurso</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Editar novo recurso</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -80,6 +83,8 @@
     <sys:String x:Key="LOCLmSetAsIco">Definir como ícone</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Virar Horizontalmente</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Virar Verticalmente</sys:String>
+
+    <sys:String x:Key="LOCLmPresets">Predefinições</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Selecionar mídia</sys:String>
     <sys:String x:Key="LOCLmCrop">Cortar</sys:String>
