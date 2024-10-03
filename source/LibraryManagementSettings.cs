@@ -228,28 +228,28 @@ namespace LibraryManagement
             {
                 if (lmGenreEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameGenre(Plugin.PlayniteApi, (Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
+                    LibraryManagementTools.RenameGenre((Guid)lmGenreEquivalences.Id, lmGenreEquivalences.NewName);
                 }
             }
             foreach (LmFeatureEquivalences lmFeatureEquivalences in Settings.ListFeatureEquivalences)
             {
                 if (lmFeatureEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameFeature(Plugin.PlayniteApi, (Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
+                    LibraryManagementTools.RenameFeature((Guid)lmFeatureEquivalences.Id, lmFeatureEquivalences.NewName);
                 }
             }
             foreach (LmCompaniesEquivalences lmCompaniesEquivalences in Settings.ListCompaniesEquivalences)
             {
                 if (lmCompaniesEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameCompanies(Plugin.PlayniteApi, (Guid)lmCompaniesEquivalences.Id, lmCompaniesEquivalences.NewName);
+                    LibraryManagementTools.RenameCompanies((Guid)lmCompaniesEquivalences.Id, lmCompaniesEquivalences.NewName);
                 }
             }
             foreach (LmTagsEquivalences lmTagsEquivalences in Settings.ListTagsEquivalences)
             {
                 if (lmTagsEquivalences.Id != null)
                 {
-                    LibraryManagementTools.RenameTags(Plugin.PlayniteApi, (Guid)lmTagsEquivalences.Id, lmTagsEquivalences.NewName);
+                    LibraryManagementTools.RenameTags((Guid)lmTagsEquivalences.Id, lmTagsEquivalences.NewName);
                 }
             }
 

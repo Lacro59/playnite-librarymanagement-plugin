@@ -379,7 +379,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetTagsToFeatures(onlyToDay, gameUpdated);
+                    libraryManagementTools.SetTagsToFeatures(onlyToDay);
                 }
                 catch (Exception ex)
                 {
@@ -391,7 +391,7 @@ namespace LibraryManagement
             {
                 try
                 {
-                    libraryManagementTools.SetTagsToGenres(onlyToDay, gameUpdated);
+                    libraryManagementTools.SetTagsToGenres(onlyToDay);
                 }
                 catch (Exception ex)
                 {

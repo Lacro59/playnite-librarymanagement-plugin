@@ -10,16 +10,15 @@ namespace LibraryManagement.Services
 {
     public class IcoFeatures
     {
-        public static List<ItemFeature> GetAvailableItemFeatures(LibraryManagementSettingsViewModel PluginSettings, Game GameContext)
+        public static List<ItemFeature> GetAvailableItemFeatures(LibraryManagementSettingsViewModel pluginSettings, Game gameContext)
         {
-            List<ItemFeature> Result = new List<ItemFeature>();
-
-            if (GameContext != null && GameContext.Features != null)
+            List<ItemFeature> result = new List<ItemFeature>();
+            if (gameContext != null && gameContext.Features != null)
             {
-                Result = PluginSettings.Settings.ItemFeatures.Where(
+                result = pluginSettings.Settings.ItemFeatures.Where(
                     x => 
-                    { 
-                        var feature = GameContext.Features.FirstOrDefault(y => y.Name.IsEqual(x.NameAssociated)); 
+                    {
+                        GameFeature feature = gameContext.Features.FirstOrDefault(y => y.Name.IsEqual(x.NameAssociated)); 
                         if (feature != null)
                         {
                             x.Feature = feature;
@@ -31,8 +30,7 @@ namespace LibraryManagement.Services
                 ).ToList();
 
             }
-
-            return Result;
+            return result;
         }
     }
 }

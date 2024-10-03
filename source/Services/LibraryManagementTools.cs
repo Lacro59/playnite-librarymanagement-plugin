@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows;
 
@@ -31,13 +30,13 @@ namespace LibraryManagement.Services
 
 
         #region Genres
-        public void SetGenres(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetGenres(bool onlyToDay = false, Game gameUpdated = null)
         {
             if (PluginSettings.ListGenreEquivalences?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                      $"LibraryManagement-{new Guid()}",
-                     $"LibraryManagement" + System.Environment.NewLine + "SetGenres: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                     $"LibraryManagement" + Environment.NewLine + "SetGenres: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                      NotificationType.Error
                  ));
                 return;
@@ -47,37 +46,41 @@ namespace LibraryManagement.Services
             if (gameUpdated != null)
             {
                 CheckGenre();
-                UpdateGenre(gameUpdated);
+                _ = UpdateGenre(gameUpdated);
                 return;
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
                     CheckGenre();
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    // Replace genres
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
-
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -96,7 +99,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -104,7 +107,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateGenre",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCGameGenresTitle")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCGameGenresTitle")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -117,7 +120,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetGenres(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetGenres(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -231,30 +236,30 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
 
-        public static void RenameGenre(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        public static void RenameGenre(Guid id, string newName)
         {
-            Genre genre = API.Instance.Database.Genres.Get(Id);
+            Genre genre = API.Instance.Database.Genres.Get(id);
             if (genre != null)
             {
-                genre.Name = NewName;
+                genre.Name = newName;
                 API.Instance.Database.Genres.Update(genre);
             }
             else
             {
-                Logger.Warn($"Genre doesn't exist - {Id}");
+                Logger.Warn($"Genre doesn't exist - {id}");
             }
         }
         #endregion
 
 
         #region Features
-        public void SetFeatures(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetFeatures(bool onlyToDay = false, Game gameUpdated = null)
         {
             if (PluginSettings.ListFeatureEquivalences?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                      $"LibraryManagement-{new Guid()}",
-                     $"LibraryManagement" + System.Environment.NewLine + "SetFeatures: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                     $"LibraryManagement" + Environment.NewLine + "SetFeatures: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                      NotificationType.Error
                  ));
                 return;
@@ -269,32 +274,38 @@ namespace LibraryManagement.Services
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
                     CheckFeature();
 
                     // Replace features
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb.ToList())
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -313,7 +324,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -321,7 +332,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateFeature",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCFeaturesLabel")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCFeaturesLabel")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -334,7 +345,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetFeatures(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetFeatures(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -456,30 +469,30 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
 
-        public static void RenameFeature(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        public static void RenameFeature(Guid id, string newName)
         {
-            GameFeature gameFeature = API.Instance.Database.Features.Get(Id);
+            GameFeature gameFeature = API.Instance.Database.Features.Get(id);
             if (gameFeature != null)
             {
-                gameFeature.Name = NewName;
+                gameFeature.Name = newName;
                 API.Instance.Database.Features.Update(gameFeature);
             }
             else
             {
-                Logger.Warn($"Feature doesn't exist - {Id}");
+                Logger.Warn($"Feature doesn't exist - {id}");
             }
         }
         #endregion
 
 
         #region Tags
-        public void SetTags(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetTags(bool onlyToDay = false, Game gameUpdated = null)
         {
             if (PluginSettings.ListTagsEquivalences?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                      $"LibraryManagement-{new Guid()}",
-                     $"LibraryManagement" + System.Environment.NewLine + "SetTags: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                     $"LibraryManagement" + Environment.NewLine + "SetTags: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                      NotificationType.Error
                  ));
                 return;
@@ -489,37 +502,43 @@ namespace LibraryManagement.Services
             if (gameUpdated != null)
             {
                 CheckTags();
-                UpdateTags(gameUpdated);
+                _ = UpdateTags(gameUpdated);
                 return;
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
                     CheckTags();
 
                     // Replace tags
-                    var PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    var PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -538,7 +557,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -546,7 +565,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTag",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCTagsLabel")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCTagsLabel")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -559,7 +578,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -673,30 +694,30 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
 
-        public static void RenameTags(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        public static void RenameTags(Guid id, string newName)
         {
-            Tag tag = API.Instance.Database.Tags.Get(Id);
+            Tag tag = API.Instance.Database.Tags.Get(id);
             if (tag != null)
             {
-                tag.Name = NewName;
+                tag.Name = newName;
                 API.Instance.Database.Tags.Update(tag);
             }
             else
             {
-                Logger.Warn($"Tag doesn't exist - {Id}");
+                Logger.Warn($"Tag doesn't exist - {id}");
             }
         }
         #endregion
 
 
         #region Companies
-        public void SetCompanies(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetCompanies(bool onlyToDay = false, Game gameUpdated = null)
         {
             if (PluginSettings.ListCompaniesEquivalences?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                     $"LibraryManagement-{new Guid()}",
-                    $"LibraryManagement" + System.Environment.NewLine + "SetCompanies: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                    $"LibraryManagement" + Environment.NewLine + "SetCompanies: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                     NotificationType.Error
                 ));
                 return;
@@ -712,32 +733,38 @@ namespace LibraryManagement.Services
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
                     CheckCompanies();
 
                     // Replace Companies
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -760,7 +787,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -768,7 +795,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateCompany",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCCompaniesLabel")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCCompaniesLabel")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -781,7 +808,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetCompanies(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetCompanies(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -824,11 +853,11 @@ namespace LibraryManagement.Services
             }
         }
 
-        private bool UpdateCompanies(Game game, bool IsPublishers = false)
+        private bool UpdateCompanies(Game game, bool isPublishers = false)
         {
             bool IsUpdated = false;
             List<Company> Companies = new List<Company>();
-            Companies = IsPublishers ? game.Publishers : game.Developers;
+            Companies = isPublishers ? game.Publishers : game.Developers;
 
             if (Companies != null && Companies.Count > 0)
             {
@@ -840,7 +869,7 @@ namespace LibraryManagement.Services
                     // Remove all
                     foreach (Company company in AllCompaniesOld)
                     {
-                        if (IsPublishers)
+                        if (isPublishers)
                         {
                             _ = game.PublisherIds.Remove(company.Id);
                             IsUpdated = true;
@@ -857,7 +886,7 @@ namespace LibraryManagement.Services
                     {
                         if (item.Id != null)
                         {
-                            if (IsPublishers)
+                            if (isPublishers)
                             {
                                 _ = game.PublisherIds.AddMissing((Guid)item.Id);
                                 IsUpdated = true;
@@ -880,7 +909,7 @@ namespace LibraryManagement.Services
                     // Remove all
                     foreach (Company company in AllCompaniesSame)
                     {
-                        if (IsPublishers)
+                        if (isPublishers)
                         {
                             _ = game.PublisherIds.Remove(company.Id);
                             IsUpdated = true;
@@ -899,7 +928,7 @@ namespace LibraryManagement.Services
                 {
                     foreach (string CompanyName in PluginSettings.ListCompaniesExclusion)
                     {
-                        if (IsPublishers)
+                        if (isPublishers)
                         {
                             Company CompanyDelete = game.Publishers.Find(x => x.Name.ToLower() == CompanyName.ToLower());
                             if (CompanyDelete != null)
@@ -932,59 +961,65 @@ namespace LibraryManagement.Services
             return IsUpdated;
         }
 
-        public static void RenameCompanies(IPlayniteAPI PlayniteApi, Guid Id, string NewName)
+        public static void RenameCompanies(Guid id, string newName)
         {
-            Company company = API.Instance.Database.Companies.Get(Id);
+            Company company = API.Instance.Database.Companies.Get(id);
             if (company != null)
             {
-                company.Name = NewName;
+                company.Name = newName;
                 API.Instance.Database.Companies.Update(company);
             }
             else
             {
-                Logger.Warn($"Company doesn't exist - {Id}");
+                Logger.Warn($"Company doesn't exist - {id}");
             }
         }
         #endregion
 
 
         #region TagsToFeatures
-        public void SetTagsToFeatures(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetTagsToFeatures(bool onlyToDay = false)
         {
             if (PluginSettings.ListTagsToFeatures?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                      $"LibraryManagement-{new Guid()}",
-                     $"LibraryManagement" + System.Environment.NewLine + "SetTagsToFeatures: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                     $"LibraryManagement" + Environment.NewLine + "SetTagsToFeatures: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                      NotificationType.Error
                  ));
                 return;
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -1003,7 +1038,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -1011,7 +1046,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTagsToFeatures",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToFeatures")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToFeatures")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -1024,7 +1059,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -1032,7 +1069,6 @@ namespace LibraryManagement.Services
                 }
             }, globalProgressOptions);
         }
-
 
         private bool UpdateTagsToFeatures(Game game)
         {
@@ -1071,7 +1107,7 @@ namespace LibraryManagement.Services
 
 
         #region TagsToGenres
-        public void SetTagsToGenres(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetTagsToGenres(bool onlyToDay = false)
         {
             if (PluginSettings.ListTagsToGenres?.Count == 0)
             {
@@ -1084,29 +1120,35 @@ namespace LibraryManagement.Services
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -1125,7 +1167,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -1133,7 +1175,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTagsToGenres",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToGenres")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToGenres")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -1146,7 +1188,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -1154,7 +1198,6 @@ namespace LibraryManagement.Services
                 }
             }, globalProgressOptions);
         }
-
 
         private bool UpdateTagsToGenres(Game game)
         {
@@ -1185,42 +1228,48 @@ namespace LibraryManagement.Services
 
 
         #region TagsToCategories
-        public void SetTagsToCategories(bool OnlyToDay = false, Game gameUpdated = null)
+        public void SetTagsToCategories(bool onlyToDay = false)
         {
             if (PluginSettings.ListTagsToGenres?.Count == 0)
             {
                 API.Instance.Notifications.Add(new NotificationMessage(
                      $"LibraryManagement-{new Guid()}",
-                     $"LibraryManagement" + System.Environment.NewLine + "SetTagsToCategories: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
+                     $"LibraryManagement" + Environment.NewLine + "SetTagsToCategories: " + ResourceProvider.GetString("LOCLmNoEquivalence"),
                      NotificationType.Error
                  ));
                 return;
             }
 
 
-            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions(
-                $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}",
-                true
-            );
-            globalProgressOptions.IsIndeterminate = false;
+            GlobalProgressOptions globalProgressOptions = new GlobalProgressOptions($"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}")
+            {
+                Cancelable = true,
+                IsIndeterminate = false
+            };
 
-            _ = API.Instance.Dialogs.ActivateGlobalProgress((activateGlobalProgress) =>
+            _ = API.Instance.Dialogs.ActivateGlobalProgress((a) =>
             {
                 try
                 {
+                    API.Instance.Database.BeginBufferUpdate();
+
                     Stopwatch stopWatch = new Stopwatch();
                     stopWatch.Start();
 
-                    ICollection<Game> PlayniteDb = GetGamesToUpdate(OnlyToDay);
+                    ICollection<Game> PlayniteDb = GetGamesToUpdate(onlyToDay);
 
-                    activateGlobalProgress.ProgressMaxValue = PlayniteDb.Count;
+                    a.ProgressMaxValue = PlayniteDb.Count;
 
                     string CancelText = string.Empty;
                     List<Game> gamesUpdated = new List<Game>();
 
                     foreach (Game game in PlayniteDb)
                     {
-                        if (activateGlobalProgress.CancelToken.IsCancellationRequested)
+                        a.Text = $"LibraryManagement - {ResourceProvider.GetString("LOCLmActionInProgress")}"
+                            + "\n\n" + $"{a.CurrentProgressValue}/{a.ProgressMaxValue}"
+                            + "\n" + game.Name + (game.Source == null ? string.Empty : $" ({game.Source.Name})");
+
+                        if (a.CancelToken.IsCancellationRequested)
                         {
                             CancelText = " canceled";
                             break;
@@ -1239,7 +1288,7 @@ namespace LibraryManagement.Services
                             Common.LogError(ex, false, true, "LibraryManagement");
                         }
 
-                        activateGlobalProgress.CurrentProgressValue++;
+                        a.CurrentProgressValue++;
                     }
 
 
@@ -1247,7 +1296,7 @@ namespace LibraryManagement.Services
                     {
                         API.Instance.Notifications.Add(new NotificationMessage(
                              $"LibraryManagement-UpdateTagsToGenres",
-                             $"LibraryManagement" + System.Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToGenres")),
+                             $"LibraryManagement" + Environment.NewLine + string.Format(ResourceProvider.GetString("LOCLmNotificationsUpdate"), gamesUpdated.Count, ResourceProvider.GetString("LOCLmTagsToGenres")),
                              NotificationType.Info,
                              () => {
                                  ListDataUpdated listDataUpdated = new ListDataUpdated(gamesUpdated);
@@ -1260,7 +1309,9 @@ namespace LibraryManagement.Services
 
                     stopWatch.Stop();
                     TimeSpan ts = stopWatch.Elapsed;
-                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {activateGlobalProgress.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+                    Logger.Info($"Task SetTags(){CancelText} - {string.Format("{0:00}:{1:00}.{2:00}", ts.Minutes, ts.Seconds, ts.Milliseconds / 10)} for {a.CurrentProgressValue}/{(double)PlayniteDb.Count()} items");
+
+                    API.Instance.Database.EndBufferUpdate();
                 }
                 catch (Exception ex)
                 {
@@ -1268,7 +1319,6 @@ namespace LibraryManagement.Services
                 }
             }, globalProgressOptions);
         }
-
 
         private bool UpdateTagsToCategories(Game game)
         {
