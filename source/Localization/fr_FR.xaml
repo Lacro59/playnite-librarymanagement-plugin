@@ -57,7 +57,7 @@
     <sys:String x:Key="LOCLmShowAgeMissing">Afficher quand l'âge est manquant</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Ajouter une nouvelle évaluation d'âge</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Modifier l'évaluation d'âge</sys:String>
-    <sys:String x:Key="LOCLmColor">Couleur </sys:String>
+    <sys:String x:Key="LOCLmColor">Couleur</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nom associé</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">Icône personnalisée</sys:String>
@@ -74,7 +74,7 @@
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Afficher une icône lorsque les fonctionnalités utilisent la même icône</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">Ajouter une fonctionnalité</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Modifier la fonctionnalité</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Modifier la fonctionnalit</sys:String>
 
     <!-- LmImageEditor -->
 
