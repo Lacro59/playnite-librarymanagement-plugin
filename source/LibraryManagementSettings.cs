@@ -1,4 +1,5 @@
 ﻿using CommonPluginsShared.Extensions;
+using CommonPluginsShared.Plugins;
 using LibraryManagement.Models;
 using LibraryManagement.Services;
 using Playnite.SDK;
@@ -13,12 +14,9 @@ using System.Windows.Media;
 
 namespace LibraryManagement
 {
-    public class LibraryManagementSettings : ObservableObject
+    public class LibraryManagementSettings : PluginSettings
     {
         #region Settings variables
-        public bool MenuInExtensions { get; set; } = true;
-        public DateTime LastAutoLibUpdateAssetsDownload { get; set; } = DateTime.Now;
-
         public bool NotifitcationAfterUpdate { get; set; } = true;
 
         public bool AutoUpdateCompanies { get; set; } = false;
@@ -64,10 +62,6 @@ namespace LibraryManagement
         // Playnite serializes settings object to a JSON object and saves it as text file.
         // If you want to exclude some property from being saved then use `JsonDontSerialize` ignore attribute.
         #region Variables exposed
-        private bool hasData = false;
-        [DontSerialize]
-        public bool HasData { get => hasData; set => SetValue(ref hasData, value); }
-
         private int dataCount = 0;
         [DontSerialize]
         public int DataCount { get => dataCount; set => SetValue(ref dataCount, value); }
