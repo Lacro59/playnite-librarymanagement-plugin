@@ -5,51 +5,51 @@
 
     <sys:String x:Key="LOCLm">LibraryManagement</sys:String>
 
-    <sys:String x:Key="LOCLmActionInProgress">Action in progress...</sys:String>
-    <sys:String x:Key="LOCLmSetGenres">Set genres</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">Set features</sys:String>
-    <sys:String x:Key="LOCLmSetTags">Set tags</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">Set companies</sys:String>
+    <sys:String x:Key="LOCLmActionInProgress">Akcja w toku...</sys:String>
+    <sys:String x:Key="LOCLmSetGenres">Ustaw gatunki</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">Ustaw funkcje</sys:String>
+    <sys:String x:Key="LOCLmSetTags">Ustaw tagi</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">Ustaw firmy</sys:String>
 
-    <sys:String x:Key="LOCLmGenresUpdated">Genres updated</sys:String>
-    <sys:String x:Key="LOCLmFeaturesUpdated">Features updated</sys:String>
-    <sys:String x:Key="LOCLmTagsUpdated">Tags updated</sys:String>
-    <sys:String x:Key="LOCLmCompaniesUpdated">Companies updated</sys:String>
+    <sys:String x:Key="LOCLmGenresUpdated">Zaktualizowano gatunki</sys:String>
+    <sys:String x:Key="LOCLmFeaturesUpdated">Funkcje zaktualizowane</sys:String>
+    <sys:String x:Key="LOCLmTagsUpdated">Etykiety zostały zaktualizowane</sys:String>
+    <sys:String x:Key="LOCLmCompaniesUpdated">Firmy zaktualizowane</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
-    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenresUpdated">Zaktualizowano tagi do gatunków</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Zaktualizowano tagi do funkcji</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">Zastosuj wszystkie</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
-    <sys:String x:Key="LOCLmAutoUpdateCompanies">Apply companies with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateFeatures">Apply features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateGenres">Apply genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateCompanies">Zastosuj firmy z aktualizacją biblioteki gier</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateFeatures">Zastosuj funkcje z aktualizacją biblioteki gier</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateGenres">Zastosuj firmy z aktualizacją biblioteki gier</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
 
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">Dodaj nowy gatunek</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">Edytuj gatunek</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">Dodaj nową funkcję</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">Edytuj funkcję</sys:String>
 
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">Dodaj nowy tag</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">Edytuj tag</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">Dodaj nową firmę</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">Edytuj firmę</sys:String>
 
-    <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
+    <sys:String x:Key="LOCLmItemsReplaced">Produkt zastąpiony</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Exclusion list</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">Lista wykluczeń</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationFeatures">Display the list of feature icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Feature icons options</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeatures">Wyświetl listę ikon funkcji</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Opcje ikon funkcji</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
 
