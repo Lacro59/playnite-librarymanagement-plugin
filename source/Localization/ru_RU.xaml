@@ -54,7 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Использовать иконки GOG</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Показать возрастные рейтинги</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Показывать когда возраст отсутствует</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Показывать когда возраст отсутствуе</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Добавить новый возрастной рейтинг</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Изменить возрастной рейтинг</sys:String>
     <sys:String x:Key="LOCLmColor">Цве</sys:String>
