@@ -100,6 +100,7 @@ namespace LibraryManagement
                 List<ItemFeature> ItemFeatures = new List<ItemFeature>() 
                 {
                     new ItemFeature { Name = "Achievements", NameAssociated = "Achievements", IconDefault = "ico_achievements.png" },
+                    new ItemFeature { Name = "Additional High-Quality Audio", NameAssociated = "Additional High-Quality Audio", IconDefault = "ico_hdaudio.png" },
                     new ItemFeature { Name = "Captions Available", NameAssociated = "Captions Available", IconDefault = "ico_cc.png" },
                     new ItemFeature { Name = "Cloud Saves", NameAssociated = "Cloud Saves", IconDefault = "ico_cloud.png" },
                     new ItemFeature { Name = "Commentary Available", NameAssociated = "Commentary Available", IconDefault = "ico_commentary.png" },
@@ -108,7 +109,9 @@ namespace LibraryManagement
                     new ItemFeature { Name = "Co-Operative", NameAssociated = "Co-Operative", IconDefault = "ico_coop.png" },
                     new ItemFeature { Name = "Cross-Platform Multiplayer", NameAssociated = "Cross-Platform Multiplayer", IconDefault = "ico_multiPlayer.png" },
                     new ItemFeature { Name = "DLC", NameAssociated = "DLC", IconDefault = "ico_dlc.png" },
+                    new ItemFeature { Name = "Family Sharing", NameAssociated = "Family Sharing", IconDefault = "ico_familysharing.png" },
                     new ItemFeature { Name = "Full Controller Support", NameAssociated = "Full Controller Support", IconDefault = "ico_controller.png" },
+                    new ItemFeature { Name = "HDR available", NameAssociated = "HDR available", IconDefault = "ico_hdr.png" },
                     new ItemFeature { Name = "In-App Purchases", NameAssociated = "In-App Purchases", IconDefault = "ico_cart.png" },
                     new ItemFeature { Name = "Includes Level Editor", NameAssociated = "Includes Level Editor", IconDefault = "ico_editor.png" },
                     new ItemFeature { Name = "Includes Source SDK", NameAssociated = "Includes Source SDK", IconDefault = "ico_sdk.png" },
@@ -135,6 +138,8 @@ namespace LibraryManagement
                     new ItemFeature { Name = "Single Player", NameAssociated = "Single Player", IconDefault = "ico_singlePlayer.png" },
                     new ItemFeature { Name = "Split Screen", NameAssociated = "Split Screen", IconDefault = "ico_multiPlayer.png" },
                     new ItemFeature { Name = "Stats", NameAssociated = "Stats", IconDefault = "ico_stats.png" },
+                    new ItemFeature { Name = "SteamVR Collectibles", NameAssociated = "SteamVR Collectibles", IconDefault = "ico_collectibles.png" },
+                    new ItemFeature { Name = "Steam Timeline", NameAssociated = "Steam Timeline", IconDefault = "ico_timeline.png" },
                     new ItemFeature { Name = "Trading Cards", NameAssociated = "Trading Cards", IconDefault = "ico_cards.png" },
                     new ItemFeature { Name = "Valve Anti-Cheat Enabled", NameAssociated = "Valve Anti-Cheat Enabled", IconDefault = "ico_vac.png" },
                     new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" },
@@ -149,15 +154,34 @@ namespace LibraryManagement
 
                 Settings.ItemFeatures = ItemFeatures;
             }
-
-            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("vr")) == null)
+            // TMP
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("VR")) == null)
             {
                 Settings.ItemFeatures.Add(new ItemFeature { Name = "VR", NameAssociated = "VR", IconDefault = "ico_vr.png" });
             }
-
-            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("dlc")) == null)
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("DLC")) == null)
             {
                 Settings.ItemFeatures.Add(new ItemFeature { Name = "DLC", NameAssociated = "DLC", IconDefault = "ico_dlc.png" });
+            }
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("Additional High-Quality Audio")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "Additional High-Quality Audio", NameAssociated = "Additional High-Quality Audio", IconDefault = "ico_hdaudio.png" });
+            }
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("SteamVR Collectibles")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "SteamVR Collectibles", NameAssociated = "SteamVR Collectibles", IconDefault = "ico_collectibles.png" });
+            }
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("HDR available")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "HDR available", NameAssociated = "HDR available", IconDefault = "ico_hdr.png" });
+            }
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("Family Sharing")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "Family Sharing", NameAssociated = "Family Sharing", IconDefault = "ico_familysharing.png" });
+            }
+            if (Settings.ItemFeatures.Find(x => x.Name.IsEqual("Steam Timeline")) == null)
+            {
+                Settings.ItemFeatures.Add(new ItemFeature { Name = "Steam Timeline", NameAssociated = "Steam Timeline", IconDefault = "ico_timeline.png" });
             }
 
             if (Settings.AgeRatings.Count == 0)
@@ -198,7 +222,6 @@ namespace LibraryManagement
                     );
                 });
             }
-
 
             Settings.ItemFeatures = Settings.ItemFeatures.OrderBy(x => x.Name).ToList();
         }
