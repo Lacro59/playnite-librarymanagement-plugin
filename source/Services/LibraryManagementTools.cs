@@ -144,25 +144,16 @@ namespace LibraryManagement.Services
                     if (findedByName != null)
                     {
                         lmGenreEquivalences.Id = findedByName.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                     else
                     {
                         Genre genre = new Genre(lmGenreEquivalences.NewName);
                         lmGenreEquivalences.Id = genre.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Genres.Add(genre);
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                 }
             }
+
+            API.Instance.MainView.UIDispatcher?.Invoke(() => Plugin.SavePluginSettings(PluginSettings));
         }
 
         private bool UpdateGenre(Game game)
@@ -227,10 +218,7 @@ namespace LibraryManagement.Services
 
             if (IsUpdated)
             {
-                _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                {
-                    API.Instance.Database.Games.Update(game);
-                }).Wait();
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
             }
 
             return IsUpdated;
@@ -369,25 +357,16 @@ namespace LibraryManagement.Services
                     if (findedByName != null)
                     {
                         lmFeatureEquivalences.Id = findedByName.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                     else
                     {
                         GameFeature feature = new GameFeature(lmFeatureEquivalences.NewName);
                         lmFeatureEquivalences.Id = feature.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Features.Add(feature);
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                 }
             }
+
+            API.Instance.MainView.UIDispatcher?.Invoke(() => Plugin.SavePluginSettings(PluginSettings));
         }
 
         private bool UpdateFeature(Game game)
@@ -421,10 +400,7 @@ namespace LibraryManagement.Services
 
                     if (IsUpdated)
                     {
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Games.Update(game);
-                        }).Wait();
+                        API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
                     }
                 }
 
@@ -458,10 +434,7 @@ namespace LibraryManagement.Services
 
                     if (IsUpdated)
                     {
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Games.Update(game);
-                        }).Wait();
+                        API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
                     }
                 }
             }
@@ -602,25 +575,16 @@ namespace LibraryManagement.Services
                     if (findedByName != null)
                     {
                         lmTagsEquivalences.Id = findedByName.Id;
-
-                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                     else
                     {
                         Tag tag = new Tag(lmTagsEquivalences.NewName);
                         lmTagsEquivalences.Id = tag.Id;
-
-                        Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Tags.Add(tag);
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                 }
             }
+
+            API.Instance.MainView.UIDispatcher?.Invoke(() => Plugin.SavePluginSettings(PluginSettings));
         }
 
         private bool UpdateTags(Game game)
@@ -685,10 +649,7 @@ namespace LibraryManagement.Services
 
             if (IsUpdated)
             {
-                Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                {
-                    API.Instance.Database.Games.Update(game);
-                }).Wait();
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
             }
 
             return IsUpdated;
@@ -832,25 +793,16 @@ namespace LibraryManagement.Services
                     if (findedByName != null)
                     {
                         lmCompaniesEquivalences.Id = findedByName.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                     else
                     {
                         Company company = new Company(lmCompaniesEquivalences.NewName);
                         lmCompaniesEquivalences.Id = company.Id;
-
-                        _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                        {
-                            API.Instance.Database.Companies.Add(company);
-                            Plugin.SavePluginSettings(PluginSettings);
-                        }).Wait();
                     }
                 }
             }
+
+            API.Instance.MainView.UIDispatcher?.Invoke(() => Plugin.SavePluginSettings(PluginSettings));
         }
 
         private bool UpdateCompanies(Game game, bool isPublishers = false)
@@ -952,10 +904,7 @@ namespace LibraryManagement.Services
 
             if (IsUpdated)
             {
-                _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                {
-                    API.Instance.Database.Games.Update(game);
-                }).Wait();
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
             }
 
             return IsUpdated;
@@ -1073,11 +1022,10 @@ namespace LibraryManagement.Services
         private bool UpdateTagsToFeatures(Game game)
         {
             bool IsUpdated = false;
-            List<Tag> Tags = Serialization.GetClone(game?.Tags);
 
             game?.Tags?.ForEach(y =>
             {
-                LmTagToFeature finded = PluginSettings.ListTagsToFeatures.Where(x => x.TagId == y.Id).FirstOrDefault();
+                LmTagToFeature finded = PluginSettings.ListTagsToFeatures.FirstOrDefault(x => x.TagId == y.Id);
                 if (finded != null)
                 {
                     IsUpdated = true;
@@ -1095,10 +1043,7 @@ namespace LibraryManagement.Services
 
             if (IsUpdated)
             {
-                _ = Application.Current.Dispatcher?.BeginInvoke((Action)delegate
-                {
-                    API.Instance.Database.Games.Update(game);
-                }).Wait();
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
             }
 
             return IsUpdated;
@@ -1202,7 +1147,6 @@ namespace LibraryManagement.Services
         private bool UpdateTagsToGenres(Game game)
         {
             bool IsUpdated = false;
-            List<Tag> Tags = Serialization.GetClone(game?.Tags);
 
             game?.Tags?.ForEach(y =>
             {
@@ -1220,7 +1164,16 @@ namespace LibraryManagement.Services
                         game.GenreIds = new List<Guid> { finded.GenreId };
                     }
                 }
+                else
+                {
+
+                }
             });
+
+            if (IsUpdated)
+            {
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
+            }
 
             return IsUpdated;
         }
@@ -1323,11 +1276,10 @@ namespace LibraryManagement.Services
         private bool UpdateTagsToCategories(Game game)
         {
             bool IsUpdated = false;
-            List<Tag> Tags = Serialization.GetClone(game?.Tags);
 
             game?.Tags?.ForEach(y =>
             {
-                LmTagToCategory finded = PluginSettings.ListTagsToCategories.Where(x => x.TagId == y.Id).FirstOrDefault();
+                LmTagToCategory finded = PluginSettings.ListTagsToCategories.FirstOrDefault(x => x.TagId == y.Id);
                 if (finded != null)
                 {
                     IsUpdated = true;
@@ -1342,6 +1294,11 @@ namespace LibraryManagement.Services
                     }
                 }
             });
+
+            if (IsUpdated)
+            {
+                API.Instance.MainView.UIDispatcher?.Invoke(() => API.Instance.Database.Games.Update(game));
+            }
 
             return IsUpdated;
         }

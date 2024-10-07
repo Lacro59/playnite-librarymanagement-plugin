@@ -188,7 +188,7 @@ namespace LibraryManagement
             {
                 _ = Task.Run(() =>
                 {
-                    System.Threading.SpinWait.SpinUntil(() => API.Instance.Database.IsOpen, -1);
+                    _ = System.Threading.SpinWait.SpinUntil(() => API.Instance.Database.IsOpen, -1);
 
                     List<string> Age_3 = new List<string> { "ACB G", "CERO A", "ClassInd G", "ESRB EC", "GRAC ALL", "PEGI 3", "USK 0" };
                     List<string> Age_6 = new List<string> { "ESRB E", "USK 6" };
@@ -203,7 +203,7 @@ namespace LibraryManagement
                     List<string> Age_17 = new List<string> { "CERO D", "ESRB M" };
                     List<string> Age_18 = new List<string> { "ACB R18", "ACB X18", "CERO Z", "ClassInd 18", "ESRB AO", "GRAC 18", "PEGI 18", "USK 18" };
 
-                    _ = Application.Current.Dispatcher?.Invoke(() =>
+                    _ = API.Instance.MainView.UIDispatcher?.Invoke(() =>
                         Settings.AgeRatings = new List<AgeRating>
                         {
                             new AgeRating { Age = 3, Color = new SolidColorBrush(Colors.White), AgeRatingIds = API.Instance.Database.AgeRatings?.Where(x => Age_3.Any(y => y.IsEqual(x.Name)))?.Select(x => x.Id)?.ToList() ?? new List<Guid>() },
