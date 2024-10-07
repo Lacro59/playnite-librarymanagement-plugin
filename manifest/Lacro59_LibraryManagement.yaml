@@ -86,3 +86,16 @@ Packages:
       - Updated localizations
       - Fixed duplicate entries created
       - Fixed game updates always running for (almost) every game (thanks to Jeshibu)
+  - Version: 3.2
+    RequiredApiVersion: 6.11.0
+    ReleaseDate: 2024-10-07
+    PackageUrl: https://github.com/Lacro59/playnite-librarymanagement-plugin/releases/download/v3.2/playnite-librarymanagement-plugin_3_2.pext
+    Changelog:
+      - 'Updated: Localizations'
+      - 'Fixed: Tags to genres Not applying'
+      - 'Fixed: Missing localizations'
+      - 'Added: New features icons'
+      - 'Added: A button to apply all'
+      - 'Fixed: Scroll down when there are too many entries'
+      - 'Fixed: Bug with crop area'
+      - 'Optimized: UI'
