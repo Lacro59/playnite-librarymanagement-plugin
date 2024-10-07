@@ -89,7 +89,7 @@
     <sys:String x:Key="LOCLmSelectMedia">Ortam dosyası seç</sys:String>
     <sys:String x:Key="LOCLmCrop">Kırp</sys:String>
     <sys:String x:Key="LOCLmOriginal">Özgün</sys:String>
-    <sys:String x:Key="LOCLmEdited">Düzenlenmiş</sys:String>
+    <sys:String x:Key="LOCLmEdited">Düzenlenmi</sys:String>
     <sys:String x:Key="LOCLmImageName">Görsel adı</sys:String>
     <sys:String x:Key="LOCLmImageSize">Görsel boyutu</sys:String>
     <sys:String x:Key="LOCLmSizeWished">Arzu edilen boyut</sys:String>

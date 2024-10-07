@@ -53,10 +53,10 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Icone scure usate</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Icone GOG usate</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Visualizza valutazioni per età</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Mostra quando manca l'età</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Aggiungi nuova valutazione dell'età</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Modifica classificazione età</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Visualizza valutazioni per et</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Mostra quando manca l'et</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Aggiungi nuova valutazione dell'et</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Modifica classificazione et</sys:String>
     <sys:String x:Key="LOCLmColor">Colore</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">Nome Associato</sys:String>

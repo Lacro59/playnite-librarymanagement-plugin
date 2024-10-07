@@ -19,7 +19,7 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">标签到流派已更新</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">标签到功能特色已更新</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">应用所有</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -53,11 +53,11 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">使用暗色图</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">使用 GOG 图</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">显示年龄评分</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">当年龄缺失时显示</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">添加新的年龄等级</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">编辑年龄评分</sys:String>
+    <sys:String x:Key="LOCLmColor">颜色</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">关联的名称</sys:String>
     <sys:String x:Key="LOCLmCustomIcon">自定义图</sys:String>
@@ -68,13 +68,13 @@
     <sys:String x:Key="LOCLmTagsToGenres">标签到流派</sys:String>
     <sys:String x:Key="LOCLmSetTagsToGenres">设置标签到流派</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">分类标签</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">将标签设为分类</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">合并不同功能特色使用的相同重复图标（需主题</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">添加新功能特色</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">编辑功能</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -84,7 +84,7 @@
     <sys:String x:Key="LOCLmFlipHorizontal">水平翻转</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">竖直翻转</sys:String>
 
-    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+    <sys:String x:Key="LOCLmPresets">预设</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">选择媒体</sys:String>
     <sys:String x:Key="LOCLmCrop">裁剪</sys:String>

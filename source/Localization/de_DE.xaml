@@ -19,7 +19,7 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags zu Genres aktualisiert</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags zu Features aktualisiert</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">Alle anwenden</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -54,7 +54,7 @@
     <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Verwende GOG Symbole</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationAgeRatings">Altersfreigaben anzeigen</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Anzeigen, wenn das Alter fehlt</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">Neue Altersfreigabe hinzufügen</sys:String>
     <sys:String x:Key="LOCLmEditAgeRating">Altersfreigabe bearbeiten</sys:String>
     <sys:String x:Key="LOCLmColor">Farbe</sys:String>
@@ -84,7 +84,7 @@
     <sys:String x:Key="LOCLmFlipHorizontal">Horizontal spiegeln</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">Vertikal spiegeln</sys:String>
 
-    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+    <sys:String x:Key="LOCLmPresets">Voreinstellungen</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">Medien auswählen</sys:String>
     <sys:String x:Key="LOCLmCrop">Zuschneiden</sys:String>
