@@ -470,7 +470,7 @@ namespace LibraryManagement.Views
         private void PART_AddTagsToFeatures_Click(object sender, RoutedEventArgs e)
         {
             LmTagToItemView ViewExtension = new LmTagToItemView(TypeItem.FeatureItem);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow( ResourceProvider.GetString("LOCLmTagsToFeatures"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(ResourceProvider.GetString("LOCLmTagsToFeatures"), ViewExtension);
             _ = windowExtension.ShowDialog();
 
             if (ViewExtension.NewItem != null)
@@ -506,7 +506,7 @@ namespace LibraryManagement.Views
         private void PART_AddTagsToGenres_Click(object sender, RoutedEventArgs e)
         {
             LmTagToItemView ViewExtension = new LmTagToItemView(TypeItem.GenreItem);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow( ResourceProvider.GetString("LocLmTagsToGenres"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(ResourceProvider.GetString("LOCLmTagsToGenres"), ViewExtension);
             _ = windowExtension.ShowDialog();
 
             if (ViewExtension.NewItem != null)
@@ -542,7 +542,7 @@ namespace LibraryManagement.Views
         private void PART_AddTagsToCategories_Click(object sender, RoutedEventArgs e)
         {
             LmTagToItemView ViewExtension = new LmTagToItemView(TypeItem.CategoryItem);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow( ResourceProvider.GetString("LocLmTagsToCategories"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(ResourceProvider.GetString("LOCLmTagsToCategories"), ViewExtension);
             _ = windowExtension.ShowDialog();
 
             if (ViewExtension.NewItem != null)
@@ -578,7 +578,7 @@ namespace LibraryManagement.Views
         private void PART_AddNewAgeRating_Click(object sender, RoutedEventArgs e)
         {
             AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(null);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow( ResourceProvider.GetString("LOCLmAddNewAgeRating"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(ResourceProvider.GetString("LOCLmAddNewAgeRating"), ViewExtension);
             _ = windowExtension.ShowDialog();
 
             if (ViewExtension.AgeRating != null)
@@ -596,7 +596,7 @@ namespace LibraryManagement.Views
             int index = int.Parse(((Button)sender).Tag.ToString());
 
             AddEditNewAgeRating ViewExtension = new AddEditNewAgeRating(((List<Models.AgeRating>)PART_ListAgeRatings.ItemsSource)[index]);
-            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow( ResourceProvider.GetString("LOCLmEditAgeRating"), ViewExtension);
+            Window windowExtension = PlayniteUiHelper.CreateExtensionWindow(ResourceProvider.GetString("LOCLmEditAgeRating"), ViewExtension);
             _ = windowExtension.ShowDialog();
 
             if (ViewExtension.AgeRating != null)
