@@ -35,13 +35,13 @@
     <sys:String x:Key="LOCLmGenreAdd">إضافة نوع ج</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">تعديل النوع</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">إضافة ميزة جد</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">إضافة ميزة ج</sys:String>
     <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
 
     <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
     <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">إضافة شركة جد</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">إضافة شركة ج</sys:String>
     <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
@@ -73,14 +73,14 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">إضافة ميزة جد</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">إضافة ميزة ج</sys:String>
     <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
 
     <!-- LmImageEditor -->
 
     <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">تعيين كأيق</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">تعيين كأي</sys:String>
     <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">قلب عموديا</sys:String>
 
