@@ -7,9 +7,9 @@
 
     <sys:String x:Key="LOCLmActionInProgress">処理中…</sys:String>
     <sys:String x:Key="LOCLmSetGenres">ジャンルを適用</sys:String>
-    <sys:String x:Key="LOCLmSetFeatures">特徴を適用</sys:String>
+    <sys:String x:Key="LOCLmSetFeatures">特徴を</sys:String>
     <sys:String x:Key="LOCLmSetTags">タグを適用</sys:String>
-    <sys:String x:Key="LOCLmSetCompanies">企業を適用</sys:String>
+    <sys:String x:Key="LOCLmSetCompanies">企業を</sys:String>
 
     <sys:String x:Key="LOCLmGenresUpdated">ジャンルを更新しました</sys:String>
     <sys:String x:Key="LOCLmFeaturesUpdated">特徴を更新しました</sys:String>
@@ -19,7 +19,7 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">タグをジャンルへを更新しました</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">タグを特徴へを更新しました</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">すべて適用</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">べて適</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -36,13 +36,13 @@
     <sys:String x:Key="LOCLmGenreEdit">ジャンルを編集</sys:String>
 
     <sys:String x:Key="LOCLmFeatureAdd">新しい特徴を追加</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">特徴を編集</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">特徴を</sys:String>
 
     <sys:String x:Key="LOCLmTagAdd">新しいタグを追加</sys:String>
     <sys:String x:Key="LOCLmTagEdit">タグを編集</sys:String>
 
     <sys:String x:Key="LOCLmCompanyAdd">新しい企業を追加</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">企業を編集</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">企業を</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">置換する項目</sys:String>
 
@@ -56,7 +56,7 @@
     <sys:String x:Key="LOCLmIntegrationAgeRatings">年齢別レーティングを表示</sys:String>
     <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
     <sys:String x:Key="LOCLmAddNewAgeRating">新しい年齢別レーティングを追加</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">年齢別レーティングを編集</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">年齢別レーティングを</sys:String>
     <sys:String x:Key="LOCLmColor">色</sys:String>
 
     <sys:String x:Key="LOCLmNameAssociated">関連付けられた名前</sys:String>
@@ -74,7 +74,7 @@
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">特徴が同じアイコンを使用しているときアイコンを 1 つにまとめる</sys:String>
 
     <sys:String x:Key="LOCLmTagAddNewFeature">新しい特徴を追加</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">新しい特徴を編集</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">新しい特徴を</sys:String>
 
     <!-- LmImageEditor -->
 
@@ -84,7 +84,7 @@
     <sys:String x:Key="LOCLmFlipHorizontal">左右反転</sys:String>
     <sys:String x:Key="LOCLmFlipVertical">上下反転</sys:String>
 
-    <sys:String x:Key="LOCLmPresets">プリセット</sys:String>
+    <sys:String x:Key="LOCLmPresets">リセ</sys:String>
 
     <sys:String x:Key="LOCLmSelectMedia">メディアを選択</sys:String>
     <sys:String x:Key="LOCLmCrop">トリミング</sys:String>
@@ -95,7 +95,7 @@
     <sys:String x:Key="LOCLmSizeWished">希望のサイズ</sys:String>
     <sys:String x:Key="LOCLmResizeWithCrop">希望のサイズにトリミングしてリサイズする</sys:String>
     <sys:String x:Key="LOCLmKeepAspectRation">アスペクト比を保持</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">画像オプションを適用</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">画像オプションを</sys:String>
 
     <!-- Notifications -->
     <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} ゲームが更新されました ({1})
