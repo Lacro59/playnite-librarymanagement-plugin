@@ -1,0 +1,10 @@
+# .coderabbit.yml
+ignored_branch: "l10n_master, l10n_devel"
+ignored_titles: ""
+limit_reviews_by_label: ""
+path_filters: ""
+system_language: "en-US"
+release_notes: false
+ignore_draft_pr: true
+enable_beta_features: false
+disable_poem: false
