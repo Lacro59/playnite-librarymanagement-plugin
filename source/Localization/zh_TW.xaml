@@ -19,7 +19,7 @@
     <sys:String x:Key="LOCLmTagsToGenresUpdated">Tags to genres updated</sys:String>
     <sys:String x:Key="LOCLmTagsToFeaturesUpdated">Tags to features updated</sys:String>
 
-    <sys:String x:Key="LOCLmApplyAll">Apply all</sys:String>
+    <sys:String x:Key="LOCLmApplyAll">全部應用</sys:String>
 
     <!-- LibraryManagementSettingsView -->
 
@@ -32,17 +32,17 @@
 
     <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
 
-    <sys:String x:Key="LOCLmGenreAdd">Add new genre</sys:String>
-    <sys:String x:Key="LOCLmGenreEdit">Edit genre</sys:String>
+    <sys:String x:Key="LOCLmGenreAdd">新增類型</sys:String>
+    <sys:String x:Key="LOCLmGenreEdit">編輯類型</sys:String>
 
-    <sys:String x:Key="LOCLmFeatureAdd">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmFeatureEdit">Edit feature</sys:String>
+    <sys:String x:Key="LOCLmFeatureAdd">新增特性</sys:String>
+    <sys:String x:Key="LOCLmFeatureEdit">編輯特性</sys:String>
 
-    <sys:String x:Key="LOCLmTagAdd">Add new tag</sys:String>
-    <sys:String x:Key="LOCLmTagEdit">Edit tag</sys:String>
+    <sys:String x:Key="LOCLmTagAdd">新增標籤</sys:String>
+    <sys:String x:Key="LOCLmTagEdit">編輯標籤</sys:String>
 
-    <sys:String x:Key="LOCLmCompanyAdd">Add new company</sys:String>
-    <sys:String x:Key="LOCLmCompanyEdit">Edit company</sys:String>
+    <sys:String x:Key="LOCLmCompanyAdd">新增公司</sys:String>
+    <sys:String x:Key="LOCLmCompanyEdit">編輯公司</sys:String>
 
     <sys:String x:Key="LOCLmItemsReplaced">Items replaced</sys:String>
 
@@ -73,8 +73,8 @@
 
     <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">新增特性</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">編輯特性</sys:String>
 
     <!-- LmImageEditor -->
 
