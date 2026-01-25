@@ -26,11 +26,11 @@
     <sys:String x:Key="LOCLmAutoUpdateCompanies">Zastosuj firmy z aktualizacją biblioteki gier</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateFeatures">Zastosuj funkcje z aktualizacją biblioteki gier</sys:String>
     <sys:String x:Key="LOCLmAutoUpdateGenres">Zastosuj firmy z aktualizacją biblioteki gier</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTags">Apply tags with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Apply tags to features with the game library update</sys:String>
-    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Apply tags to genres with the game library update</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTags">Zastosuj tagi wraz z aktualizacją biblioteki gier</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToFeatures">Zastosuj tagi do funkcji wraz z aktualizacją biblioteki gier</sys:String>
+    <sys:String x:Key="LOCLmAutoUpdateTagsToGenres">Zastosuj tagi do gatunków wraz z aktualizacją biblioteki gier</sys:String>
 
-    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Display a notification with result after an update</sys:String>
+    <sys:String x:Key="LOCLmDisplayNotificationAfterUpdate">Wyświetl powiadomienie z wynikiem po aktualizacji</sys:String>
 
     <sys:String x:Key="LOCLmGenreAdd">Dodaj nowy gatunek</sys:String>
     <sys:String x:Key="LOCLmGenreEdit">Edytuj gatunek</sys:String>
@@ -46,61 +46,61 @@
 
     <sys:String x:Key="LOCLmItemsReplaced">Produkt zastąpiony</sys:String>
 
-    <sys:String x:Key="LOCLmExclusionList">Lista wykluczeń</sys:String>
+    <sys:String x:Key="LOCLmExclusionList">Lista wyklucze</sys:String>
 
     <sys:String x:Key="LOCLmIntegrationFeatures">Wyświetl listę ikon funkcji</sys:String>
     <sys:String x:Key="LOCLmIntegrationFeaturesOptions">Opcje ikon funkcji</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Used dark icons</sys:String>
-    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Used GOG icons</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedDark">Użyj ciemnych ikon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationFeaturesUsedGog">Użyj ikon GOG</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationAgeRatings">Display age ratings</sys:String>
-    <sys:String x:Key="LOCLmShowAgeMissing">Display when age is missing</sys:String>
-    <sys:String x:Key="LOCLmAddNewAgeRating">Add new age rating</sys:String>
-    <sys:String x:Key="LOCLmEditAgeRating">Edit age rating</sys:String>
-    <sys:String x:Key="LOCLmColor">Color</sys:String>
+    <sys:String x:Key="LOCLmIntegrationAgeRatings">Wyświetlaj kategorie wiekowe</sys:String>
+    <sys:String x:Key="LOCLmShowAgeMissing">Wyświetlaj, gdy brakuje wieku</sys:String>
+    <sys:String x:Key="LOCLmAddNewAgeRating">Dodaj nową kategorię wiekową</sys:String>
+    <sys:String x:Key="LOCLmEditAgeRating">Edytuj kategorię wiekową</sys:String>
+    <sys:String x:Key="LOCLmColor">Kolor</sys:String>
 
-    <sys:String x:Key="LOCLmNameAssociated">Name Associated</sys:String>
-    <sys:String x:Key="LOCLmCustomIcon">Custom Icon</sys:String>
+    <sys:String x:Key="LOCLmNameAssociated">Nazwa powiązana</sys:String>
+    <sys:String x:Key="LOCLmCustomIcon">Niestandardowa ikona</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToFeatures">Tags to Features</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToFeatures">Set tags to Features</sys:String>
+    <sys:String x:Key="LOCLmTagsToFeatures">Tagi do funkcji</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToFeatures">Ustaw tagi do funkcji</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToGenres">Tags to Genres</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToGenres">Set tags to Genres</sys:String>
+    <sys:String x:Key="LOCLmTagsToGenres">Tagi do gatunków</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToGenres">Ustaw tagi do gatunków</sys:String>
 
-    <sys:String x:Key="LOCLmTagsToCategories">Tags to Categories</sys:String>
-    <sys:String x:Key="LOCLmSetTagsToCategories">Set tags to Categories</sys:String>
+    <sys:String x:Key="LOCLmTagsToCategories">Tagi do kategorii</sys:String>
+    <sys:String x:Key="LOCLmSetTagsToCategories">Ustaw tagi do kategorii</sys:String>
 
-    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Show an icon when features use the same icon</sys:String>
+    <sys:String x:Key="LOCLmIntegrationOneForSameIcon">Pokaż ikonę, gdy funkcje używają tej samej ikony</sys:String>
 
-    <sys:String x:Key="LOCLmTagAddNewFeature">Add new feature</sys:String>
-    <sys:String x:Key="LOCLmTagEditFeature">Edit new feature</sys:String>
+    <sys:String x:Key="LOCLmTagAddNewFeature">Dodaj nową funkcję</sys:String>
+    <sys:String x:Key="LOCLmTagEditFeature">Edytuj nową funkcję</sys:String>
 
     <!-- LmImageEditor -->
 
-    <sys:String x:Key="LOCLmMediaEditor">Media editor</sys:String>
+    <sys:String x:Key="LOCLmMediaEditor">Edytor mediów</sys:String>
 
-    <sys:String x:Key="LOCLmSetAsIco">Set as icon</sys:String>
-    <sys:String x:Key="LOCLmFlipHorizontal">Flip horizontally</sys:String>
-    <sys:String x:Key="LOCLmFlipVertical">Flip vertically</sys:String>
+    <sys:String x:Key="LOCLmSetAsIco">Ustaw jako ikonę</sys:String>
+    <sys:String x:Key="LOCLmFlipHorizontal">Odwróć poziomo</sys:String>
+    <sys:String x:Key="LOCLmFlipVertical">Odwróć pionowo</sys:String>
 
-    <sys:String x:Key="LOCLmPresets">Presets</sys:String>
+    <sys:String x:Key="LOCLmPresets">Predefiniowane ustawienia</sys:String>
 
-    <sys:String x:Key="LOCLmSelectMedia">Select media</sys:String>
-    <sys:String x:Key="LOCLmCrop">Crop</sys:String>
-    <sys:String x:Key="LOCLmOriginal">Original</sys:String>
-    <sys:String x:Key="LOCLmEdited">Edited</sys:String>
-    <sys:String x:Key="LOCLmImageName">Image name</sys:String>
-    <sys:String x:Key="LOCLmImageSize">Image size</sys:String>
-    <sys:String x:Key="LOCLmSizeWished">Size wished</sys:String>
-    <sys:String x:Key="LOCLmResizeWithCrop">Resize with cropping to have the desired size</sys:String>
-    <sys:String x:Key="LOCLmKeepAspectRation">Keep aspect ratio</sys:String>
-    <sys:String x:Key="LOCLmApplyImageOptions">Apply image options</sys:String>
+    <sys:String x:Key="LOCLmSelectMedia">Wybierz media</sys:String>
+    <sys:String x:Key="LOCLmCrop">Przytnij</sys:String>
+    <sys:String x:Key="LOCLmOriginal">Oryginalne</sys:String>
+    <sys:String x:Key="LOCLmEdited">Edytowany</sys:String>
+    <sys:String x:Key="LOCLmImageName">Nazwa obrazu</sys:String>
+    <sys:String x:Key="LOCLmImageSize">Rozmiar obrazu</sys:String>
+    <sys:String x:Key="LOCLmSizeWished">Rozmiar pożądany</sys:String>
+    <sys:String x:Key="LOCLmResizeWithCrop">Zmień rozmiar przy przycinaniu, aby mieć pożądany rozmiar</sys:String>
+    <sys:String x:Key="LOCLmKeepAspectRation">Zachowaj proporcje</sys:String>
+    <sys:String x:Key="LOCLmApplyImageOptions">Zastosuj opcje obrazu</sys:String>
 
     <!-- Notifications -->
-    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Games updated ({1})
-Click to see the list</sys:String>
+    <sys:String x:Key="LOCLmNotificationsUpdate" xml:space="preserve">{0} Gier zaktualizowanych ({1})
+Kliknij, aby zobaczyć listę</sys:String>
 
-    <sys:String x:Key="LOCLmNoEquivalence">There is no data! Please set equivalencies in plugin settings.</sys:String>
+    <sys:String x:Key="LOCLmNoEquivalence">Brak danych! Proszę ustaw odpowiedniki w ustawieniach wtyczki.</sys:String>
 
 </ResourceDictionary>
